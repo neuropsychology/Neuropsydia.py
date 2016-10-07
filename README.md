@@ -1,4 +1,4 @@
-<img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="800" align="left">
+<p><img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="800" align="left"></p>
 
 # neuropsydia (for research) 
 A python blabla
