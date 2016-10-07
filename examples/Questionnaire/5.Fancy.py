@@ -33,6 +33,7 @@ n.start()
 #labels_size=0.6)
 
 n.background_color()
+n.time.wait(2000)
 n.scale(title="Is Python great?",
         y=3.3,
         anchors=["", ""],
