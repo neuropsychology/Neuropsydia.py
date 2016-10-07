@@ -152,6 +152,10 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
             else:
                 print("NEUROPSYDIA ERROR: scale(): labels argument requires a list")
 
+    if separation_labels != None:
+        if isinstance(separation_labels, list):
+            if force_separation is False:
+                force_separation = len(separation_labels)
 
     def draw_all():
         #Draw the mask
@@ -183,14 +187,12 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
                 image('scale_point.png', x=edge_left, y=scale_y, size=0.08, path=Path.binary())
                 image('scale_point.png', x=edge_right, y=scale_y, size=0.08, path=Path.binary())
         if separation_labels != None:
-            if force_separation is False:
-                force_separation = len(separation_labels)
             if isinstance(separation_labels, list):
                 for i in range(len(separation_labels)):
                     write(separation_labels[i], x=edge_left + line_length/force_separation*(i+1) - line_length/force_separation/2, y=scale_y+separation_labels_space, size=separation_labels_size, rotate=separation_labels_rotate)
             else:
                 print("NEUROPSYDIA ERROR: scale(): separation_labels requires a list")
-        if force_separation != False:
+        if force_separation is False:
             if isinstance(force_separation, int):
                 for i in range(force_separation-1):
                     image('scale_point.png', x=edge_left + line_length/force_separation*(i+1), y=scale_y, size=0.08)
