@@ -1,6 +1,5 @@
-<p><img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="800" align="left"></p>
+<p><header><img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="900" align="left" alt="neuropsydia python for research"></header></p>
 
-# neuropsydia (for research) 
 A python blabla
 
 |Name|neuropsydia|
