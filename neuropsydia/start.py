@@ -63,7 +63,7 @@ def start(open_window=True):
         background_color("black")
         image("Neuropsydia_TEXT_white", extension = ".png", y= 7, size=1.5, cache = preloaded, path = Path.logo())
         image("Neuropsydia_PSY_blue", extension = ".png", y= -2.5, size=4.25, cache = preloaded, path = Path.logo())
-        write('Appuyez sur ENTRER pour commencer.', size=0.8, y=-9, color="white", allow="ENTER")
+        write('Press ENTRER to continue.', size=0.8, y=-9, color="white", allow="ENTER")
         
         for i in range(0,100,2):
             background_color("black")
@@ -111,7 +111,7 @@ def close():
     - pygame 1.9.2
     """
     background_color("black")
-    write("Veuillez patientez...",color="white")
+    write("Please wait...",color="white")
     refresh()
 
     preloaded = {}
