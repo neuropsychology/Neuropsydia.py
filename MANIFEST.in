@@ -1,0 +1,8 @@
+include MANIFEST.in
+include LICENSE
+include README.md
+include setup.py
+
+include neuropsydia/files/font/*.ttf
+include neuropsydia/files/logo/*.png
+include neuropsydia/files/binary/*.png
