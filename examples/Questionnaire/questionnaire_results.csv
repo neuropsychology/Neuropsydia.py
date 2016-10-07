@@ -1,0 +1,5 @@
+Item_Number;Answer;Dimension;Item;Order;RT;Reverse;Time
+1;NA;Neuropsydia;Neuropsydia is great;NA;NA;False;NA
+2;NA;Neuropsydia;Neuropsydia is not great;NA;NA;True;NA
+3;NA;Python;Python is great;NA;NA;False;NA
+4;NA;Python;Python is not great;NA;NA;True;NA
