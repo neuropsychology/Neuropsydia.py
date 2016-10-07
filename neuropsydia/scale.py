@@ -185,7 +185,7 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
         if force_separation != False:
                 if isinstance(force_separation, int):
                     for i in range(force_separation-1):
-                        image('scale_point', x=edge_left + line_length/force_separation*(i+1), y=scale_y, size=0.08)
+                        image('scale_point.png', x=edge_left + line_length/force_separation*(i+1), y=scale_y, size=0.08)
                 else:
                     print("NEUROPSYDIA ERROR: scale(): force_separation requires a integer")
         if separation_labels != None:

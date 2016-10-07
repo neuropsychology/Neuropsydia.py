@@ -1,5 +1,5 @@
 Item_Number;Answer;Dimension;Item;Order;RT;Reverse;Time
-1;NA;Neuropsydia;Neuropsydia is great;NA;NA;False;NA
-2;NA;Neuropsydia;Neuropsydia is not great;NA;NA;True;NA
-3;NA;Python;Python is great;NA;NA;False;NA
-4;NA;Python;Python is not great;NA;NA;True;NA
+1;4.0;Neuropsydia;Is Neuropsydia great?;1;9196.455963463077;False;2016-10-07 23:02:58.485223
+2;ESCAPE;Neuropsydia;Is Neuropsydia not great?;2;803.5345834563934;True;2016-10-07 23:02:59.325456
+3;ESCAPE;Python;Is Python great?;3;257.4122370893903;False;2016-10-07 23:02:59.617232
+4;ESCAPE;Python;Is Python not great?;4;151.01015107555327;True;2016-10-07 23:02:59.801221
