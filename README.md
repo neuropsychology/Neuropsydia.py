@@ -1,6 +1,6 @@
 <p><header><img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="900" align="left" alt="neuropsydia python for research"></header></p>
 
-A python blabla
+A Python module for creating experiments, tasks and questionnaires.
 
 |Name|neuropsydia|
 |----------------|---|
