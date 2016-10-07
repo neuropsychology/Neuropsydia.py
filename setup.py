@@ -4,7 +4,7 @@ setup(
     name = "neuropsydia",
     version = "0.0.1",
     packages = find_packages(),
-    install_requires = ['pygame>=1.9.1', 'numpy>=1.11.0', 'pandas>=0.18.0', 'Pillow>=3.0.0', 'plotly>=1.12.9'],
+    install_requires = ['pygame>=1.9.1', 'numpy>=1.11.0', 'pandas>=0.18.0', 'Pillow>=3.0.0', 'plotly>=1.12.9', 'scipy>=0.18.1'],
 	# dependency_links = ['https://bitbucket.org/pygame/pygame/get/tip.zip#egg=pygame-1.9.2'],
     author = "Dominique Makowski",
     author_email = "dom.makowski@gmail.com",
