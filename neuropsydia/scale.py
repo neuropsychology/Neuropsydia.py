@@ -182,18 +182,20 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
             if point_edges == True:
                 image('scale_point.png', x=edge_left, y=scale_y, size=0.08, path=Path.binary())
                 image('scale_point.png', x=edge_right, y=scale_y, size=0.08, path=Path.binary())
-        if force_separation != False:
-                if isinstance(force_separation, int):
-                    for i in range(force_separation-1):
-                        image('scale_point.png', x=edge_left + line_length/force_separation*(i+1), y=scale_y, size=0.08)
-                else:
-                    print("NEUROPSYDIA ERROR: scale(): force_separation requires a integer")
         if separation_labels != None:
-            if isinstance(separation_labels,list):
+            if force_separation is False:
+                force_separation = len(separation_labels)
+            if isinstance(separation_labels, list):
                 for i in range(len(separation_labels)):
                     write(separation_labels[i], x=edge_left + line_length/force_separation*(i+1) - line_length/force_separation/2, y=scale_y+separation_labels_space, size=separation_labels_size, rotate=separation_labels_rotate)
             else:
                 print("NEUROPSYDIA ERROR: scale(): separation_labels requires a list")
+        if force_separation != False:
+            if isinstance(force_separation, int):
+                for i in range(force_separation-1):
+                    image('scale_point.png', x=edge_left + line_length/force_separation*(i+1), y=scale_y, size=0.08)
+            else:
+                print("NEUROPSYDIA ERROR: scale(): force_separation requires a integer")
         if title != None:
             write(title, title_style, size=title_size, x=scale_x, y=scale_y + title_space)
         image(cursor_name, x=cursor_x, y=scale_y, size=0.3, path=Path.binary())
