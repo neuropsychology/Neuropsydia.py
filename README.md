@@ -23,7 +23,7 @@ Want to add features? Correct bugs? You're more than welcome to contribute :wink
 
 Check this tutorial ([French](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-FR.md) or [English](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-EN.md)) to see how to submit your changes on github.
 
-You can also contribute by opening "issues" for feature request, help, bug signaling etc.
+You can also contribute by opening [issues](https://github.com/neuropsychology/Neuropsydia.py/issues) for feature request, help, bug signaling etc.
 
 ## Citation
 You can cite Neuropsydia with the following:
