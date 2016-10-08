@@ -149,7 +149,8 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
                                         loop = False
                                     if pygame.mouse.get_pressed()==(0,0,1):
                                         loop2=False
-                                        pygame.draw.rect(screen, color('b'), (coordinates['x'][response],coordinates['y'][response],coordinates['width'],coordinates['height']), boxes_edge_size)
+                                        Display()
+#                                        pygame.draw.rect(screen, color('b'), (coordinates['x'][response],coordinates['y'][response],coordinates['width'],coordinates['height']), boxes_edge_size)
                                         pygame.display.flip()
 
     pygame.draw.rect(screen, color('green'), (coordinates['x'][response],coordinates['y'][response],coordinates['width'],coordinates['height']), confirm_edge_size)
