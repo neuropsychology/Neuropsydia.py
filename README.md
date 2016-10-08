@@ -19,7 +19,8 @@ pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ## Citation
 You can cite Neuropsydia with the following:
 ```
-Makowski, D., Dutriaux, L. (2016). Neuropsydia: A Python Module for Creating Experiments, Tasks and Questionnaires. Memory and Cognition Lab' Day, 01 November, Paris, France
+Makowski, D. & Dutriaux, L. (2016). Neuropsydia: A Python Module for Creating Experiments, Tasks and Questionnaires. 
+Memory and Cognition Lab' Day, 01 November, Paris, France
 ```
 
 ## Features
