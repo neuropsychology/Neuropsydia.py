@@ -15,7 +15,7 @@ To get the latest development version (`0.0.1`), run the following in the comman
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
-
+---
 ## Citation
 You can cite Neuropsydia with the following:
 ```
@@ -23,11 +23,12 @@ Makowski, D. & Dutriaux, L. (2016). Neuropsydia: A Python Module for Creating Ex
 Memory and Cognition Lab' Day, 01 November, Paris, France
 ```
 
+---
 ## Features
 
 ### Write, Ask and Display Images
 
-
+---
 ### Scales and Questionnaires
 
 <p align="left">
@@ -39,4 +40,14 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 - [x] Fully automated questionnaires
 - [x] Powerful scale creation
 
+---
 ### Choices
+
+---
+## Contribute
+
+Want to add features? Correct bugs? You're more than welcome to contribute :wink:
+
+Check this tutorial ([French](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-FR.md) or [English](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-EN.md)) to see how to submit your changes on github.
+
+You can also contribute by opening "issues" for feature request, help, bug signaling etc.
