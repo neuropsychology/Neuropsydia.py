@@ -7,12 +7,12 @@ A Python module for creating experiments, tasks and questionnaires.
 |Name|neuropsydia|
 |----------------|---|
 |Status|![](https://img.shields.io/badge/status-stable-brightgreen.svg)|
-|Latest Version|![](https://img.shields.io/badge/version-0.0.1-brightgreen.svg)|
+|Latest Version|![](https://img.shields.io/badge/version-0.0.2-brightgreen.svg)|
 |Authors|[Dominique Makowski](https://biblineuropsy.files.wordpress.com/2016/10/cv_makowski.pdf), Léo Dutriaux|
 
 ---
 # Installation
-To get the latest development version (`0.0.1`), run the following in the command prompt:
+To get the latest development version (`0.0.2`), run the following in the command prompt:
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
