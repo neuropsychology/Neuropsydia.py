@@ -17,7 +17,11 @@ To get the latest development version (`0.0.2`), run the following in the comman
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
 **NOTE: We strongly recommend (for Windows users) the use of the [WinPython](https://winpython.github.io/) bundle, that will allow  you to have a ready-to-go scientific and portable Python setup.**
-
+<p align="left">
+<a href="">
+<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-installation.gif" height="500" alt="installation neuropsydia winpython pip">
+</a>
+</p>
 ---
 # Contribute
 
@@ -66,7 +70,7 @@ Tutorials are currently under development. Check out [this page](https://github.
 
 <p align="left">
 <a href="">
-<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Questionnaire/demo-scale.gif" height="500" alt="interactive scale psychology">
+<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif" height="500" alt="interactive scale psychology">
 </a>
 </p>
 
