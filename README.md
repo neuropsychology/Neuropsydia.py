@@ -18,7 +18,13 @@ A Python module for creating experiments, tasks and questionnaires.
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
 
-## Examples
+## Citation
+
+
+## Features
+
+### Write, Ask and Display Images
+
 
 ### Scales and Questionnaires
 
@@ -30,3 +36,5 @@ pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 
 - [x] Fully automated questionnaires
 - [x] Powerful scale creation
+
+### Choice
