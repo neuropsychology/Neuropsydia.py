@@ -7,7 +7,7 @@ A Python module for creating experiments, tasks and questionnaires.
 |----------------|---|
 |Status|![](https://img.shields.io/badge/status-stable-brightgreen.svg)|
 |Latest Version|![](https://img.shields.io/badge/version-0.0.1-brightgreen.svg)|
-|Authors|[Dominique Makowski](https://biblineuropsy.files.wordpress.com/2016/09/cv_dominiquemakowski.pdf), Léo Dutriaux|
+|Authors|[Dominique Makowski](https://biblineuropsy.files.wordpress.com/2016/10/cv_makowski.pdf), Léo Dutriaux|
 
 ---
 ## Installation
