@@ -33,6 +33,27 @@ You can cite Neuropsydia with the following:
 Makowski, D. & Dutriaux, L. (2016). Neuropsydia: A Python Module for Creating Experiments, Tasks and Questionnaires. 
 Memory and Cognition Lab' Day, 01 November, Paris, France
 ```
+---
+# Tutorials
+
+Tutorials are currently under development. Check out [this page](https://github.com/neuropsychology/Courses) to help us improve them.
+
+- Novice
+  - [1. Getting Started](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.Getting_Started.md)
+  - 2. Computerize a questionnaire
+  - 3. Get and save infos on the participant
+  - 4. The novice's trial
+- Apprentice
+  - 5. Basics of Python programming
+  - 6. Create a Stroop task
+  - 7. The apprentice's trial
+- Companion
+  - 8. Create a more complex experiment
+  - 9. The companion's trial
+- Master
+  - 10. Improve timing and precision
+  - 11. Data manipulation and analysis
+  - 12. The master's trial
 
 ---
 # Features and Examples
