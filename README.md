@@ -27,6 +27,7 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 ## Features
 
 ### Write, Ask and Display Images
+- [x] Easily write, display images and interact with the user.
 
 ---
 ### Scales and Questionnaires
@@ -37,11 +38,12 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 </a>
 </p>
 
-- [x] Fully automated questionnaires
-- [x] Powerful scale creation
+- [x] Fully automated questionnaires.
+- [x] Powerful scale creation.
 
 ---
 ### Choices
+- [x] Easily display clickable choices, useful in case of recognition tasks or so.
 
 ---
 ## Contribute
