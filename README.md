@@ -44,7 +44,7 @@ Tutorials are currently under development. Check out [this page](https://github.
 
 - Novice
   - [1. Getting Started](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.Getting_Started.md)
-  - 2. Computerize a questionnaire
+  - [2. Computerize a questionnaire](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/2.Computerize_Questionnaire.md)
   - 3. Get and save infos on the participant
   - 4. The novice's trial
 - Apprentice
