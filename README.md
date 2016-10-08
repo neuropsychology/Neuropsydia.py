@@ -16,6 +16,8 @@ To get the latest development version (`0.0.2`), run the following in the comman
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
+*NOTE: We strongly recommend (for Windows users) the use of the [WinPython](https://winpython.github.io/) bundle, that will allow  you to have a scientific, portable and ready-to-go Python setup.*
+
 ---
 # Contribute
 
