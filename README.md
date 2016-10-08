@@ -43,21 +43,21 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 Tutorials are currently under development. Check out [this page](https://github.com/neuropsychology/Courses) to help us improve them.
 
 - Novice
-  - [1. Getting Started](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.Getting_Started.md)
-  - [2. Computerize a questionnaire](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/2.Computerize_Questionnaire.md)
-  - 3. Get and save infos on the participant
-  - 4. The novice's trial
+  - [1.0 Getting Started](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.0.Getting_Started.md)
+  - [1.1 Computerize a questionnaire](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.1.Computerize_Questionnaire.md)
+  - 1.2 Get and save infos on the participant
+  - 1.3 The novice's trial
 - Apprentice
-  - 5. Basics of Python programming
-  - 6. Create a Stroop task
-  - 7. The apprentice's trial
+  - 2.0 Basics of Python programming
+  - 2.1 Create a Stroop task
+  - 2.2 The apprentice's trial
 - Companion
-  - 8. Create a more complex experiment
-  - 9. The companion's trial
+  - 3.0 Create a more complex experiment
+  - 3.1 The companion's trial
 - Master
-  - 10. Improve timing and precision
-  - 11. Data manipulation and analysis
-  - 12. The master's trial
+  - 4.0 Improve timing and precision
+  - 4.1 Data manipulation and analysis
+  - 4.2 The master's trial
 
 ---
 # Features and Examples
