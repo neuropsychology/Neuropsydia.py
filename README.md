@@ -10,13 +10,13 @@ A Python module for creating experiments, tasks and questionnaires.
 |Authors|[Dominique Makowski](https://biblineuropsy.files.wordpress.com/2016/10/cv_makowski.pdf), Léo Dutriaux|
 
 ---
-## Installation
+# Installation
 To get the latest development version (`0.0.1`), run the following in the command prompt:
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
 ---
-## Citation
+# Citation
 You can cite Neuropsydia with the following:
 ```
 Makowski, D. & Dutriaux, L. (2016). Neuropsydia: A Python Module for Creating Experiments, Tasks and Questionnaires. 
@@ -24,13 +24,13 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 ```
 
 ---
-## Features
+# Features and Examples
 
-### Write, Ask and Display Images
+## Write, Ask and Display Images
 - [x] Easily write, display images and interact with the user.
 
 ---
-### Scales and Questionnaires
+## Scales and Questionnaires
 
 <p align="left">
 <a href="">
@@ -42,11 +42,11 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 - [x] Powerful scale creation.
 
 ---
-### Choices
+## Choices
 - [x] Easily display clickable choices, useful in case of recognition tasks or so.
 
 ---
-## Contribute
+# Contribute
 
 Want to add features? Correct bugs? You're more than welcome to contribute :wink:
 
