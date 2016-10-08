@@ -22,8 +22,8 @@ pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 
 ### Scales and Questionnaires
 
-<p align="center">
+<p align="left">
 <a href="">
-<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Questionnaire/demo-scale.gif" height="400" alt="interactive scale psychology">
+<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Questionnaire/demo-scale.gif" height="500" alt="interactive scale psychology">
 </a>
 </p>
