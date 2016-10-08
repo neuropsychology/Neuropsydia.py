@@ -2,6 +2,7 @@
 
 A Python module for creating experiments, tasks and questionnaires.
 
+---
 
 |Name|neuropsydia|
 |----------------|---|
