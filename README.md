@@ -27,3 +27,6 @@ pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 <img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Questionnaire/demo-scale.gif" height="500" alt="interactive scale psychology">
 </a>
 </p>
+
+- [x] Fully automated questionnaires
+- [x] Powerful scale creation
