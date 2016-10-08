@@ -2,11 +2,6 @@
 
 A Python module for creating experiments, tasks and questionnaires.
 
-<p align="left">
-<a href="">
-<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Questionnaire/demo-scale.gif" height="300" alt="interactive scale psychology">
-</a>
-</p>
 
 |Name|neuropsydia|
 |----------------|---|
@@ -22,3 +17,13 @@ A Python module for creating experiments, tasks and questionnaires.
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
+
+## Examples
+
+### Scales and Questionnaires
+
+<p align="center">
+<a href="">
+<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Questionnaire/demo-scale.gif" height="400" alt="interactive scale psychology">
+</a>
+</p>
