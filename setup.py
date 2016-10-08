@@ -18,7 +18,7 @@ setup(
     license = "Mozilla Public License Version 2.0",
     keywords = "python neuropsychology neuropsydia experiment creation",
     url = "https://github.com/neuropsychology/neuropsydia/",
-	test_suite='nose.collector',
+    test_suite='nose.collector',
     tests_require=['nose'],
     classifiers = [
 	'Intended Audience :: Science/Research',
