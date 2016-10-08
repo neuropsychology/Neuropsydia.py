@@ -4,7 +4,7 @@ A Python module for creating experiments, tasks and questionnaires.
 
 <p align="left">
 <a href="">
-<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Questionnaire/demo-scale.gif" height="150" alt="interactive scale psychology">
+<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Questionnaire/demo-scale.gif" height="300" alt="interactive scale psychology">
 </a>
 </p>
 
