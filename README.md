@@ -11,15 +11,16 @@ A Python module for creating experiments, tasks and questionnaires.
 
 ---
 ## Installation
-
-- To get the latest development version (`0.0.1`), run the following in the command prompt:
-
+To get the latest development version (`0.0.1`), run the following in the command prompt:
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
 
 ## Citation
-
+You can cite Neuropsydia with the following:
+```
+Makowski, D., Dutriaux, L. (2016). Neuropsydia: A Python Module for Creating Experiments, Tasks and Questionnaires. Memory and Cognition Lab' Day, 01 November, Paris, France
+```
 
 ## Features
 
@@ -37,4 +38,4 @@ pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 - [x] Fully automated questionnaires
 - [x] Powerful scale creation
 
-### Choice
+### Choices
