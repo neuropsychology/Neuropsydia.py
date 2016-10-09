@@ -24,12 +24,10 @@ pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 </p>
 ---
 # Contribute
-
-Want to add features? Correct bugs? You're more than welcome to contribute :wink:
-
-Check this tutorial ([French](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-FR.md) or [English](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-EN.md)) to see how to submit your changes on github.
-
-You can also contribute by opening [issues](https://github.com/neuropsychology/Neuropsydia.py/issues) for feature request, help, bug signaling etc.
+- You need some help? You found a bug? You would like to request a new feature? 
+  Just open an [issue](https://github.com/neuropsychology/Neuropsydia.py/issues) :relaxed:
+- Want to add yourself a feature? Correct a bug? You're more than welcome to contribute!
+  Check this tutorial ([French](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-FR.md) or [English](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-EN.md)) to see how to submit your changes on github.
 
 ## Citation
 You can cite Neuropsydia with the following:
