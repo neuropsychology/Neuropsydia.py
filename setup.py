@@ -20,6 +20,7 @@ install_requires = [
     'pandas>=0.18.0',
     'Pillow>=3.0.0',
     'plotly>=1.12.9',
+    'cryptography>=1.5.2',
     'scipy>=0.10.0'],
 long_description = open('README.md').read(),
 keywords = "python neuropsychology neuropsydia experiment creation",
