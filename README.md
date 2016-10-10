@@ -137,6 +137,7 @@ n.close()
 ## Write, Ask and Display Images
 
 - [x] Easily write, display images and interact with the user.
+- [x] Detailed control over the timing and latency: preload images and display them exactly whenever you want.
 
 <p align="left">
 <a href="">
