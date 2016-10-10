@@ -128,6 +128,8 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None,
 
         answer = response(get_RT = False)
 
+        if answer == "SPACE":
+            answer = "_"
         if answer != "ENTER":
             if answer == "ESCAPE":
                 quit()
