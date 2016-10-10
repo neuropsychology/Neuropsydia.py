@@ -98,9 +98,9 @@ for trial in range(5):  # Iterate over the number of trials
     n.refresh()  # Diplay it on screen
     n.time.wait(ISI)  # Wait
 
-    n.circle(size=2, fill_color=stimulus)  # Display the stimulus (filled with the proper color)
+    n.circle(size=2, fill_color=stimulus)  # Display the stimulus (filled with the color selected above)
     n.refresh()  # Diplay it on screen
-    response, RT = n.response(time_max=1500)  # Wait for response until 1.5s and collect the input and the response time
+    response, RT = n.response(time_max=1500)  # Wait until 1.5s and collect the response and its time
 
     # Categorize the response
     if response == "SPACE" and stimulus == "green":
@@ -119,16 +119,16 @@ for trial in range(5):  # Iterate over the number of trials
     data["RT"].append(RT)
     data["Response"].append(response_type)
 
-# Preprocessing of data
+# Data saving
 df = pd.DataFrame.from_dict(data)  # Transform the data dictionary into a proper and savable dataframe
 df.to_csv("data.csv")  # Save it
 
 # Quick analysis
 RTs = df.query('Response=="HIT"')["RT"]  # Select the Hits' RTs
-print(np.mean(RTs), np.std(RTs))  # Print the mean and  the standard deviation
+print(np.mean(RTs), np.std(RTs))  # Print the mean and the standard deviation
 print(len(df.query('Response=="FA"')))  # Print the number of intrusions (false alarms)
 
-n.close()
+n.close()  # Close neuropsydia
 ```
 
 ---
