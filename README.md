@@ -35,6 +35,8 @@ You can cite Neuropsydia with the following:
 Makowski, D. & Dutriaux, L. (2016). Neuropsydia: A Python Module for Creating Experiments, Tasks and Questionnaires. 
 Memory and Cognition Lab' Day, 01 November, Paris, France
 ```
+*Note: The authors do not give any warranty. If this software causes your keyboard to blow up, your brain to liquefy, your toilet to clog or a zombie plague to leak, the authors CANNOT IN ANY WAY be held responsible.*
+
 ---
 # Tutorials
 
