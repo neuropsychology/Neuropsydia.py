@@ -71,9 +71,9 @@ Try this!
 
 ```python
 import neuropsydia as n  # Load neuropsydia
-import random  # import the random module
-import pandas as pd  # to manipulate and save the data
-import numpy as np  # to do some maths
+import random  # Import the random module
+import pandas as pd  # To manipulate and save the data
+import numpy as np  # To do some maths
 
 n.start()  # Start neuropsydia
 n.instructions("Goal: Hit SPACE whenever a GREEN circle appears. \nWhen it is RED, don't press anything.")  # Display instructions and break line with \n
@@ -135,10 +135,33 @@ n.close()
 
 
 ## Write, Ask and Display Images
+
 - [x] Easily write, display images and interact with the user.
+
+<p align="left">
+<a href="">
+<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-writeaskimage.gif" height="500" alt="interactive scale psychology">
+</a>
+</p>
+```python
+import neuropsydia as n
+
+n.start()
+
+n.write("Welcome", style="title")
+name = n.ask("What is your name?", y=5)
+n.write("Ok, " + name + ", here is a super cool cat.", y=3)
+n.image("cat.png", size=3, y=-3.5)
+n.refresh()
+n.time.wait(2000)
+
+n.close()
+```
 
 ---
 ## Scales and Questionnaires
+- [x] Fully automated questionnaires.
+- [x] Powerful scale creation.
 
 <p align="left">
 <a href="">
@@ -176,8 +199,6 @@ n.scale(title="How is neuropsydia?",
 
 n.close()
 ``` 
-- [x] Fully automated questionnaires.
-- [x] Powerful scale creation.
 
 ---
 ## Choices
