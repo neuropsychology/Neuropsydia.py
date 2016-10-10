@@ -123,7 +123,7 @@ def close():
 
     for i in range(0,100,2):
         background_color("black")
-        write("Merci d'avoir utilisé", style="light", y=8.75, size=1, color="white")
+        write("Thank you for using", style="light", y=8.75, size=1, color="white")
         image("Neuropsydia_TEXT_white", extension = ".png", y= 5.5, size=1.25, cache = preloaded, path = Path.logo())
         image("Neuropsydia_HEAD_white", extension = ".png", y= -3, size=3.75, cache = preloaded, path = Path.logo())
         image("Neuropsydia_PSY_blue", extension = ".png", y= -3, size=3.75, cache = preloaded, path = Path.logo())
