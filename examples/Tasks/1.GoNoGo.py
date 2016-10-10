@@ -18,7 +18,7 @@ data = {"Trial": [],
 
 for trial in range(5):  # Iterate over the number of trials
     stimulus = random.choice(["green", "red"])  # Select a stimulus type
-    ISI = random.randrange(start=500, stop=4000, step=500)  # Select the inter-stimuli interval (ISI)
+    ISI = random.randrange(start=500, stop=2000, step=500)  # Select the inter-stimuli interval (ISI)
 
     n.background_color("grey")  # Fill the screen
     n.write("+")  # Fixation cross

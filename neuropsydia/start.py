@@ -119,7 +119,7 @@ def close():
     preloaded = preload("Neuropsydia_HEAD_white", extension = ".png", y= -3, size=3.75, cache = preloaded, path = Path.logo())
     preloaded = preload("Neuropsydia_PSY_blue", extension = ".png", y= -3, size=3.75, cache = preloaded, path = Path.logo())
     preloaded = preload('N', extension = ".png", x=7, y=-8, size=1.0, cache = preloaded, path = Path.logo())
-    preloaded = preload("Python", extension = ".png", x=-7, y=-8, size=0.4, cache = preloaded, path = Path.logo())
+    preloaded = preload("Python", extension = ".png", x=-7, y=-8, size=1.0, cache = preloaded, path = Path.logo())
 
     for i in range(0,100,2):
         background_color("black")
@@ -128,7 +128,7 @@ def close():
         image("Neuropsydia_HEAD_white", extension = ".png", y= -3, size=3.75, cache = preloaded, path = Path.logo())
         image("Neuropsydia_PSY_blue", extension = ".png", y= -3, size=3.75, cache = preloaded, path = Path.logo())
         image('N', extension = ".png", x=7, y=-8, size=1.0, cache = preloaded, path = Path.logo())
-        image("Python", extension = ".png", x=-7, y=-8, size=0.4, cache = preloaded, path = Path.logo())
+        image("Python", extension = ".png", x=-7, y=-8, size=1.0, cache = preloaded, path = Path.logo())
         background_color("black", opacity = 100-i)
         refresh()
     time.wait(1500)
