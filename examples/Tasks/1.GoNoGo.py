@@ -27,7 +27,7 @@ for trial in range(5):  # Iterate over the number of trials
 
     n.circle(size=2, fill_color=stimulus)  # Display the stimulus (filled with the proper color)
     n.refresh()  # Diplay it on screen
-    response, RT = n.response(time_max=2000)  # Wait for response until 2s and collect the input and the response time
+    response, RT = n.response(time_max=1500)  # Wait for response until 1.5s and collect the input and the response time
 
     # Categorize the response
     if response == "SPACE" and stimulus == "green":
