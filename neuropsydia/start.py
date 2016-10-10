@@ -43,13 +43,13 @@ def start(open_window=True):
     pygame.init()
     pygame.mouse.set_visible(False)
     pygame.event.set_blocked(pygame.KEYDOWN)
-    
-    
+
+
     if open_window == False:
         pygame.event.set_allowed(pygame.KEYDOWN)
         pygame.mouse.set_visible(True)
         pygame.quit()
-        
+
     else:
         background_color("black")
         write('Initialisation...', size=0.8, y=-9, color="lightblue")
@@ -59,12 +59,12 @@ def start(open_window=True):
         preloaded = preload("Neuropsydia_PSY_blue", extension = ".png", y= -2.5, size=4.25, cache = preloaded, path = Path.logo())
         preloaded = preload("Neuropsydia_TEXT_white", extension = ".png", y= 7, size=1.5, cache = preloaded, path = Path.logo())
         preloaded = preload("Neuropsydia_HEAD_white", extension = ".png", y= -2.5, size=4.25, cache = preloaded, path = Path.logo())
-        
+
         background_color("black")
         image("Neuropsydia_TEXT_white", extension = ".png", y= 7, size=1.5, cache = preloaded, path = Path.logo())
         image("Neuropsydia_PSY_blue", extension = ".png", y= -2.5, size=4.25, cache = preloaded, path = Path.logo())
         write('Press ENTRER to continue.', size=0.8, y=-9, color="white", allow="ENTER")
-        
+
         for i in range(0,100,2):
             background_color("black")
             image("Neuropsydia_HEAD_white", extension = ".png", y= -2.5, size=4.25, cache = preloaded, path = Path.logo())
@@ -128,9 +128,9 @@ def close():
         image("Neuropsydia_TEXT_white", extension = ".png", y= 5.5, size=1.25, cache = preloaded, path = Path.logo())
         image("Neuropsydia_HEAD_white", extension = ".png", y= -3, size=3.75, cache = preloaded, path = Path.logo())
         image("Neuropsydia_PSY_blue", extension = ".png", y= -3, size=3.75, cache = preloaded, path = Path.logo())
-        image('GEN', extension = ".png", x=7.5, y=-8, size=1.0, cache = preloaded, path = Path.logo())
+        image('N', extension = ".png", x=7.5, y=-8, size=1.0, cache = preloaded, path = Path.logo())
         image("winpython", extension = ".png", x=0, y=-8, size=0.4, cache = preloaded, path = Path.logo())
-        image("pygame", extension = ".png", x=-7.5, y=-8, size=0.4, cache = preloaded, path = Path.logo())  
+        image("pygame", extension = ".png", x=-7.5, y=-8, size=0.4, cache = preloaded, path = Path.logo())
         background_color("black", opacity = 100-i)
         refresh()
     time.wait(1500)
