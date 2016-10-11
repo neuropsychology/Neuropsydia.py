@@ -58,12 +58,9 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
     previous_mouse_state = pygame.mouse.set_visible(True)
 
 
-
-
-    sep = boxes_space
-    list_x = [-10+sep/2]
+    list_x = [-10+boxes_space/2]
     for i in range(number-1):
-        list_x.append(list_x[i]+  (20-sep*number)/number + sep)
+        list_x.append(list_x[i]+  (20-boxes_space*number)/number + boxes_space)
     list_x2 = []
     for i in list_x:
         list_x2.append(Coordinates.to_pygame(x=i))
@@ -72,9 +69,9 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
     coordinates = {
     'x':list_x2,
     'y':number*[Coordinates.to_pygame(y=y)],
-    'width_raw':(20-sep*number)/number,
+    'width_raw':(20-boxes_space*number)/number,
     'height_raw':distance_y,
-    'width':Coordinates.to_pygame(distance_x=(20-sep*number)/number),
+    'width':Coordinates.to_pygame(distance_x=(20-boxes_space*number)/number),
     'height':Coordinates.to_pygame(distance_y=distance_y)
     }
 

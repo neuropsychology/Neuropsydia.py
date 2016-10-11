@@ -397,7 +397,31 @@ keys = {
      pygame.K_KP5: '5',pygame.K_KP6: '6',pygame.K_KP7: '7',pygame.K_KP8: '8',pygame.K_KP9: '9'}
 }
 
+    """
+    Low level input checker.
 
+    Parameters
+    ----------
+    time_max = int
+        time max in ms
+
+    Returns
+    ----------
+    key
+        A key.
+    Example
+    ----------
+    NA
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - pygame 1.9.2
+    - time
+    """
 def wait_for_input(time_max=None):
     if pygame.event.get_blocked(pygame.KEYDOWN) is True:
         blocked = True
