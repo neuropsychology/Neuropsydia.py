@@ -22,6 +22,11 @@ pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 <img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-installation.gif" height="500" alt="installation neuropsydia winpython pip">
 </a>
 </p>
+
+To upgrade Neuropsydia, uninstall it and reinstall it :wink:.
+```python
+pip uninstall neuropsydia
+```
 ---
 # Contribute
 - You need some help? You found a bug? You would like to request a new feature? 
