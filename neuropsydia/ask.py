@@ -161,18 +161,19 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None,
                     warning = 1
                     allow_type = "in"
                 if allow_type != None:
-                    if allow_type == "int":
-                        try:
-                            temporary = int(user_input)
-                        except:
-                            warning_text = text_new+'    incorrect (wrong type)'
-                            warning = 1
-                    if allow_type == "float":
-                        try:
-                            temporary = float(user_input)
-                        except:
-                            warning_text = text_new+'    incorrect (wrong type)'
-                            warning = 1
+                    if user_input != "NA":
+                        if allow_type == "int":
+                            try:
+                                user_input = int(user_input)
+                            except ValueError:
+                                warning_text = text_new + '    incorrect (wrong type)'
+                                warning = 1
+                        if allow_type == "float":
+                            try:
+                                user_input = float(user_input)
+                            except ValueError:
+                                warning_text = text_new + '    incorrect (wrong type)'
+                                warning = 1
 
                 if warning == 1:
                     surface = font.render(warning_text, 1, core_color(color))
