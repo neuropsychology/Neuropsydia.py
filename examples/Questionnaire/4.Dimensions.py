@@ -25,5 +25,9 @@ questions_dictionary = {
 }
 
 n.start()
-n.questionnaire(questions_dictionary, anchors=["No", "Yes"], results_save=True, dimensions_mean=True)
+n.questionnaire(questions_dictionary,
+                anchors=["No", "Yes"],
+                results_save=True,
+                results_type="csv2",
+                dimensions_mean=True)
 n.close()
