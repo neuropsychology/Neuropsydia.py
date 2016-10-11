@@ -60,7 +60,7 @@ def scale_styles():
 def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0, 100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", background_color="white", title=None, title_style="body", title_size=1, title_space=1.75, point_center=False, point_edges=True, reverse=False, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.25, show_result_size=0.5, show_result_color="black", show_result_decimals=1):
     """
     Draw a scale.
-	HELP INCOMPLETE. 
+	HELP INCOMPLETE.
 
     Parameters
     ----------
@@ -145,7 +145,7 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
             points_position_raw.append(edge_left_raw + i*line_length_raw/len(range(edges[0],edges[1],step)))
             if labels == "numeric" or labels == "num" or labels == "numbers":
                 label_list.append(str(i))
-            if isinstance(labels, list):
+            elif isinstance(labels, list):
                 if len(labels) == len(point_list_range):
                     label_list.append(labels[i])
                 else:
