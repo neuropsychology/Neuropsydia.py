@@ -19,7 +19,7 @@ from .core import background_color as core_background_color #avoid conflict with
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color="black", y=0, height=-5, boxes_background_color='blue_shade', boxes_edge_color="black", boxes_edge_size=5, confirm_edge_color="orange", confirm_edge_size=3, help_list=None, help_background_color="lightgrey", title=None, title_position="default", title_x=-7.5, title_space=0.75, pictures=None, pictures_size=0.5):
+def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color="black", y=0, height=-5, boxes_space=0.5, boxes_background_color='blue_shade', boxes_edge_color="black", boxes_edge_size=5, confirm_edge_color="orange", confirm_edge_size=3, help_list=None, help_background_color="lightgrey", title=None, title_position="default", title_x=-7.5, title_space=0.75, pictures=None, pictures_size=0.5):
     """
     Help incomplete, sorry.
 
@@ -60,7 +60,7 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
 
 
 
-    sep = 0.5
+    sep = boxes_space
     list_x = [-10+sep/2]
     for i in range(number-1):
         list_x.append(list_x[i]+  (20-sep*number)/number + sep)
