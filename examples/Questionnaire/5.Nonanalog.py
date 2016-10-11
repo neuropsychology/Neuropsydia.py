@@ -31,7 +31,7 @@ n.questionnaire(questions_dictionary,  # The questions
                 results_type="csv2",  # Change the separator for ";" instead of "," (for France)
                 dimensions_mean=True,  # Compute the mean by dimension?
                 analog=False,  # Lickert-like
-                edges=[0,7],  # Values underneath
+                edges=[0, 7],  # Values underneath
                 style="blue",  # The cursor's colour
                 randomize=True)  # Randomize the question's order
 n.close()
