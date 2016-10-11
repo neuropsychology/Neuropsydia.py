@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
 import datetime
+import random
 
 from .path import *
 from .core import *
