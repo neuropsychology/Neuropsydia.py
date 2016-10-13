@@ -190,11 +190,11 @@ class Time():
         >>> n.write("let's wait 500ms", round_by_frame = False)
         >>> n.refresh()
         >>> wait_time = n.time.wait(520)
-        >>> n.background_color("white")
+        >>> n.newpage("white")
         >>> n.write("I waited for " + str(wait_time) + "ms")
         >>> n.refresh()
         >>> wait_time = n.time.wait(520, round_by_frame = True)
-        >>> n.background_color("white")
+        >>> n.newpage("white")
         >>> n.write("I waited for " + str(wait_time) + "ms")
         >>> n.refresh()
         >>> n.time.wait(3, unit = "s")
@@ -241,7 +241,7 @@ time = Time()
 # ==============================================================================
 
 
-def background_color(color_name="white", opacity=100, fade=False, fade_speed=60, fade_type="out", auto_refresh=False):
+def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_type="out", auto_refresh=False):
     """
     Fill the background with a color.
 
@@ -266,7 +266,7 @@ def background_color(color_name="white", opacity=100, fade=False, fade_speed=60,
     ----------
     >>> import neuropsydia as n
     >>> n.start()
-    >>> n.background_color("blue")
+    >>> n.newpage("blue")
     >>> n.refresh()
     >>> n.time.wait(500)
     >>> n.close()
@@ -286,7 +286,7 @@ def background_color(color_name="white", opacity=100, fade=False, fade_speed=60,
                 try:
                     screen.fill(color(color_name))
                 except:
-                    print("NEUROPSYDIA ERROR: background_color(): wrong argument")
+                    print("NEUROPSYDIA ERROR: newpage(): wrong argument")
             else:
                 opacity = int(opacity * 255 / 100)
                 color_name = color(color_name) + (opacity,)
@@ -321,7 +321,7 @@ def background_color(color_name="white", opacity=100, fade=False, fade_speed=60,
 # ==============================================================================
 def refresh():
     """
-    Reresh / flip the screen, actually display things on screen (to use after image(), write() or background_color()).
+    Reresh / flip the screen, actually display things on screen (to use after image(), write() or newpage()).
 
     Parameters
     ----------
@@ -335,7 +335,7 @@ def refresh():
     ----------
     >>> import neuropsydia as n
     >>> n.start()
-    >>> n.background_color("blue")
+    >>> n.newpage("blue")
     >>> n.refresh()
     >>> n.time.wait(500)
     >>> n.close()

@@ -2,8 +2,6 @@
 from .path import *
 from .core import *
 from .write import *
-from .core import background_color as core_background_color #avoid conflict with arg name
-
 
 
 

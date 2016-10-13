@@ -11,8 +11,6 @@ from .start import *
 from .scale import *
 from .ask import *
 
-from .core import background_color as core_background_color  # avoid conflict with arg name
-
 
 # ==============================================================================
 # ==============================================================================
@@ -147,7 +145,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
     i = 0
     while i < n_questions:
         try:
-            core_background_color(background_color)
+            newpage(background_color, auto_refresh=False)
             time.wait(30)
             if show_page_number is True:
                 write('Question n°' + str(i+1) + '/' + str(n_questions), style="light", y=9)

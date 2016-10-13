@@ -2,7 +2,6 @@
 from .path import *
 from .core import *
 
-from .core import background_color as core_background_color  # avoid conflict with arg name
 from .core import color as core_color  # avoid conflict with arg name
 
 
@@ -136,14 +135,14 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0,
                     surface = pygame.transform.rotate(surface,rotate)
                 rectangle = surface.get_rect()
                 rectangle.center = (x,y)
-                core_background_color(background_color)
+                newpage(background_color, auto_refresh=False)
                 screen.blit(surface, rectangle)
             surface = font.render(text, True, core_color(color))
             if rotate != None or rotate != 0:
                 surface = pygame.transform.rotate(surface,rotate)
             rectangle = surface.get_rect()
             rectangle.center = (x,y)
-            core_background_color(background_color)
+            newpage(background_color, auto_refresh=False)
             screen.blit(surface, rectangle)
 
 

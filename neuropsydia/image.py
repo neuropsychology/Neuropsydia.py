@@ -4,7 +4,6 @@ import numpy as np
 
 from .path import *
 from .core import *
-from .core import background_color as core_background_color  # avoid conflict with arg name
 
 
 # ==============================================================================
@@ -255,7 +254,7 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0,
     - time
     """
     if background_color != None:
-        core_background_color(background_color)
+        newpage(background_color, auto_refresh=False)
 
     if cache == None:
         cache = preload(file=file, cache=cache, path=path, extension=extension,
