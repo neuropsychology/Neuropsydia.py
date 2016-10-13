@@ -73,7 +73,7 @@ def start(open_window=True):
             image("Neuropsydia_PSY_blue", extension = ".png", y= -2.5, size=4.25, cache = preloaded, path = Path.logo())
             refresh()
         time.wait(1000)
-        background_color("white",fade=True)
+        newpage("white", fade=True)
         refresh()
 
 # ==============================================================================
