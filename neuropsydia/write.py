@@ -14,7 +14,7 @@ from .core import color as core_color  # avoid conflict with arg name
 # ==============================================================================
 # ==============================================================================
 def write(text="Write something here", style="body", x=0, y=0, size=1.0,
-          rotate=0, color="black", background_color=None,
+          rotate=0, color="black", background=None,
           outline=False, outline_size=0.1, outline_color="black",
           allow=None, wait=None, long_text=False, fast=False):
     """
@@ -36,7 +36,7 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0,
         angle (0 to 360) by which rotate the text
     color = str or tuple, optional
         color of the text. See color() function.
-    background_color = str or tuple, optional
+    background = str or tuple, optional
         color of the background. See color() function. Default to None
     outline = bool, optional [this parameter needs your help]
         outline the text (not perfect for now, the outline is larger for horizontal than for vertical lines)
@@ -105,8 +105,8 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0,
             font_name = Path.font() + 'RobotoBlack.ttf'
             if y == 0:
                 y = 8.5
-            if background_color==None:
-                background_color="white"
+            if background==None:
+                background="white"
         elif style == 'subtitle':
             if size == int(1.0*screen_width/35.0):
                 size = int(1.5*screen_width/35.0)
@@ -135,14 +135,14 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0,
                     surface = pygame.transform.rotate(surface,rotate)
                 rectangle = surface.get_rect()
                 rectangle.center = (x,y)
-                newpage(background_color, auto_refresh=False)
+                newpage(background, auto_refresh=False)
                 screen.blit(surface, rectangle)
             surface = font.render(text, True, core_color(color))
             if rotate != None or rotate != 0:
                 surface = pygame.transform.rotate(surface,rotate)
             rectangle = surface.get_rect()
             rectangle.center = (x,y)
-            newpage(background_color, auto_refresh=False)
+            newpage(background, auto_refresh=False)
             screen.blit(surface, rectangle)
 
 

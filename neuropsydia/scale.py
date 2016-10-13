@@ -57,7 +57,7 @@ def scale_styles():
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0, 100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", background_color="white", title=None, title_style="body", title_size=1, title_space=1.75, point_center=False, point_edges=True, reverse=False, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.25, show_result_size=0.5, show_result_color="black", show_result_decimals=1):
+def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0, 100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", background="white", title=None, title_style="body", title_size=1, title_space=1.75, point_center=False, point_edges=True, reverse=False, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.25, show_result_size=0.5, show_result_color="black", show_result_decimals=1):
     """
     Draw a scale.
 	HELP INCOMPLETE.
@@ -160,13 +160,13 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
 
     def draw_all():
         #Draw the mask
-        rectangle(x=scale_x, y=scale_y,width = line_length + anchors_space + 8,height=2,line_color=background_color,thickness=0,fill_color=background_color,opacity=225)
+        rectangle(x=scale_x, y=scale_y,width = line_length + anchors_space + 8,height=2,line_color=background,thickness=0,fill_color=background,opacity=225)
         if analog is False:
-            rectangle(x=scale_x, y=scale_y + labels_space,width = line_length + anchors_space + 1,height=3,line_color=background_color,thickness=0,fill_color=background_color,opacity=225)
+            rectangle(x=scale_x, y=scale_y + labels_space,width = line_length + anchors_space + 1,height=3,line_color=background,thickness=0,fill_color=background,opacity=225)
         if title != None:
-            rectangle(x=scale_x, y=scale_y + title_space,width = line_length*2,height=1,line_color=background_color,thickness=0,fill_color=background_color,opacity=225)
+            rectangle(x=scale_x, y=scale_y + title_space,width = line_length*2,height=1,line_color=background,thickness=0,fill_color=background,opacity=225)
         if show_result is True:
-            rectangle(x=scale_x, y=y-show_result_space,width=line_length + anchors_space + 8,height=show_result_shape_size+0.7, line_color=background_color, thickness=0, fill_color=background_color, opacity=225)
+            rectangle(x=scale_x, y=y-show_result_space,width=line_length + anchors_space + 8,height=show_result_shape_size+0.7, line_color=background, thickness=0, fill_color=background, opacity=225)
 #        Draw the line
         pygame.draw.line(screen, color(line_color), [edge_left_raw,scale_y_raw], [edge_right_raw,scale_y_raw], line_thickness)
         if style == "absorption":

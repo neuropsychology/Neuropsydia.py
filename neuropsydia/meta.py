@@ -20,7 +20,7 @@ from .ask import *
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def instructions(text, background_color='white', color="black", size=1.0,
+def instructions(text, background='white', color="black", size=1.0,
                  title=None, replace_title=False, end_text="Appuyez sur ENTRER pour commencer."):
     """
     Help incomplete, sorry.
@@ -46,7 +46,7 @@ def instructions(text, background_color='white', color="black", size=1.0,
     - pygame 1.9.2
     - time
     """
-    newpage(background_color, auto_refresh=False)
+    newpage(background, auto_refresh=False)
     if replace_title == False:
         write("INSTRUCTIONS", style="title", color=color)
         if title != None:
@@ -66,7 +66,7 @@ def instructions(text, background_color='white', color="black", size=1.0,
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def questionnaire(questions_dictionary, questions_list_key_name='Item', background_color='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_type="csv", results_name="questionnaire_results", results_path="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black"):
+def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_type="csv", results_name="questionnaire_results", results_path="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black"):
     """
     A wrapper function for easily creating questionnaires. You can go back or foth using the LEFT and RIGHT keyboard arrows.
 
@@ -145,7 +145,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
     i = 0
     while i < n_questions:
         try:
-            newpage(background_color, auto_refresh=False)
+            newpage(background, auto_refresh=False)
             time.wait(30)
             if show_page_number is True:
                 write('Question n°' + str(i+1) + '/' + str(n_questions), style="light", y=9)
@@ -160,7 +160,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
                     reverse_question=reverse
 
             t0 = builtin_time.clock()
-            answer = scale(style=style, anchors = anchors, anchors_space=anchors_space, anchors_size=anchors_size, edges = edges, validation=validation, analog=analog, step=step, labels=labels, labels_size=labels_size, labels_rotation=labels_rotation, labels_space=labels_space,labels_x=labels_x, line_thickness=line_thickness, line_length=line_length, line_color=line_color, background_color=background_color, title=title, title_style=title_style, title_size=title_size, title_space=title_space, reverse=reverse_question, point_center=point_center, point_edges=point_edges, force_separation=force_separation, separation_labels=separation_labels, separation_labels_size=separation_labels_size, separation_labels_rotate=separation_labels_rotate, separation_labels_space=separation_labels_space, show_result=show_result, show_result_shape=show_result_shape, show_result_shape_fill_color=show_result_shape_fill_color, show_result_shape_line_color=show_result_shape_line_color, show_result_shape_size=show_result_shape_size, show_result_space=show_result_space, show_result_size=show_result_size, show_result_color=show_result_color)
+            answer = scale(style=style, anchors = anchors, anchors_space=anchors_space, anchors_size=anchors_size, edges = edges, validation=validation, analog=analog, step=step, labels=labels, labels_size=labels_size, labels_rotation=labels_rotation, labels_space=labels_space,labels_x=labels_x, line_thickness=line_thickness, line_length=line_length, line_color=line_color, background=background, title=title, title_style=title_style, title_size=title_size, title_space=title_space, reverse=reverse_question, point_center=point_center, point_edges=point_edges, force_separation=force_separation, separation_labels=separation_labels, separation_labels_size=separation_labels_size, separation_labels_rotate=separation_labels_rotate, separation_labels_space=separation_labels_space, show_result=show_result, show_result_shape=show_result_shape, show_result_shape_fill_color=show_result_shape_fill_color, show_result_shape_line_color=show_result_shape_line_color, show_result_shape_size=show_result_shape_size, show_result_space=show_result_space, show_result_size=show_result_size, show_result_color=show_result_color)
             RT = (builtin_time.clock()-t0 ) * 1000
             if answer == 'RIGHT':
                 answer = "NA"
