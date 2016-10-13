@@ -4,7 +4,6 @@ import numpy as np
 
 from .path import *
 from .core import *
-from .core import background_color as core_background_color  # avoid conflict with arg name
 
 
 # ==============================================================================
@@ -227,7 +226,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
 #==============================================================================
 #==============================================================================
 def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0,
-          fullscreen=False, rotate=0, scramble=False, background_color=None,
+          fullscreen=False, rotate=0, scramble=False, background=None,
           compress=False, compression=0, allow=None, wait=None, opacity=100):
     """
     Help incomplete, sorry.
@@ -254,8 +253,8 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0,
     - PIL
     - time
     """
-    if background_color != None:
-        core_background_color(background_color)
+    if background != None:
+        newpage(background, auto_refresh=False)
 
     if cache == None:
         cache = preload(file=file, cache=cache, path=path, extension=extension,

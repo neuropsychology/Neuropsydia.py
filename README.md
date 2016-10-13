@@ -12,10 +12,15 @@ A Python module for creating experiments, tasks and questionnaires.
 
 ---
 # Installation
-To get the latest development version (`0.0.2`), run the following in the command prompt:
+To get the latest stable version (`0.0.2`), run the following in the command prompt:
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
+To get the latest development version (`0.0.3`), run the following in the command prompt:
+```python
+pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
+```
+
 **NOTE: We strongly recommend (for Windows users) the use of the [WinPython](https://winpython.github.io/) bundle, that will allow  you to have a ready-to-go scientific and portable Python setup.**
 <p align="left">
 <a href="">
@@ -85,7 +90,7 @@ import numpy as np  # To do some maths
 
 n.start()  # Start neuropsydia
 n.instructions("Goal: Hit SPACE whenever a GREEN circle appears. \nWhen it is RED, don't press anything.")  # Display instructions and break line with \n
-n.background_color("grey")  # Fill the screen
+n.newpage("grey")  # Fill the screen
 n.countdown()  # Display countdown
 
 # Initialize the data storage with a dictionary containing empty lists
@@ -99,7 +104,7 @@ for trial in range(5):  # Iterate over the number of trials
     stimulus = random.choice(["green", "red"])  # Select a stimulus type
     ISI = random.randrange(start=500, stop=2000, step=500)  # Select the inter-stimuli interval (ISI)
 
-    n.background_color("grey")  # Fill the screen
+    n.newpage("grey")  # Fill the screen
     n.write("+")  # Fixation cross
     n.refresh()  # Diplay it on screen
     n.time.wait(ISI)  # Wait
@@ -182,7 +187,7 @@ n.close()
 import neuropsydia as n
 
 n.start()
-n.background_color()
+n.newpage()
 
 n.scale(title="Is Python great?",
         y=3.3,

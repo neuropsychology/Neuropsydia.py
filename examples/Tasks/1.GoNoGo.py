@@ -6,7 +6,7 @@ import numpy as np  # To do some maths
 
 n.start()  # Start neuropsydia
 n.instructions("Goal: Hit SPACE whenever a GREEN circle appears. \nWhen it is RED, don't press anything.")  # Display instructions and break line with \n
-n.background_color("grey")  # Fill the screen
+n.newpage("grey")  # Fill the screen
 n.countdown()  # Display countdown
 
 # Initialize the data storage with a dictionary containing empty lists
@@ -20,7 +20,7 @@ for trial in range(5):  # Iterate over the number of trials
     stimulus = random.choice(["green", "red"])  # Select a stimulus type
     ISI = random.randrange(start=500, stop=2000, step=500)  # Select the inter-stimuli interval (ISI)
 
-    n.background_color("grey")  # Fill the screen
+    n.newpage("grey")  # Fill the screen
     n.write("+")  # Fixation cross
     n.refresh()  # Diplay it on screen
     n.time.wait(ISI)  # Wait

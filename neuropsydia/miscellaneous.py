@@ -152,7 +152,7 @@ def circle(x=0, y=0, size=10, line_color="black", thickness=0, fill_color="white
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def countdown(style="circle", duration=3000, width=5, reverse=False, background_color="white", write_seconds=True, write_color="white", write_outline="black", color_fade=False, color_start="red", color_end="green", sound=False, melody=[1000, 1500]):
+def countdown(style="circle", duration=3000, width=5, reverse=False, background="white", write_seconds=True, write_color="white", write_outline="black", color_fade=False, color_start="red", color_end="green", sound=False, melody=[1000, 1500]):
     """
     Help incomplete, sorry.
 
@@ -202,11 +202,11 @@ def countdown(style="circle", duration=3000, width=5, reverse=False, background_
         time.control(60)
         fill_color = tuple([red,green,blue])
         if style == "rectangle":
-            rectangle(fill_color=background_color, width=original_width, height=original_width, thickness=2)
+            rectangle(fill_color=background, width=original_width, height=original_width, thickness=2)
             rectangle(fill_color=fill_color, width=width, height=width)
 
         if style == "circle":
-            circle(fill_color=background_color, size=original_width)
+            circle(fill_color=background, size=original_width)
             circle(fill_color=fill_color, size=width)
         if write_seconds==True:
             write("%i" %((duration/1000+1)-(builtin_time.clock()-t0)), size = 2, color=write_color,outline=True, outline_color=write_outline)

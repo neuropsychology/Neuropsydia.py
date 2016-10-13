@@ -20,7 +20,7 @@ from .core import color as core_color #avoid conflict with arg name
 #==============================================================================
 #==============================================================================
 def ask(text="Write something here:", style='light', x=-8, y=0, order=None,
-           size=1.0, color="black", background_color="white", hide=False,
+           size=1.0, color="black", background="white", hide=False,
            detach_question=False, question_style="light", question_x=0, question_y=0,
            question_size=1, question_color="black", question_long_text=False,
            allow=None, allow_length=None, allow_type=None, allow_max=None):
@@ -43,7 +43,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None,
         text size
     color = str or tuple, optional
         color of the text. See color() function.
-    background_color = str or tuple, optional
+    background = str or tuple, optional
         color of the background. See color() function. Default to None
     hide = bool, optional
         display "****" (stars) instead of the actual answer
@@ -122,7 +122,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None,
     while loop == True:
         surface=font.render(text_new, 1, core_color(color))
         size = surface.get_size()
-        pygame.draw.rect(screen, core_color(background_color), (x,y,size[0],size[1]))
+        pygame.draw.rect(screen, core_color(background), (x,y,size[0],size[1]))
         screen.blit(surface, (x,y))
         pygame.display.flip()
 
@@ -137,7 +137,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None,
                 if user_input != '':
                     user_input = user_input[:len(user_input)-1]
                     text_new = text_new[:len(text_new)-1]
-                    pygame.draw.rect(screen, core_color(background_color), (x,y,size[0],size[1]))
+                    pygame.draw.rect(screen, core_color(background), (x,y,size[0],size[1]))
             else:
                 user_input = user_input + str(answer)
                 if hide is True:
@@ -177,11 +177,11 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None,
                 if warning == 1:
                     surface = font.render(warning_text, 1, core_color(color))
                     size = surface.get_size()
-                    pygame.draw.rect(screen,  core_color(background_color), (x,y,size[0],size[1]))
+                    pygame.draw.rect(screen,  core_color(background), (x,y,size[0],size[1]))
                     screen.blit(surface, (x,y))
                     refresh()
                     pygame.time.delay(700)
-                    pygame.draw.rect(screen,  core_color(background_color), (x,y,size[0],size[1]))
+                    pygame.draw.rect(screen,  core_color(background), (x,y,size[0],size[1]))
                     refresh()
                 else:
                     return(user_input)

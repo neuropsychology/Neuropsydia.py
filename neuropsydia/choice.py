@@ -2,8 +2,6 @@
 from .path import *
 from .core import *
 from .write import *
-from .core import background_color as core_background_color #avoid conflict with arg name
-
 
 
 
@@ -19,7 +17,7 @@ from .core import background_color as core_background_color #avoid conflict with
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color="black", y=0, height=-5, boxes_space=0.5, boxes_background_color='blue_shade', boxes_edge_color="black", boxes_edge_size=5, confirm_edge_color="orange", confirm_edge_size=3, help_list=None, help_background_color="lightgrey", title=None, title_position="default", title_x=-7.5, title_space=0.75, pictures=None, pictures_size=0.5):
+def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color="black", y=0, height=-5, boxes_space=0.5, boxes_background='blue_shade', boxes_edge_color="black", boxes_edge_size=5, confirm_edge_color="orange", confirm_edge_size=3, help_list=None, help_background="lightgrey", title=None, title_position="default", title_x=-7.5, title_space=0.75, pictures=None, pictures_size=0.5):
     """
     Help incomplete, sorry.
 
@@ -88,12 +86,12 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
     def Display():
 
         for i in range(number):
-            if isinstance(boxes_background_color, list) == True:
-                pygame.draw.rect(screen, color(boxes_background_color[i]), (coordinates['x'][i],coordinates['y'][i],coordinates['width'],coordinates['height']),0)
-            elif isinstance(color(boxes_background_color), list) == True:
-                pygame.draw.rect(screen, color(boxes_background_color)[i], (coordinates['x'][i],coordinates['y'][i],coordinates['width'],coordinates['height']),0)
+            if isinstance(boxes_background, list) == True:
+                pygame.draw.rect(screen, color(boxes_background[i]), (coordinates['x'][i],coordinates['y'][i],coordinates['width'],coordinates['height']),0)
+            elif isinstance(color(boxes_background), list) == True:
+                pygame.draw.rect(screen, color(boxes_background)[i], (coordinates['x'][i],coordinates['y'][i],coordinates['width'],coordinates['height']),0)
             else:
-                pygame.draw.rect(screen, color(boxes_background_color), (coordinates['x'][i],coordinates['y'][i],coordinates['width'],coordinates['height']),0)
+                pygame.draw.rect(screen, color(boxes_background), (coordinates['x'][i],coordinates['y'][i],coordinates['width'],coordinates['height']),0)
             if boxes_edge_size != 0:
                 pygame.draw.rect(screen, color(boxes_edge_color), (coordinates['x'][i],coordinates['y'][i],coordinates['width'],coordinates['height']), boxes_edge_size)
             if write_choices is True:
@@ -124,7 +122,7 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
                 if y > coordinates['y'][0] and y < (coordinates['y'][0]+coordinates['height']):
                         for i in range(number):
                             if x < (coordinates['x'][i]+coordinates['width']) and x > coordinates['x'][i]:
-                                pygame.draw.rect(screen, color(help_background_color), (Coordinates.to_pygame(x=-10),coordinates['y'][i]+coordinates['height']+Coordinates.to_pygame(distance_y=-0.25),screen_width,Coordinates.to_pygame(distance_y=-1.50)),0)
+                                pygame.draw.rect(screen, color(help_background), (Coordinates.to_pygame(x=-10),coordinates['y'][i]+coordinates['height']+Coordinates.to_pygame(distance_y=-0.25),screen_width,Coordinates.to_pygame(distance_y=-1.50)),0)
                                 write(help_list[i],y=raw_y+coordinates['height_raw']-1)
                                 pygame.display.flip()
 

@@ -2,7 +2,7 @@
 import neuropsydia as n
 
 n.start()
-n.background_color()
+n.newpage()
 
 n.scale(title="Is Python great?",
         y=3.3,
