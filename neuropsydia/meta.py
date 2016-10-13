@@ -46,7 +46,7 @@ def instructions(text, background_color='white', color="black", size=1.0,
     - pygame 1.9.2
     - time
     """
-    core_background_color(background_color)
+    newpage(background_color, auto_refresh=False)
     if replace_title == False:
         write("INSTRUCTIONS", style="title", color=color)
         if title != None:
