@@ -12,10 +12,15 @@ A Python module for creating experiments, tasks and questionnaires.
 
 ---
 # Installation
-To get the latest development version (`0.0.3`), run the following in the command prompt:
+To get the latest stable version (`0.0.2`), run the following in the command prompt:
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
+To get the latest development version (`0.0.3`), run the following in the command prompt:
+```python
+pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
+```
+
 **NOTE: We strongly recommend (for Windows users) the use of the [WinPython](https://winpython.github.io/) bundle, that will allow  you to have a ready-to-go scientific and portable Python setup.**
 <p align="left">
 <a href="">
