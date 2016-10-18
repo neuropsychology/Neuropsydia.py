@@ -59,40 +59,40 @@ class Trigger():
             stimtracker.set_pulse_duration(self.stimtracker_duration)
 
     def start(self, trigger=1, port=0x378, lines=1):
-		"""
-		Send the trigger.
+        """
+        Send the trigger.
 
-		Parameters
-		----------
-		trigger = int, optional
-			What trigger to send (TTL).
-		port = binary, optional
-			Port address (TTL).
-		lines = int, optional
-			Lines to activate (stimtracker).
+        Parameters
+        ----------
+        trigger = int, optional
+            What trigger to send (TTL).
+        port = binary, optional
+            Port address (TTL).
+        lines = int, optional
+            Lines to activate (stimtracker).
 
-		Returns
-		----------
-		None
+        Returns
+        ----------
+        None
 
-		Example
-		----------
-		>>> import neuropsydia as n
-		>>> n.start()
-		>>> trigger = n.Trigger()
-		>>> trigger.start()
-		>>> trigger.stop()
-		>>> n.close()
+        Example
+        ----------
+        >>> import neuropsydia as n
+        >>> n.start()
+        >>> trigger = n.Trigger()
+        >>> trigger.start()
+        >>> trigger.stop()
+        >>> n.close()
 
-		Authors
-		----------
-		Dominique Makowski
+        Authors
+        ----------
+        Dominique Makowski
 
-		Dependencies
-		----------
-		- ctypes
-		- pyxid
-		"""
+        Dependencies
+        ----------
+        - ctypes
+        - pyxid
+        """
         if self.photosensor != None:
             if self.photosensor_position == "bottomleft":
                 rectangle(x=-10, y=-10, width=screen_width/screen_width, height=screen_width/screen_height, thickness=0, fill_color=self.photosensor)
@@ -106,38 +106,38 @@ class Trigger():
             stimtracker.activate_line(lines=lines)
 
     def stop(self, trigger=0, port=0x378):
-		"""
-		Return to baseline (for TTL only).
+        """
+        Return to baseline (for TTL only).
 
-		Parameters
-		----------
-		trigger = int, optional
-			What trigger to send (TTL).
-		port = binary, optional
-			Port address (TTL).
+        Parameters
+        ----------
+        trigger = int, optional
+            What trigger to send (TTL).
+        port = binary, optional
+            Port address (TTL).
 
-		Returns
-		----------
-		None
+        Returns
+        ----------
+        None
 
-		Example
-		----------
-		>>> import neuropsydia as n
-		>>> n.start()
-		>>> trigger = n.Trigger()
-		>>> trigger.start()
-		>>> trigger.stop()
-		>>> n.close()
+        Example
+        ----------
+        >>> import neuropsydia as n
+        >>> n.start()
+        >>> trigger = n.Trigger()
+        >>> trigger.start()
+        >>> trigger.stop()
+        >>> n.close()
 
-		Authors
-		----------
-		Dominique Makowski
+        Authors
+        ----------
+        Dominique Makowski
 
-		Dependencies
-		----------
-		- ctypes
-		- pyxid
-		"""
+        Dependencies
+        ----------
+        - ctypes
+        - pyxid
+        """
         if self.method == "TTL":
             try:
                 io.DlPortWritePortUchar(port, trigger)
