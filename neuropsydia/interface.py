@@ -53,10 +53,10 @@ class Trigger():
                 print("NEUROPSYDIA WARNING: Trigger(): The parallel port couldn't be opened")
         if self.stimtracker == True:
             import pyxid
-            global stimtracker
-            stimtracker = pyxid.get_xid_devices()
-            stimtracker = stimtracker[0]
-            stimtracker.set_pulse_duration(self.stimtracker_duration)
+            global device
+            device = pyxid.get_xid_devices()
+            device = device[0]
+            device.set_pulse_duration(self.stimtracker_duration)
 
     def start(self, trigger=1, port=0x378, lines=1):
         """
@@ -103,7 +103,7 @@ class Trigger():
             except:
                 print('NEUROPSYDIA WARNING: Trigger.start(): Failed to send trigger!')
         if self.stimtracker == True:
-            stimtracker.activate_line(lines=lines)
+            device.activate_line(lines=lines)
 
     def stop(self, trigger=0, port=0x378):
         """
