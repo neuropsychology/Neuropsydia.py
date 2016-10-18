@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
 name = "neuropsydia",
 description = ("A Python module for creating experiments, tasks and questionnaires."),
-version = "0.0.3",
+version = "0.1.0",
 license = "Mozilla Public License Version 2.0",
 author = "Dominique Makowski",
 author_email = "dom.makowski@gmail.com",
@@ -23,10 +23,11 @@ install_requires = [
 	'plotly>=1.12.9',
 	'cryptography>=1.5.2',
 	'python-docx>=0.8.6'],
+dependency_links=['https://github.com/cedrus-opensource/pyxid/zipball/master'],
 long_description = open('README.md').read(),
 keywords = "python neuropsychology neuropsydia experiment creation",
 url = "https://github.com/neuropsychology/Neuropsydia.py/",
-download_url = 'https://github.com/neuropsychology/Neuropsydia.py/tarball/0.0.1',
+download_url = 'https://github.com/neuropsychology/Neuropsydia.py/tarball/0.1.0',
 test_suite='nose.collector',
 tests_require=['nose'],
 classifiers = [

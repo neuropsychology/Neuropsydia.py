@@ -23,7 +23,7 @@ class Time():
         - wait()
     See those for further informations.
 
-    Note that by default, there is already a Time class object called "time"      (lowercase) that is initialized at neuropsydia loading. To improve clarity, use this one (e.g., n.time.wait() ), especially for wait() and control() functions.
+    Note that by default, there is already a Time class object called "time" (lowercase) that is initialized at neuropsydia's loading. For the sake of clarity, use this one (e.g., n.time.wait() ), especially for wait() and control() functions.
 
     Parameters
     ----------
