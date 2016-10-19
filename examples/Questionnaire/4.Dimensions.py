@@ -21,7 +21,6 @@ questions_dictionary = {
         3: "Python",
         4: "Python"
     }
-
 }
 
 n.start()
