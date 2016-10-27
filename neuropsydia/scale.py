@@ -226,9 +226,8 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
 
 
             if event.type == pygame.KEYDOWN:
-                print(pygame.K_ESCAPE)
                 if event.key == pygame.K_ESCAPE:
-                    return("ESCAPE")
+                    return(np.nan)
                 if keys["normal"][event.key] == "LEFT" or keys["normal"][event.key] == "RIGHT":
                     pygame.event.set_blocked(pygame.KEYDOWN)
                     return(keys["normal"][event.key])
@@ -258,7 +257,7 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
                                 for event in pygame.event.get():
                                     if event.type == pygame.KEYDOWN:
                                         if event.key == pygame.K_ESCAPE:
-                                            return("ESCAPE")
+                                            return(np.nan)
                                         if keys["normal"][event.key] == "LEFT" or keys["normal"][event.key] == "RIGHT":
                                             pygame.event.set_blocked(pygame.KEYDOWN)
                                             return(keys["normal"][event.key])
