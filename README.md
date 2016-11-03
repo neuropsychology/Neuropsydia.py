@@ -4,7 +4,7 @@ A Python module for creating experiments, tasks and questionnaires.
 
 ---
 
-|Name|neuropsydia_2|
+|Name|neuropsydia|
 |----------------|---|
 |Status|![](https://img.shields.io/badge/status-stable-brightgreen.svg)|
 |Latest Version|![](https://img.shields.io/badge/version-0.1.0-brightgreen.svg)|
