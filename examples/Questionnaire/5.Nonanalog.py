@@ -33,6 +33,6 @@ n.questionnaire(questions_dictionary,  # The questions
                 analog=False,  # Lickert-like
                 edges=[0, 7],  # Values underneath
                 style="blue",  # The cursor's colour
-                randomize=True)  # Randomize the question's order
+                randomize=True,  # Randomize the question's order
+                instructions_text="Here are the instructions")  # Add instructions at the beginning
 n.close()
-
