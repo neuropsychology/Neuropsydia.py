@@ -224,7 +224,7 @@ n.close()
 
 <p align="left">
 <a href="">
-<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-choice.gif" height="500" alt="interactive scale psychology">
+<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-choice.gif" height="500" alt="interactive choice psychology remember guess know">
 </a>
 </p>
 
