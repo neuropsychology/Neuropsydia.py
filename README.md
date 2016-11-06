@@ -64,6 +64,7 @@ Tutorials are currently under development. Check out [this page](https://github.
   - 1.4 The novice's trial
 - Apprentice
   - 2.0 Basics of Python programming
+  - [2.1 Structuring your Code]  (https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/2.1.Structuring_Code.md)
   - 2.1 Create a Stroop task
   - 2.2 The apprentice's trial
 - Companion
