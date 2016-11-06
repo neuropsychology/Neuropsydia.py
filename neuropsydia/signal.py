@@ -14,7 +14,8 @@ import numpy as np
 # ==============================================================================
 def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
            solver=None, options={'reltol':1e-9}):
-    """CVXEDA Convex optimization approach to electrodermal activity processing
+    """
+    CVXEDA Convex optimization approach to electrodermal activity processing
 
     This function implements the cvxEDA algorithm described in "cvxEDA: a
     Convex Optimization Approach to Electrodermal Activity Processing"
@@ -23,26 +24,41 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
 
     Parameters
     ----------
-       y: observed EDA signal (we recommend normalizing it: y = zscore(y))
-       delta: sampling interval (in seconds) of y
-       tau0: slow time constant of the Bateman function
-       tau1: fast time constant of the Bateman function
-       delta_knot: time between knots of the tonic spline function
-       alpha: penalization for the sparse SMNA driver
-       gamma: penalization for the tonic spline coefficients
-       solver: sparse QP solver to be used, see cvxopt.solvers.qp
-       options: solver options, see:
-                http://cvxopt.org/userguide/coneprog.html#algorithm-parameters
+       y
+           observed EDA signal (we recommend normalizing it: y = zscore(y))
+       delta
+           sampling interval (in seconds) of y
+       tau0
+           slow time constant of the Bateman function
+       tau1
+           fast time constant of the Bateman function
+       delta_knot
+           time between knots of the tonic spline function
+       alpha
+           penalization for the sparse SMNA driver
+       gamma
+           penalization for the tonic spline coefficients
+       solver
+           sparse QP solver to be used, see cvxopt.solvers.qp
+       options
+           solver options, see http://cvxopt.org/userguide/coneprog.html#algorithm-parameters
 
     Returns
     ----------
-       r: phasic component
-       p: sparse SMNA driver of phasic component
-       t: tonic component
-       l: coefficients of tonic spline
-       d: offset and slope of the linear drift term
-       e: model residuals
-       obj: value of objective function being minimized (eq 15 of paper)
+       r
+           phasic component
+       p
+           sparse SMNA driver of phasic component
+       t
+           tonic component
+       l
+           coefficients of tonic spline
+       d
+           offset and slope of the linear drift term
+       e
+           model residuals
+       obj
+           value of objective function being minimized (eq 15 of paper)
 
     Authors
     ----------
