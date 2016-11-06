@@ -228,9 +228,10 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     return(np.nan)
-                if keys["normal"][event.key] == "LEFT" or keys["normal"][event.key] == "RIGHT":
-                    pygame.event.set_blocked(pygame.KEYDOWN)
-                    return(keys["normal"][event.key])
+                if event.key in keys["normal"]:
+                    if keys["normal"][event.key] == "LEFT" or keys["normal"][event.key] == "RIGHT":
+                        pygame.event.set_blocked(pygame.KEYDOWN)
+                        return(keys["normal"][event.key])
             if cursor_y < scale_y+2 and cursor_y > scale_y-2:
                 if cursor_x < edge_right + 2 and  cursor_x > edge_left - 2:
                     #fix the x
@@ -258,9 +259,10 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
                                     if event.type == pygame.KEYDOWN:
                                         if event.key == pygame.K_ESCAPE:
                                             return(np.nan)
-                                        if keys["normal"][event.key] == "LEFT" or keys["normal"][event.key] == "RIGHT":
-                                            pygame.event.set_blocked(pygame.KEYDOWN)
-                                            return(keys["normal"][event.key])
+                                        if event.key in keys["normal"]:
+                                            if keys["normal"][event.key] == "LEFT" or keys["normal"][event.key] == "RIGHT":
+                                                pygame.event.set_blocked(pygame.KEYDOWN)
+                                                return(keys["normal"][event.key])
                                     if pygame.mouse.get_pressed()==(1,0,0):
                                         time.wait(100)
                                         mouse_pressed = False
