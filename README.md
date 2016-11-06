@@ -222,4 +222,28 @@ n.close()
 ## Choices
 - [x] Easily display clickable choices, useful in case of recognition tasks or so.
 
+<p align="left">
+<a href="">
+<img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-choice.gif" height="500" alt="interactive scale psychology">
+</a>
+</p>
 
+```python
+import neuropsydia as n
+
+n.start()
+
+n.newpage()
+
+response = n.choice(["Yes", "No"], y=5, title="Isn't it easy?")
+
+response = n.choice(["Hell no", "Nope", "Dunno", "Sure"],
+                    y=-5,
+                    title="Am I better looking?",
+                    height=-2,
+                    boxes_edge_size=0,
+                    boxes_background=["red", "amber", "teal", "blue"],
+                    help_list=["means not at all", "means no", "means you don't know", "means yes"])
+
+n.close()
+``` 
