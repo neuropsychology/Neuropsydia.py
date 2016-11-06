@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from .path import *
 from .core import *
 from .miscellaneous import *
