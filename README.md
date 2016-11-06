@@ -60,7 +60,7 @@ Tutorials are currently under development. Check out [this page](https://github.
   - [1.0 Getting Started](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.0.Getting_Started.md)
   - [1.1 Computerize a questionnaire](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.1.Computerize_Questionnaire.md)
   - [1.2 Complexify this questionnaire](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.2.Complexify_Questionnaire.md)
-  - 1.3 Include info about the participant
+  - [1.3 Include info about the participant]  (https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.3.Include_Info_Participant.md)
   - 1.4 The novice's trial
 - Apprentice
   - 2.0 Basics of Python programming
