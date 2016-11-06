@@ -9,13 +9,13 @@ A Python module for creating experiments, tasks and questionnaires.
 |Name|neuropsydia|
 |----------------|---|
 |Status|![](https://img.shields.io/badge/status-stable-brightgreen.svg)|
-|Latest Version|![](https://img.shields.io/badge/version-0.1.1-brightgreen.svg)|
+|Latest Version|![](https://img.shields.io/badge/version-0.1.2-brightgreen.svg)|
 |Discussion|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
 |Authors|[Dominique Makowski](https://github.com/neuropsychology/Organization/blob/master/CVs/DominiqueMakowski.pdf), Léo Dutriaux|
 
 ---
 # Installation
-To get the latest stable version (`0.1.1`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
+To get the latest stable version (`0.1.2`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
