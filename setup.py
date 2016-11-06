@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
 name = "neuropsydia",
 description = ("A Python module for creating experiments, tasks and questionnaires."),
-version = "0.1.1",
+version = "0.1.2",
 license = "Mozilla Public License Version 2.0",
 author = "Dominique Makowski",
 author_email = "dom.makowski@gmail.com",
