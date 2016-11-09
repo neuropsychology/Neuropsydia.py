@@ -297,10 +297,12 @@ def triggers_from_photodiode(photo_channel, names=None, treshold=0.04):
               str(len(event_times)) + "), change names or crop the raw data")
     if names != None:
         events = np.array([event_times, [0]*len(event_times), names]).T
+        return(events, event_id, names)
     else:
         events = np.array([event_times, [0]*len(event_times), [1]*len(event_times)]).T
+        return(events, event_id)
 
-    return(events, event_id)
+    
 
 
 
