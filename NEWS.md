@@ -6,7 +6,7 @@ Secret.
 ### New functions
  - `acq_to_df()`
  - `get_creation_date()`
- - `process_EDA()` Thanks to [Luca Citi and Alberto Greco](http://ieeexplore.ieee.org/document/7229284/)
+ - `process_EDA()`: Thanks to [Luca Citi and Alberto Greco](http://ieeexplore.ieee.org/document/7229284/)
  
 ### Breaking changes
 ### Major changes
