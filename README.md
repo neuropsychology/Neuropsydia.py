@@ -8,7 +8,7 @@ A Python module for creating experiments, tasks and questionnaires.
 
 |Name|neuropsydia|
 |----------------|---|
-|Latest Version|![](https://img.shields.io/badge/version-0.1.2-brightgreen.svg)|
+|Latest Version|![](https://img.shields.io/badge/version-0.1.3-brightgreen.svg)|
 |Documentation|[![](https://readthedocs.org/projects/neuropsydiapy/badge/?version=latest)](http://neuropsydiapy.readthedocs.io/en/latest/)|
 |Discussion|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
 |Authors|[![](https://img.shields.io/badge/CV-D.Makowski-purple.svg?colorB=9C27B0)](https://github.com/neuropsychology/Organization/blob/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L.Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
@@ -16,11 +16,11 @@ A Python module for creating experiments, tasks and questionnaires.
 
 ---
 # Installation
-To get the latest stable version (`0.1.2`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
+To get the latest stable version (`0.1.3`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
-[//]: # "To get the latest development version (`0.1.1`), run the following in the command prompt (might take a few minutes):"
+[//]: # "To get the latest development version (`0.1.3`), run the following in the command prompt (might take a few minutes):"
 [//]: # "```python"
 [//]: # "pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev"
 [//]: # "```"
