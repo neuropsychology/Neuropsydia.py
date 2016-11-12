@@ -55,7 +55,7 @@ def read_data(filename, path="", localization="US"):
         except UnicodeDecodeError:
             df = pd.read_csv(filename, sep=sep, decimal=decimal, encoding="cp1125")
     elif ".xls" in filename or ".xlsx" in filename:
-        df = pd.read_excel(filename)
+        df = pd.read_excel(filename, encoding="utf-8")
     else:
         print("NEUROPSYDIA ERROR: read_data(): wrong extension of the datafile")
     return(df)
@@ -210,13 +210,13 @@ def correlation(var1, var2, data=None, r_type="pearson", plot=True, jitter_point
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def select_variables(dataframe, dtype="numeric"):
+def select_variables(df, dtype="numeric"):
     """
     Keep a specific type subset of your pandas dataframe.
 
     Parameters
     ----------
-    dataframe = pandas.DataFrame object
+    df = pandas.DataFrame object
         a pandas dataframe
     dtype = str, optional
         "numeric" or "factor". Note that right now, entering something else than "numeric" will just result in a dataframe with all non-numeric variables.
@@ -240,10 +240,10 @@ def select_variables(dataframe, dtype="numeric"):
     """
     numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
     if dtype == "numeric":
-        newdf = dataframe.copy().select_dtypes(include = numerics)
+        subset = df.copy().select_dtypes(include = numerics)
     else:
-        newdf = dataframe.copy().select_dtypes(include != numerics)
-    return(newdf)
+        subset = df.copy().select_dtypes(include != numerics)
+    return(subset)
 
 
 # ==============================================================================
@@ -617,7 +617,7 @@ def dprime(n_Hit=None, n_Miss=None, n_FA=None, n_CR=None):
 
     Authors
     ----------
-    Jonas Kristoffer
+    Dominique Makowski
 
     Dependencies
     ----------
@@ -679,7 +679,7 @@ def identify_outliers(serie, treshold=3):
 
     Authors
     ----------
-    Jonas Kristoffer
+    Dominique Makowski
 
     Dependencies
     ----------
@@ -704,7 +704,7 @@ def identify_outliers(serie, treshold=3):
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def z_score(array):
+def z_score(raw_scores):
     """
     Transform an numeric pandas' array or list into Z scores (scaled and centered scores).
 
@@ -722,13 +722,13 @@ def z_score(array):
 
     Authors
     ----------
-    Jonas Kristoffer
+    Dominique Makowski
 
     Dependencies
     ----------
     - scipy
     """
-    array = pd.Series(array)
+    array = pd.Series(raw_scores)
 
     mean = array.mean()
     sd = array.std(ddof=0)

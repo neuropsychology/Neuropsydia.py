@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 
 
+
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
@@ -12,7 +13,119 @@ import numpy as np
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
+def acq_to_df(file, samples=1, unit="ms", method="mean"):
+    """
+    Format a BIOPAC's AcqKnowledge file into a pandas' dataframe.
+
+    Parameters
+    ----------
+    file =  str
+        the path of a BIOPAC's AcqKnowledge file
+    samples = int
+        the final frequency (samples/unit)
+    unit = str
+        "ms" or "s", the final frequency
+    method = str
+        "mean" or "pad", resampling method
+
+    Returns
+    ----------
+    df = pandas.DataFrame()
+        the dataframe
+
+
+    Example
+    ----------
+    >>> import bioread
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>>
+    >>> file = bioread.read('file.acq')
+    >>> df = acq_to_df(file)
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - pandas
+    - bioread
+    - datetime
+    """
+    import bioread
+    from .miscellaneous import get_creation_date
+
+    # Read file
+    creation_date = get_creation_date(file)
+    file = bioread.read(file)
+
+    # Convert creation date
+    creation_date = datetime.datetime.fromtimestamp(creation_date)
+
+
+    # Get the channel frequencies
+    freq_list = []
+    for channel in file.named_channels:
+        freq_list.append(file.named_channels[channel].samples_per_second)
+
+    # Get data with max frequency and the others
+    data = {}
+    data_else = {}
+    for channel in file.named_channels:
+        if file.named_channels[channel].samples_per_second == max(freq_list):
+            data[channel] = file.named_channels[channel].data
+        else:
+            data_else[channel] = file.named_channels[channel].data
+
+    # Create index
+    time = []
+    beginning_date = creation_date - datetime.timedelta(0, max(file.time_index))
+    for timestamps in file.time_index:
+        time.append(beginning_date + datetime.timedelta(0, timestamps))
+
+    df = pd.DataFrame(data, index=time)
+
+    # Create resampling factor
+    if unit == "ms":
+        resample_factor = str(samples) + "L"
+    if unit == "s":
+        resample_factor = str(samples) + "S"
+
+
+    # max frequency must be 1000
+    for channel in data_else:
+        channel_frequency = file.named_channels[channel].samples_per_second
+        serie = data_else[channel]
+        index = list(np.arange(0, max(file.time_index), 1/channel_frequency))
+        index = index[:len(serie)]
+        # Create index
+        time = []
+        for timestamps in index:
+            time.append(beginning_date + datetime.timedelta(0, timestamps))
+        data_else[channel] = pd.Series(serie, index=time)
+    df2 = pd.DataFrame(data_else)
+
+
+    # Resample
+    if method == "mean":
+        df2 = df2.resample(resample_factor).mean()
+        df = df.resample(resample_factor).mean()
+    if method == "pad":
+        df2 = df2.resample(resample_factor).pad()
+        df = df.resample(resample_factor).pad()
+    df = pd.concat([df, df2], 1)
+
+    return(df)
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def cvxEDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
            solver=None, options={'reltol':1e-9}):
     """
     CVXEDA Convex optimization approach to electrodermal activity processing
@@ -24,10 +137,10 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
 
     Parameters
     ----------
-       y
-           observed EDA signal (we recommend normalizing it: y = zscore(y))
-       delta
-           sampling interval (in seconds) of y
+       EDA_raw
+           observed EDA signal (we recommend normalizing it: EDA_raw = zscore(EDA_raw))
+       frequency
+           sampling interval (in seconds) of EDA_raw
        tau0
            slow time constant of the Bateman function
        tau1
@@ -45,12 +158,12 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
 
     Returns
     ----------
-       r
+       phasic
            phasic component
+       tonic
+           tonic component
        p
            sparse SMNA driver of phasic component
-       t
-           tonic component
        l
            coefficients of tonic spline
        d
@@ -76,17 +189,20 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
     - cvxopt
     - numpy
     """
+    from .stats import z_score
     import cvxopt as cv
     import cvxopt.solvers
 
-    n = len(y)
-    y = cv.matrix(y)
+    EDA_raw = z_score(EDA_raw)
+
+    n = len(EDA_raw)
+    EDA_raw = cv.matrix(EDA_raw)
 
     # bateman ARMA model
     a1 = 1./min(tau1, tau0) # a1 > a0
     a0 = 1./max(tau1, tau0)
-    ar = np.array([(a1*delta + 2.) * (a0*delta + 2.), 2.*a1*a0*delta**2 - 8.,
-        (a1*delta - 2.) * (a0*delta - 2.)]) / ((a1 - a0) * delta**2)
+    ar = np.array([(a1*frequency + 2.) * (a0*frequency + 2.), 2.*a1*a0*frequency**2 - 8.,
+        (a1*frequency - 2.) * (a0*frequency - 2.)]) / ((a1 - a0) * frequency**2)
     ma = np.array([1., 2., 1.])
 
     # matrices for ARMA model
@@ -95,7 +211,7 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
     M = cv.spmatrix(np.tile(ma, (n-2,1)), np.c_[i,i,i], np.c_[i,i-1,i-2], (n,n))
 
     # spline
-    delta_knot_s = int(round(delta_knot / delta))
+    delta_knot_s = int(round(delta_knot / frequency))
     spl = np.r_[np.arange(1.,delta_knot_s), np.arange(delta_knot_s, 0., -1.)] # order 1
     spl = np.convolve(spl, spl, 'full')
     spl /= max(spl)
@@ -112,7 +228,7 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
     nC = C.size[1]
 
     # Solve the problem:
-    # .5*(M*q + B*l + C*d - y)^2 + alpha*sum(A,1)*p + .5*gamma*l'*l
+    # .5*(M*q + B*l + C*d - EDA_raw)^2 + alpha*sum(A,1)*p + .5*gamma*l'*l
     # s.t. A*q >= 0
 
     old_options = cv.solvers.options.copy()
@@ -124,7 +240,7 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
         G = cv.sparse([[-A,z(2,n),M,z(nB+2,n)],[z(n+2,nC),C,z(nB+2,nC)],
                     [z(n,1),-1,1,z(n+nB+2,1)],[z(2*n+2,1),-1,1,z(nB,1)],
                     [z(n+2,nB),B,z(2,nB),cv.spmatrix(1.0, range(nB), range(nB))]])
-        h = cv.matrix([z(n,1),.5,.5,y,.5,.5,z(nB,1)])
+        h = cv.matrix([z(n,1),.5,.5,EDA_raw,.5,.5,z(nB,1)])
         c = cv.matrix([(cv.matrix(alpha, (1,n)) * A).T,z(nC,1),1,gamma,z(nB,1)])
         res = cv.solvers.conelp(c, G, h, dims={'l':n,'q':[n+2,nB+2],'s':[]})
         obj = res['primal objective']
@@ -133,10 +249,10 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
         Mt, Ct, Bt = M.T, C.T, B.T
         H = cv.sparse([[Mt*M, Ct*M, Bt*M], [Mt*C, Ct*C, Bt*C],
                     [Mt*B, Ct*B, Bt*B+gamma*cv.spmatrix(1.0, range(nB), range(nB))]])
-        f = cv.matrix([(cv.matrix(alpha, (1,n)) * A).T - Mt*y,  -(Ct*y), -(Bt*y)])
+        f = cv.matrix([(cv.matrix(alpha, (1,n)) * A).T - Mt*EDA_raw,  -(Ct*EDA_raw), -(Bt*EDA_raw)])
         res = cv.solvers.qp(H, f, cv.spmatrix(-A.V, A.I, A.J, (n,len(f))),
                             cv.matrix(0., (n,1)), solver=solver)
-        obj = res['primal objective'] + .5 * (y.T * y)
+        obj = res['primal objective'] + .5 * (EDA_raw.T * EDA_raw)
     cv.solvers.options.clear()
     cv.solvers.options.update(old_options)
 
@@ -146,9 +262,11 @@ def cvxEDA(y, delta, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
     q = res['x'][:n]
     p = A * q
     r = M * q
-    e = y - r - t
+    e = EDA_raw - r - t
 
-    return(np.array(a).ravel() for a in (r, p, t, l, d, e, obj))
+    results = (np.array(a).ravel() for a in (r, t, p, l, d, e, obj))
+
+    return(results)
 
 
 # ==============================================================================
@@ -302,7 +420,7 @@ def triggers_from_photodiode(photo_channel, names=None, treshold=0.04):
         events = np.array([event_times, [0]*len(event_times), [1]*len(event_times)]).T
         return(events, event_id)
 
-    
+
 
 
 
