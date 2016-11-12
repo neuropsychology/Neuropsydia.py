@@ -125,15 +125,13 @@ def acq_to_df(file, samples=1, unit="ms", method="mean"):
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def cvxEDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
+def process_EDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
            solver=None, options={'reltol':1e-9}):
     """
-    CVXEDA Convex optimization approach to electrodermal activity processing
+    A convex optimization approach to electrodermal activity processing (CVXEDA)
 
     This function implements the cvxEDA algorithm described in "cvxEDA: a
-    Convex Optimization Approach to Electrodermal Activity Processing"
-    (http://dx.doi.org/10.1109/TBME.2015.2474131, also available from the
-    authors' homepages).
+    Convex Optimization Approach to Electrodermal Activity Processing" (Greco et al., 2015).
 
     Parameters
     ----------
