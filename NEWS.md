@@ -4,8 +4,8 @@ Secret.
 
 # CURRENT: 0.1.3 (2016-11-12)
 ### New functions
- - `acq_to_df()`
- - `get_creation_date()`
+ - `acq_to_df()`: read and format an BIOPAC's AcqKnowledge file into a Pandas' dataframe
+ - `get_creation_date()`: get creation date of a file
  - `process_EDA()`: Thanks to [Luca Citi and Alberto Greco](http://ieeexplore.ieee.org/document/7229284/)
  
 ### Breaking changes
