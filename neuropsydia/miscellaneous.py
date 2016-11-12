@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from pygame import gfxdraw
+import platform
 
 from .core import *
 from .write import *

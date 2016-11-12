@@ -3,7 +3,12 @@ import mne
 import pandas as pd
 import numpy as np
 
+from .stats import z_score  # process_EDA()
+from .miscellaneous import get_creation_date
 
+import cvxopt as cv  # process_EDA()
+import cvxopt.solvers  # process_EDA()
+import bioread  # acq_to_df()
 
 # ==============================================================================
 # ==============================================================================
@@ -36,12 +41,10 @@ def acq_to_df(file, samples=1, unit="ms", method="mean"):
 
     Example
     ----------
-    >>> import bioread
     >>> import neuropsydia as n
     >>> n.start(False)
     >>>
-    >>> file = bioread.read('file.acq')
-    >>> df = acq_to_df(file)
+    >>> df = acq_to_df('file.acq')
 
     Authors
     ----------
@@ -53,9 +56,6 @@ def acq_to_df(file, samples=1, unit="ms", method="mean"):
     - bioread
     - datetime
     """
-    import bioread
-    from .miscellaneous import get_creation_date
-
     # Read file
     creation_date = get_creation_date(file)
     file = bioread.read(file)
@@ -187,10 +187,6 @@ def process_EDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4
     - cvxopt
     - numpy
     """
-    from .stats import z_score
-    import cvxopt as cv
-    import cvxopt.solvers
-
     EDA_raw = z_score(EDA_raw)
 
     n = len(EDA_raw)
