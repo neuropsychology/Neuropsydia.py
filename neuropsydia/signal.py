@@ -88,7 +88,7 @@ def acq_to_df(file, sampling_rate=1000, method="mean"):
     df = pd.DataFrame(data, index=time)
 
     # Create resampling factor
-    sampling_rate = str(1000/sampling_rate) + "S"
+    sampling_rate = str(1000/sampling_rate) + "L"
 
 
     # max frequency must be 1000
