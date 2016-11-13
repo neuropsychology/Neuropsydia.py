@@ -20,6 +20,7 @@
 import os
 import sys
 import shlex
+import numpydoc
 
 # To be able to import to ReadTheDocs
 from mock import Mock as MagicMock
