@@ -704,7 +704,7 @@ def identify_outliers(serie, treshold=3):
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def z_score(raw_scores):
+def z_score(raw_score):
     """
     Transform an numeric pandas' array or list into Z scores (scaled and centered scores).
 
@@ -728,7 +728,7 @@ def z_score(raw_scores):
     ----------
     - scipy
     """
-    array = pd.Series(raw_scores)
+    array = pd.Series(raw_score)
 
     mean = array.mean()
     sd = array.std(ddof=0)

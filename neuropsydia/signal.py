@@ -126,8 +126,7 @@ def acq_to_df(file, samples=1, unit="ms", method="mean"):
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def process_EDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2,
-           solver=None, options={'reltol':1e-9}):
+def process_EDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2, solver=None, options={'reltol':1e-9}):
     """
     A convex optimization approach to electrodermal activity processing (CVXEDA)
 

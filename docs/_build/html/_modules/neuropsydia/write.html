@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>neuropsydia.write &#8212; neuropsydia  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="neuropsydia  documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for neuropsydia.write</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">.path</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.core</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">.core</span> <span class="k">import</span> <span class="n">color</span> <span class="k">as</span> <span class="n">core_color</span>  <span class="c1"># avoid conflict with arg name</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../neuropsydia.html#neuropsydia.write.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Write something here&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+          <span class="n">rotate</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+          <span class="n">outline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">outline_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">outline_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+          <span class="n">allow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">long_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fast</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display some text on screen.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text = str, optional</span>
+<span class="sd">        The text to display</span>
+<span class="sd">    style = str, optional</span>
+<span class="sd">        &quot;body&quot;, &quot;psychometry&quot;, &quot;psychometry_bold&quot;, &quot;light&quot;, &quot;bold&quot;, &quot;title&quot;, &quot;subtitle&quot; or &quot;end&quot;. Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or a path to a specific font you want to use</span>
+<span class="sd">    x = float, optional</span>
+<span class="sd">        position on x axis (from -10 (left) to 10 (right))</span>
+<span class="sd">    y = float, optional</span>
+<span class="sd">        position on y axis (from -10 (down) to 10 (up))</span>
+<span class="sd">    size = float, optional</span>
+<span class="sd">        text size</span>
+<span class="sd">    rotate = int, optional</span>
+<span class="sd">        angle (0 to 360) by which rotate the text</span>
+<span class="sd">    color = str or tuple, optional</span>
+<span class="sd">        color of the text. See color() function.</span>
+<span class="sd">    background = str or tuple, optional</span>
+<span class="sd">        color of the background. See color() function. Default to None</span>
+<span class="sd">    outline = bool, optional [this parameter needs your help]</span>
+<span class="sd">        outline the text (not perfect for now, the outline is larger for horizontal than for vertical lines)</span>
+<span class="sd">    outline_size = float, optional</span>
+<span class="sd">        the size of the outlining</span>
+<span class="sd">    outline_color = str or tuple</span>
+<span class="sd">        color of  the outlining. See color() function</span>
+<span class="sd">    allow = str, optional</span>
+<span class="sd">        wait until a specific key is pressed (e.g., &quot;ENTER&quot;, or &quot;any&quot; for any). Default to None</span>
+<span class="sd">    long_text = bool, optional [this parameter needs your help]</span>
+<span class="sd">        set to True if you want to write a longer text on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  &quot;\n&quot; in your text (e.g., &quot;\n\n\n here&#39;s my long text\n do you like it?&quot;). Some other parameters are not compatible.</span>
+<span class="sd">    fast = some parameters are toggled off, but faster.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    ----------</span>
+<span class="sd">    &gt;&gt;&gt; import neuropsydia as n</span>
+<span class="sd">    &gt;&gt;&gt; n.start()</span>
+<span class="sd">    &gt;&gt;&gt; n.write(&quot;here&#39;s my  title&quot;, style = &quot;title&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; n.write(&quot;here&#39;s my  text&quot;, font_color = &quot;red&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; n.write(&quot;press ENTER to quit&quot;, style = &quot;end&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; n.close()</span>
+
+<span class="sd">    Authors</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Léo Dutriaux, Dominique Makowski</span>
+
+<span class="sd">    Dependencies</span>
+<span class="sd">    ----------</span>
+<span class="sd">    - pygame 1.9.2</span>
+<span class="sd">    - time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fast</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="o">*</span><span class="n">screen_width</span><span class="o">/</span><span class="mf">35.0</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Coordinates</span><span class="o">.</span><span class="n">to_pygame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">style</span> <span class="o">!=</span> <span class="s1">&#39;body&#39;</span><span class="p">:</span>
+            <span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;RobotoRegular.ttf&#39;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="n">surface</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">core_color</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
+        <span class="n">rectangle</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">rectangle</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="o">*</span><span class="n">screen_width</span><span class="o">/</span><span class="mf">35.0</span><span class="p">)</span>
+        <span class="n">outline_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">outline_size</span><span class="o">*</span><span class="n">screen_width</span><span class="o">/</span><span class="mf">35.0</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;body&#39;</span><span class="p">:</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoRegular.ttf&#39;</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;psychometry&#39;</span><span class="p">:</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;LiberationMono-Regular.ttf&#39;</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;psychometry_bold&#39;</span><span class="p">:</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;LiberationMono-Bold.ttf&#39;</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;light&#39;</span><span class="p">:</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoLight.ttf&#39;</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;bold&#39;</span><span class="p">:</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoBold.ttf&#39;</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;title&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0</span><span class="o">*</span><span class="n">screen_width</span><span class="o">/</span><span class="mf">35.0</span><span class="p">):</span>
+                <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">screen_width</span><span class="o">/</span><span class="mf">35.0</span><span class="p">)</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoBlack.ttf&#39;</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="mf">8.5</span>
+            <span class="k">if</span> <span class="n">background</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+                <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;subtitle&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0</span><span class="o">*</span><span class="n">screen_width</span><span class="o">/</span><span class="mf">35.0</span><span class="p">):</span>
+                <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.5</span><span class="o">*</span><span class="n">screen_width</span><span class="o">/</span><span class="mf">35.0</span><span class="p">)</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoBold.ttf&#39;</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">y</span><span class="o">=</span><span class="mi">7</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoBold.ttf&#39;</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
+            <span class="k">if</span> <span class="n">allow</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+                <span class="n">allow</span><span class="o">=</span><span class="s2">&quot;ENTER&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">font_name</span> <span class="o">=</span> <span class="n">style</span>
+
+        <span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">font_name</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">outline</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="n">font_outline</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">font_name</span><span class="p">,</span> <span class="n">size</span><span class="o">+</span><span class="n">outline_size</span><span class="p">)</span>
+
+        <span class="c1">#If NOT long text</span>
+        <span class="k">if</span> <span class="n">long_text</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Coordinates</span><span class="o">.</span><span class="n">to_pygame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">outline</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">surface</span> <span class="o">=</span> <span class="n">font_outline</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">core_color</span><span class="p">(</span><span class="n">outline_color</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">rotate</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">rotate</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">surface</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span><span class="n">rotate</span><span class="p">)</span>
+                <span class="n">rectangle</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+                <span class="n">rectangle</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+                <span class="n">newpage</span><span class="p">(</span><span class="n">background</span><span class="p">,</span> <span class="n">auto_refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">rectangle</span><span class="p">)</span>
+            <span class="n">surface</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">core_color</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">rotate</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">rotate</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">surface</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span><span class="n">rotate</span><span class="p">)</span>
+            <span class="n">rectangle</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+            <span class="n">rectangle</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">newpage</span><span class="p">(</span><span class="n">background</span><span class="p">,</span> <span class="n">auto_refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">rectangle</span><span class="p">)</span>
+
+
+
+        <span class="c1">#If long text</span>
+        <span class="k">if</span> <span class="n">long_text</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">paragraph</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="n">paragraph</span> <span class="o">=</span> <span class="n">paragraph</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">surface</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">paragraph</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+                    <span class="n">rectangle</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+                    <span class="n">rectangle</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">line</span><span class="o">*</span><span class="n">surface</span><span class="o">.</span><span class="n">get_height</span><span class="p">()))</span>
+                    <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">rectangle</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+                    <span class="n">surface</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">paragraph</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+                    <span class="n">rectangle</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+                    <span class="n">rectangle</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">line</span><span class="o">*</span><span class="n">surface</span><span class="o">.</span><span class="n">get_height</span><span class="p">()))</span>
+                    <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">rectangle</span><span class="p">)</span>
+                    <span class="n">paragraph</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                    <span class="n">line</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">paragraph</span> <span class="o">=</span> <span class="n">paragraph</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
+                        <span class="n">buffer</span> <span class="o">=</span> <span class="n">paragraph</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                            <span class="k">if</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="ow">or</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
+                                <span class="k">break</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">buffer</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">+</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+                        <span class="n">surface_buffer</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+                        <span class="n">rectangle</span> <span class="o">=</span> <span class="n">surface_buffer</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">surface_buffer</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">+</span><span class="n">screen_width</span><span class="o">/</span><span class="mi">4</span><span class="o">&gt;</span><span class="n">screen_width</span><span class="p">:</span>
+                            <span class="n">surface</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">paragraph</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+                            <span class="n">rectangle</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+                            <span class="n">rectangle</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">line</span><span class="o">*</span><span class="n">surface</span><span class="o">.</span><span class="n">get_height</span><span class="p">()))</span>
+                            <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">rectangle</span><span class="p">)</span>
+                            <span class="n">paragraph</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                            <span class="n">line</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+
+
+
+        <span class="c1">#END : In case or one must wait until something</span>
+        <span class="k">if</span> <span class="n">allow</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">wait</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">refresh</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">allow</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">wait</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+                <span class="k">return</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">allow</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span><span class="p">(</span><span class="n">response</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="n">allow</span><span class="p">,</span><span class="n">time_max</span><span class="o">=</span><span class="n">wait</span><span class="p">))</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dominique Makowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

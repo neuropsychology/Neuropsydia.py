@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>neuropsydia.image &#8212; neuropsydia  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="neuropsydia  documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for neuropsydia.image</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.path</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.core</span> <span class="k">import</span> <span class="o">*</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="Preload"><a class="viewcode-back" href="../../neuropsydia.html#neuropsydia.image.Preload">[docs]</a><span class="k">class</span> <span class="nc">Preload</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Preload images.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Authors</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Dominique Makowski</span>
+
+<span class="sd">    Dependencies</span>
+<span class="sd">    ----------</span>
+<span class="sd">    - pygame 1.9.2</span>
+<span class="sd">    - PIL</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dict_PIL</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">list_files</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">list_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">list_files</span> <span class="o">=</span> <span class="n">files</span>
+        <span class="n">n_files</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_files</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">list_x</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">list_x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">list_x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">n_x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_x</span> <span class="o">!=</span> <span class="n">n_files</span><span class="p">:</span>
+            <span class="n">list_files</span> <span class="o">=</span> <span class="n">list_files</span><span class="o">*</span><span class="n">n_x</span>
+            <span class="n">list_x</span> <span class="o">=</span> <span class="n">list_x</span><span class="o">*</span><span class="n">n_files</span>
+            <span class="n">list_files</span> <span class="o">=</span> <span class="n">list_files</span><span class="p">[:</span><span class="nb">max</span><span class="p">([</span><span class="n">n_files</span><span class="p">,</span><span class="n">n_x</span><span class="p">])]</span>
+            <span class="n">list_x</span> <span class="o">=</span> <span class="n">list_x</span><span class="p">[:</span><span class="nb">max</span><span class="p">([</span><span class="n">n_files</span><span class="p">,</span><span class="n">n_x</span><span class="p">])]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">list_y</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">list_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">list_y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">n_y</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_y</span> <span class="o">!=</span> <span class="n">n_files</span><span class="p">:</span>
+            <span class="n">list_files</span> <span class="o">=</span> <span class="n">list_files</span><span class="o">*</span><span class="n">n_y</span>
+            <span class="n">list_y</span> <span class="o">=</span> <span class="n">list_y</span><span class="o">*</span><span class="n">n_files</span>
+            <span class="n">list_files</span> <span class="o">=</span> <span class="n">list_files</span><span class="p">[:</span><span class="nb">max</span><span class="p">([</span><span class="n">n_files</span><span class="p">,</span><span class="n">n_y</span><span class="p">])]</span>
+            <span class="n">list_y</span> <span class="o">=</span> <span class="n">list_y</span><span class="p">[:</span><span class="nb">max</span><span class="p">([</span><span class="n">n_files</span><span class="p">,</span><span class="n">n_y</span><span class="p">])]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">list_size</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">list_size</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">list_size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="n">n_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_size</span> <span class="o">!=</span> <span class="n">n_files</span><span class="p">:</span>
+            <span class="n">list_files</span> <span class="o">=</span> <span class="n">list_files</span><span class="o">*</span><span class="n">n_size</span>
+            <span class="n">list_size</span> <span class="o">=</span> <span class="n">list_size</span><span class="o">*</span><span class="n">n_files</span>
+            <span class="n">list_files</span> <span class="o">=</span> <span class="n">list_files</span><span class="p">[:</span><span class="nb">max</span><span class="p">([</span><span class="n">n_files</span><span class="p">,</span><span class="n">n_size</span><span class="p">])]</span>
+            <span class="n">list_size</span> <span class="o">=</span> <span class="n">list_size</span><span class="p">[:</span><span class="nb">max</span><span class="p">([</span><span class="n">n_files</span><span class="p">,</span><span class="n">n_size</span><span class="p">])]</span>
+
+
+
+        <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_files</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="n">extension</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NEUROPSYDIA WARNING: preload_image(): wrong name, path or extension&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NEUROPSYDIA WARNING: preload_image(): image found adding &#39;.png&#39;&quot;</span><span class="p">)</span>
+                    <span class="n">extension</span> <span class="o">=</span> <span class="s2">&quot;.png&quot;</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;.jpg&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NEUROPSYDIA WARNING: preload_image(): image found adding &#39;.jpg&#39;&quot;</span><span class="p">)</span>
+                    <span class="n">extension</span> <span class="o">=</span> <span class="s2">&quot;.jpg&quot;</span>
+
+            <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="n">extension</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dict_PIL</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%s%s%s</span><span class="s2">_</span><span class="si">%s%s%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">list_x</span><span class="p">[</span><span class="n">n</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">list_y</span><span class="p">[</span><span class="n">n</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">list_size</span><span class="p">[</span><span class="n">n</span><span class="p">]))]</span> <span class="o">=</span> <span class="n">image</span>
+
+
+<div class="viewcode-block" id="Preload.to_PIL"><a class="viewcode-back" href="../../neuropsydia.html#neuropsydia.image.Preload.to_PIL">[docs]</a>    <span class="k">def</span> <span class="nf">to_PIL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dict_PIL</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Preload.to_arrays"><a class="viewcode-back" href="../../neuropsydia.html#neuropsydia.image.Preload.to_arrays">[docs]</a>    <span class="k">def</span> <span class="nf">to_arrays</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dict_of_arrays</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+            <span class="n">dict_of_arrays</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">dict_of_arrays</span><span class="p">)</span></div></div>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="preload"><a class="viewcode-back" href="../../neuropsydia.html#neuropsydia.image.preload">[docs]</a><span class="k">def</span> <span class="nf">preload</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">fullscreen</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scramble</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Preload images.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Authors</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Dominique Makowski</span>
+
+<span class="sd">    Dependencies</span>
+<span class="sd">    ----------</span>
+<span class="sd">    - pygame 1.9.2</span>
+<span class="sd">    - PIL</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="n">file</span>
+
+    <span class="k">if</span> <span class="n">cache</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dictionary</span> <span class="o">=</span> <span class="n">cache</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="c1">#Check existence of the given files</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="n">extension</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NEUROPSYDIA WARNING: preload_image(): wrong name, path or extension&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NEUROPSYDIA WARNING: preload_image(): image found adding &#39;.png&#39;&quot;</span><span class="p">)</span>
+                <span class="n">extension</span> <span class="o">=</span> <span class="s2">&quot;.png&quot;</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;.jpg&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NEUROPSYDIA WARNING: preload_image(): image found adding &#39;.jpg&#39;&quot;</span><span class="p">)</span>
+                <span class="n">extension</span> <span class="o">=</span> <span class="s2">&quot;.jpg&quot;</span>
+
+
+        <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="n">extension</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
+
+        <span class="k">if</span> <span class="n">fullscreen</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">new_w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="o">/</span><span class="n">h</span><span class="o">*</span><span class="n">size</span><span class="o">*</span><span class="n">screen_height</span><span class="o">/</span><span class="mf">6.0</span><span class="p">)</span>
+            <span class="n">new_h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="n">h</span><span class="o">*</span><span class="n">size</span><span class="o">*</span><span class="n">screen_height</span><span class="o">/</span><span class="mf">6.0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">:</span>
+                <span class="n">new_w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="o">/</span><span class="n">w</span><span class="o">*</span><span class="n">screen_width</span><span class="p">)</span>
+                <span class="n">new_h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="n">w</span><span class="o">*</span><span class="n">screen_width</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="o">/</span><span class="n">h</span><span class="o">*</span><span class="n">screen_height</span><span class="p">)</span>
+                <span class="n">new_h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="n">h</span><span class="o">*</span><span class="n">screen_height</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">new_w</span><span class="p">,</span><span class="n">new_h</span><span class="p">),</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">scramble</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+            <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">compress</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="n">compression</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="n">compression</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">)),</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
+            <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;temp.jpg&quot;</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;temp.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">new_w</span><span class="p">,</span><span class="n">new_h</span><span class="p">),</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;temp.jpg&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">opacity</span> <span class="o">!=</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGBA&#39;</span><span class="p">)</span>
+            <span class="n">image</span><span class="o">.</span><span class="n">putalpha</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">opacity</span> <span class="o">*</span> <span class="mi">255</span> <span class="o">/</span> <span class="mi">100</span><span class="p">))</span>
+
+
+        <span class="n">image</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="n">path</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">opacity</span><span class="p">)</span> <span class="o">+</span> <span class="n">extension</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+
+
+
+
+    <span class="c1">#return</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span></div>
+
+
+
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1"># # # # --- image ---</span>
+<span class="c1">#version : 1.0</span>
+<span class="c1">#display an image.</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<div class="viewcode-block" id="image"><a class="viewcode-back" href="../../neuropsydia.html#neuropsydia.image.image">[docs]</a><span class="k">def</span> <span class="nf">image</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+          <span class="n">fullscreen</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scramble</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+          <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">allow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Help incomplete, sorry.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NA</span>
+
+<span class="sd">    Authors</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Dominique Makowski, Léo Dutriaux</span>
+
+<span class="sd">    Dependencies</span>
+<span class="sd">    ----------</span>
+<span class="sd">    - pygame 1.9.2</span>
+<span class="sd">    - PIL</span>
+<span class="sd">    - time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">background</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">newpage</span><span class="p">(</span><span class="n">background</span><span class="p">,</span> <span class="n">auto_refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cache</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="n">preload</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="n">extension</span><span class="p">,</span>
+                              <span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">,</span> <span class="n">fullscreen</span><span class="o">=</span><span class="n">fullscreen</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="n">rotate</span><span class="p">,</span> <span class="n">scramble</span><span class="o">=</span><span class="n">scramble</span><span class="p">,</span>
+                              <span class="n">compress</span><span class="o">=</span><span class="n">compress</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="n">opacity</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">opacity</span><span class="p">)</span> <span class="o">+</span> <span class="n">extension</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">Cache</span><span class="p">[</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">opacity</span><span class="p">)</span> <span class="o">+</span> <span class="n">extension</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">opacity</span><span class="p">)</span> <span class="o">+</span> <span class="n">extension</span><span class="p">]</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;NEUROPSYDIA ERROR: image(): file not in given cache: &#39;</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span>
+                <span class="n">cache</span> <span class="o">=</span> <span class="n">preload</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="n">extension</span><span class="p">,</span>
+                                      <span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">,</span> <span class="n">fullscreen</span><span class="o">=</span><span class="n">fullscreen</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="n">rotate</span><span class="p">,</span> <span class="n">scramble</span><span class="o">=</span><span class="n">scramble</span><span class="p">,</span>
+                                      <span class="n">compress</span><span class="o">=</span><span class="n">compress</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">)</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">opacity</span><span class="p">)</span> <span class="o">+</span> <span class="n">extension</span><span class="p">]</span>
+
+
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">Coordinates</span><span class="o">.</span><span class="n">to_pygame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">rectangle</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">rectangle</span><span class="p">)</span>
+
+    <span class="c1">#In case or one must wait until something</span>
+    <span class="k">if</span> <span class="n">allow</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">wait</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">refresh</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">allow</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">wait</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">allow</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span><span class="p">(</span><span class="n">response</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="n">allow</span><span class="p">,</span> <span class="n">time_max</span><span class="o">=</span><span class="n">wait</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">cache</span><span class="p">)</span></div>
+
+
+
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dominique Makowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

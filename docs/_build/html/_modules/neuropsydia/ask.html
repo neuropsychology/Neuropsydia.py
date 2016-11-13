@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>neuropsydia.ask &#8212; neuropsydia  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="neuropsydia  documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for neuropsydia.ask</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">.path</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.core</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.write</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">.core</span> <span class="k">import</span> <span class="n">color</span> <span class="k">as</span> <span class="n">core_color</span> <span class="c1">#avoid conflict with arg name</span>
+
+
+
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1"># # # # --- ask ---</span>
+<span class="c1">#version : 1.0</span>
+<span class="c1">#display a question and get the subject&#39;s answer</span>
+<span class="c1">#Authors : Léo Dutriaux, Dominique Makowski</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#======================================================================== ======</span>
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+<div class="viewcode-block" id="ask"><a class="viewcode-back" href="../../neuropsydia.html#neuropsydia.ask.ask">[docs]</a><span class="k">def</span> <span class="nf">ask</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Write something here:&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;light&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=-</span><span class="mi">8</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+           <span class="n">size</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">hide</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+           <span class="n">detach_question</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">question_style</span><span class="o">=</span><span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="n">question_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">question_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+           <span class="n">question_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">question_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">question_long_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+           <span class="n">allow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_max</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display a question and get the subject&#39;s answer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text = str, optional</span>
+<span class="sd">        the question to be displayed</span>
+<span class="sd">    style = str, optional</span>
+<span class="sd">        &quot;body&quot;, &quot;light&quot; or &quot;bold&quot;</span>
+<span class="sd">    order = int, optional</span>
+<span class="sd">        for series of questions, sometimes it&#39;s easier to just specify the order (1, 2 , 3, ...) and the quetsions will appear one under the other</span>
+<span class="sd">    x = float, optional</span>
+<span class="sd">        position on x axis (from -10 (left) to 10 (right))</span>
+<span class="sd">    y = float, optional</span>
+<span class="sd">        position on y axis (from -10 (down) to 10 (up))</span>
+<span class="sd">    size = float, optional</span>
+<span class="sd">        text size</span>
+<span class="sd">    color = str or tuple, optional</span>
+<span class="sd">        color of the text. See color() function.</span>
+<span class="sd">    background = str or tuple, optional</span>
+<span class="sd">        color of the background. See color() function. Default to None</span>
+<span class="sd">    hide = bool, optional</span>
+<span class="sd">        display &quot;****&quot; (stars) instead of the actual answer</span>
+<span class="sd">    detach_question = bool, optional</span>
+<span class="sd">        if set to true, then the question can be manipulated separately using the parameters below</span>
+<span class="sd">    - question_style = see style arg in write()</span>
+<span class="sd">    - question_x = see x arg in write()</span>
+<span class="sd">    - question_y = see y arg in write()</span>
+<span class="sd">    - question_size = see size arg in write()</span>
+<span class="sd">    - question_color = see color arg in write()</span>
+<span class="sd">    - question_long_text = see long_text arg in write()</span>
+<span class="sd">    allow = list, optional</span>
+<span class="sd">        only allow specific answers (e.g., &quot;yes&quot; or &quot;no&quot;)</span>
+<span class="sd">    allow_length = int, optional</span>
+<span class="sd">        allow only a specific answer length</span>
+<span class="sd">    allow_type = str, optional</span>
+<span class="sd">        &quot;str&quot;, &quot;int&quot; or &quot;float&quot;, allow only this specific type</span>
+<span class="sd">    allow_max = int, optional</span>
+<span class="sd">        when numeric answer, set a maximum</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    str</span>
+<span class="sd">        answer</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    ----------</span>
+<span class="sd">    &gt;&gt;&gt; import neuropsydia as n</span>
+<span class="sd">    &gt;&gt;&gt; n.start()</span>
+<span class="sd">    &gt;&gt;&gt; response = n.ask(&quot;Hey, you&#39;re good?&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; print(response)</span>
+<span class="sd">    &gt;&gt;&gt; n.close()</span>
+
+<span class="sd">    Authors</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Léo Dutriaux, Dominique Makowski</span>
+
+<span class="sd">    Dependencies</span>
+<span class="sd">    ----------</span>
+<span class="sd">    - pygame 1.9.2</span>
+<span class="sd">    - time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">detach_question</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">question_style</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">question_x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">question_y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">question_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">question_color</span><span class="p">,</span><span class="n">long_text</span> <span class="o">=</span> <span class="n">question_long_text</span><span class="p">)</span>
+        <span class="n">text_new</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">text_new</span> <span class="o">=</span> <span class="n">text</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="o">*</span><span class="n">screen_width</span><span class="o">/</span><span class="mf">35.0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;body&#39;</span><span class="p">:</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoRegular.ttf&#39;</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;light&#39;</span><span class="p">:</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoLight.ttf&#39;</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;bold&#39;</span><span class="p">:</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">font</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;RobotoBold.ttf&#39;</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">style</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">order</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="p">(</span><span class="n">order</span><span class="o">*</span><span class="mf">1.25</span><span class="p">)</span>
+
+
+
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">Coordinates</span><span class="o">.</span><span class="n">to_pygame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">allow</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">allow</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+            <span class="n">allow_list</span> <span class="o">=</span> <span class="n">allow</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">allow_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">allow_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">allow</span><span class="p">)</span>
+
+    <span class="n">user_input</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">loop</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">while</span> <span class="n">loop</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">surface</span><span class="o">=</span><span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text_new</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">core_color</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">core_color</span><span class="p">(</span><span class="n">background</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">response</span><span class="p">(</span><span class="n">get_RT</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">&quot;SPACE&quot;</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span>
+        <span class="k">if</span> <span class="n">answer</span> <span class="o">!=</span> <span class="s2">&quot;ENTER&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">&quot;ESCAPE&quot;</span><span class="p">:</span>
+                <span class="n">quit</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">K_BACKSPACE</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">user_input</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="n">user_input</span> <span class="o">=</span> <span class="n">user_input</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">text_new</span> <span class="o">=</span> <span class="n">text_new</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">text_new</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">core_color</span><span class="p">(</span><span class="n">background</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">user_input</span> <span class="o">=</span> <span class="n">user_input</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">hide</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">text_new</span> <span class="o">=</span> <span class="n">text_new</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">text_new</span> <span class="o">=</span> <span class="n">text_new</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">user_input</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
+                <span class="k">return</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">allow</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">allow_length</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">allow_type</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">warning</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">allow</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">user_input</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allow_list</span><span class="p">:</span>
+                    <span class="n">warning_text</span> <span class="o">=</span> <span class="n">text_new</span><span class="o">+</span><span class="s1">&#39;    incorrect (answer not allowed)&#39;</span>
+                    <span class="n">warning</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">allow_length</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span> <span class="o">!=</span> <span class="n">allow_length</span><span class="p">:</span>
+                    <span class="n">warning_text</span> <span class="o">=</span> <span class="n">text_new</span><span class="o">+</span><span class="s1">&#39;    incorrect (&#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_length</span><span class="p">)</span><span class="o">+</span> <span class="s1">&#39; characters required)&#39;</span>
+                    <span class="n">warning</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">allow_max</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="n">allow_max</span><span class="p">):</span>
+                    <span class="n">warning_text</span> <span class="o">=</span> <span class="n">text_new</span><span class="o">+</span><span class="s1">&#39;    incorrect (max = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">allow_max</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+                    <span class="n">warning</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="n">allow_type</span> <span class="o">=</span> <span class="s2">&quot;in&quot;</span>
+                <span class="k">if</span> <span class="n">allow_type</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">allow_type</span> <span class="o">==</span> <span class="s2">&quot;int&quot;</span><span class="p">:</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+                        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                            <span class="n">warning_text</span> <span class="o">=</span> <span class="n">text_new</span> <span class="o">+</span> <span class="s1">&#39;    incorrect (wrong type)&#39;</span>
+                            <span class="n">warning</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">allow_type</span> <span class="o">==</span> <span class="s2">&quot;float&quot;</span><span class="p">:</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">user_input</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+                        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                            <span class="n">warning_text</span> <span class="o">=</span> <span class="n">text_new</span> <span class="o">+</span> <span class="s1">&#39;    incorrect (wrong type)&#39;</span>
+                            <span class="n">warning</span> <span class="o">=</span> <span class="mi">1</span>
+
+                <span class="k">if</span> <span class="n">warning</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">surface</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">warning_text</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">core_color</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
+                    <span class="n">size</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span>
+                    <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span>  <span class="n">core_color</span><span class="p">(</span><span class="n">background</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="n">screen</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+                    <span class="n">refresh</span><span class="p">()</span>
+                    <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">700</span><span class="p">)</span>
+                    <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span>  <span class="n">core_color</span><span class="p">(</span><span class="n">background</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="n">refresh</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span></div>
+
+
+
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dominique Makowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

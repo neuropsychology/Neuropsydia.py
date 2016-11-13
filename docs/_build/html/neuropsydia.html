@@ -1,0 +1,1431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>neuropsydia package &#8212; neuropsydia  documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="neuropsydia  documentation" href="index.html" />
+    <link rel="next" title="neuropsydia.files package" href="neuropsydia.files.html" />
+    <link rel="prev" title="Welcome to neuropsydia’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="neuropsydia-package">
+<h1>neuropsydia package<a class="headerlink" href="#neuropsydia-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="neuropsydia.files.html">neuropsydia.files package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="neuropsydia.files.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="neuropsydia.files.binary.html">neuropsydia.files.binary package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="neuropsydia.files.binary.html#module-neuropsydia.files.binary">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="neuropsydia.files.font.html">neuropsydia.files.font package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="neuropsydia.files.font.html#module-neuropsydia.files.font">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="neuropsydia.files.logo.html">neuropsydia.files.logo package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="neuropsydia.files.logo.html#module-neuropsydia.files.logo">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="neuropsydia.files.html#module-neuropsydia.files">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="neuropsydia.tests.html">neuropsydia.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="neuropsydia.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neuropsydia.tests.html#module-neuropsydia.tests.test_color">neuropsydia.tests.test_color module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neuropsydia.tests.html#module-neuropsydia.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-neuropsydia.ask">
+<span id="neuropsydia-ask-module"></span><h2>neuropsydia.ask module<a class="headerlink" href="#module-neuropsydia.ask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.ask.ask">
+<code class="descclassname">neuropsydia.ask.</code><code class="descname">ask</code><span class="sig-paren">(</span><em>text='Write something here:'</em>, <em>style='light'</em>, <em>x=-8</em>, <em>y=0</em>, <em>order=None</em>, <em>size=1.0</em>, <em>color='black'</em>, <em>background='white'</em>, <em>hide=False</em>, <em>detach_question=False</em>, <em>question_style='light'</em>, <em>question_x=0</em>, <em>question_y=0</em>, <em>question_size=1</em>, <em>question_color='black'</em>, <em>question_long_text=False</em>, <em>allow=None</em>, <em>allow_length=None</em>, <em>allow_type=None</em>, <em>allow_max=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/ask.html#ask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.ask.ask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a question and get the subject&#8217;s answer.</p>
+<dl class="docutils">
+<dt>text =&nbsp;str, optional</dt>
+<dd>the question to be displayed</dd>
+<dt>style&nbsp;= str, optional</dt>
+<dd>&#8220;body&#8221;, &#8220;light&#8221; or&nbsp;&#8221;bold&#8221;</dd>
+<dt>order = int, optional</dt>
+<dd>for series of questions, sometimes it&#8217;s easier to just specify the order (1, 2 , 3, ...) and the quetsions will appear one under the other</dd>
+<dt>x = float, optional</dt>
+<dd>position on x axis (from -10 (left)&nbsp;to 10 (right))</dd>
+<dt>y = float, optional</dt>
+<dd>position on y axis (from -10 (down)&nbsp;to 10 (up))</dd>
+<dt>size = float, optional</dt>
+<dd>text size</dd>
+<dt>color = str or tuple, optional</dt>
+<dd>color of the text. See color() function.</dd>
+<dt>background = str or tuple, optional</dt>
+<dd>color of the background. See color() function. Default to None</dd>
+<dt>hide = bool, optional</dt>
+<dd>display &#8220;<a href="#id1"><span class="problematic" id="id2">**</span></a><a href="#id3"><span class="problematic" id="id4">**</span></a>&#8221; (stars) instead of the actual answer</dd>
+<dt>detach_question = bool, optional</dt>
+<dd>if set to true, then the question can be manipulated separately using the parameters below</dd>
+</dl>
+<ul class="simple">
+<li>question_style = see style arg in write()</li>
+<li>question_x =&nbsp;see x arg in write()</li>
+<li>question_y =&nbsp;see y arg in write()</li>
+<li>question_size =&nbsp;see size arg in write()</li>
+<li>question_color =&nbsp;see color arg in write()</li>
+<li>question_long_text =&nbsp;see long_text arg in write()</li>
+</ul>
+<dl class="docutils">
+<dt>allow = list, optional</dt>
+<dd>only allow specific answers (e.g., &#8220;yes&#8221; or &#8220;no&#8221;)</dd>
+<dt>allow_length = int, optional</dt>
+<dd>allow only a specific answer length</dd>
+<dt>allow_type = str, optional</dt>
+<dd>&#8220;str&#8221;, &#8220;int&#8221; or &#8220;float&#8221;, allow only this specific type</dd>
+<dt>allow_max = int, optional</dt>
+<dd>when numeric answer, set a maximum</dd>
+</dl>
+<dl class="docutils">
+<dt>str</dt>
+<dd>answer</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span><span class="s2">&quot;Hey, you&#39;re good?&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Léo Dutriaux, Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.choice">
+<span id="neuropsydia-choice-module"></span><h2>neuropsydia.choice module<a class="headerlink" href="#module-neuropsydia.choice" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.choice.choice">
+<code class="descclassname">neuropsydia.choice.</code><code class="descname">choice</code><span class="sig-paren">(</span><em>choices=['Yes', 'No'], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color='black', y=0, height=-5, boxes_space=0.5, boxes_background='white', boxes_edge_color='black', boxes_edge_size=3, confirm_edge_color='orange', confirm_edge_size=3, help_list=None, help_background='lightgrey', title=None, title_position='default', title_x=-7.5, title_space=0.75, pictures=None, pictures_size=0.5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/choice.html#choice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.choice.choice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Help incomplete, sorry.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.core">
+<span id="neuropsydia-core-module"></span><h2>neuropsydia.core module<a class="headerlink" href="#module-neuropsydia.core" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="neuropsydia.core.Coordinates">
+<em class="property">class </em><code class="descclassname">neuropsydia.core.</code><code class="descname">Coordinates</code><a class="reference internal" href="_modules/neuropsydia/core.html#Coordinates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A class object to go from pygame corrdinates system to neuropsydia&#8217;s and vice versa.</p>
+<dl class="docutils">
+<dt>Its methods (functions) are:</dt>
+<dd><ul class="first last simple">
+<li>to_pygame()</li>
+<li>from_pygame()</li>
+</ul>
+</dd>
+</dl>
+<p>None</p>
+<p>None</p>
+<p>None</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+</ul>
+<dl class="method">
+<dt id="neuropsydia.core.Coordinates.from_pygame">
+<code class="descname">from_pygame</code><span class="sig-paren">(</span><em>x=None</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#Coordinates.from_pygame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Coordinates.from_pygame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Help incomplete, sorry.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.core.Coordinates.to_pygame">
+<code class="descname">to_pygame</code><span class="sig-paren">(</span><em>x=None</em>, <em>y=None</em>, <em>distance_x=None</em>, <em>distance_y=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#Coordinates.to_pygame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Coordinates.to_pygame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert coordinates from neuropsydia (-10:10) to pygame&#8217;s system (in pixels).</p>
+<dl class="docutils">
+<dt>x = float</dt>
+<dd>[-10:10]</dd>
+<dt>y = float</dt>
+<dd>[-10:10]</dd>
+<dt>distance_x = convert a horizontal distance</dt>
+<dd>[-10:10]</dd>
+<dt>distance_y = convert a horizontal distance</dt>
+<dd>[-10:10]</dd>
+</dl>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="neuropsydia.core.Font_Cache_Init">
+<em class="property">class </em><code class="descclassname">neuropsydia.core.</code><code class="descname">Font_Cache_Init</code><a class="reference internal" href="_modules/neuropsydia/core.html#Font_Cache_Init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Font_Cache_Init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="neuropsydia.core.Font_Cache_Init.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>font_path</em>, <em>size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#Font_Cache_Init.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Font_Cache_Init.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="neuropsydia.core.Time">
+<em class="property">class </em><code class="descclassname">neuropsydia.core.</code><code class="descname">Time</code><a class="reference internal" href="_modules/neuropsydia/core.html#Time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A class object to wait some time, get time, control time and such.
+Its methods (functions) are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>reset()</li>
+<li>control()</li>
+<li>wait()</li>
+</ul>
+</div></blockquote>
+<p>See those for further informations.</p>
+<p>Note that by default, there is already a Time class object called &#8220;time&#8221; (lowercase) that is initialized at neuropsydia&#8217;s loading. For the sake of clarity, use this one (e.g., n.time.wait() ), especially for wait() and control() functions.</p>
+<p>None</p>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myclock</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_passed_since_myclock_creation</span> <span class="o">=</span> <span class="n">myclock</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myclock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_passed_since_reset</span> <span class="o">=</span> <span class="n">myclock</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+<dl class="method">
+<dt id="neuropsydia.core.Time.control">
+<code class="descname">control</code><span class="sig-paren">(</span><em>frequency=60</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#Time.control"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Time.control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control time. Must be placed in a while loop and, each time the program runs through it, checks if the time passed is less than a certain amount (the frequency, by default 60, so 1/60 seconds). If true, the program stops and wait what needed before continuing, so that each loop takes at least 1/frequency seconds to be complete.</p>
+<dl class="docutils">
+<dt>frequency = int, optional</dt>
+<dd>The minimum frequency you want the loop to run at</dd>
+</dl>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">control</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.core.Time.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>reset=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#Time.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Time.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get time since last initialisation / reset.</p>
+<dl class="docutils">
+<dt>reset = bool, optional</dt>
+<dd>Should the clock be reset after returning time?</dd>
+</dl>
+<dl class="docutils">
+<dt>float</dt>
+<dd>Time passed in milliseconds.</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_passed_since_neuropsydia_loading</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_passed_since_reset</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.core.Time.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#Time.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Time.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the clock of the Time object.</p>
+<p>None</p>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_passed_since_neuropsydia_loading</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_passed_since_reset</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.core.Time.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><em>time_to_wait</em>, <em>unit='ms'</em>, <em>frequency=60</em>, <em>round_by_frame=True</em>, <em>skip=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#Time.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.Time.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait some time.</p>
+<dl class="docutils">
+<dt>time_to_wait = int</dt>
+<dd>Time to wait</dd>
+<dt>unit = str</dt>
+<dd>&#8220;min&#8221; for minutes, &#8220;s&#8221; for seconds,&nbsp;&#8221;ms&#8221; for milliseconds, or &#8220;frame&#8221; for a certain amount of frames (depending on the frequency parameter)</dd>
+<dt>frequency = int</dt>
+<dd>should be a multiple of your monitor&#8217;s&nbsp;refresh rate</dd>
+<dt>round by frame = bool</dt>
+<dd>should the waiting time be rounded to match an exact number of frame / refresh cycles? (e.g., on a 60Hz monitor, 95ms will be rounded to 100, because the monitor is refreshed every 16.6667ms)</dd>
+<dt>skip = str</dt>
+<dd>Shoud there be a key to skip the waiting. Default to None.</dd>
+</dl>
+<dl class="docutils">
+<dt>float</dt>
+<dd>Actual time waited in milliseconds</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;let&#39;s wait 500ms&quot;</span><span class="p">,</span> <span class="n">round_by_frame</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wait_time</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">520</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">newpage</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;I waited for &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wait_time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;ms&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wait_time</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">520</span><span class="p">,</span> <span class="n">round_by_frame</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">newpage</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;I waited for &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wait_time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;ms&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.core.color">
+<code class="descclassname">neuropsydia.core.</code><code class="descname">color</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an RGB color tuple (or list) from its name.</p>
+<dl class="docutils">
+<dt>color = str</dt>
+<dd>one from the color_list list</dd>
+</dl>
+<p>tuple or list</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">color_list</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<p>None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.core.cursor">
+<code class="descclassname">neuropsydia.core.</code><code class="descname">cursor</code><span class="sig-paren">(</span><em>visible=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#cursor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the mouse cursor to visible or invisible.</p>
+<dl class="docutils">
+<dt>visible = bool</dt>
+<dd>True for visible, False for invisible.</dd>
+</dl>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The pygame team</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.core.newpage">
+<code class="descclassname">neuropsydia.core.</code><code class="descname">newpage</code><span class="sig-paren">(</span><em>color_name='white'</em>, <em>opacity=100</em>, <em>fade=False</em>, <em>fade_speed=60</em>, <em>fade_type='out'</em>, <em>auto_refresh=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#newpage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.newpage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the background with a color.</p>
+<dl class="docutils">
+<dt>color_name = str, tuple, optional</dt>
+<dd>name of the color (see color() function), or an RGB tuple (e.g., (122,84,01))</dd>
+<dt>opacity = int, optional</dt>
+<dd>opacity of the color (in percents)</dd>
+<dt>fade = bool, optional</dt>
+<dd>do you want a fade effect?</dd>
+<dt>fade_speed = int, optional</dt>
+<dd>frequency (speed) of the fading</dd>
+<dt>fade_type = str, optional</dt>
+<dd>&#8220;out&#8221; or &#8220;in&#8221;, fade out or fade in</dd>
+</dl>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">newpage</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.core.refresh">
+<code class="descclassname">neuropsydia.core.</code><code class="descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reresh / flip the screen, actually display things on screen (to use after image(), write() or newpage()).</p>
+<p>None</p>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">newpage</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.core.response">
+<code class="descclassname">neuropsydia.core.</code><code class="descname">response</code><span class="sig-paren">(</span><em>allow=None</em>, <em>enable_escape=True</em>, <em>time_max=None</em>, <em>get_RT=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a (keyboard, for now) response.</p>
+<dl class="docutils">
+<dt>allow = str or list</dt>
+<dd>keys to allow</dd>
+<dt>enable_escape = bool</dt>
+<dd>enable escape to exit</dd>
+<dt>time_max = int</dt>
+<dd>maximum time to wait for a response (ms)</dd>
+<dt>get_RT = bool</dt>
+<dd>return response time</dd>
+</dl>
+<dl class="docutils">
+<dt>str or (str, int)</dt>
+<dd>returns a tuple when get_RT is set to True</dd>
+</dl>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.core.wait_for_input">
+<code class="descclassname">neuropsydia.core.</code><code class="descname">wait_for_input</code><span class="sig-paren">(</span><em>time_max=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/core.html#wait_for_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.core.wait_for_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Low level input checker.</p>
+<dl class="docutils">
+<dt>time_max = int</dt>
+<dd>time max in ms</dd>
+</dl>
+<dl class="docutils">
+<dt>key</dt>
+<dd>A key.</dd>
+</dl>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.image">
+<span id="neuropsydia-image-module"></span><h2>neuropsydia.image module<a class="headerlink" href="#module-neuropsydia.image" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="neuropsydia.image.Preload">
+<em class="property">class </em><code class="descclassname">neuropsydia.image.</code><code class="descname">Preload</code><span class="sig-paren">(</span><em>files</em>, <em>x=0</em>, <em>y=0</em>, <em>size=1.0</em>, <em>path=''</em>, <em>extension=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/image.html#Preload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.image.Preload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Preload images.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>PIL</li>
+</ul>
+<dl class="method">
+<dt id="neuropsydia.image.Preload.to_PIL">
+<code class="descname">to_PIL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/image.html#Preload.to_PIL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.image.Preload.to_PIL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.image.Preload.to_arrays">
+<code class="descname">to_arrays</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/image.html#Preload.to_arrays"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.image.Preload.to_arrays" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.image.image">
+<code class="descclassname">neuropsydia.image.</code><code class="descname">image</code><span class="sig-paren">(</span><em>file</em>, <em>x=0</em>, <em>y=0</em>, <em>cache=None</em>, <em>path=''</em>, <em>extension=''</em>, <em>size=1.0</em>, <em>fullscreen=False</em>, <em>rotate=0</em>, <em>scramble=False</em>, <em>background=None</em>, <em>compress=False</em>, <em>compression=0</em>, <em>allow=None</em>, <em>wait=None</em>, <em>opacity=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/image.html#image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.image.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Help incomplete, sorry.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski, Léo Dutriaux</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>PIL</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.image.preload">
+<code class="descclassname">neuropsydia.image.</code><code class="descname">preload</code><span class="sig-paren">(</span><em>file</em>, <em>x=0</em>, <em>y=0</em>, <em>cache=None</em>, <em>path=''</em>, <em>extension=''</em>, <em>size=1.0</em>, <em>fullscreen=False</em>, <em>rotate=0</em>, <em>scramble=False</em>, <em>compress=False</em>, <em>compression=0</em>, <em>opacity=100</em>, <em>key=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/image.html#preload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.image.preload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preload images.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>PIL</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.interface">
+<span id="neuropsydia-interface-module"></span><h2>neuropsydia.interface module<a class="headerlink" href="#module-neuropsydia.interface" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="neuropsydia.interface.Trigger">
+<em class="property">class </em><code class="descclassname">neuropsydia.interface.</code><code class="descname">Trigger</code><span class="sig-paren">(</span><em>TTL=True</em>, <em>photosensor=None</em>, <em>photosensor_position='bottomleft'</em>, <em>stimtracker=False</em>, <em>stimtracker_duration=5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/interface.html#Trigger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.interface.Trigger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A class object to send trigger via TTL, ethernet or stimtracker.</p>
+<dl class="docutils">
+<dt>TTL = bool, optional</dt>
+<dd>Send trigger through the parallel port.</dd>
+<dt>photosensor = str, optional</dt>
+<dd>&#8220;white&#8221; or &#8220;black&#8221; for the color of the rectangle.</dd>
+<dt>photosensor_position = str, optional</dt>
+<dd>&#8220;bottomleft&#8221;, &#8220;bottomright&#8221;, &#8220;topleft&#8221; or &#8220;topright&#8221; for its position.</dd>
+<dt>stimtracker = bool, optional</dt>
+<dd>Send trigger through a stimtracker.</dd>
+<dt>stimtracker_duration = float, optional</dt>
+<dd>Time for the stimtracker trigger to last (in seconds).</dd>
+</dl>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">Trigger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>ctypes</li>
+<li>pyxid</li>
+</ul>
+<dl class="method">
+<dt id="neuropsydia.interface.Trigger.start">
+<code class="descname">start</code><span class="sig-paren">(</span><em>trigger=1</em>, <em>port=888</em>, <em>lines=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/interface.html#Trigger.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.interface.Trigger.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the trigger.</p>
+<dl class="docutils">
+<dt>trigger = int, optional</dt>
+<dd>What trigger to send (TTL).</dd>
+<dt>port = binary, optional</dt>
+<dd>Port address (TTL).</dd>
+<dt>lines = int, optional</dt>
+<dd>Lines to activate (stimtracker).</dd>
+</dl>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">Trigger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>ctypes</li>
+<li>pyxid</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.interface.Trigger.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><em>trigger=0</em>, <em>port=888</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/interface.html#Trigger.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.interface.Trigger.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return to baseline (for TTL only).</p>
+<dl class="docutils">
+<dt>trigger = int, optional</dt>
+<dd>What trigger to send (TTL).</dd>
+<dt>port = binary, optional</dt>
+<dd>Port address (TTL).</dd>
+</dl>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">Trigger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trigger</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>ctypes</li>
+<li>pyxid</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.meta">
+<span id="neuropsydia-meta-module"></span><h2>neuropsydia.meta module<a class="headerlink" href="#module-neuropsydia.meta" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.meta.instructions">
+<code class="descclassname">neuropsydia.meta.</code><code class="descname">instructions</code><span class="sig-paren">(</span><em>text</em>, <em>background='white'</em>, <em>color='black'</em>, <em>size=1.0</em>, <em>title=None</em>, <em>replace_title=False</em>, <em>end_text='Appuyez sur ENTRER pour commencer.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/meta.html#instructions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.meta.instructions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Help incomplete, sorry.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.meta.questionnaire">
+<code class="descclassname">neuropsydia.meta.</code><code class="descname">questionnaire</code><span class="sig-paren">(</span><em>questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True, randomize=False, reverse=False, results_save=False, results_type='csv', results_name='questionnaire_results', results_path='', dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0, 100], validation=True, analog=True, step=1, labels='numeric', labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color='black', title=None, title_style='body', title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape='circle', show_result_shape_fill_color='white', show_result_shape_line_color='red', show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color='black', instructions_text=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/meta.html#questionnaire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.meta.questionnaire" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper function for easily creating questionnaires. You can go back or foth using the LEFT and RIGHT keyboard arrows.</p>
+<dl class="docutils">
+<dt>questions_dictionary = dict</dt>
+<dd><p class="first">needs an object of the following stucture:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">questions_dictionary</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;Item&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Is Neuropsydia great?&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Is Neuropsydia not great?&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Is Python great?&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Is Python not great?&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>A pandas dataframe containing the data. See <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe">http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe</a> for details.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">questions_dictionary</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;Item&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Is Neuropsydia great?&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Is Neuropsydia not great?&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Is Python great?&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Is Python not great?&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;Reverse&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">1</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">2</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">3</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">4</span><span class="p">:</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;Dimension&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Neuropsydia&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Neuropsydia&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Python&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">questionnaire</span><span class="p">(</span><span class="n">questions_dictionary</span><span class="p">,</span> <span class="n">anchors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;Yes&quot;</span><span class="p">],</span> <span class="n">results_save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dimensions_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>pandas 18.0</li>
+<li>time</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.miscellaneous">
+<span id="neuropsydia-miscellaneous-module"></span><h2>neuropsydia.miscellaneous module<a class="headerlink" href="#module-neuropsydia.miscellaneous" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.miscellaneous.circle">
+<code class="descclassname">neuropsydia.miscellaneous.</code><code class="descname">circle</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>size=10</em>, <em>line_color='black'</em>, <em>thickness=0</em>, <em>fill_color='white'</em>, <em>opacity=225</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/miscellaneous.html#circle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.miscellaneous.circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Help incomplete, sorry.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>pygame.gfxfraw</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.miscellaneous.countdown">
+<code class="descclassname">neuropsydia.miscellaneous.</code><code class="descname">countdown</code><span class="sig-paren">(</span><em>style='circle', duration=3000, width=5, reverse=False, background='white', write_seconds=True, write_color='white', write_outline='black', color_fade=False, color_start='red', color_end='green', sound=False, melody=[1000, 1500]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/miscellaneous.html#countdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.miscellaneous.countdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Help incomplete, sorry.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>pygame.gfxfraw</li>
+<li>time</li>
+<li>winsound</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.miscellaneous.get_creation_date">
+<code class="descclassname">neuropsydia.miscellaneous.</code><code class="descname">get_creation_date</code><span class="sig-paren">(</span><em>path_to_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/miscellaneous.html#get_creation_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.miscellaneous.get_creation_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the date that a file was created, falling back to when it was
+last modified if that isn&#8217;t possible.
+See <a class="reference external" href="http://stackoverflow.com/a/39501288/1709587">http://stackoverflow.com/a/39501288/1709587</a> for explanation.</p>
+<dl class="docutils">
+<dt>file =  BIOPAC&#8217;s AcqKnowledge file</dt>
+<dd>a file read by bioread.read()</dd>
+</dl>
+<p>creation_date</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">get_creation_date</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Mark Amery</p>
+<ul class="simple">
+<li>os</li>
+<li>platform</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.miscellaneous.line">
+<code class="descclassname">neuropsydia.miscellaneous.</code><code class="descname">line</code><span class="sig-paren">(</span><em>left_x=-5</em>, <em>left_y=0</em>, <em>right_x=5</em>, <em>right_y=0</em>, <em>line_color='black'</em>, <em>thickness=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/miscellaneous.html#line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.miscellaneous.line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Help incomplete, sorry.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>pygame.gfxfraw</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.miscellaneous.rectangle">
+<code class="descclassname">neuropsydia.miscellaneous.</code><code class="descname">rectangle</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>width=10</em>, <em>height=10</em>, <em>line_color='black'</em>, <em>thickness=1</em>, <em>fill_color=None</em>, <em>opacity=225</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/miscellaneous.html#rectangle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.miscellaneous.rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Help incomplete, sorry.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>pygame.gfxfraw</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.path">
+<span id="neuropsydia-path-module"></span><h2>neuropsydia.path module<a class="headerlink" href="#module-neuropsydia.path" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="neuropsydia.path.Path">
+<em class="property">class </em><code class="descclassname">neuropsydia.path.</code><code class="descname">Path</code><a class="reference internal" href="_modules/neuropsydia/path.html#Path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.path.Path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="neuropsydia.path.Path.binary">
+<code class="descname">binary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/path.html#Path.binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.path.Path.binary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.path.Path.font">
+<code class="descname">font</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/path.html#Path.font"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.path.Path.font" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.path.Path.logo">
+<code class="descname">logo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/path.html#Path.logo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.path.Path.logo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="neuropsydia.path.Path.root">
+<code class="descname">root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/path.html#Path.root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.path.Path.root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.scale">
+<span id="neuropsydia-scale-module"></span><h2>neuropsydia.scale module<a class="headerlink" href="#module-neuropsydia.scale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.scale.scale">
+<code class="descclassname">neuropsydia.scale.</code><code class="descname">scale</code><span class="sig-paren">(</span><em>style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0, 100], validation=True, analog=True, step=1, labels='numeric', labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color='black', background='white', title=None, title_style='body', title_size=1, title_space=1.75, point_center=False, point_edges=True, reverse=False, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape='circle', show_result_shape_fill_color='white', show_result_shape_line_color='red', show_result_shape_size=0.8, show_result_space=1.25, show_result_size=0.5, show_result_color='black', show_result_decimals=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/scale.html#scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.scale.scale" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Draw a scale.</dt>
+<dd>HELP INCOMPLETE.</dd>
+</dl>
+<dl class="docutils">
+<dt>style = str, optional</dt>
+<dd>style, check scale_styles() function to see what&#8217;s available</dd>
+<dt>x = float, optional</dt>
+<dd>position on x axis (from -10 (left)&nbsp;to 10 (right))</dd>
+<dt>y = float, optional</dt>
+<dd>position on y axis (from -10 (down)&nbsp;to 10 (up))</dd>
+<dt>anchors = list of two str, optional</dt>
+<dd>a list of two propositions to be displayed on the sides of the scale (e.g., [not at all, very much])</dd>
+<dt>anchors_space = float, optional</dt>
+<dd>spacing betweeen the edge and the anchors</dd>
+<dt>anchors_size = float, optional</dt>
+<dd>size of the anchors&#8217; font</dd>
+<dt>edges = list of two floats</dt>
+<dd>the underlying numerical edges of the scale</dd>
+<dt>validation = bool, optional</dt>
+<dd>confirm the response with a second left click or withdraw with a right click</dd>
+<dt>analog = bool, optional</dt>
+<dd>continuous (discrete) scale</dd>
+<dt>step = int, optional</dt>
+<dd>if analog is True, what are the step to go between the edges (determine the number of points on the scale)</dd>
+<dt>labels = str or list of str, optional</dt>
+<dd>&#8220;num&#8221;, &#8220;numeric&#8221; or &#8220;numbers&#8221; or list of actual text labels (e.g., [&#8220;not at all&#8221;, &#8220;a bit&#8221;, &#8220;very much&#8221;])</dd>
+</dl>
+<p>response</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">scale</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.scale.scale_styles">
+<code class="descclassname">neuropsydia.scale.</code><code class="descname">scale_styles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/scale.html#scale_styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.scale.scale_styles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns available scale styles.</p>
+<p>None</p>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">scale_styles</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<p>None</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.screen">
+<span id="neuropsydia-screen-module"></span><h2>neuropsydia.screen module<a class="headerlink" href="#module-neuropsydia.screen" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-neuropsydia.signal">
+<span id="neuropsydia-signal-module"></span><h2>neuropsydia.signal module<a class="headerlink" href="#module-neuropsydia.signal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.signal.acq_to_df">
+<code class="descclassname">neuropsydia.signal.</code><code class="descname">acq_to_df</code><span class="sig-paren">(</span><em>file</em>, <em>samples=1</em>, <em>unit='ms'</em>, <em>method='mean'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/signal.html#acq_to_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.signal.acq_to_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format a BIOPAC&#8217;s AcqKnowledge file into a pandas&#8217; dataframe.</p>
+<dl class="docutils">
+<dt>file =  str</dt>
+<dd>the path of a BIOPAC&#8217;s AcqKnowledge file</dd>
+<dt>samples = int</dt>
+<dd>the final frequency (samples/unit)</dd>
+<dt>unit = str</dt>
+<dd>&#8220;ms&#8221; or &#8220;s&#8221;, the final frequency</dd>
+<dt>method = str</dt>
+<dd>&#8220;mean&#8221; or &#8220;pad&#8221;, resampling method</dd>
+</dl>
+<dl class="docutils">
+<dt>df = pandas.DataFrame()</dt>
+<dd>the dataframe</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">acq_to_df</span><span class="p">(</span><span class="s1">&#39;file.acq&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pandas</li>
+<li>bioread</li>
+<li>datetime</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.signal.extract_peak">
+<code class="descclassname">neuropsydia.signal.</code><code class="descname">extract_peak</code><span class="sig-paren">(</span><em>channel_data</em>, <em>value='max'</em>, <em>size=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/signal.html#extract_peak"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.signal.extract_peak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exctract the peak (max or min) of one or several channels.</p>
+<dl class="docutils">
+<dt>channel_data = pandas.DataFrame</dt>
+<dd>Use the <cite>to_data_frame()</cite> method for evoked nme data.</dd>
+<dt>value = str</dt>
+<dd>&#8220;max&#8221; or &#8220;min&#8221;.</dd>
+<dt>size = int</dt>
+<dd>Return an averaged peak from how many points before and after.</dd>
+</dl>
+<dl class="docutils">
+<dt>tuple</dt>
+<dd>(peak, time_peak)</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">channel_data</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">([</span><span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">to_data_frame</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">peak</span><span class="p">,</span> <span class="n">time_peak</span> <span class="o">=</span> <span class="n">extract_peak</span><span class="p">(</span><span class="n">channel_data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>mne &gt; 0.13.0</li>
+<li>numpy</li>
+<li>pandas</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.signal.process_EDA">
+<code class="descclassname">neuropsydia.signal.</code><code class="descname">process_EDA</code><span class="sig-paren">(</span><em>EDA_raw</em>, <em>frequency</em>, <em>tau0=2.0</em>, <em>tau1=0.7</em>, <em>delta_knot=10.0</em>, <em>alpha=0.4</em>, <em>gamma=0.01</em>, <em>solver=None</em>, <em>options={'reltol': 1e-09}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/signal.html#process_EDA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.signal.process_EDA" title="Permalink to this definition">¶</a></dt>
+<dd><p>A convex optimization approach to electrodermal activity processing (CVXEDA)</p>
+<p>This function implements the cvxEDA algorithm described in &#8220;cvxEDA: a
+Convex Optimization Approach to Electrodermal Activity Processing&#8221; (Greco et al., 2015).</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>EDA_raw</dt>
+<dd>observed EDA signal (we recommend normalizing it: EDA_raw = zscore(EDA_raw))</dd>
+<dt>frequency</dt>
+<dd>sampling interval (in seconds) of EDA_raw</dd>
+<dt>tau0</dt>
+<dd>slow time constant of the Bateman function</dd>
+<dt>tau1</dt>
+<dd>fast time constant of the Bateman function</dd>
+<dt>delta_knot</dt>
+<dd>time between knots of the tonic spline function</dd>
+<dt>alpha</dt>
+<dd>penalization for the sparse SMNA driver</dd>
+<dt>gamma</dt>
+<dd>penalization for the tonic spline coefficients</dd>
+<dt>solver</dt>
+<dd>sparse QP solver to be used, see cvxopt.solvers.qp</dd>
+<dt>options</dt>
+<dd>solver options, see <a class="reference external" href="http://cvxopt.org/userguide/coneprog.html#algorithm-parameters">http://cvxopt.org/userguide/coneprog.html#algorithm-parameters</a></dd>
+</dl>
+</div></blockquote>
+<blockquote>
+<div><dl class="docutils">
+<dt>phasic</dt>
+<dd>phasic component</dd>
+<dt>tonic</dt>
+<dd>tonic component</dd>
+<dt>p</dt>
+<dd>sparse SMNA driver of phasic component</dd>
+<dt>l</dt>
+<dd>coefficients of tonic spline</dd>
+<dt>d</dt>
+<dd>offset and slope of the linear drift term</dd>
+<dt>e</dt>
+<dd>model residuals</dd>
+<dt>obj</dt>
+<dd>value of objective function being minimized (eq 15 of paper)</dd>
+</dl>
+</div></blockquote>
+<p>Luca Citi (<a class="reference external" href="mailto:lciti&#37;&#52;&#48;ieee&#46;org">lciti<span>&#64;</span>ieee<span>&#46;</span>org</a>), Alberto Greco</p>
+<p>A Greco, G Valenza, A Lanata, EP Scilingo, and L Citi
+&#8220;cvxEDA: a Convex Optimization Approach to Electrodermal Activity Processing&#8221;
+IEEE Transactions on Biomedical Engineering, 2015
+DOI: 10.1109/TBME.2015.2474131</p>
+<ul class="simple">
+<li>cvxopt</li>
+<li>numpy</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.signal.triggers_from_photodiode">
+<code class="descclassname">neuropsydia.signal.</code><code class="descname">triggers_from_photodiode</code><span class="sig-paren">(</span><em>photo_channel</em>, <em>names=None</em>, <em>treshold=0.04</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/signal.html#triggers_from_photodiode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.signal.triggers_from_photodiode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MNE compatible triggers based on a photodiode channel.</p>
+<dl class="docutils">
+<dt>photo_channel = MNE channel</dt>
+<dd>The photodiode channel.</dd>
+<dt>names = list</dt>
+<dd>A list of event names.</dd>
+<dt>treshold = float</dt>
+<dd>The treshold to select the triggers.</dd>
+</dl>
+<dl class="docutils">
+<dt>tuple</dt>
+<dd>(events, event_id)</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raw</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_raw</span><span class="p">(</span><span class="s2">&quot;eeg_file&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">photo_channel</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">([</span><span class="s1">&#39;PHOTO&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">events</span><span class="p">,</span> <span class="n">event_id</span> <span class="o">=</span> <span class="n">triggers_from_photodiode</span><span class="p">(</span><span class="n">photo_channel</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raw</span><span class="o">.</span><span class="n">add_events</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">stim_channel</span><span class="o">=</span><span class="s2">&quot;STI 014&quot;</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>mne &gt; 0.13.0</li>
+<li>numpy</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.start">
+<span id="neuropsydia-start-module"></span><h2>neuropsydia.start module<a class="headerlink" href="#module-neuropsydia.start" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.start.close">
+<code class="descclassname">neuropsydia.start.</code><code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/start.html#close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.start.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>A clean closing of all the components of Neuropsydia. Always at&nbsp;the end of a neuropsydia script.</p>
+<p>None</p>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.start.start">
+<code class="descclassname">neuropsydia.start.</code><code class="descname">start</code><span class="sig-paren">(</span><em>open_window=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/start.html#start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.start.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize all the components of Neuropsydia. Always at&nbsp;the beginning of a neuropsydia script.</p>
+<dl class="docutils">
+<dt>open_window = bool</dt>
+<dd>should it open the pygame&#8217;s window or close it immediatly (useful when using neuropsydia for something else than experiments, e.g., statistics)</dd>
+</dl>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.stats">
+<span id="neuropsydia-stats-module"></span><h2>neuropsydia.stats module<a class="headerlink" href="#module-neuropsydia.stats" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.stats.bayesian_model">
+<code class="descclassname">neuropsydia.stats.</code><code class="descname">bayesian_model</code><span class="sig-paren">(</span><em>y</em>, <em>x</em>, <em>data=None</em>, <em>correlation=False</em>, <em>family='Normal'</em>, <em>robust=True</em>, <em>samples=1000</em>, <em>plot_posterior=True</em>, <em>plot_regression=True</em>, <em>plot_samples='default'</em>, <em>print_summary=True</em>, <em>alpha=0.05</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/stats.html#bayesian_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.stats.bayesian_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a Bayesian regression.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pandas</li>
+<li>numpy</li>
+<li>plotly</li>
+<li>scipy</li>
+<li>pymc3</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.stats.correlation">
+<code class="descclassname">neuropsydia.stats.</code><code class="descname">correlation</code><span class="sig-paren">(</span><em>var1</em>, <em>var2</em>, <em>data=None</em>, <em>r_type='pearson'</em>, <em>plot=True</em>, <em>jitter_points=False</em>, <em>output=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/stats.html#correlation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.stats.correlation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a correlation.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>scipy</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.stats.dprime">
+<code class="descclassname">neuropsydia.stats.</code><code class="descname">dprime</code><span class="sig-paren">(</span><em>n_Hit=None</em>, <em>n_Miss=None</em>, <em>n_FA=None</em>, <em>n_CR=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/stats.html#dprime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.stats.dprime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates d&#8217;, beta, c &amp; ad&#8217;.</p>
+<p>see <a class="reference external" href="http://lindeloev.net/?p=29">http://lindeloev.net/?p=29</a></p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>scipy</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.stats.identify_outliers">
+<code class="descclassname">neuropsydia.stats.</code><code class="descname">identify_outliers</code><span class="sig-paren">(</span><em>serie</em>, <em>treshold=3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/stats.html#identify_outliers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.stats.identify_outliers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identify outliers.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>scipy</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.stats.read_data">
+<code class="descclassname">neuropsydia.stats.</code><code class="descname">read_data</code><span class="sig-paren">(</span><em>filename</em>, <em>path=''</em>, <em>localization='US'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/stats.html#read_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.stats.read_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the datafile into a pandas&#8217; dataframe.</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pandas</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.stats.select_variables">
+<code class="descclassname">neuropsydia.stats.</code><code class="descname">select_variables</code><span class="sig-paren">(</span><em>df</em>, <em>dtype='numeric'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/stats.html#select_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.stats.select_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep a specific type subset of your pandas dataframe.</p>
+<dl class="docutils">
+<dt>df = pandas.DataFrame object</dt>
+<dd>a pandas dataframe</dd>
+<dt>dtype = str, optional</dt>
+<dd>&#8220;numeric&#8221; or &#8220;factor&#8221;. Note that right now, entering something else than &#8220;numeric&#8221; will just result in a dataframe with all non-numeric variables.</dd>
+</dl>
+<dl class="docutils">
+<dt>subset = pandas.DataFrame object</dt>
+<dd>the subsetted dataframe</dd>
+</dl>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pandas</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.stats.t_test">
+<code class="descclassname">neuropsydia.stats.</code><code class="descname">t_test</code><span class="sig-paren">(</span><em>var1</em>, <em>var2</em>, <em>data=None</em>, <em>var1_name='VARIABLE-1'</em>, <em>var2_name='VARIABLE-2'</em>, <em>independent=False</em>, <em>output=True</em>, <em>plot=True</em>, <em>bayesian=False</em>, <em>bootstrapped=True</em>, <em>N_resamples=1000</em>, <em>significance_treshold=0.05</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/stats.html#t_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.stats.t_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a t-test.</p>
+<dl class="docutils">
+<dt>var1 = list/array</dt>
+<dd>a numeric variable</dd>
+<dt>var2 = list/array</dt>
+<dd>either a numeric variable or a factor (with 2 levels)</dd>
+<dt>var1_name = str</dt>
+<dd>name of the first variable</dd>
+<dt>var2_name = str</dt>
+<dd>name of the second variable</dd>
+<dt>independent = bool</dt>
+<dd>pairwise or two-sample. Is adjusted automatically depending on the type of var2.</dd>
+<dt>output = bool</dt>
+<dd>if True, print the summary using APA6 style</dd>
+<dt>plot = bool</dt>
+<dd>if True, open a html window with a distribution plot</dd>
+<dt>bayesian = bool</dt>
+<dd>feature not implemented yet</dd>
+<dt>bootstrapped = bool</dt>
+<dd>if False, do a &#8220;traditional&#8221; t-test (and assumes the usual stuff about normal distrubtion of the data). If True, do a boostrapped t-test (tries to get closer of the true distribution of the data)</dd>
+<dt>N_resamples = int</dt>
+<dd>the number of resamples in case of a bootstrapped t-test</dd>
+<dt>significance_treshold = float</dt>
+<dd>under what treshold should the difference be considered as significant</dd>
+</dl>
+<dl class="docutils">
+<dt>dic</dt>
+<dd>a result dictionnary containing the different computed values.</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># generate variables</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">variable1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># get a normal distribution of size = 1000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">variable2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># get a second normal distribution of size = 1000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">250</span>  <span class="c1"># get a factor with a and b levels of size = 1000</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># paired-samples t-test</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">t_test</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># independent t-test</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">t_test</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">factor</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>pandas</li>
+<li>numpy</li>
+<li>plotly</li>
+<li>scipy</li>
+<li>pymc3</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="neuropsydia.stats.z_score">
+<code class="descclassname">neuropsydia.stats.</code><code class="descname">z_score</code><span class="sig-paren">(</span><em>raw_scores</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/stats.html#z_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.stats.z_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform an numeric pandas&#8217; array or list into Z scores (scaled and centered scores).</p>
+<p>NA</p>
+<p>NA</p>
+<p>NA</p>
+<p>Dominique Makowski</p>
+<ul class="simple">
+<li>scipy</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia.write">
+<span id="neuropsydia-write-module"></span><h2>neuropsydia.write module<a class="headerlink" href="#module-neuropsydia.write" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="neuropsydia.write.write">
+<code class="descclassname">neuropsydia.write.</code><code class="descname">write</code><span class="sig-paren">(</span><em>text='Write something here'</em>, <em>style='body'</em>, <em>x=0</em>, <em>y=0</em>, <em>size=1.0</em>, <em>rotate=0</em>, <em>color='black'</em>, <em>background=None</em>, <em>outline=False</em>, <em>outline_size=0.1</em>, <em>outline_color='black'</em>, <em>allow=None</em>, <em>wait=None</em>, <em>long_text=False</em>, <em>fast=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuropsydia/write.html#write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#neuropsydia.write.write" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Display some text on screen.</p>
+<dl class="docutils">
+<dt>text = str, optional</dt>
+<dd>The text to display</dd>
+<dt>style = str, optional</dt>
+<dd>&#8220;body&#8221;, &#8220;psychometry&#8221;, &#8220;psychometry_bold&#8221;, &#8220;light&#8221;, &#8220;bold&#8221;, &#8220;title&#8221;, &#8220;subtitle&#8221; or &#8220;end&#8221;. Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or a path to a specific font you want to use</dd>
+<dt>x = float, optional</dt>
+<dd>position on x axis (from -10 (left)&nbsp;to 10 (right))</dd>
+<dt>y = float, optional</dt>
+<dd>position on y axis (from -10 (down)&nbsp;to 10 (up))</dd>
+<dt>size = float, optional</dt>
+<dd>text size</dd>
+<dt>rotate = int, optional</dt>
+<dd>angle (0 to 360) by which rotate the text</dd>
+<dt>color = str or tuple, optional</dt>
+<dd>color of the text. See color() function.</dd>
+<dt>background = str or tuple, optional</dt>
+<dd>color of the background. See color() function. Default to None</dd>
+<dt>outline = bool, optional [this parameter needs your help]</dt>
+<dd>outline the text (not perfect for now, the outline is larger for horizontal than for vertical lines)</dd>
+<dt>outline_size = float, optional</dt>
+<dd>the size of the outlining</dd>
+<dt>outline_color = str or tuple</dt>
+<dd>color of  the outlining. See color() function</dd>
+<dt>allow = str, optional</dt>
+<dd>wait until a specific key is pressed (e.g., &#8220;ENTER&#8221;, or &#8220;any&#8221; for any). Default to None</dd>
+<dt>long_text = bool, optional [this parameter needs your help]</dt>
+<dd>set to True&nbsp;if you want to write a longer text on multiple lines. Then, the x and y parameters are not working, but you can jump lines using &nbsp;&#8221;</dd>
+</dl>
+</div></blockquote>
+<p>&#8221; in your text (e.g., &#8220;</p>
+<blockquote>
+<div><p>here&#8217;s my long text
+do you like it?&#8221;). Some other parameters are not compatible.</p>
+<blockquote>
+<div><p>fast = some parameters are toggled off, but faster.</p>
+<p>None</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">neuropsydia</span> <span class="k">as</span> <span class="nn">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;here&#39;s my  title&quot;</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;title&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;here&#39;s my  text&quot;</span><span class="p">,</span> <span class="n">font_color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;press ENTER to quit&quot;</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;end&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Léo Dutriaux, Dominique Makowski</p>
+<ul class="simple">
+<li>pygame 1.9.2</li>
+<li>time</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="module-neuropsydia">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-neuropsydia" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">neuropsydia package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.ask">neuropsydia.ask module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.choice">neuropsydia.choice module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.core">neuropsydia.core module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.image">neuropsydia.image module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.interface">neuropsydia.interface module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.meta">neuropsydia.meta module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.miscellaneous">neuropsydia.miscellaneous module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.path">neuropsydia.path module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.scale">neuropsydia.scale module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.screen">neuropsydia.screen module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.signal">neuropsydia.signal module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.start">neuropsydia.start module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.stats">neuropsydia.stats module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia.write">neuropsydia.write module</a></li>
+<li><a class="reference internal" href="#module-neuropsydia">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to neuropsydia&#8217;s documentation!</a></li>
+      <li>Next: <a href="neuropsydia.files.html" title="next chapter">neuropsydia.files package</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/neuropsydia.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dominique Makowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/neuropsydia.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

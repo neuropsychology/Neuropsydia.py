@@ -19,11 +19,7 @@ from .core import color as core_color #avoid conflict with arg name
 #======================================================================== ======
 #==============================================================================
 #==============================================================================
-def ask(text="Write something here:", style='light', x=-8, y=0, order=None,
-           size=1.0, color="black", background="white", hide=False,
-           detach_question=False, question_style="light", question_x=0, question_y=0,
-           question_size=1, question_color="black", question_long_text=False,
-           allow=None, allow_length=None, allow_type=None, allow_max=None):
+def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size=1.0, color="black", background="white", hide=False, detach_question=False, question_style="light", question_x=0, question_y=0, question_size=1, question_color="black", question_long_text=False, allow=None, allow_length=None, allow_type=None, allow_max=None):
     """
     Display a question and get the subject's answer.
 
