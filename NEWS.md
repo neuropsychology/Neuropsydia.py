@@ -13,7 +13,7 @@
 ## 0.1.2 (2016-11-06)
 - added two signal processing functions:
  - `extract_peaks()`
- - ~~`triggers_from_photodiode()`~~: removed for now. Will to be replaced.
+ - ~~`triggers_from_photodiode()`~~: removed for now. Will be replaced by a more universal function.
 
 
 ## 0.1.0 (2016-10-20)
