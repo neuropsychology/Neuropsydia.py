@@ -9,7 +9,7 @@ A Python module for creating experiments, tasks and questionnaires.
 |Name|neuropsydia|
 |----------------|---|
 |Latest Version|![](https://img.shields.io/badge/version-0.1.3-brightgreen.svg)|
-|Documentation|[![](https://img.shields.io/badge/docs-incomplete-yellow.svg)](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Documentation/API/)|
+|Documentation|[![](https://img.shields.io/badge/docs-latest-brightgreen.svg)](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Documentation/API/)|
 |Discussion|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
 |Authors|[![](https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0)](https://github.com/neuropsychology/Organization/blob/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
 |Support|Windows 7, 8, 10|
@@ -42,7 +42,8 @@ pip uninstall neuropsydia
 - You need some help? You found a bug? You would like to request a new feature? 
   Just open an [issue](https://github.com/neuropsychology/Neuropsydia.py/issues) :relaxed:
 - Want to add yourself a feature? Correct a bug? You're more than welcome to contribute!
-  Check this tutorial ([French](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-FR.md) or [English](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-EN.md)) to see how to submit your changes on github.
+  Check [this page](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/) to see how to submit your changes on github.
+- If you make changes, do not forget to change the [API documentation](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Documentation/API/) accordingly.
 
 ## Citation
 You can cite Neuropsydia with the following:
