@@ -335,33 +335,30 @@ def extract_peak(channel_data, value="max", size=0):
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def triggers_from_photodiode(photo_channel, names=None, treshold=0.04):
+def binarize_signal(signal, treshold, upper=True):
     """
-    Create MNE compatible triggers based on a photodiode channel.
+    Binarize a channel based on a continuous channel.
 
     Parameters
     ----------
-    photo_channel = MNE channel
-        The photodiode channel.
-    names = list
-        A list of event names.
+    signal = array or list
+        The signal channel.
     treshold = float
-        The treshold to select the triggers.
+        The treshold.
+    upper = bool
+        Associate a 1 with a value above or under the treshold.
 
     Returns
     ----------
-    tuple
-        (events, event_id)
+    list
+        binary_signal
 
     Example
     ----------
     >>> import neuropsydia as n
     >>> n.start(False)
     >>>
-    >>> raw = mne.io.read_raw("eeg_file")
-    >>> photo_channel = raw.copy().pick_channels(['PHOTO'])
-    >>> events, event_id = triggers_from_photodiode(photo_channel)
-    >>> raw.add_events(events, stim_channel="STI 014")
+    >>> binary_signal = binarize_signal(signal, treshold=4)
     >>>
     >>> n.close()
 
@@ -371,47 +368,82 @@ def triggers_from_photodiode(photo_channel, names=None, treshold=0.04):
 
     Dependencies
     ----------
-    - mne > 0.13.0
-    - numpy
+    None
     """
-    original_names = names.copy()
+    signal = list(signal)
+    binary_signal = []
+    for i in range(len(signal)):
+        if upper == True:
+            if signal[i] > treshold:
+                binary_signal.append(1)
+            else:
+                binary_signal.append(0)
+        if upper == False:
+            if signal[i] < treshold:
+                binary_signal.append(1)
+            else:
+                binary_signal.append(0)
+    return(binary_signal)
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
 
-    if names != None:
-        event_names = list(set(names))
-        event_index = [1, 2, 3, 4, 5, 32]
-        event_id = {}
-        for i in enumerate(event_names):
-            names = [event_index[i[0]] if x==i[1] else x for x in names]
-            event_id[i[1]] = event_index[i[0]]
+def events_onset(signal, treshold, upper=True, time_index=None):
+    """
+    Find the onsets of all events based on a continuous signal.
 
-    # Extract data from one channel
-    data, times = photo_channel[:]
-    T = list(data.T)
+    Parameters
+    ----------
+    signal = array or list
+        The signal channel.
+    treshold = float
+        The treshold.
+    upper = bool
+        Associate a 1 with a value above or under the treshold.
+    time_index = array or list
+        Add a corresponding datetime index, will return an addional array with the onsets as datetimes.
 
-    events = []
-    for i in range(len(times)):
-        if T[i] < treshold:
-            events.append(1)
-        else:
-            events.append(0)
+    Returns
+    ----------
+    list or tuple of lists
+        events onsets
 
-    event_times = []
-    for i in range(len(events)):
+    Example
+    ----------
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>>
+    >>> events_onset = events_onset(signal, treshold=4)
+    >>>
+    >>> n.close()
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    None
+    """
+    binary_data = binarize_signal(signal, treshold=treshold, upper=upper)
+
+    events_time = []
+    events_onset = []
+    for i in range(len(binary_data)):
         if i > 0:
-            if events[i]==1 and events[i-1]==0:
-                event_times.append(i)
-
-    if len(event_times) != len(original_names):
-        print("NEUROPSYDIA ERROR: triggers_from_photodiode(): length of trigger names vector does not match the number of detected triggers (n = " +
-              str(len(event_times)) + "), change names or crop the raw data")
-    if names != None:
-        events = np.array([event_times, [0]*len(event_times), names]).T
-        return(events, event_id, names)
+            if binary_data[i]==1 and binary_data[i-1]==0:
+                events_onset.append(i)
+                if time_index is not None:
+                    events_time.append(time_index[i])
+    if time_index is None:
+        return(events_onset)
     else:
-        events = np.array([event_times, [0]*len(event_times), [1]*len(event_times)]).T
-        return(events, event_id)
-
-
+        return(events_onset, events_time)
 
 
 
