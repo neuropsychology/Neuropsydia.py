@@ -19,7 +19,7 @@ import bioread  # acq_to_df()
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def acq_to_df(file, samples=1, unit="s", method="mean"):
+def acq_to_df(file, sampling_rate=1000, method="mean"):
     """
     Format a BIOPAC's AcqKnowledge file into a pandas' dataframe.
 
@@ -27,8 +27,8 @@ def acq_to_df(file, samples=1, unit="s", method="mean"):
     ----------
     file =  str
         the path of a BIOPAC's AcqKnowledge file
-    samples = int
-        the final frequency (samples/unit)
+    sampling_rate = int
+        final sampling rate (samples/second)
     unit = str
         "s" or "ms", to calculate the frequency
     method = str
@@ -88,10 +88,7 @@ def acq_to_df(file, samples=1, unit="s", method="mean"):
     df = pd.DataFrame(data, index=time)
 
     # Create resampling factor
-    if unit == "ms":
-        resample_factor = str(samples) + "L"
-    if unit == "s":
-        resample_factor = str(samples) + "S"
+    sampling_rate = str(1000/sampling_rate) + "S"
 
 
     # max frequency must be 1000
@@ -110,11 +107,11 @@ def acq_to_df(file, samples=1, unit="s", method="mean"):
 
     # Resample
     if method == "mean":
-        df2 = df2.resample(resample_factor).mean()
-        df = df.resample(resample_factor).mean()
+        df2 = df2.resample(sampling_rate).mean()
+        df = df.resample(sampling_rate).mean()
     if method == "pad":
-        df2 = df2.resample(resample_factor).pad()
-        df = df.resample(resample_factor).pad()
+        df2 = df2.resample(sampling_rate).pad()
+        df = df.resample(sampling_rate).pad()
     df = pd.concat([df, df2], 1)
 
     return(df)
