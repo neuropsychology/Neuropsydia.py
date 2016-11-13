@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import mne
 import pandas as pd
 import numpy as np
 import datetime
@@ -270,7 +269,7 @@ def process_EDA(EDA_raw, sampling_rate, tau0=2., tau1=0.7, delta_knot=10., alpha
 # ==============================================================================
 def extract_peak(channel_data, value="max", size=0):
     """
-    Exctract the peak (max or min) of one or several channels.
+    Extract the peak (max or min) of one or several channels.
 
     Parameters
     ----------
@@ -302,7 +301,6 @@ def extract_peak(channel_data, value="max", size=0):
 
     Dependencies
     ----------
-    - mne > 0.13.0
     - numpy
     - pandas
     """
@@ -445,5 +443,140 @@ def events_onset(signal, treshold, upper=True, time_index=None):
     else:
         return(events_onset, events_time)
 
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
 
+def create_epochs(signal, events_onset, sampling_rate, onset=-250, duration=1000, stimuli_name=None):
+    """
+    Create a dataframe of epoched data.
+
+    Parameters
+    ----------
+    signal = array or list
+        the signal.
+    events_onset = list
+        list of events onsets (see `events_onset()` function).
+    sampling_rate = int
+        Signal's sampling rate (samples/second).
+
+    Returns
+    ----------
+    pandas' dataframe
+        timepoints * epochs
+
+    Example
+    ----------
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>>
+    >>> epochs = create_epochs(signal)
+    >>>
+    >>> n.close()
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - numpy
+    - pandas
+    """
+    length = int(sampling_rate * duration / 1000)
+    length_onset =  int(sampling_rate * abs(onset) / 1000)
+
+    events_onset = np.array(events_onset)
+    events_onset = events_onset + onset
+
+
+    epoch = 0
+    data = {}
+    for i in range(len(signal)):
+        try:
+            if i == events_onset[epoch]:
+                data[epoch] = []
+                j = 0
+                for j in range(length):
+                    data[epoch].append(signal[i+j])
+                epoch += 1
+        except IndexError:
+            pass
+
+    index = np.array(list(range(length)))-length_onset
+    epochs = pd.DataFrame.from_dict(data)
+    epochs.index = index
+    if stimuli_name is not None:
+        if len(list(set(stimuli_name))) != len(stimuli_name):
+            print("Neuropsydia error: create_epochs(): stimuli names must be all different. See create_evoked()")
+        else:
+            epochs.columns = stimuli_name
+    return(epochs)
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+
+def create_evoked(epochs, events, average=True):
+    """
+    Create a dictionary containing evoked data.
+
+    Parameters
+    ----------
+    epochs = dataframe
+        epoched data.
+    events = list
+        list of events types.
+    average = bool
+        Set True for collapsing the epoched.
+
+    Returns
+    ----------
+    dic
+        A dictionary containing one dataframe for each event.
+
+    Example
+    ----------
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>>
+    >>> events = ["emotion", "neutral", "emotion", "neutral"]
+    >>> evoked = create_evoked(epochs)
+    >>>
+    >>> n.close()
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - numpy
+    - pandas
+    """
+    index = epochs.index
+
+    evoked = {}
+    for event in set(events):
+        evoked[event] = {}
+
+    for event in enumerate(events):
+        evoked[event[1]][event[0]] = epochs[event[0]]
+
+    for event in evoked:
+        evoked[event] = pd.DataFrame.from_dict(evoked[event])
+        evoked[event].index = index
+        if average == True:
+            evoked[event] = evoked[event].mean(axis=1)
+    return(evoked)
 
