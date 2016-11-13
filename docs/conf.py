@@ -52,13 +52,17 @@ sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+#	'autoapi.extension',
 #	'numpydoc',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
 	'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
-    'sphinx.ext.pngmath'
+    'sphinx.ext.imgmath'
 ]
+# Document Python Code
+#autoapi_type = 'python'
+#autoapi_dirs = ['D:/Programs/Dropbox/RECHERCHE/Neuropsydia/Neuropsydia.py/neuropsydia']
 
 # Napoleon settings
 napoleon_use_rtype = False
@@ -144,7 +148,7 @@ pygments_style = 'sphinx'
 # keep_warnings = False
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
+todo_include_todos = False
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -270,7 +274,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'neuropsydiadoc'
+htmlhelp_basename = 'NeuropsydiaDoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
