@@ -5,6 +5,8 @@
 - `process_EDA()`: Thanks to [Luca Citi and Alberto Greco](http://ieeexplore.ieee.org/document/7229284/)
 - `binarize_signal()`: signal processing
 - `events_onset()`: Find event onsets (signal processing)
+- `create_epochs()`: Create epoched data (signal processing)
+- `create_evoked()`: Create evoked data (signal processing)
 
 ### Breaking changes
 ### Major changes
