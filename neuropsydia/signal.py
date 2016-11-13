@@ -19,7 +19,7 @@ import bioread  # acq_to_df()
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def acq_to_df(file, samples=1, unit="ms", method="mean"):
+def acq_to_df(file, samples=1, unit="s", method="mean"):
     """
     Format a BIOPAC's AcqKnowledge file into a pandas' dataframe.
 
@@ -30,7 +30,7 @@ def acq_to_df(file, samples=1, unit="ms", method="mean"):
     samples = int
         the final frequency (samples/unit)
     unit = str
-        "ms" or "s", the final frequency
+        "s" or "ms", to calculate the frequency
     method = str
         "mean" or "pad", resampling method
 
@@ -126,7 +126,7 @@ def acq_to_df(file, samples=1, unit="ms", method="mean"):
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def process_EDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2, solver=None, options={'reltol':1e-9}):
+def process_EDA(EDA_raw, sampling_rate, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4, gamma=1e-2, solver=None, options={'reltol':1e-9}):
     """
     A convex optimization approach to electrodermal activity processing (CVXEDA)
 
@@ -137,8 +137,8 @@ def process_EDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4
     ----------
        EDA_raw
            observed EDA signal (we recommend normalizing it: EDA_raw = zscore(EDA_raw))
-       frequency
-           sampling interval (in seconds) of EDA_raw
+       sampling_rate
+           sampling rate (samples/seconds) of EDA_raw
        tau0
            slow time constant of the Bateman function
        tau1
@@ -187,6 +187,8 @@ def process_EDA(EDA_raw, frequency, tau0=2., tau1=0.7, delta_knot=10., alpha=0.4
     - cvxopt
     - numpy
     """
+    frequency = 1/(sampling_rate/100)
+
     EDA_raw = z_score(EDA_raw)
 
     n = len(EDA_raw)
