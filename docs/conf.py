@@ -58,7 +58,7 @@ extensions = [
     'sphinx.ext.viewcode',
 	'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
-    'sphinx.ext.imgmath'
+    'sphinx.ext.pngmath'
 ]
 # Document Python Code
 #autoapi_type = 'python'
