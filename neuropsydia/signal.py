@@ -29,8 +29,6 @@ def acq_to_df(file, sampling_rate=1000, method="mean"):
         the path of a BIOPAC's AcqKnowledge file
     sampling_rate = int
         final sampling rate (samples/second)
-    unit = str
-        "s" or "ms", to calculate the frequency
     method = str
         "mean" or "pad", resampling method
 
@@ -88,7 +86,7 @@ def acq_to_df(file, sampling_rate=1000, method="mean"):
     df = pd.DataFrame(data, index=time)
 
     # Create resampling factor
-    sampling_rate = str(1000/sampling_rate) + "L"
+    sampling_rate = str(int(1000/sampling_rate)) + "L"
 
 
     # max frequency must be 1000
