@@ -19,10 +19,27 @@
 #
 import os
 import sys
+import shlex
 
-import sphinx_rtd_theme
-sys.path.insert(0, os.path.abspath('.'))
+# To be able to import to ReadTheDocs
+from mock import Mock as MagicMock
 
+class Mock(MagicMock):
+    @classmethod
+    def __getattr__(cls, name):
+            return Mock()
+
+
+MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot',
+                'scipy.signal', 'scipy.interpolate', 'scipy.optimize',
+                'scipy.stats', 'scipy.cluster', 'scipy.cluster.hierarchy',
+                'scipy.cluster.vq', 'scipy.sparse', 'scipy.spatial',
+                'scipy.spatial.distance', 'sklearn', 'sklearn.cluster',
+                'sklearn.grid_search', 'sklearn.externals',
+                'matplotlib.gridspec', 'h5py', 'shortuuid', 'bidict', 'svm',
+                'sksvm']
+
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -34,9 +51,17 @@ sys.path.insert(0, os.path.abspath('.'))
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+	'numpydoc',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
+	'sphinx.ext.coverage',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.pngmath'
 ]
+
+# Napoleon settings
+napoleon_use_rtype = False
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -126,8 +151,8 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
-
+#html_theme = 'sphinx_rtd_theme'
+html_theme = 'default'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
@@ -135,15 +160,15 @@ html_theme = 'sphinx_rtd_theme'
 # html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ["_themes", ]
+#html_theme_path = ["_themes", ]
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
-html_theme_options = {
-    'collapse_navigation': True,
-    'display_version': True,
-    'navigation_depth': 3,
-}
+#html_theme_options = {
+#    'collapse_navigation': True,
+#    'display_version': True,
+#    'navigation_depth': 3,
+#}
 # html_title = 'neuropsydia v'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
@@ -153,7 +178,7 @@ html_theme_options = {
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = "img/N.png"
+html_logo = "img/neuropsydia.png"
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

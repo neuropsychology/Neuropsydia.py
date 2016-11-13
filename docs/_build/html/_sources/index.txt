@@ -9,19 +9,15 @@ Welcome to Neuropsydia's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
 .. automodule:: neuropsydia
     :members:
-    :undoc-members:
-    :inherited-members:
-    :show-inheritance:
 
 
-Indices and tables
+Functions
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
 
