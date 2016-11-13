@@ -20,7 +20,7 @@
 import os
 import sys
 import shlex
-import numpydoc
+#import numpydoc
 
 # To be able to import to ReadTheDocs
 from mock import Mock as MagicMock
@@ -52,7 +52,7 @@ sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-	'numpydoc',
+#	'numpydoc',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
 	'sphinx.ext.coverage',
