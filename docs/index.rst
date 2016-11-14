@@ -11,7 +11,6 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   index
    api
    tutorials/1.0.Getting_Started
 
