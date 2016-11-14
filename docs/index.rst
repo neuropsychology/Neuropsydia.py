@@ -11,8 +11,9 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   api
    tutorials/1.0.Getting_Started
+   api
+   
 
 
 Installation
