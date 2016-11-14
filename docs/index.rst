@@ -3,14 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Neuropsydia's documentation!
-=======================================
+Home
+====
 
 Contents:
 
 .. toctree::
    :maxdepth: 1
 
+   index
    neuropsydia
    tutorials/1.0.Getting_Started
 
