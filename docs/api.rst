@@ -10,5 +10,3 @@ Modules
 
 .. autoclass:: Time
    :members:
-   
-.. automodule:: neuropsydia
