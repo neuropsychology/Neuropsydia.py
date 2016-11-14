@@ -2,17 +2,8 @@ API Reference
 #############
 This part of the documentation details the complete ``neuropsydia`` for python API.
 
-Packages
-********
 
-.. toctree::
-   :maxdepth: 1
-
-  
-   
 Modules
 *******
 
-.. automodule:: neuropsydia
-   :members:
-   :show-inheritance:
+.. automodule:: neuropsydia.path
