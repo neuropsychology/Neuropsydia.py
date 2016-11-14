@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 1
 
    neuropsydia
-   tutorials
+   tutorials/1.0.Getting_Started
 
 
 Installation
