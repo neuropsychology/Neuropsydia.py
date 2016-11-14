@@ -8,5 +8,5 @@ Modules
 .. toctree::
    :maxdepth: 2
 
-.. autoclass:: Time
+.. autoclass:: neuropsydia.Time
    :members:
