@@ -65,7 +65,7 @@ extensions = [
 #autoapi_dirs = ['D:/Programs/Dropbox/RECHERCHE/Neuropsydia/Neuropsydia.py/neuropsydia']
 
 # Napoleon settings
-napoleon_use_rtype = False
+napoleon_use_rtype = True
 
 
 # Add any paths that contain templates here, relative to this directory.
