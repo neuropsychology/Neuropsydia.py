@@ -8,7 +8,6 @@ Packages
 .. toctree::
    :maxdepth: 1
 
-   neuropsydia
    neuropsydia.write
    
    
