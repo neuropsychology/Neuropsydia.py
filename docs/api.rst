@@ -5,5 +5,4 @@ This part of the documentation details the complete ``neuropsydia`` for python A
 
 Modules
 *******
-.. automodule::neuropsydia
-   :members:
+
