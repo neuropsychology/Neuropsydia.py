@@ -16,9 +16,3 @@ Modules
 
 .. contents::
    :local:
-
-.. automodule:: neuropsydia.ask
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
