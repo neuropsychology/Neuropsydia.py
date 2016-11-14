@@ -5,5 +5,10 @@ This part of the documentation details the complete ``neuropsydia`` for python A
 
 Modules
 *******
+.. toctree::
+   :maxdepth: 2
 
+.. autoclass:: Time
+   :members:
+   
 .. automodule:: neuropsydia
