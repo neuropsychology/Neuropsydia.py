@@ -15,5 +15,4 @@ Modules
 
 .. automodule:: neuropsydia
    :members:
-   :undoc-members:
    :show-inheritance:
