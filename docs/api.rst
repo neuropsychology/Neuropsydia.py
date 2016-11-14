@@ -8,11 +8,15 @@ Packages
 .. toctree::
    :maxdepth: 1
 
-   neuropsydia.write
-   
+  
    
 Modules
 *******
 
 .. contents::
    :local:
+
+.. automodule:: neuropsydia
+   :members:
+   :undoc-members:
+   :show-inheritance:

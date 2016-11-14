@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 1
 
    index
-   neuropsydia
+   api
    tutorials/1.0.Getting_Started
 
 
