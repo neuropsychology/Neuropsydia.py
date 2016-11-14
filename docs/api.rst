@@ -6,5 +6,5 @@ This part of the documentation details the complete ``neuropsydia`` for python A
 Modules
 *******
 
-.. automodule::neuropsydia
+.. automodule::neuropsydia.ask
    :members:
