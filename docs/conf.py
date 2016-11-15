@@ -16,15 +16,16 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, os.path.abspath('..'))
 
-from neuropsydia import __version__
 
 import os
 import sys
+#import autoapi
 #import shlex
 #import numpydoc
+sys.path.insert(0, os.path.abspath('..'))
 
+from neuropsydia import __version__
 
 
 # To be able to import to ReadTheDocs
@@ -71,10 +72,10 @@ extensions = [
 ]
 # Document Python Code
 #autoapi_type = 'python'
-#autoapi_dirs = ['D:/Programs/Dropbox/RECHERCHE/Neuropsydia/Neuropsydia.py/neuropsydia']
+#autoapi_dirs = ['D:/Programs/Dropbox/RECHERCHE/Neuropsydia/Neuropsydia.py']
 
 # Napoleon settings
-napoleon_use_rtype = True
+napoleon_use_rtype = False
 
 
 # Add any paths that contain templates here, relative to this directory.
