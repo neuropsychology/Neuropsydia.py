@@ -23,24 +23,24 @@ import shlex
 #import numpydoc
 
 # To be able to import to ReadTheDocs
-from mock import Mock as MagicMock
+#from mock import Mock as MagicMock
+#
+#class Mock(MagicMock):
+#    @classmethod
+#    def __getattr__(cls, name):
+#            return Mock()
 
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-            return Mock()
 
+#MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot',
+#                'scipy.signal', 'scipy.interpolate', 'scipy.optimize',
+#                'scipy.stats', 'scipy.cluster', 'scipy.cluster.hierarchy',
+#                'scipy.cluster.vq', 'scipy.sparse', 'scipy.spatial',
+#                'scipy.spatial.distance', 'sklearn', 'sklearn.cluster',
+#                'sklearn.grid_search', 'sklearn.externals',
+#                'matplotlib.gridspec', 'h5py', 'shortuuid', 'bidict', 'svm',
+#                'sksvm']
 
-MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot',
-                'scipy.signal', 'scipy.interpolate', 'scipy.optimize',
-                'scipy.stats', 'scipy.cluster', 'scipy.cluster.hierarchy',
-                'scipy.cluster.vq', 'scipy.sparse', 'scipy.spatial',
-                'scipy.spatial.distance', 'sklearn', 'sklearn.cluster',
-                'sklearn.grid_search', 'sklearn.externals',
-                'matplotlib.gridspec', 'h5py', 'shortuuid', 'bidict', 'svm',
-                'sksvm']
-
-sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+#sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -240,7 +240,7 @@ html_static_path = ['_static']
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #
-# html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #
