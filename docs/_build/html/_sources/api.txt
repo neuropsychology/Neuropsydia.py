@@ -3,10 +3,10 @@ API Reference
 This part of the documentation details the complete ``neuropsydia`` for python API.
 
 
-Modules
-*******
-.. toctree::
-   :maxdepth: 2
+.. automodule::neuropsydia
 
-.. autoclass:: neuropsydia.Time
+
+.. automodule::neuropsydia.stats
    :members:
+   :undoc-members:
+   :show-inheritance:
