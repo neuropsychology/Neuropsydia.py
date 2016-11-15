@@ -20,34 +20,32 @@
 
 import os
 import sys
-#import autoapi
-#import shlex
-#import numpydoc
+
 sys.path.insert(0, os.path.abspath('..'))
 
-from neuropsydia import __version__
+#
 
 
 # To be able to import to ReadTheDocs
-#from mock import Mock as MagicMock
+from mock import Mock as MagicMock
 #
-#class Mock(MagicMock):
-#    @classmethod
-#    def __getattr__(cls, name):
-#            return Mock()
+class Mock(MagicMock):
+    @classmethod
+    def __getattr__(cls, name):
+            return Mock()
 
 
-#MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot',
-#                'scipy.signal', 'scipy.interpolate', 'scipy.optimize',
-#                'scipy.stats', 'scipy.cluster', 'scipy.cluster.hierarchy',
-#                'scipy.cluster.vq', 'scipy.sparse', 'scipy.spatial',
-#                'scipy.spatial.distance', 'sklearn', 'sklearn.cluster',
-#                'sklearn.grid_search', 'sklearn.externals',
-#                'matplotlib.gridspec', 'h5py', 'shortuuid', 'bidict', 'svm',
-#                'sksvm', 'neuropsydia']
-#
-#sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot',
+                'scipy.signal', 'scipy.interpolate', 'scipy.optimize',
+                'scipy.stats', 'scipy.cluster', 'scipy.cluster.hierarchy',
+                'scipy.cluster.vq', 'scipy.sparse', 'scipy.spatial',
+                'scipy.spatial.distance', 'sklearn', 'sklearn.cluster',
+                'sklearn.grid_search', 'sklearn.externals',
+                'matplotlib.gridspec', 'h5py', 'shortuuid', 'bidict', 'svm',
+                'sksvm', 'pygame']
 
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+from neuropsydia import __version__
 
 
 
