@@ -9,7 +9,7 @@ A Python module for creating experiments, tasks and questionnaires.
 |Name|neuropsydia|
 |----------------|---|
 |Latest Version|[![PyPI version](https://badge.fury.io/py/neuropsydia.svg)](https://badge.fury.io/py/neuropsydia)|
-|Documentation|[![](https://img.shields.io/badge/docs-latest-brightgreen.svg)](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Documentation/API/)|
+|Documentation|[![](https://img.shields.io/badge/docs-latest-brightgreen.svg)]|
 |Discussion|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
 |Authors|[![](https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0)](https://github.com/neuropsychology/Organization/blob/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
 |Support|Windows 7, 8, 10|
