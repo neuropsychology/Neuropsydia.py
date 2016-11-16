@@ -1,0 +1,1 @@
+https://github.com/cedrus-opensource/pyxid/tarball/master
