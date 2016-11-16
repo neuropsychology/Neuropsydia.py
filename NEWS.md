@@ -1,4 +1,5 @@
 # CURRENT STABLE: 0.1.3 (2016-11-12)
+Pushed to pypi!
 ### New functions
 - `acq_to_df()`: read and format an BIOPAC's AcqKnowledge file into a Pandas' dataframe
 - `get_creation_date()`: get creation date of a file
