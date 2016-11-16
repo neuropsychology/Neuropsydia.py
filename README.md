@@ -21,9 +21,9 @@ To get the latest stable version (`0.1.3`), run the following in the [command pr
 pip install neuropsydia
 ```
 
-To get the latest development version (`1.0.0`), run the following in the command prompt (might take a few minutes):"
-```python"
-pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev"
+To get the latest development version (`1.0.0`), run the following:
+```python
+pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
 ```
 
 
