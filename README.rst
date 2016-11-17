@@ -32,9 +32,6 @@ Contribute
    welcome to contribute! Check `this
    page <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/>`__
    to see how to submit your changes on github.
--  If you make changes, do not forget to change the `API
-   documentation <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Documentation/API/>`__
-   accordingly.
 
 Citation
 --------
@@ -129,8 +126,8 @@ Try this!
 Scales and Questionnaires
 -------------------------
 
--  [x] Fully automated questionnaires.
--  [x] Powerful scale creation.
+-  Fully automated questionnaires.
+-  Powerful scale creation.
 
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
@@ -176,18 +173,13 @@ Scales and Questionnaires
 Choices
 -------
 
--  [x] Easily display clickable choices, useful in case of recognition
-   tasks or so.
+-  Easily display clickable choices, useful in case of recognition tasks or so.
 
-.. raw:: html
-
-   <p align="left">
-
-.. raw:: html
-
-   </p>
-
-.. code:: python
+.. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-choice.gif
+    :width: 500px
+    :align: left
+	:alt: interactive choice psychology remember guess know
+	
 
     import neuropsydia as n
 
@@ -207,6 +199,11 @@ Choices
 
     n.close()
 
+	
+	
+	
+	
+	
 .. |PyPI version| image:: https://badge.fury.io/py/neuropsydia.svg
    :target: https://badge.fury.io/py/neuropsydia
 .. |Documentation Status| image:: http://readthedocs.org/projects/neuropsydia/badge/?version=latest
