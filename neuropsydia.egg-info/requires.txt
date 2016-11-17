@@ -1,0 +1,12 @@
+pygame>=1.9.2a0
+numpy>=1.11.0
+scipy>=0.10.0
+pandas>=0.18.0
+Pillow>=3.0.0
+plotly>=1.12.9
+cryptography>=1.5.2
+python-docx>=0.8.6
+pyxid>=1.0.0
+mne>=0.13.0
+bioread>=1.0.1
+cvxopt>=1.1.7

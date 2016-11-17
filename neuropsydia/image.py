@@ -225,9 +225,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0,
-          fullscreen=False, rotate=0, scramble=False, background=None,
-          compress=False, compression=0, allow=None, wait=None, opacity=100):
+def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100):
     """
     Help incomplete, sorry.
 

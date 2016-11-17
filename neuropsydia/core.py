@@ -241,7 +241,7 @@ time = Time()
 # ==============================================================================
 
 
-def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_type="out", auto_refresh=False):
+def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_type="out", auto_refresh=True):
     """
     Fill the background with a color.
 
@@ -569,7 +569,7 @@ class Coordinates:
     ----------
     - pygame 1.9.2
     """
-    def to_pygame(x=None,y=None, distance_x=None, distance_y=None):
+    def to_pygame(x=None, y=None, distance_x=None, distance_y=None):
         """
         Convert coordinates from neuropsydia (-10:10) to pygame's system (in pixels).
 
@@ -615,7 +615,7 @@ class Coordinates:
         if distance_y != None:
             distance_y = (-distance_y)/(10.0+10.0)*(screen_height-0.0)+0.0
             return(int(distance_y))
-    def from_pygame(x=None,y=None):
+    def from_pygame(x=None, y=None):
         """
         Help incomplete, sorry.
 
@@ -686,6 +686,7 @@ color_list = {
 "black":(0,0,0),
 "b":(0,0,0),
 "grey":(128,128,128),
+"g":(128,128,128),
 "raw_red":(255,0,0),
 "raw_green":(0,255,0 ),
 "raw_blue":(0, 0, 255),

@@ -13,10 +13,7 @@ from .core import color as core_color  # avoid conflict with arg name
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def write(text="Write something here", style="body", x=0, y=0, size=1.0,
-          rotate=0, color="black", background=None,
-          outline=False, outline_size=0.1, outline_color="black",
-          allow=None, wait=None, long_text=False, fast=False):
+def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=0, color="black", background=None, outline=False, outline_size=0.1, outline_color="black", allow=None, wait=None, long_text=False, fast=False):
     """
     Display some text on screen.
 

@@ -8,22 +8,23 @@ A Python module for creating experiments, tasks and questionnaires.
 
 |Name|neuropsydia|
 |----------------|---|
-|Status|![](https://img.shields.io/badge/status-stable-brightgreen.svg)|
-|Latest Version|![](https://img.shields.io/badge/version-0.1.2-brightgreen.svg)|
+|Latest Version|[![PyPI version](https://badge.fury.io/py/neuropsydia.svg)](https://badge.fury.io/py/neuropsydia)|
+|Documentation|[![Documentation Status](http://readthedocs.org/projects/neuropsydia/badge/?version=latest)](http://neuropsydia.readthedocs.io/en/latest/?badge=latest)|
 |Discussion|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
-|Authors|[![](https://img.shields.io/badge/CV-D.Makowski-purple.svg?colorB=9C27B0)](https://github.com/neuropsychology/Organization/blob/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L.Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
-|Compatible|Windows 7, 8, 10|
+|Authors|[![](https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0)](https://github.com/neuropsychology/Organization/blob/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
+|Support|Windows 7, 8, 10|
 
 ---
 # Installation
-To get the latest stable version (`0.1.2`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
+To get the latest stable version (`0.1.3`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
 ```python
-pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
+pip install neuropsydia
 ```
-[//]: # "To get the latest development version (`0.1.1`), run the following in the command prompt (might take a few minutes):"
-[//]: # "```python"
-[//]: # "pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev"
-[//]: # "```"
+
+To get the latest development version (`1.0.0`), run the following:
+```python
+pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
+```
 
 
 **NOTE: We strongly recommend (for Windows users) the use of the [WinPython](https://winpython.github.io/) bundle, that will allow  you to have a ready-to-go scientific and portable Python setup.**
@@ -42,7 +43,8 @@ pip uninstall neuropsydia
 - You need some help? You found a bug? You would like to request a new feature? 
   Just open an [issue](https://github.com/neuropsychology/Neuropsydia.py/issues) :relaxed:
 - Want to add yourself a feature? Correct a bug? You're more than welcome to contribute!
-  Check this tutorial ([French](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-FR.md) or [English](https://github.com/neuropsychology/Courses/blob/master/Programing/Github/Contribute-EN.md)) to see how to submit your changes on github.
+  Check [this page](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/) to see how to submit your changes on github.
+- If you make changes, do not forget to change the [API documentation](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Documentation/API/) accordingly.
 
 ## Citation
 You can cite Neuropsydia with the following:
@@ -55,17 +57,17 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 ---
 # Tutorials
 
-Tutorials are currently under development. Check out [this page](https://github.com/neuropsychology/Courses) to help us improve them.
+Tutorials are currently under development. Check out [this page](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/) to help us improve them.
 
 - Novice
-  - [1.0 Getting Started](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.0.Getting_Started.md)
-  - [1.1 Computerize a questionnaire](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.1.Computerize_Questionnaire.md)
-  - [1.2 Complexify this questionnaire](https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.2.Complexify_Questionnaire.md)
-  - [1.3 Include info about the participant]  (https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/1.3.Include_Info_Participant.md)
+  - [1.0 Getting Started](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-10-getting-started)
+  - [1.1 Computerize a questionnaire](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-11-computerize-a-questionnaire)
+  - [1.2 Complexify this questionnaire](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-12-complexify-this-questionnaire)
+  - [1.3 Include info about the participant]  (http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-13-include-info-about-the-participant)
   - 1.4 The novice's trial
 - Apprentice
   - 2.0 Basics of Python programming
-  - [2.1 Structuring your Code]  (https://github.com/neuropsychology/Courses/blob/master/Programing/Python/Neuropsydia/2.1.Structuring_Code.md)
+  - [2.1 Structuring your Code]  (http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Apprentice/#part-21-structuring-your-code)
   - 2.1 Create a Stroop task
   - 2.2 The apprentice's trial
 - Companion
