@@ -356,7 +356,7 @@ def binarize_signal(signal, treshold, upper=True):
     >>> import neuropsydia as n
     >>> n.start(False)
     >>>
-    >>> binary_signal = binarize_signal(signal, treshold=4)
+    >>> binary_signal = n.binarize_signal(signal, treshold=4)
     >>>
     >>> n.close()
 
@@ -391,7 +391,7 @@ def binarize_signal(signal, treshold, upper=True):
 # ==============================================================================
 # ==============================================================================
 
-def events_onset(signal, treshold, upper=True, time_index=None):
+def find_events_onset(signal, treshold, upper=True, time_index=None):
     """
     Find the onsets of all events based on a continuous signal.
 
@@ -416,7 +416,7 @@ def events_onset(signal, treshold, upper=True, time_index=None):
     >>> import neuropsydia as n
     >>> n.start(False)
     >>>
-    >>> events_onset = events_onset(signal, treshold=4)
+    >>> events_onset = n.events_onset(signal, treshold=4)
     >>>
     >>> n.close()
 
@@ -443,6 +443,136 @@ def events_onset(signal, treshold, upper=True, time_index=None):
     else:
         return(events_onset, events_time)
 
+        
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+
+def select_events(signal, treshold, upper=True, time_index=None, number="all", after=0, before=None):
+    """
+    Find and select events based on a continuous signal.
+
+    Parameters
+    ----------
+    signal = array or list
+        The signal channel.
+    treshold = float
+        The treshold.
+    upper = bool
+        Associate a 1 with a value above or under the treshold.
+    time_index = array or list
+        Add a corresponding datetime index, will return an addional array with the onsets as datetimes.
+    number = str or int
+        How many events should it select.
+    after = int
+        If number different than "all", then at what time should it start selecting the events.
+    before = int
+        If number different than "all", before what time should it select the events.
+
+    Returns
+    ----------
+    list or tuple of lists
+        events onsets
+
+    Example
+    ----------
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>>
+    >>> events_onset = n.select_events(signal, treshold=4)
+    >>>
+    >>> n.close()
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    None
+    """
+    events_onset, events_time = find_events_onset(signal, treshold=treshold, upper=upper, time_index=time_index)
+    
+    if isinstance(number, int) and time_index is not None:
+        after_times = []
+        after_onsets = []
+        before_times = []
+        before_onsets = []
+        if after != None:
+            events_time = np.array(events_time)
+            after_onsets = list(np.array(events_onset)[events_time>after])[:number]
+            after_times = list(events_time[events_time>after])[:number]
+        if before != None:
+            events_time = np.array(events_time)
+            before_onsets = list(np.array(events_onset)[events_time<before])[:number]
+            before_times = list(events_time[events_time<before])[:number]
+        events_onset = before_onsets + after_onsets
+        events_time = before_times + after_times
+        
+        return(events_onset, events_time)
+    else:
+        return(events_onset)
+    
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+
+def create_mne_events(events_onset, events_list):
+    """
+    Create MNE compatible events.
+
+    Parameters
+    ----------
+    events_onset = list
+        Events onset (from find_events() or select_events()).
+    events_list = list
+        A list of equal length containing the stimuli types/conditions.
+
+
+    Returns
+    ----------
+    tuple
+        events and a dictionary with event's names.
+
+    Example
+    ----------
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>>
+    >>> events_onset = n.create_mne_events(events_onset, trigger_list)
+    >>>
+    >>> n.close()
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    None
+    """
+    event_id = {}
+    event_names = list(set(events_list))
+    event_index = [1, 2, 3, 4, 5, 32]
+    for i in enumerate(event_names):
+        events_list = [event_index[i[0]] if x==i[1] else x for x in events_list]
+        event_id[i[1]] = event_index[i[0]]
+
+    events = np.array([events_onset, [0]*len(events_onset), events_list]).T
+    return(events, event_id)
+    
+    
+    
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
@@ -475,7 +605,7 @@ def create_epochs(signal, events_onset, sampling_rate, onset=-250, duration=1000
     >>> import neuropsydia as n
     >>> n.start(False)
     >>>
-    >>> epochs = create_epochs(signal)
+    >>> epochs = n.create_epochs(signal)
     >>>
     >>> n.close()
 
@@ -551,7 +681,7 @@ def create_evoked(epochs, events, average=True):
     >>> n.start(False)
     >>>
     >>> events = ["emotion", "neutral", "emotion", "neutral"]
-    >>> evoked = create_evoked(epochs)
+    >>> evoked = n.create_evoked(epochs)
     >>>
     >>> n.close()
 

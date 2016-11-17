@@ -5,7 +5,9 @@ Pushed to pypi!
 - `get_creation_date()`: get creation date of a file
 - `process_EDA()`: Thanks to [Luca Citi and Alberto Greco](http://ieeexplore.ieee.org/document/7229284/)
 - `binarize_signal()`: signal processing
-- `events_onset()`: Find event onsets (signal processing)
+- `find_events()`: Find event onsets (signal processing)
+- `select_events()`: Find and select event onsets (signal processing)
+- `create_mne_events()`: Create MNE compatible events.
 - `create_epochs()`: Create epoched data (signal processing)
 - `create_evoked()`: Create evoked data (signal processing)
 
