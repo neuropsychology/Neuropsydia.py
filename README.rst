@@ -1,6 +1,6 @@
 .. image:: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
     :target: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
-    :width: 150px
+    :scale: 50 %
     :align: center
     :alt: neuropsydia python for research
 	
@@ -41,11 +41,11 @@ To get the latest development version (:code:`1.0.0`), run the following:
 
   pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
 
-***NOTE: We strongly recommend (for Windows users) the use of the** `WinPython <https://winpython.github.io/>`_ **bundle, that will allow  you to have a ready-to-go scientific and portable Python setup.**
+**NOTE: We strongly recommend (for Windows users) the use of the** `WinPython <https://winpython.github.io/>`_ **bundle, that will allow  you to have a ready-to-go scientific and portable Python setup.**
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-installation.gif
     :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-installation.gif
-    :width: 400px
+    :scale: 50 %
     :align: left
     :alt: installation neuropsydia winpython pip
 
@@ -126,13 +126,13 @@ A Go/No-Go Task in 50 lines
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-gonogo.gif
     :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-gonogo.gif
-    :width: 400px
+    :scale: 50 %
     :align: left
     :alt: interactive scale psychology
 	
 
 
-Try this!
+**Try this!**
 
 .. code:: python
 
@@ -206,7 +206,7 @@ Write, Ask and Display Images
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-writeaskimage.gif
     :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-writeaskimage.gif
-    :width: 400px
+    :scale: 50 %
     :align: left
     :alt: write ask and display images
     
@@ -236,7 +236,7 @@ Scales and Questionnaires
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
     :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
-    :width: 400px
+    :scale: 50 %
     :align: left
     :alt: interactive scale psychology
 	
@@ -281,7 +281,7 @@ Choices
 -  Easily display clickable choices, useful in case of recognition tasks or so.
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-choice.gif
-    :width: 400px
+    :scale: 50 %
     :align: left
 	:alt: interactive choice psychology remember guess know
 	
