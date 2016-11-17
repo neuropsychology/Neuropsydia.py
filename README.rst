@@ -14,6 +14,11 @@
 
    </p>
 
+.. image:: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
+    :width: 200px
+    :align: center
+	:alt: neuropsydia python for research
+	
 A Python module for creating experiments, tasks and questionnaires.
 
 --------------
