@@ -1,8 +1,8 @@
 .. image:: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
-	:target: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
+    :target: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
     :width: 200px
     :align: center
-	:alt: neuropsydia python for research
+    :alt: neuropsydia python for research
 	
 A Python module for creating experiments, tasks and questionnaires.
 
@@ -56,10 +56,10 @@ A Go/No-Go Task in 50 lines
 ---------------------------
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-gonogo.gif
-	:target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-gonogo.gif
+    :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-gonogo.gif
     :width: 500px
     :align: left
-	:alt: interactive scale psychology
+    :alt: interactive scale psychology
 	
 
 
@@ -133,10 +133,10 @@ Scales and Questionnaires
 
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
-	:target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
+    :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
     :width: 500px
     :align: left
-	:alt: interactive scale psychology
+    :alt: interactive scale psychology
 	
 
 
