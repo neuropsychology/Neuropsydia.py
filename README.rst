@@ -1,19 +1,3 @@
-.. raw:: html
-
-   <p>
-
-.. raw:: html
-
-   <header>
-
-.. raw:: html
-
-   </header>
-
-.. raw:: html
-
-   </p>
-
 .. image:: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
     :width: 200px
     :align: center
@@ -73,13 +57,12 @@ Example
 A Go/No-Go Task in 50 lines
 ---------------------------
 
-.. raw:: html
+.. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-gonogo.gif
+    :width: 500px
+    :align: left
+	:alt: interactive scale psychology
+	
 
-   <p align="left">
-
-.. raw:: html
-
-   </p>
 
 Try this!
 
@@ -149,13 +132,13 @@ Scales and Questionnaires
 -  [x] Fully automated questionnaires.
 -  [x] Powerful scale creation.
 
-.. raw:: html
 
-   <p align="left">
+.. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
+    :width: 500px
+    :align: left
+	:alt: interactive scale psychology
+	
 
-.. raw:: html
-
-   </p>
 
 .. code:: python
 
