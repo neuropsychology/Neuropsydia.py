@@ -1,6 +1,6 @@
 .. image:: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
     :target: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
-    :width: 200px
+    :width: 150px
     :align: center
     :alt: neuropsydia python for research
 	
@@ -22,16 +22,48 @@ A Python module for creating experiments, tasks and questionnaires.
 | Support          | Windows 7, 8, 10                                            |
 +------------------+-------------------------------------------------------------+
 
+--------------
+
+
+
+Installation
+============
+To get the latest stable version (:code:`0.1.3`), run the following in the `command prompt <https://docs.python.org/3/installing/>`_ (might take a few minutes):
+
+.. code:: python
+
+    pip install neuropsydia
+
+
+To get the latest development version (:code:`1.0.0`), run the following:
+
+.. code:: python
+
+  pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
+
+***NOTE: We strongly recommend (for Windows users) the use of the** `WinPython <https://winpython.github.io/>`_ **bundle, that will allow  you to have a ready-to-go scientific and portable Python setup.**
+
+.. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-installation.gif
+    :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-installation.gif
+    :width: 400px
+    :align: left
+    :alt: installation neuropsydia winpython pip
+
+
+To upgrade Neuropsydia, uninstall it and reinstall it :wink:.
+
+.. code:: python
+
+  pip uninstall neuropsydia
+
+
 Contribute
 ==========
 
 -  You need some help? You found a bug? You would like to request a new
-   feature? Just open an
-   `issue <https://github.com/neuropsychology/Neuropsydia.py/issues>`__
-   :relaxed:
+   feature? Just open an `issue <https://github.com/neuropsychology/Neuropsydia.py/issues>`__ :relaxed:
 -  Want to add yourself a feature? Correct a bug? You're more than
-   welcome to contribute! Check `this
-   page <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/>`__
+   welcome to contribute! Check `this page <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/>`__
    to see how to submit your changes on github.
 
 Citation
@@ -49,6 +81,43 @@ your keyboard to blow up, your brain to liquefy, your toilet to clog or
 a zombie plague to leak, the authors CANNOT IN ANY WAY be held
 responsible.*
 
+
+--------------
+
+Tutorials
+=========
+
+Tutorials are currently under development. Check out `this page <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/>`_ to help us improve them.
+
+- Novice
+
+  - `1.0 Getting Started <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-10-getting-started>`_
+  - `1.1 Computerize a questionnaire <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-11-computerize-a-questionnaire>`_
+  - `1.2 Complexify this questionnaire <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-12-complexify-this-questionnaire>`_
+  - `1.3 Include info about the participant <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-13-include-info-about-the-participant>`_
+  - `.4 The novice's trial
+  
+- Apprentice
+
+  - 2.0 Basics of Python programming
+  - `2.1 Structuring your Code <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Apprentice/#part-21-structuring-your-code>`_
+  - 2.1 Create a Stroop task
+  - 2.2 The apprentice's trial
+  
+- Companion
+
+  - 3.0 Create a more complex experiment
+  - 3.1 The companion's trial
+  
+- Master
+
+  - 4.0 Improve timing and precision
+  - 4.1 Data manipulation and analysis
+  - 4.2 The master's trial
+  
+  
+--------------
+  
 Example
 =======
 
@@ -57,7 +126,7 @@ A Go/No-Go Task in 50 lines
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-gonogo.gif
     :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-gonogo.gif
-    :width: 500px
+    :width: 400px
     :align: left
     :alt: interactive scale psychology
 	
@@ -125,6 +194,39 @@ Try this!
 
     n.close()  # Close neuropsydia
 
+--------------
+  
+Features
+========
+
+Write, Ask and Display Images
+-----------------------------
+- Easily write, display images and interact with the user.
+- Detailed control over the timing and latency: preload images and display them exactly whenever you want.
+
+.. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-writeaskimage.gif
+    :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-writeaskimage.gif
+    :width: 400px
+    :align: left
+    :alt: write ask and display images
+    
+    
+.. code:: python
+
+	import neuropsydia as n
+
+	n.start()
+
+	n.write("Welcome", style="title")
+	name = n.ask("What is your name?", y=5)
+	n.write("Ok, " + name + ", here is a super cool cat.", y=3)
+	n.image("cat.png", size=3, y=-3.5)
+	n.refresh()
+	n.time.wait(2000)
+
+	n.close()
+
+
 Scales and Questionnaires
 -------------------------
 
@@ -134,7 +236,7 @@ Scales and Questionnaires
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
     :target: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-scale.gif
-    :width: 500px
+    :width: 400px
     :align: left
     :alt: interactive scale psychology
 	
@@ -179,7 +281,7 @@ Choices
 -  Easily display clickable choices, useful in case of recognition tasks or so.
 
 .. image:: https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-choice.gif
-    :width: 500px
+    :width: 400px
     :align: left
 	:alt: interactive choice psychology remember guess know
 	
