@@ -5,7 +5,51 @@ import platform
 from .core import *
 from .write import *
 
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def remove_following_duplicates(mylist):
+    """
+    Remove the duplicates that are following themselves, returning a list of ordered items.
 
+    Parameters
+    ----------
+    mylist =  list
+        A list
+
+    Returns
+    ----------
+    The list without following duplicates.
+
+    Example
+    ----------
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>> mylist = ["a","a","b","a","a","a","c","c","b","b"]
+    >>> n.remove_following_duplicates(mylist)
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - os
+    - platform
+    """
+    index = 0
+    while index != len(mylist):
+        try:
+            while mylist[index] == mylist[index+1]:
+                mylist.pop(index+1)
+        except:
+            pass
+    return(mylist)
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
@@ -22,8 +66,8 @@ def get_creation_date(path_to_file):
 
     Parameters
     ----------
-    file =  BIOPAC's AcqKnowledge file
-        a file read by bioread.read()
+    path_to_file =  str
+        The path
 
     Returns
     ----------

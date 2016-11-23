@@ -1,3 +1,8 @@
+# CURRENT DEV: 1.0.0
+### New functions
+- `remove_following_duplicates()`: Remove the duplicates that are following themselves, returning a list of ordered items.
+
+
 # CURRENT STABLE: 0.1.3 (2016-11-12)
 Pushed to pypi!
 ### New functions
