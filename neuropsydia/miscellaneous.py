@@ -42,6 +42,7 @@ def remove_following_duplicates(mylist):
     - os
     - platform
     """
+    mylist = mylist.copy()
     index = 0
     while index != len(mylist):
         try:
