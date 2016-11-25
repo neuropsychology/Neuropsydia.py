@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from .screen import screen, screen_width, screen_height
+from .screen import screen, screen_width, screen_height, monitor_diagonal
 
 import os
 import pygame
@@ -534,6 +534,8 @@ def response(allow=None, enable_escape=True, time_max=None, get_RT=True):
             else:
                 return(pressed_key)
 
+
+
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
@@ -610,12 +612,18 @@ class Coordinates:
             x = (x+10.0)/(10.0+10.0)*(screen_width-0.0)+0.0
             y = (-y+10.0)/(10.0+10.0)*(screen_height-0.0)+0.0
             return(int(x),int(y))
-        if distance_x != None:
+        if distance_x != None and distance_y is None:
             distance_x = (distance_x)/(10.0+10.0)*(screen_width-0.0)+0.0
             return(int(distance_x))
-        if distance_y != None:
+        if distance_y != None and distance_x is None:
             distance_y = (-distance_y)/(10.0+10.0)*(screen_height-0.0)+0.0
             return(int(distance_y))
+        if distance_x != None and distance_y != None:
+            distance_x = (distance_x)/(10.0+10.0)*(screen_width-0.0)+0.0
+            distance_y = (-distance_y)/(10.0+10.0)*(screen_height-0.0)+0.0
+            return(int(distance_x), int(distance_y))
+
+
     def from_pygame(x=None, y=None):
         """
         Help incomplete, sorry.
@@ -649,9 +657,98 @@ class Coordinates:
         if x != None and y != None:
             x =20*x/screen_width - 10
             y = -(20*y/screen_height) + 10
-            return(x,y)
+            return(x, y)
+
+    def to_physical(distance_x=None, distance_y=None, monitor_diagnonal=monitor_diagonal, unit="cm"):
+        """
+        Help incomplete, sorry.
+
+        Parameters
+        ----------
+        monitor_diagonal = int
+            in inches (24, 27, etc).
+
+        Returns
+        ----------
+        NA
+
+        Example
+        ----------
+        NA
+
+        Authors
+        ----------
+        Dominique Makowski
+
+        Dependencies
+        ----------
+        None
+        """
+
+        if unit=="cm":
+            diagonal = monitor_diagonal*2.54
+
+        coef = np.sqrt(((screen_height*screen_height) + (screen_width*screen_width))/(diagonal*diagonal))
+
+        monitor_height = screen_height/coef
+        monitor_width = screen_width/coef
 
 
+        if distance_x != None and distance_y is None:
+            distance_x = (distance_x)/(10.0+10.0)*(monitor_width-0.0)+0.0
+            return(int(distance_x))
+        if distance_y != None and distance_x is None:
+            distance_y = (distance_y)/(10.0+10.0)*(monitor_height-0.0)+0.0
+            return(int(distance_y))
+        if distance_y != None and distance_x != None:
+            distance_x = (distance_x)/(10.0+10.0)*(monitor_width-0.0)+0.0
+            distance_y = (distance_y)/(10.0+10.0)*(monitor_height-0.0)+0.0
+            return(distance_x, distance_y)
+    def from_physical(distance_x=None, distance_y=None, monitor_diagnonal=monitor_diagonal, unit="cm"):
+        """
+        Help incomplete, sorry.
+
+        Parameters
+        ----------
+        monitor_diagonal = int
+            in inches (24, 27, etc).
+
+        Returns
+        ----------
+        NA
+
+        Example
+        ----------
+        NA
+
+        Authors
+        ----------
+        Dominique Makowski
+
+        Dependencies
+        ----------
+        None
+        """
+
+        if unit=="cm":
+            diagonal = monitor_diagonal*2.54
+
+        coef = np.sqrt(((screen_height*screen_height) + (screen_width*screen_width))/(diagonal*diagonal))
+
+        monitor_height = screen_height/coef
+        monitor_width = screen_width/coef
+
+
+        if distance_x != None and distance_y is None:
+            distance_x = (distance_x)*(10.0+10.0)/(monitor_width-0.0)+0.0
+            return(int(distance_x))
+        if distance_y != None and distance_x is None:
+            distance_y = (distance_y)*(10.0+10.0)/(monitor_height-0.0)+0.0
+            return(int(distance_y))
+        if distance_y != None and distance_x != None:
+            distance_x = (distance_x)/(10.0+10.0)*(monitor_width-0.0)+0.0
+            distance_y = (distance_y)/(10.0+10.0)*(monitor_height-0.0)+0.0
+            return(distance_x, distance_y)
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================

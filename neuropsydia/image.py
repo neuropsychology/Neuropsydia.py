@@ -117,7 +117,7 @@ class Preload():
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscreen=False, rotate=0, scramble=False, compress=False, compression=0, opacity=100, key=None):
+def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n", scale_by="height", fullscreen=False, rotate=0, scramble=False, compress=False, compression=0, opacity=100, key=None, monitor_diagonal=monitor_diagonal):
     """
     Preload images.
 
@@ -170,8 +170,21 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
         w, h = image.size
 
         if fullscreen is False:
-            new_w = int(w/h*size*screen_height/6.0)
-            new_h = int(h/h*size*screen_height/6.0)
+            if unit == "n":  # size=1 means height is equals to 1
+                if scale_by=="height":
+                    new_w = int(w/h*size*screen_height/20.0)
+                    new_h = int(h/h*size*screen_height/20.0)
+                if scale_by=="width":
+                    new_w = int(w/w*size*screen_height/20.0)
+                    new_h = int(h/w*size*screen_height/20.0)
+            if unit == "cm" or unit == "inch":
+                if scale_by=="height":
+                    new_h = int(Coordinates.from_physical(distance_y=size, unit=unit))
+                    new_w = new_h * w / h
+                if scale_by=="width":
+                    new_w = int(Coordinates.from_physical(distance_x=size, unit=unit))
+                    new_h = new_w * h / w
+
         else:
             if w > h:
                 new_w = int(w/w*screen_width)
@@ -179,7 +192,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
             else:
                 new_w = int(w/h*screen_height)
                 new_h = int(h/h*screen_height)
-        image = image.resize((new_w,new_h),PIL.Image.ANTIALIAS)
+        image = image.resize((new_w, new_h),PIL.Image.ANTIALIAS)
         image = image.rotate(rotate)
 
         if scramble == True:
@@ -190,7 +203,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
             image = image.resize((int(w*(100-compression)/100), int(h*(100-compression)/100)), PIL.Image.ANTIALIAS)
             image.save(path + "temp.jpg", quality=10, optimize=True)
             image = PIL.Image.open(path + "temp.jpg", "r")
-            image = image.resize((new_w,new_h),PIL.Image.ANTIALIAS)
+            image = image.resize((new_w, new_h),PIL.Image.ANTIALIAS)
             os.remove(path + "temp.jpg")
 
         if opacity != 100:

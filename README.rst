@@ -1,3 +1,10 @@
+.. raw:: html
+	<embed>
+		<img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="50%" align="left">
+    </embed>
+	
+	
+	
 .. image:: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
     :target: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
     :scale: 50 %
