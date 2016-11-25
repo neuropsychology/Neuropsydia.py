@@ -170,6 +170,11 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
         w, h = image.size
 
         if fullscreen is False:
+            if scale_by == "greater":
+                if h > w:
+                    scale_by = "height"
+                else:
+                    scale_by = "width"
             if unit == "n":  # size=1 means height is equals to 1
                 if scale_by=="height":
                     new_w = int(w/h*size*screen_height/20.0)
@@ -179,10 +184,10 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
                     new_h = int(h/w*size*screen_height/20.0)
             if unit == "cm" or unit == "inch":
                 if scale_by=="height":
-                    new_h = int(Coordinates.to_pygame(distance_y=Coordinates.from_physical(distance_y=size, unit=unit)))
+                    new_h = int(Coordinates.to_pygame(distance_y=Coordinates.from_physical(distance_y=size, unit=unit, monitor_diagonal=monitor_diagonal)))
                     new_w = int(new_h * w / h)
                 if scale_by=="width":
-                    new_w = int(Coordinates.to_pygame(distance_x=Coordinates.from_physical(distance_x=size, unit=unit)))
+                    new_w = int(Coordinates.to_pygame(distance_x=Coordinates.from_physical(distance_x=size, unit=unit, monitor_diagonal=monitor_diagonal)))
                     new_h = int(new_w * h / w)
 
         else:
@@ -238,7 +243,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, unit="n", scale_by="height", fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100):
+def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, unit="n", scale_by="height", fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100, monitor_diagonal=monitor_diagonal):
     """
     Help incomplete, sorry.
 
@@ -268,7 +273,7 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, unit="n
         newpage(background, auto_refresh=False)
 
     if cache is None:
-        cache = preload(file=file, cache=cache, path=path, extension=extension, size=size, unit=unit, scale_by=scale_by, fullscreen=fullscreen, rotate=rotate, scramble=scramble, compress=compress, compression=compression, opacity=opacity)
+        cache = preload(file=file, cache=cache, path=path, extension=extension, size=size, unit=unit, scale_by=scale_by, fullscreen=fullscreen, rotate=rotate, scramble=scramble, compress=compress, compression=compression, opacity=opacity, monitor_diagonal=monitor_diagonal)
 
         image = cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
 
