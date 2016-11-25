@@ -180,10 +180,10 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
             if unit == "cm" or unit == "inch":
                 if scale_by=="height":
                     new_h = int(Coordinates.from_physical(distance_y=size, unit=unit))
-                    new_w = new_h * w / h
+                    new_w = int(new_h * w / h)
                 if scale_by=="width":
                     new_w = int(Coordinates.from_physical(distance_x=size, unit=unit))
-                    new_h = new_w * h / w
+                    new_h = int(new_w * h / w)
 
         else:
             if w > h:
