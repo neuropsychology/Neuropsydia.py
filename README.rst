@@ -3,8 +3,8 @@
 	<img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="50%" align="left">
     </embed>
 	
-.. image:: https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png&container=focus&resize_w=300&refresh=31536000
-    :target: https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png&container=focus&resize_w=300&refresh=31536000
+.. image:: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
+    :target: https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png
     :scale: 50 %
     :align: center
     :alt: neuropsydia python for research
