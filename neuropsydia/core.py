@@ -704,7 +704,7 @@ class Coordinates:
             distance_x = (distance_x)/(10.0+10.0)*(monitor_width-0.0)+0.0
             distance_y = (distance_y)/(10.0+10.0)*(monitor_height-0.0)+0.0
             return(distance_x, distance_y)
-    def from_physical(distance_x=None, distance_y=None, monitor_diagnonal=monitor_diagonal, unit="cm"):
+    def from_physical(distance_x=None, distance_y=None, monitor_diagonal=monitor_diagonal, unit="cm"):
         """
         Help incomplete, sorry.
 
