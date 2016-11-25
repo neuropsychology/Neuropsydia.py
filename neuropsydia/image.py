@@ -238,7 +238,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100):
+def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, unit="n", scale_by="height", fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100):
     """
     Help incomplete, sorry.
 
@@ -264,26 +264,22 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, fullscr
     - PIL
     - time
     """
-    if background != None:
+    if background is not None:
         newpage(background, auto_refresh=False)
 
-    if cache == None:
-        cache = preload(file=file, cache=cache, path=path, extension=extension,
-                              size = size, fullscreen=fullscreen, rotate=rotate, scramble=scramble,
-                              compress=compress, compression=compression, opacity=opacity)
-        image = cache[path + file + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension]
+    if cache is None:
+        cache = preload(file=file, cache=cache, path=path, extension=extension, size=size, unit=unit, scale_by=scale_by, fullscreen=fullscreen, rotate=rotate, scramble=scramble, compress=compress, compression=compression, opacity=opacity)
+        image = cache[path + file + '_' + str(size) + '_' str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
     else:
         try:
-            image = cache.Cache[path + file + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension]
+            image = cache.Cache[path + file + '_' + str(size) + '_' str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
         except:
             try:
-                image = cache[path + file + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension]
+                image = cache[path + file + '_' + str(size) + '_' str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
             except:
                 print('NEUROPSYDIA ERROR: image(): file not in given cache: ' + file)
-                cache = preload(file=file, cache=cache, path=path, extension=extension,
-                                      size = size, fullscreen=fullscreen, rotate=rotate, scramble=scramble,
-                                      compress=compress, compression=compression)
-                image = cache[path + file + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension]
+                cache = preload(file=file, cache=cache, path=path, extension=extension, size=size, unit=unit, scale_by=scale_by, fullscreen=fullscreen, rotate=rotate, scramble=scramble, compress=compress, compression=compression)
+                image = cache[path + file + '_' + str(size) + '_' str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
 
 
     x,y = Coordinates.to_pygame(x=x,y=y)
@@ -292,12 +288,12 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, fullscr
     screen.blit(image,rectangle)
 
     #In case or one must wait until something
-    if allow != None or wait != None:
+    if allow is not None or wait is not None:
         refresh()
-        if allow == None and wait != None:
+        if allow is None and wait is not None:
             time.wait(wait)
             return(wait)
-        if allow != None:
+        if allow is not None:
             return(response(allow=allow, time_max=wait))
     else:
         return(cache)
