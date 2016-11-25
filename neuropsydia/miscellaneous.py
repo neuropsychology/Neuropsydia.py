@@ -91,7 +91,8 @@ def rectangle(x=0, y=0, width=10, height=10, line_color="black", thickness=1, fi
 
     if fill_color != None:
         pygame.draw.rect(screen, color(fill_color),(left,top,width,height),0)
-    pygame.draw.rect(screen, color(line_color),(left,top,width,height),thickness)
+    if thickness != 0:
+        pygame.draw.rect(screen, color(line_color),(left,top,width,height),thickness)
 
 
 # ==============================================================================
