@@ -215,7 +215,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
 
 
         if key == None:
-            dictionary[path + i + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension] = image
+            dictionary[path + i + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension] = image
         else:
             dictionary[key] = image
 
