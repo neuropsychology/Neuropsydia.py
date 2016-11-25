@@ -1,6 +1,6 @@
 .. raw:: html
 	<embed>
-		<img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="50%" align="left">
+	<img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="50%" align="left">
     </embed>
 	
 	
@@ -35,14 +35,14 @@ A Python module for creating experiments, tasks and questionnaires.
 
 Installation
 ============
-To get the latest stable version (:code:`0.1.3`), run the following in the `command prompt <https://docs.python.org/3/installing/>`_ (might take a few minutes):
+To get the latest stable version (:code:`1.0.0`), run the following in the `command prompt <https://docs.python.org/3/installing/>`_ (might take a few minutes):
 
 .. code:: python
 
     pip install neuropsydia
 
 
-To get the latest development version (:code:`1.0.0`), run the following:
+To get the latest development version (:code:`1.0.1`), run the following:
 
 .. code:: python
 
