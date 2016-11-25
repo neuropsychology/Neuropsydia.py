@@ -128,7 +128,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
             answer = "_"
         if answer != "ENTER":
             if answer == "ESCAPE":
-                quit()
+                break
             if answer == pygame.K_BACKSPACE:
                 if user_input != '':
                     user_input = user_input[:len(user_input)-1]
