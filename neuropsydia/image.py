@@ -269,17 +269,19 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, unit="n
 
     if cache is None:
         cache = preload(file=file, cache=cache, path=path, extension=extension, size=size, unit=unit, scale_by=scale_by, fullscreen=fullscreen, rotate=rotate, scramble=scramble, compress=compress, compression=compression, opacity=opacity)
-        image = cache[path + file + '_' + str(size) + '_' str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
+
+        image = cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
+
     else:
         try:
-            image = cache.Cache[path + file + '_' + str(size) + '_' str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
+            image = cache.Cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
         except:
             try:
-                image = cache[path + file + '_' + str(size) + '_' str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
+                image = cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
             except:
                 print('NEUROPSYDIA ERROR: image(): file not in given cache: ' + file)
                 cache = preload(file=file, cache=cache, path=path, extension=extension, size=size, unit=unit, scale_by=scale_by, fullscreen=fullscreen, rotate=rotate, scramble=scramble, compress=compress, compression=compression)
-                image = cache[path + file + '_' + str(size) + '_' str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
+                image = cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + extension]
 
 
     x,y = Coordinates.to_pygame(x=x,y=y)
