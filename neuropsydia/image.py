@@ -179,10 +179,10 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
                     new_h = int(h/w*size*screen_height/20.0)
             if unit == "cm" or unit == "inch":
                 if scale_by=="height":
-                    new_h = int(Coordinates.from_physical(distance_y=size, unit=unit))
+                    new_h = int(Coordinates.to_pygame(distance_y=Coordinates.from_physical(distance_y=size, unit=unit)))
                     new_w = int(new_h * w / h)
                 if scale_by=="width":
-                    new_w = int(Coordinates.from_physical(distance_x=size, unit=unit))
+                    new_w = int(Coordinates.to_pygame(distance_x=Coordinates.from_physical(distance_x=size, unit=unit)))
                     new_h = int(new_w * h / w)
 
         else:
