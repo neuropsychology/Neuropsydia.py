@@ -57,7 +57,7 @@ def scale_styles():
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0, 100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", background="white", title=None, title_style="body", title_size=1, title_space=1.75, point_center=False, point_edges=True, reverse=False, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.25, show_result_size=0.5, show_result_color="black", show_result_decimals=1, cursor_size=0.25):
+def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0, 100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", background="white", title=None, title_style="body", title_size=1, title_space=1.75, point_center=False, point_edges=True, reverse=False, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.25, show_result_size=0.5, show_result_color="black", show_result_decimals=1, cursor_size=1):
     """
     Draw a scale.
 	HELP INCOMPLETE.
@@ -179,14 +179,14 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
         #display the points and the labels
         if analog == False:
             for i in point_list_range:
-                image('scale_point.png', x=points_position[i], y=scale_y, size=cursor_size, path=Path.binary())
+                image('scale_point.png', x=points_position[i], y=scale_y, size=0.25, path=Path.binary())
                 write(label_list[i], x=points_position[i]+labels_x, y=scale_y + labels_space, size=labels_size,rotate=labels_rotation)
         else:
             if point_center == True:
-                image('scale_point.png', x=scale_x, y=scale_y, size=cursor_size, path=Path.binary())
+                image('scale_point.png', x=scale_x, y=scale_y, size=0.25, path=Path.binary())
             if point_edges == True:
-                image('scale_point.png', x=edge_left, y=scale_y, size=cursor_size, path=Path.binary())
-                image('scale_point.png', x=edge_right, y=scale_y, size=cursor_size, path=Path.binary())
+                image('scale_point.png', x=edge_left, y=scale_y, size=0.25, path=Path.binary())
+                image('scale_point.png', x=edge_right, y=scale_y, size=0.25, path=Path.binary())
         if separation_labels != None:
             if isinstance(separation_labels, list):
                 for i in range(len(separation_labels)):
@@ -196,12 +196,12 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
         if force_separation is False:
             if isinstance(force_separation, int):
                 for i in range(force_separation-1):
-                    image('scale_point.png', x=edge_left + line_length/force_separation*(i+1), y=scale_y, size=cursor_size)
+                    image('scale_point.png', x=edge_left + line_length/force_separation*(i+1), y=scale_y, size=0.25)
             else:
                 print("NEUROPSYDIA ERROR: scale(): force_separation requires a integer")
         if title != None:
             write(title, title_style, size=title_size, x=scale_x, y=scale_y + title_space)
-        image(cursor_name, x=cursor_x, y=scale_y, size=0.3, path=Path.binary())
+        image(cursor_name, x=cursor_x, y=scale_y, size=cursor_size, path=Path.binary())
         if show_result is True:
             if show_result_shape == "circle":
                 circle(x=cursor_x, y=y-show_result_space, size=show_result_shape_size, fill_color=show_result_shape_fill_color, line_color=show_result_shape_line_color)
