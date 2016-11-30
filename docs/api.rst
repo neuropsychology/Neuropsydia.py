@@ -4,16 +4,11 @@ This part of the documentation details the complete ``neuropsydia`` for python A
 
 
 .. automodule:: neuropsydia
-    :members:
-    :undoc-members:
-    :show-inheritance:
+
 
 .. automodule:: neuropsydia.screen
-    :members:
-    :undoc-members:
-    :show-inheritance:
-	
+
+
 .. automodule:: screen
-    :members:
-    :undoc-members:
-    :show-inheritance:
+
+.. automodule:: ask

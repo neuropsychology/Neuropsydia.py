@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+Module for the ask() function.
+"""
 from .path import *
 from .core import *
 from .write import *
