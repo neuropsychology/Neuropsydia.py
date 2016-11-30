@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Module initializing screen object and screen values.
+"""
+
 import pygame
 
 screen = pygame.display.set_mode((0,0), pygame.SRCALPHA | pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE)
