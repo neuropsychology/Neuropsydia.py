@@ -321,6 +321,6 @@ Choices
 .. |Join the chat at https://gitter.im/Neuropsydia-py/Lobby| image:: https://badges.gitter.im/Neuropsydia-py/Lobby.svg
    :target: https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 .. |image3| image:: https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0
-   :target: https://github.com/neuropsychology/Organization/blob/master/CVs/DominiqueMakowski.pdf
+   :target: https://cdn.rawgit.com/neuropsychology/Organization/master/CVs/DominiqueMakowski.pdf
 .. |image4| image:: https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0
    :target: http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux
