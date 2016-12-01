@@ -100,7 +100,7 @@ Tutorials are currently under development. Check out `this page <http://ecole-de
   - `1.1 Computerize a questionnaire <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-11-computerize-a-questionnaire>`_
   - `1.2 Complexify this questionnaire <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-12-complexify-this-questionnaire>`_
   - `1.3 Include info about the participant <http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-13-include-info-about-the-participant>`_
-  - `.4 The novice's trial
+  - 1.4 The novice's trial
   
 - Apprentice
 
