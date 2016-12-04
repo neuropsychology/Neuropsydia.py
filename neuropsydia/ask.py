@@ -22,7 +22,7 @@ from .core import color as core_color #avoid conflict with arg name
 #======================================================================== ======
 #==============================================================================
 #==============================================================================
-def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size=1.0, color="black", background="white", hide=False, detach_question=False, question_style="light", question_x=0, question_y=0, question_size=1, question_color="black", question_long_text=False, allow=None, allow_length=None, allow_type=None, allow_max=None):
+def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size=1.0, color="black", background="white", hide=False, detach_question=False, question_style="light", question_x=0, question_y=0, question_size=1, question_color="black", question_long_text=False, allow=None, allow_length=None, allow_type=None, allow_max=None, allow_NA=True):
     """
     Display a question and get the subject's answer.
 
@@ -83,50 +83,53 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
     Dependencies
     ----------
     - pygame 1.9.2
-    - time
     """
-    if detach_question != False:
-        write(text, style=question_style, x=question_x, y=question_y, size=question_size, color=question_color,long_text = question_long_text)
+    if detach_question is not False:
+        write(text, style=question_style, x=question_x, y=question_y, size=question_size, color=question_color, long_text=question_long_text)
         text_new = ''
     else:
         text_new = text + " "
 
+    # Convert size to pygame compatible size
     size = int(size*screen_width/35.0)
 
-    if style == 'body':
-        font = Font.get(Path.font() + 'RobotoRegular.ttf',size)
-    elif style == 'light':
-        font = Font.get(Path.font() + 'RobotoLight.ttf',size)
-    elif style == 'bold':
-        font = Font.get(Path.font() + 'RobotoBold.ttf',size)
+    # Get fonts
+    if style is 'body':
+        font = Font.get(Path.font() + 'RobotoRegular.ttf', size)
+    elif style is 'light':
+        font = Font.get(Path.font() + 'RobotoLight.ttf', size)
+    elif style is 'bold':
+        font = Font.get(Path.font() + 'RobotoBold.ttf', size)
     else:
-        font = Font.get(style,size)
+        font = Font.get(style, size)
 
-    if order != None:
+    # Adjust y position depending on order
+    if order is not None:
         y = 5 - (order*1.25)
 
 
-
-    x,y = Coordinates.to_pygame(x=x,y=y)
+    # Convert coordinates to pygame compatible coordinates
+    x, y = Coordinates.to_pygame(x=x, y=y)
 
 
     user_input = ''
     loop = True
-    while loop == True:
+    while loop is True:
         surface=font.render(text_new, 1, core_color(color))
         size = surface.get_size()
         pygame.draw.rect(screen, core_color(background), (x,y,size[0],size[1]))
         screen.blit(surface, (x,y))
         pygame.display.flip()
 
-        answer = response(get_RT = False)
+        # wait for user input
+        answer = response(get_RT=False)
 
-        if answer == "SPACE":
+        if answer is "SPACE":
             answer = "_"
-        if answer != "ENTER":
-            if answer == "ESCAPE":
+        if answer is not "ENTER":
+            if answer is "ESCAPE":
                 break
-            if answer == pygame.K_BACKSPACE:
+            if answer is pygame.K_BACKSPACE:
                 if user_input != '':
                     user_input = user_input[:len(user_input)-1]
                     text_new = text_new[:len(text_new)-1]
@@ -138,10 +141,11 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
                 else:
                     text_new = text_new + str(answer)
         else:
-            if user_input == '':
+            if user_input is '':
                 user_input = "NA"
-                return(user_input)
-            elif allow != None or allow_length != None or allow_type != None:
+                if allow_NA is True:
+                    return(user_input)
+            elif allow is not None or allow_length is not None or allow_type is not None:
                 warning = 0
                 if user_input not in list(allow):
                     warning_text = text_new+'    incorrect (answer not allowed)'
@@ -149,18 +153,18 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
                 if isinstance(allow_length, int) and len(user_input) != allow_length:
                     warning_text = text_new+'    incorrect (' +str(allow_length)+ ' characters required)'
                     warning = 1
-                if allow_max != None and float(user_input) > float(allow_max):
+                if allow_max is not None and float(user_input) > float(allow_max):
                     warning_text = text_new+'    incorrect (max = ' + str(allow_max) + ')'
                     warning = 1
                     allow_type = "in"
-                if allow_type != None:
-                    if allow_type == "int":
+                if allow_type is not None:
+                    if allow_type is "int":
                         try:
                             user_input = int(user_input)
                         except ValueError:
                             warning_text = text_new + '    incorrect (wrong type)'
                             warning = 1
-                    if allow_type == "float":
+                    if allow_type is "float":
                         try:
                             user_input = float(user_input)
                         except ValueError:
