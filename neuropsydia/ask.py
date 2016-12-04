@@ -109,12 +109,6 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
 
     x,y = Coordinates.to_pygame(x=x,y=y)
 
-    if allow != None:
-        if isinstance(allow,list):
-            allow_list = allow
-        else:
-            allow_list = []
-            allow_list.append(allow)
 
     user_input = ''
     loop = True
@@ -149,7 +143,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
                 return(user_input)
             elif allow != None or allow_length != None or allow_type != None:
                 warning = 0
-                if isinstance(allow, list) and user_input not in allow_list:
+                if user_input not in list(allow):
                     warning_text = text_new+'    incorrect (answer not allowed)'
                     warning = 1
                 if isinstance(allow_length, int) and len(user_input) != allow_length:
