@@ -115,7 +115,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
     user_input = ''
     loop = True
     while loop is True:
-        surface=font.render(text_new, 1, core_color(color))
+        surface = font.render(text_new, 1, core_color(color))
         size = surface.get_size()
         pygame.draw.rect(screen, core_color(background), (x,y,size[0],size[1]))
         screen.blit(surface, (x,y))
@@ -177,7 +177,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
                     pygame.draw.rect(screen,  core_color(background), (x,y,size[0],size[1]))
                     screen.blit(surface, (x,y))
                     refresh()
-                    pygame.time.delay(700)
+                    time.wait(700)
                     pygame.draw.rect(screen,  core_color(background), (x,y,size[0],size[1]))
                     refresh()
                 else:
