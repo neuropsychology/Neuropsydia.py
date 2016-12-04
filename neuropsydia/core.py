@@ -5,6 +5,8 @@ import os
 import pygame
 import time as builtin_time
 import numpy as np
+import datetime
+
 
 # ==============================================================================
 # ==============================================================================
@@ -230,6 +232,40 @@ class Time():
         else:
             response(allow=skip, time_max=time_to_wait)
         return((builtin_time.clock()-t0)*1000)
+
+    def now(self):
+        """
+        Returns current (absolute) date and time.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        ----------
+        datetime
+            Current date and time.
+
+        Example
+        ----------
+        >>> import neuropsydia as n
+        >>> n.start()
+
+        >>> n.time.now()
+
+        >>> n.close()
+
+        Authors
+        ----------
+        Dominique Makowski
+
+        Dependencies
+        ----------
+        - datetime
+        """
+        return(datetime.datetime.now())
+
+# Initialize a Time() object.
 time = Time()
 
 # ==============================================================================
