@@ -1,6 +1,6 @@
 <p><header><img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="700" align="center" alt="neuropsydia python for research"></header></p>
 
-A Python module for creating experiments, tasks and questionnaires.
+A Python Module for Creating Experiments, Tasks and Questionnaires.
 
 ---
 
