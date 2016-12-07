@@ -62,7 +62,6 @@ def start(open_window=True):
 
         newpage("black", auto_refresh=False)
         image("Neuropsydia_TEXT_white", extension = ".png", y= 7, size=5, cache = preloaded, path = Path.logo())
-        rectangle(y=5, x=5, height=2, width=5, fill_color="blue")
         image("Neuropsydia_PSY_blue", extension = ".png", y= -2.5, size=14, cache = preloaded, path = Path.logo())
         write('Press ENTRER to continue.', size=0.8, y=-9, color="white", allow="ENTER")
 
@@ -72,7 +71,6 @@ def start(open_window=True):
             image("Neuropsydia_HEAD_white", extension = ".png", y= -2.5, size=14, cache = preloaded, path = Path.logo())
             newpage("black", opacity = 100 - i, auto_refresh=False)
             image("Neuropsydia_TEXT_white", extension = ".png", y= 7, size=5, cache = preloaded, path = Path.logo())
-            rectangle(y=5, x=5, height=2, width=5, fill_color="blue")
             image("Neuropsydia_PSY_blue", extension = ".png", y= -2.5, size=14, cache = preloaded, path = Path.logo())
             refresh()
             
@@ -120,7 +118,6 @@ def close():
 
     preloaded = {}
     preloaded = preload("Neuropsydia_TEXT_white", extension = ".png", y= 5.5, size=4, cache = preloaded, path = Path.logo())
-    rectangle(y=3, x=5, height=2, width=5, fill_color="blue")
     preloaded = preload("Neuropsydia_HEAD_white", extension = ".png", y= -3, size=12.5, cache = preloaded, path = Path.logo())
     preloaded = preload("Neuropsydia_PSY_blue", extension = ".png", y= -3, size=12.5, cache = preloaded, path = Path.logo())
     preloaded = preload('N', extension = ".png", x=7, y=-8, size=2.5, cache = preloaded, path = Path.logo())
@@ -130,10 +127,9 @@ def close():
         newpage("black", auto_refresh=False)
         write("Thank you for using", style="light", y=8.75, size=1, color="white")
         image("Neuropsydia_TEXT_white", extension = ".png", y= 5.5, size=4, cache = preloaded, path = Path.logo())
-        rectangle(y=3, x=5, height=2, width=5, fill_color="blue")
         image("Neuropsydia_HEAD_white", extension = ".png", y= -3, size=12.5, cache = preloaded, path = Path.logo())
         image("Neuropsydia_PSY_blue", extension = ".png", y= -3, size=12.5, cache = preloaded, path = Path.logo())
-#        image('N', extension = ".png", x=7, y=-8, size=2.5, cache = preloaded, path = Path.logo())
+        image('N', extension = ".png", x=7, y=-8, size=2.5, cache = preloaded, path = Path.logo())
         image("Python", extension = ".png", x=-7, y=-8, size=2.5, cache = preloaded, path = Path.logo())
         newpage("black", opacity = 100-i, auto_refresh=False)
         refresh()
