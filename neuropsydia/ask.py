@@ -147,10 +147,9 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
                     return(user_input)
             elif allow is not None or allow_length is not None or allow_type is not None:
                 warning = 0
-                if user_input is not None:
-                    if user_input not in list(allow):
-                        warning_text = text_new+'    incorrect (answer not allowed)'
-                        warning = 1
+                if allow is not None and user_input not in list(allow):
+                    warning_text = text_new+'    incorrect (answer not allowed)'
+                    warning = 1
                 if isinstance(allow_length, int) and len(user_input) != allow_length:
                     warning_text = text_new+'    incorrect (' +str(allow_length)+ ' characters required)'
                     warning = 1
