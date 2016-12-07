@@ -21,7 +21,7 @@ from .ask import *
 # ==============================================================================
 # ==============================================================================
 def instructions(text, background='white', color="black", size=1.0,
-                 title=None, replace_title=False, end_text="Appuyez sur ENTRER pour commencer."):
+                 title="INSTRUCTIONS", title_color="black", subtitle=None, subtitle_color="black", end_text="Appuyez sur ENTRER pour commencer.", top_space=5):
     """
     Help incomplete, sorry.
 
@@ -44,17 +44,17 @@ def instructions(text, background='white', color="black", size=1.0,
     Dependencies
     ----------
     - pygame 1.9.2
-    - time
     """
     newpage(background, auto_refresh=False)
-    if replace_title == False:
-        write("INSTRUCTIONS", style="title", color=color)
-        if title != None:
-            write(title, style="subtitle", color=color)
-    if replace_title != False and title != None:
-        write(title, style="title", color=color)
+    
+    if title is not None:
+        write(title, style="title", color=title_color)
+    if subtitle is not None:
+        write(subtitle, style="subtitle", color=subtitle_color)
 
-    write('\n\n\n\n\n'+text, size=size, color=color, long_text=True)
+    top_space = ["\n"]*top_space
+    top_space = "".join(str(elem) for elem in top_space)
+    write(top_space + text, size=size, color=color, long_text=True)
     write(end_text, style='end', color=color)
 
 

@@ -11,6 +11,7 @@
 
 ### Major changes
 - `image()`: support of size in cm or inches
+- `instructions()`: Added `subtitle`, `top_space` parameter and color control
 
 # CURRENT STABLE: 0.1.3 (2016-11-12)
 Pushed to pypi!
