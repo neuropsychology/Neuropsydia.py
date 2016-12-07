@@ -9,8 +9,7 @@
     :align: center
     :alt: neuropsydia python for research
 	
-A Python module for creating experiments, tasks and questionnaires.
-
+A Python Module for Creating Experiments, Tasks and Questionnaires.
 --------------
 
 +------------------+-------------------------------------------------------------+
