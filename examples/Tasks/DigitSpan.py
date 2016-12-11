@@ -6,35 +6,39 @@ Copyright: The Neuropsydia Development Team
 Site: https://github.com/neuropsychology/Neuropsydia.py
 """
 import neuropsydia as n  # Load neuropsydia
-import neurotools as nt  # To save the data
-import pandas as pd  # To manipulate and save the data
-import numpy as np  # To do some maths
+import numpy as np  # For generation of random sequence
 
 
 n.start()  # Initialize neuropsydia
+n.instructions("Listen to the experimenter.")  # Display instructions
 
-number_of_fails = 0
-span = 2
+# Initialize values
+number_of_fails = 0  # Initial number of errors
+span = 2  # Initial span
 
-while number_of_fails <= 3:
+while number_of_fails < 3:
+    sequence = np.random.randint(10, size=span)  # Generate sequence
+    good_answer = ""  # Transform sequence of integers into string
 
-    sequence = np.random.randint(10, size=span)
-    good_answer = ""  # transform sequence of ints into a str
-    for digit in sequence:
-        good_answer = good_answer + str(digit)  # add the current stimulus to sequence
+    for digit in sequence:  # For every element in the sequence...
+        good_answer = good_answer + str(digit)  # Add the current stimulus to sequence
         n.newpage("grey")
-        n.time.wait(250)
-        n.newpage("grey")
-        n.write(digit, size=2)
-        n.refresh()
-        n.time.wait(1000)
+        n.time.wait(250)  # Display an empty screen for 250 ms
+        n.newpage("grey")  # Load a grey background
+        n.write(digit, size=3)  # Load the stimulus
+        n.refresh()  # Render the stimulus on screen
+        n.time.wait(1000)  # Wait 1000 ms
+
+    # Get answer
     n.newpage("white")
-    answer = n.ask("Answer :")
+    answer = n.ask("Answer:")
 
+    # Manage result
     if answer == good_answer:
-        span = span + 1
+        span = span + 1  # Increase span
+        number_of_fails = 0  # Reset value
     else:
         number_of_fails = number_of_fails + 1
 
-
+print("Max span: " + str(span-1))  # Print task result
 n.close()  # Close neuropsydia
