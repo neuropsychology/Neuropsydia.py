@@ -21,7 +21,7 @@ while number_of_fails <= 3:
     sequence = np.random.randint(10, size=span)
     good_answer = ""  # transform sequence of ints into a str
     for digit in sequence:
-        good_answer = good_answer + str(digit)
+        good_answer = good_answer + str(digit)  # add the current stimulus to sequence
         n.newpage("grey")
         n.time.wait(250)
         n.newpage("grey")
@@ -31,11 +31,10 @@ while number_of_fails <= 3:
     n.newpage("white")
     answer = n.ask("Answer :")
 
-
-
-
-
-
+    if answer == good_answer:
+        span = span + 1
+    else:
+        number_of_fails = number_of_fails + 1
 
 
 n.close()  # Close neuropsydia
