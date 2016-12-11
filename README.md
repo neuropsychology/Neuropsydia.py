@@ -10,7 +10,7 @@ A Python Module for Creating Experiments, Tasks and Questionnaires.
 |----------------|---|
 |Latest Version|[![PyPI version](https://badge.fury.io/py/neuropsydia.svg)](https://badge.fury.io/py/neuropsydia)|
 |Documentation|[![Documentation Status](http://readthedocs.org/projects/neuropsydia/badge/?version=latest)](http://neuropsydia.readthedocs.io/en/latest/?badge=latest)|
-|Questions|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
+|Discussion|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
 |Authors|[![](https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0)](https://cdn.rawgit.com/neuropsychology/Organization/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
 |Support|Windows 7, 8, 10, MacOS|
 
