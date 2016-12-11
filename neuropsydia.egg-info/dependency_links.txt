@@ -1,2 +1,0 @@
-https://github.com/cedrus-opensource/pyxid/tarball/master#egg=pyxid
-https://github.com/neuropsychology/NeuroKit.py/tarball/master#egg=neurokit
