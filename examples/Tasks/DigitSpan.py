@@ -40,5 +40,9 @@ while number_of_fails < 3:
     else:
         number_of_fails = number_of_fails + 1
 
-print("Max span: " + str(span-1))  # Print task result
+n.newpage()  # Load a white background
+n.write("Max span: " + str(span-1))  # Write task result
+n.refresh()  # Render it on screen
+n.time.wait(3000)  # Wait for 3s
+
 n.close()  # Close neuropsydia
