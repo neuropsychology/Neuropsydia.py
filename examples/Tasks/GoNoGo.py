@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+Code example of a minimal go/no-go task.
+Authors: Dominique Makowski
+Copyright: The Neuropsydia Development Team
+Site: https://github.com/neuropsychology/Neuropsydia.py
+"""
 import neuropsydia as n  # Load neuropsydia
 import random  # Import the random module
 import pandas as pd  # To manipulate and save the data
