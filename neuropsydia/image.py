@@ -117,7 +117,7 @@ class Preload():
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscreen=False, rotate=0, scramble=False, compress=False, compression=0, opacity=100, key=None):
+def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n", scale_by="height", fullscreen=False, rotate=0, scramble=False, compress=False, compression=0, opacity=100, key=None, monitor_diagonal=monitor_diagonal):
     """
     Preload images.
 
@@ -169,9 +169,30 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
         image = PIL.Image.open(path+i+extension, "r")
         w, h = image.size
 
+        scale_by_original = scale_by
         if fullscreen is False:
-            new_w = int(w/h*size*screen_height/6.0)
-            new_h = int(h/h*size*screen_height/6.0)
+            if scale_by == "greater":
+                if h > w:
+                    scale_by = "height"
+                else:
+                    scale_by = "width"
+            if unit == "n":  # size=1 means height is equals to 1
+                if scale_by=="height":
+                    new_w = int(w/h*size*screen_height/20.0)
+                    new_h = int(h/h*size*screen_height/20.0)
+                if scale_by=="width":
+                    new_w = int(w/w*size*screen_height/20.0)
+                    new_h = int(h/w*size*screen_height/20.0)
+            if unit == "cm" or unit == "inch":
+                if scale_by=="height":
+                    new_h = int(Coordinates.to_pygame(distance_y=-1*Coordinates.from_physical(distance_y=size, unit=unit, monitor_diagonal=monitor_diagonal)))
+                    new_w = int(new_h * w / h)
+                if scale_by=="width":
+                    new_w = int(Coordinates.to_pygame(distance_x=Coordinates.from_physical(distance_x=size, unit=unit, monitor_diagonal=monitor_diagonal)))
+                    new_h = int(new_w * h / w)
+            if scale_by_original == "greater":
+                scale_by = "greater"
+
         else:
             if w > h:
                 new_w = int(w/w*screen_width)
@@ -179,7 +200,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
             else:
                 new_w = int(w/h*screen_height)
                 new_h = int(h/h*screen_height)
-        image = image.resize((new_w,new_h),PIL.Image.ANTIALIAS)
+        image = image.resize((new_w, new_h),PIL.Image.ANTIALIAS)
         image = image.rotate(rotate)
 
         if scramble == True:
@@ -190,7 +211,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
             image = image.resize((int(w*(100-compression)/100), int(h*(100-compression)/100)), PIL.Image.ANTIALIAS)
             image.save(path + "temp.jpg", quality=10, optimize=True)
             image = PIL.Image.open(path + "temp.jpg", "r")
-            image = image.resize((new_w,new_h),PIL.Image.ANTIALIAS)
+            image = image.resize((new_w, new_h),PIL.Image.ANTIALIAS)
             os.remove(path + "temp.jpg")
 
         if opacity != 100:
@@ -202,7 +223,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
 
 
         if key == None:
-            dictionary[path + i + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension] = image
+            dictionary[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + '_' + str(monitor_diagonal) + '_' + extension] = image
         else:
             dictionary[key] = image
 
@@ -225,7 +246,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, fullscr
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100):
+def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, unit="n", scale_by="height", fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100, monitor_diagonal=monitor_diagonal):
     """
     Help incomplete, sorry.
 
@@ -251,26 +272,24 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, fullscr
     - PIL
     - time
     """
-    if background != None:
+    if background is not None:
         newpage(background, auto_refresh=False)
 
-    if cache == None:
-        cache = preload(file=file, cache=cache, path=path, extension=extension,
-                              size = size, fullscreen=fullscreen, rotate=rotate, scramble=scramble,
-                              compress=compress, compression=compression, opacity=opacity)
-        image = cache[path + file + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension]
+    if cache is None:
+        cache = preload(file=file, cache=cache, path=path, extension=extension, size=size, unit=unit, scale_by=scale_by, fullscreen=fullscreen, rotate=rotate, scramble=scramble, compress=compress, compression=compression, opacity=opacity, monitor_diagonal=monitor_diagonal)
+
+        image = cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + '_' + str(monitor_diagonal) + '_' + extension]
+
     else:
         try:
-            image = cache.Cache[path + file + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension]
+            image = cache.Cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + '_' + str(monitor_diagonal) + '_' + extension]
         except:
             try:
-                image = cache[path + file + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension]
+                image = cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + '_' + str(monitor_diagonal) + '_' + extension]
             except:
                 print('NEUROPSYDIA ERROR: image(): file not in given cache: ' + file)
-                cache = preload(file=file, cache=cache, path=path, extension=extension,
-                                      size = size, fullscreen=fullscreen, rotate=rotate, scramble=scramble,
-                                      compress=compress, compression=compression)
-                image = cache[path + file + '_' + str(size) + '_' + str(rotate) + '_' + str(opacity) + extension]
+                cache = preload(file=file, cache=cache, path=path, extension=extension, size=size, unit=unit, scale_by=scale_by, fullscreen=fullscreen, rotate=rotate, scramble=scramble, compress=compress, compression=compression, opacity=opacity, monitor_diagonal=monitor_diagonal)
+                image = cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + '_' + str(monitor_diagonal) + '_' + extension]
 
 
     x,y = Coordinates.to_pygame(x=x,y=y)
@@ -279,12 +298,12 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, fullscr
     screen.blit(image,rectangle)
 
     #In case or one must wait until something
-    if allow != None or wait != None:
+    if allow is not None or wait is not None:
         refresh()
-        if allow == None and wait != None:
+        if allow is None and wait is not None:
             time.wait(wait)
             return(wait)
-        if allow != None:
+        if allow is not None:
             return(response(allow=allow, time_max=wait))
     else:
         return(cache)
