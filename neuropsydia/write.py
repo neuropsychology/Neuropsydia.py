@@ -187,7 +187,7 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
 
 
 
-        #END : In case or one must wait until something
+        #END : In case we must wait until something
         if allow != None or wait != None:
             refresh()
             if allow == None and wait != None:

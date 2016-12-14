@@ -1,4 +1,4 @@
-__version__ = "0.1.3"
+__version__ = "1.0.0"
 
 from .path import *
 from .core import *
@@ -10,6 +10,5 @@ from .scale import *
 from .ask import *
 from .choice import *
 from .meta import *
-from .stats import *
-from .interface import *
-from .signal import *
+from .io import *
+
