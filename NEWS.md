@@ -1,11 +1,29 @@
+# CURRENT DEV: 1.0.0
+
+### Breaking changes
+- `image()`: changed the default scaling: `size=1` now means 1 in neuropsydia's coordinates (20 = full screen)
+- removed many functions related to statistics or signal processing to include them in [NeuroTools](https://github.com/neuropsychology/NeuroTools.py)
+
+### New functions
+- `Coordinates.from_physical()`: convert physical distances in cm  or inches to pixels
+- `Coordinates.to_physical()`: convert neuropsydia's distances to cm  or inches to pixels
+- `Time`: added now() method to Time class
+
+### Major changes
+- `image()`: support of size in cm or inches
+- `instructions()`: Added `subtitle`, `top_space` parameter and color control
+
 # CURRENT STABLE: 0.1.3 (2016-11-12)
 Pushed to pypi!
 ### New functions
+- `remove_following_duplicates()`: Remove the duplicates that are following themselves, returning a list of ordered items.
 - `acq_to_df()`: read and format an BIOPAC's AcqKnowledge file into a Pandas' dataframe
 - `get_creation_date()`: get creation date of a file
 - `process_EDA()`: Thanks to [Luca Citi and Alberto Greco](http://ieeexplore.ieee.org/document/7229284/)
 - `binarize_signal()`: signal processing
-- `events_onset()`: Find event onsets (signal processing)
+- `find_events()`: Find event onsets (signal processing)
+- `select_events()`: Find and select event onsets (signal processing)
+- `create_mne_events()`: Create MNE compatible events.
 - `create_epochs()`: Create epoched data (signal processing)
 - `create_evoked()`: Create evoked data (signal processing)
 

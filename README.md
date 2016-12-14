@@ -1,6 +1,6 @@
 <p><header><img src="https://github.com/neuropsychology/neuropsydia/blob/master/neuropsydia/files/logo/neuropsydia_banner.png" width="700" align="center" alt="neuropsydia python for research"></header></p>
 
-A Python module for creating experiments, tasks and questionnaires.
+A Python Module for Creating Experiments, Tasks and Questionnaires.
 
 ---
 
@@ -11,17 +11,19 @@ A Python module for creating experiments, tasks and questionnaires.
 |Latest Version|[![PyPI version](https://badge.fury.io/py/neuropsydia.svg)](https://badge.fury.io/py/neuropsydia)|
 |Documentation|[![Documentation Status](http://readthedocs.org/projects/neuropsydia/badge/?version=latest)](http://neuropsydia.readthedocs.io/en/latest/?badge=latest)|
 |Discussion|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
+|Questions|[![](https://img.shields.io/badge/issue-create-purple.svg?colorB=FF9800)](https://github.com/neuropsychology/Neuropsydia.py/issues)|
 |Authors|[![](https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0)](https://cdn.rawgit.com/neuropsychology/Organization/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
-|Support|Windows 7, 8, 10|
+|Support|Windows 7, 8, 10, MacOS|
+
 
 ---
 # Installation
-To get the latest stable version (`0.1.3`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
+To get the latest stable version (`1.0.0`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
 ```python
 pip install neuropsydia
 ```
 
-To get the latest development version (`1.0.0`), run the following:
+To get the latest development version (`1.0.1`), run the following:
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
 ```
