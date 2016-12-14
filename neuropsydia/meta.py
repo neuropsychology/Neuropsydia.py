@@ -194,6 +194,6 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
             print("NEUROPSYDIA ERROR: questionnaire(): arg dimensions_key_name does not match.")
 
     if results_save == True:
-        nk.save_data(df, filename=results_name, path=path_participant, participant_id=participant_id, index=True, index_label="Item_Number")
+        nk.save_data(df, filename=results_name, path=results_path, participant_id=participant_id, index=True, index_label="Item_Number")
 
     return(df)
