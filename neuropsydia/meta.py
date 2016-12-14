@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import neurokit as nk
 import pandas as pd
 import datetime
 import random
@@ -21,7 +22,7 @@ from .ask import *
 # ==============================================================================
 # ==============================================================================
 def instructions(text, background='white', color="black", size=1.0,
-                 title=None, replace_title=False, end_text="Appuyez sur ENTRER pour commencer."):
+                 title="INSTRUCTIONS", title_color="black", subtitle=None, subtitle_color="black", end_text="Appuyez sur ENTRER pour commencer.", top_space=5):
     """
     Help incomplete, sorry.
 
@@ -44,17 +45,17 @@ def instructions(text, background='white', color="black", size=1.0,
     Dependencies
     ----------
     - pygame 1.9.2
-    - time
     """
     newpage(background, auto_refresh=False)
-    if replace_title == False:
-        write("INSTRUCTIONS", style="title", color=color)
-        if title != None:
-            write(title, style="subtitle", color=color)
-    if replace_title != False and title != None:
-        write(title, style="title", color=color)
+    
+    if title is not None:
+        write(title, style="title", color=title_color)
+    if subtitle is not None:
+        write(subtitle, style="subtitle", color=subtitle_color)
 
-    write('\n\n\n\n\n'+text, size=size, color=color, long_text=True)
+    top_space = ["\n"]*top_space
+    top_space = "".join(str(elem) for elem in top_space)
+    write(top_space + text, size=size, color=color, long_text=True)
     write(end_text, style='end', color=color)
 
 
@@ -66,7 +67,7 @@ def instructions(text, background='white', color="black", size=1.0,
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_type="csv", results_name="questionnaire_results", results_path="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black", instructions_text=None):
+def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_name="questionnaire_results", results_path="", participant_id="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black", instructions_text=None):
     """
     A wrapper function for easily creating questionnaires. You can go back or foth using the LEFT and RIGHT keyboard arrows.
 
@@ -193,8 +194,6 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
             print("NEUROPSYDIA ERROR: questionnaire(): arg dimensions_key_name does not match.")
 
     if results_save == True:
-        if results_type == "csv2":
-            df.to_csv(results_path + results_name + '.csv', sep=';', index_label="Item_Number", na_rep='NA')
-        else:
-            df.to_csv(results_path + results_name + '.csv', sep=',', index_label="Item_Number", na_rep='NA')
+        nk.save_data(df, filename=results_name, path=results_path, participant_id=participant_id, index=True, index_label="Item_Number")
+
     return(df)

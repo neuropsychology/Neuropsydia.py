@@ -6,53 +6,7 @@ from .core import *
 from .write import *
 
 
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-# ==============================================================================
-def get_creation_date(path_to_file):
-    """
-    Try to get the date that a file was created, falling back to when it was
-    last modified if that isn't possible.
-    See http://stackoverflow.com/a/39501288/1709587 for explanation.
 
-    Parameters
-    ----------
-    file =  BIOPAC's AcqKnowledge file
-        a file read by bioread.read()
-
-    Returns
-    ----------
-    creation_date
-
-    Example
-    ----------
-    >>> import neuropsydia as n
-    >>> n.start(False)
-    >>> date = n.get_creation_date(path)
-
-    Authors
-    ----------
-    Mark Amery
-
-    Dependencies
-    ----------
-    - os
-    - platform
-    """
-    if platform.system() == 'Windows':
-        return(os.path.getctime(path_to_file))
-    else:
-        stat = os.stat(path_to_file)
-        try:
-            return(stat.st_birthtime)
-        except AttributeError:
-            print("Neuropsydia error: get_creation_date(): We're probably on Linux. No easy way to get creation dates here, so we'll settle for when its content was last modified.")
-            return(stat.st_mtime)
 
 # ==============================================================================
 # ==============================================================================
@@ -137,7 +91,8 @@ def rectangle(x=0, y=0, width=10, height=10, line_color="black", thickness=1, fi
 
     if fill_color != None:
         pygame.draw.rect(screen, color(fill_color),(left,top,width,height),0)
-    pygame.draw.rect(screen, color(line_color),(left,top,width,height),thickness)
+    if thickness != 0:
+        pygame.draw.rect(screen, color(line_color),(left,top,width,height),thickness)
 
 
 # ==============================================================================
