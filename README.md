@@ -15,6 +15,7 @@ A Python Module for Creating Experiments, Tasks and Questionnaires.
 |Authors|[![](https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0)](https://cdn.rawgit.com/neuropsychology/Organization/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
 |Support|Windows 7, 8, 10, MacOS|
 
+
 ---
 # Installation
 To get the latest stable version (`1.0.0`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
