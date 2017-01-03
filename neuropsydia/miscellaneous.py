@@ -240,9 +240,9 @@ def countdown(style="circle", duration=3000, width=5, reverse=False, background=
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def start_screen(name="test", path="./Logo/", authors="", language="en"):
+def start_screen(name="test", path="./Logo/", extension=".png", authors="", language="en"):
     """
-    Help incomplete, sorry.
+    Help incomplete, sorry. Expecting a "Logo_" prefix to the image.
 
     Parameters
     ----------
@@ -271,7 +271,7 @@ def start_screen(name="test", path="./Logo/", authors="", language="en"):
 
     # Logo
     try:
-        image(path+name, y=2, size=5)
+        image(path + "Logo_" + name + extension, y=2, size=5)
     except:
         write(name, style="bold", y=2, size=5)
 
@@ -294,7 +294,7 @@ def start_screen(name="test", path="./Logo/", authors="", language="en"):
 # ==============================================================================
 def end_screen(name="test", success=True, path="./Logo/", authors="", language="en"):
     """
-    Help incomplete, sorry.
+    Help incomplete, sorry. Expecting a "Logo_" prefix to the image.
 
     Parameters
     ----------
@@ -323,7 +323,7 @@ def end_screen(name="test", success=True, path="./Logo/", authors="", language="
 
     # Logo
     try:
-        image(path+name, y=7.5, size=4)
+        image(path + "Logo_" + name + extension, y=7.5, size=4)
     except:
         write(name, style="bold", y=7.5, size=4)
 
