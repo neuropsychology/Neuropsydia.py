@@ -8,6 +8,7 @@
 - `Coordinates.from_physical()`: convert physical distances in cm  or inches to pixels
 - `Coordinates.to_physical()`: convert neuropsydia's distances to cm  or inches to pixels
 - `Time`: added now() method to Time class
+- `start_screen()` and `end_screen()`: displaying logos and welcome screens
 
 ### Major changes
 - `image()`: support of size in cm or inches

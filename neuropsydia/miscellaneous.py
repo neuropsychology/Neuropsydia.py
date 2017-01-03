@@ -4,6 +4,7 @@ import platform
 
 from .core import *
 from .write import *
+from .image import *
 
 
 
@@ -230,3 +231,116 @@ def countdown(style="circle", duration=3000, width=5, reverse=False, background=
         for i in melody:
             winsound.Beep(i, 25)
 #            time.wait(50)
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def start_screen(name="test", path="./Logo/", authors="", language="en"):
+    """
+    Help incomplete, sorry.
+
+    Parameters
+    ----------
+    NA
+
+    Returns
+    ----------
+    NA
+
+    Example
+    ----------
+    NA
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - pygame 1.9.2
+    - pygame.gfxfraw
+    - time
+    - winsound
+    """
+    newpage("white", auto_refresh=False)
+
+    # Logo
+    try:
+        image(path+name, y=2, size=5)
+    except:
+        write(name, style="bold", y=2, size=5)
+
+    # Authors
+    write(authors, style='light', y=-1.75, size=0.6)
+
+    # End
+    if language == "fr" or language == "french":
+        write('Appuyez sur ENTRER pour commencer.', style='end')
+    else:
+        write('Press ENTER to start.', style='end')
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def end_screen(name="test", success=True, path="./Logo/", authors="", language="en"):
+    """
+    Help incomplete, sorry.
+
+    Parameters
+    ----------
+    NA
+
+    Returns
+    ----------
+    NA
+
+    Example
+    ----------
+    NA
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - pygame 1.9.2
+    - pygame.gfxfraw
+    - time
+    - winsound
+    """
+    newpage("white", auto_refresh=False)
+
+    # Logo
+    try:
+        image(path+name, y=7.5, size=4)
+    except:
+        write(name, style="bold", y=7.5, size=4)
+
+    # Authors
+    write(authors, style='light', y=4.25, size=0.6)
+
+    # End
+    if language == "fr" or language == "french":
+        if success is True:
+            write("Enregistrement des données réussi.", color='green')
+        else:
+            write("Echec de l'enregistrement des données.", color='red')
+        write('Appuyez sur ENTRER pour quitter.', style='end')
+    else:
+        if success is True:
+            write("Successful Data Collection.", color='green')
+        else:
+            write("Failed Data Collection.", color='red')
+        write('Press ENTER to quit.', style='end')
+
