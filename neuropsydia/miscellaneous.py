@@ -292,7 +292,7 @@ def start_screen(name="test", path="./Logo/", extension=".png", authors="", lang
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def end_screen(name="test", success=True, path="./Logo/", authors="", language="en"):
+def end_screen(name="test", success=True, path="./Logo/", extension=".png", authors="", language="en"):
     """
     Help incomplete, sorry. Expecting a "Logo_" prefix to the image.
 
