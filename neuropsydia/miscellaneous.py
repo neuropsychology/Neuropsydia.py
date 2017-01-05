@@ -378,6 +378,6 @@ def sound(filename, path="", extension=".wav", wait=True, rate=48000):
         sound.play()
         if wait is True:
             while pygame.mixer.get_busy():
-                time.wait()
+                time.wait(10)
     else:
         print("NEUROPSYDIA ERROR: sound(): Wrong extension: only '.wav' are currently supported.")
