@@ -373,7 +373,7 @@ def sound(filename, path="", extension=".wav", wait=True, rate=48000):
     """
     file = path + filename + extension
     if ".wav" in file:
-        pygame.mixer.init(48000)
+        pygame.mixer.init(rate)
         sound = pygame.mixer.Sound(file)
         sound.play()
         if wait is True:
