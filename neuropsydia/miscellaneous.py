@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
+import pygame
+
 from pygame import gfxdraw
-import platform
 
 from .core import *
 from .write import *
@@ -263,9 +264,6 @@ def start_screen(name="test", path="./Logo/", extension=".png", authors="", lang
     Dependencies
     ----------
     - pygame 1.9.2
-    - pygame.gfxfraw
-    - time
-    - winsound
     """
     newpage("white", auto_refresh=False)
 
@@ -315,9 +313,6 @@ def end_screen(name="test", success=True, path="./Logo/", extension=".png", auth
     Dependencies
     ----------
     - pygame 1.9.2
-    - pygame.gfxfraw
-    - time
-    - winsound
     """
     newpage("white", auto_refresh=False)
 
@@ -344,3 +339,45 @@ def end_screen(name="test", success=True, path="./Logo/", extension=".png", auth
             write("Failed Data Collection.", color='red')
         write('Press ENTER to quit.', style='end')
 
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def sound(filename, path="", extension=".wav", wait=True, rate=48000):
+    """
+    Help incomplete, sorry.
+
+    Parameters
+    ----------
+    NA
+
+    Returns
+    ----------
+    NA
+
+    Example
+    ----------
+    NA
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - pygame 1.9.2
+    """
+    file = path + filename + extension
+    if ".wav" in file:
+        pygame.mixer.init(48000)
+        sound = pygame.mixer.Sound(file)
+        sound.play()
+        if wait is True:
+            while pygame.mixer.get_busy():
+                time.wait()
+    else:
+        print("NEUROPSYDIA ERROR: sound(): Wrong extension: only '.wav' are currently supported.")

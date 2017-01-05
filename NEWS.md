@@ -1,4 +1,4 @@
-# CURRENT DEV: 1.0.0
+# CURRENT DEV: 1.0.2
 
 ### Breaking changes
 - `image()`: changed the default scaling: `size=1` now means 1 in neuropsydia's coordinates (20 = full screen)
@@ -9,12 +9,13 @@
 - `Coordinates.to_physical()`: convert neuropsydia's distances to cm  or inches to pixels
 - `Time`: added now() method to Time class
 - `start_screen()` and `end_screen()`: displaying logos and welcome screens
+- `sound()`: play wav sounds
 
 ### Major changes
 - `image()`: support of size in cm or inches
 - `instructions()`: Added `subtitle`, `top_space` parameter and color control
 
-# CURRENT STABLE: 0.1.3 (2016-11-12)
+# CURRENT STABLE: 1.0.0 (2016-11-12)
 Pushed to pypi!
 ### New functions
 - `remove_following_duplicates()`: Remove the duplicates that are following themselves, returning a list of ordered items.
