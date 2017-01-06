@@ -22,7 +22,6 @@ install_requires = [
     'Pillow>=3.0.0',
     'neurokit',
     'pyxid',
-    'inspect',
     'webbrowser'],
 dependency_links=[],
 long_description = open('README.rst').read(),
