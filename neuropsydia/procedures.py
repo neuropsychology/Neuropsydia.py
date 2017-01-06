@@ -15,7 +15,7 @@ from .write import *
 # ==============================================================================
 def resting_state_brief_assessment(data=None, language="fr"):
     """
-    Resting State Assessment Procedure.
+    Standardized Resting State Assessment Procedure.
 
     Parameters
     ----------
@@ -57,6 +57,6 @@ def resting_state_brief_assessment(data=None, language="fr"):
         data["Absorption_Internal"] = fancy_scale(style="green", y=1, title="Mes pensées étaient dirigées sur des évenements que j'imaginais ou dont je me rappelais.")
         data["Absorption_Body"] = fancy_scale(style="yellow", y=-2, title="Mes pensées étaient dirigées sur ce qu'il se passait dans mon corps (sensations physiques, respiration, coeur...).")
         data["Mind_Wandering"] = fancy_scale(style="orange", y=-5, title="Mes pensées s'enchainaient librement, sans contrôle.")
-        data["Mind_Focus"] = fancy_scale(style="red", y=-8, title="J'étais concentré sur un ou plusieurs sujets en particulier.")
+        data["Mind_Focus"] = fancy_scale(style="red", y=-8, title="J'étais concentré sur une idée, une sensation ou une perception en particulier.")
 
     return(data)
