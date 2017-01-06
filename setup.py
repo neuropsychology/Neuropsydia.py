@@ -22,7 +22,6 @@ install_requires = [
     'Pillow>=3.0.0',
     'neurokit',
     'pyxid',
-    'random',
     'inspect',
     'webbrowser'],
 dependency_links=[],
