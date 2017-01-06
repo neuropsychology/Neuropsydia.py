@@ -9,7 +9,8 @@
 - `Coordinates.to_physical()`: convert neuropsydia's distances to cm  or inches to pixels
 - `Time`: added now() method to Time class
 - `start_screen()` and `end_screen()`: displaying logos and welcome screens
-- `sound()`: play wav sounds
+- `sound()`: plays wav sounds
+- `opendoc()`: opens the github webpage
 
 ### Major changes
 - `image()`: support of size in cm or inches
