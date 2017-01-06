@@ -23,7 +23,7 @@ import mock
 
 sys.path.insert(0, os.path.abspath('../'))
 
-MOCK_MODULES = ['os', 'pygame', 'pygame.gfxdraw', 'time', 'numpy', 'datetime', 'ctypes', 'pyxid', 'neurokit', 'pandas', 'random', 'inspect', 'Pillow', 'plotly']
+MOCK_MODULES = ['os', 'pygame', 'pygame.gfxdraw', 'time', 'numpy', 'datetime', 'ctypes', 'pyxid', 'neurokit', 'pandas', 'random', 'inspect', 'Pillow']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
 
