@@ -1,4 +1,4 @@
-# CURRENT DEV: 1.0.2
+# CURRENT DEV: 1.0.3
 
 ### Breaking changes
 - `image()`: changed the default scaling: `size=1` now means 1 in neuropsydia's coordinates (20 = full screen)
@@ -10,7 +10,8 @@
 - `Time`: added now() method to Time class
 - `start_screen()` and `end_screen()`: displaying logos and welcome screens
 - `sound()`: plays wav sounds
-- `opendoc()`: opens the github webpage
+- `opendoc()`: opens the neuropsydia github webpage
+- `resting_state_brief_assessment()`: standardized resting state assessment
 
 ### Major changes
 - `image()`: support of size in cm or inches

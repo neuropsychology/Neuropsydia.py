@@ -52,9 +52,11 @@ def resting_state_brief_assessment(data=None, language="fr"):
         newpage()
         write("Estimez le pourcentage de temps que vous avez passé dans les 6 états suivants :", y=9.2, size=0.75)
 
-        data[run]["Drowsiness"] = custom_scale(style="purple", y=7, title="Je me sentais somnolant.")
-        data[run]["Absorption_External"] = custom_scale(style="blue", y=4, title="Mes pensées étaient dirigées sur ce qu'il se passait autour de moi (bruits, voix...).")
-        data[run]["Absorption_Internal"] = custom_scale(style="green", y=1, title="Mes pensées étaient dirigées sur des évenements que j'imaginais ou dont je me rappelais.")
-        data[run]["Absorption_Body"] = custom_scale(style="yellow", y=-2, title="Mes pensées étaient dirigées sur ce qu'il se passait dans mon corps (sensations physiques, respiration, coeur...).")
-        data[run]["Mind_Wandering"] = custom_scale(style="orange", y=-5, title="Mes pensées s'enchainaient librement, sans contrôle.")
-        data[run]["Mind_Focus"] = custom_scale(style="red", y=-8, title="J'étais concentré sur un ou plusieurs sujets en particulier.")
+        data["Drowsiness"] = fancy_scale(style="purple", y=7, title="Je me sentais somnolant.")
+        data["Absorption_External"] = fancy_scale(style="blue", y=4, title="Mes pensées étaient dirigées sur ce qu'il se passait autour de moi (bruits, voix...).")
+        data["Absorption_Internal"] = fancy_scale(style="green", y=1, title="Mes pensées étaient dirigées sur des évenements que j'imaginais ou dont je me rappelais.")
+        data["Absorption_Body"] = fancy_scale(style="yellow", y=-2, title="Mes pensées étaient dirigées sur ce qu'il se passait dans mon corps (sensations physiques, respiration, coeur...).")
+        data["Mind_Wandering"] = fancy_scale(style="orange", y=-5, title="Mes pensées s'enchainaient librement, sans contrôle.")
+        data["Mind_Focus"] = fancy_scale(style="red", y=-8, title="J'étais concentré sur un ou plusieurs sujets en particulier.")
+
+    return(data)
