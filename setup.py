@@ -15,7 +15,6 @@ package_data = {
 	"neuropsydia.files.binary":["*.png"],
 	"neuropsydia.files.logo":["*.png"]},
 install_requires = [
-    'os',
     'time',
     'datetime',
     'ctypes',
