@@ -15,7 +15,6 @@ package_data = {
 	"neuropsydia.files.binary":["*.png"],
 	"neuropsydia.files.logo":["*.png"]},
 install_requires = [
-    'datetime',
     'pygame>=1.9.2a0',
     'numpy>=1.11.0',
     'pandas>=0.18.0',

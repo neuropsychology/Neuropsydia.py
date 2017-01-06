@@ -23,7 +23,7 @@ import mock
 
 sys.path.insert(0, os.path.abspath('../'))
 
-MOCK_MODULES = ['pygame', 'numpy', 'datetime', 'pyxid', 'neurokit', 'pandas', 'Pillow']
+MOCK_MODULES = ['pygame', 'numpy', 'pyxid', 'neurokit', 'pandas', 'Pillow']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
 
