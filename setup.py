@@ -17,7 +17,6 @@ package_data = {
 install_requires = [
     'datetime',
     'pygame>=1.9.2a0',
-    'pygame.gfxdraw',
     'numpy>=1.11.0',
     'pandas>=0.18.0',
     'Pillow>=3.0.0',
