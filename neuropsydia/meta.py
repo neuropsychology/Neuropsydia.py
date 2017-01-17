@@ -47,7 +47,7 @@ def instructions(text, background='white', color="black", size=1.0,
     - pygame 1.9.2
     """
     newpage(background, auto_refresh=False)
-    
+
     if title is not None:
         write(title, style="title", color=title_color)
     if subtitle is not None:
@@ -171,7 +171,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
             answer = scale(style=style, anchors = anchors, anchors_space=anchors_space, anchors_size=anchors_size, edges = edges, validation=validation, analog=analog, step=step, labels=labels, labels_size=labels_size, labels_rotation=labels_rotation, labels_space=labels_space,labels_x=labels_x, line_thickness=line_thickness, line_length=line_length, line_color=line_color, background=background, title=title, title_style=title_style, title_size=title_size, title_space=title_space, reverse=reverse_question, point_center=point_center, point_edges=point_edges, force_separation=force_separation, separation_labels=separation_labels, separation_labels_size=separation_labels_size, separation_labels_rotate=separation_labels_rotate, separation_labels_space=separation_labels_space, show_result=show_result, show_result_shape=show_result_shape, show_result_shape_fill_color=show_result_shape_fill_color, show_result_shape_line_color=show_result_shape_line_color, show_result_shape_size=show_result_shape_size, show_result_space=show_result_space, show_result_size=show_result_size, show_result_color=show_result_color)
             RT = (builtin_time.clock()-t0 ) * 1000
             if answer == 'RIGHT':
-                answer = "NA"
+                answer = np.nan
             questions_dictionary["Answer"][order[i]] = answer
             questions_dictionary["RT"][order[i]] = RT
             questions_dictionary["Order"][order[i]] = i+1
@@ -186,12 +186,9 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
     df = pd.DataFrame.from_dict(questions_dictionary)
 
     if dimensions_mean == True:
-        try:
-            means_dict = dict(df.groupby(dimensions_key_name).mean()['Answer'])
-            for dim in means_dict.keys():
-                df[dim] = means_dict[dim]
-        except:
-            print("NEUROPSYDIA ERROR: questionnaire(): arg dimensions_key_name does not match.")
+        for dim in set(df[dimensions_key_name]):
+            df[dim] = df[(df[dimensions_key_name]==dim)]["Answer"].mean()
+
 
     if results_save == True:
         nk.save_data(df, filename=results_name, path=results_path, participant_id=participant_id, index=True, index_label="Item_Number")
