@@ -189,7 +189,6 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
         for dim in set(df[dimensions_key_name]):
             df[dim] = df[(df[dimensions_key_name]==dim)]["Answer"].mean()
 
-
     if results_save == True:
         nk.save_data(df, filename=results_name, path=results_path, participant_id=participant_id, index=True, index_label="Item_Number")
 

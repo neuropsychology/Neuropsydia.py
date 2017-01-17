@@ -23,5 +23,7 @@ questions_dictionary = {
 
 
 n.start()
-n.questionnaire(questions_dictionary,anchors=["No","Yes"],results_save=True)
+n.questionnaire(questions_dictionary,
+                anchors=["No","Yes"],
+                results_save=True)
 n.close()
