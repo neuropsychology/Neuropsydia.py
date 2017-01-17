@@ -17,6 +17,9 @@
 - `image()`: support of size in cm or inches
 - `instructions()`: Added `subtitle`, `top_space` parameter and color control
 
+### Minor changes
+- Added "teal" color style for scales
+
 # CURRENT STABLE: 1.0.0 (2016-11-12)
 Pushed to pypi!
 ### New functions
