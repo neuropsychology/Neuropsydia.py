@@ -275,7 +275,7 @@ def start_screen(name="test", path="./Logo/", extension=".png", authors="", lang
         write(name, style="bold", y=2, size=5)
 
     # Authors
-    write(authors, style='light', y=-1.75, size=0.6)
+    write(authors, style='light', y=-1.25, size=0.6)
 
     # End
     if language == "fr" or language == "french":
