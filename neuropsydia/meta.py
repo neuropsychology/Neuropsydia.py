@@ -126,6 +126,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
     - pandas 18.0
     - time
     """
+    time_start = datetime.datetime.now()
     if isinstance(questions_dictionary,dict) == False:
         print("NEUROPSYDIA ERROR: questionnaire(): wrong object given (not a dictionary), check http://www.neuropsydia.com/#!create-questionnaire/ncq23 for help.")
     try:
@@ -184,7 +185,10 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
            print("NEUROPSYDIA ERROR: questionnaire(): someting went wrong (error number 2)")
 
     df = pd.DataFrame.from_dict(questions_dictionary)
-
+    df["Time_Start"] = time_start
+    df["Time_End"] = datetime.datetime.now()
+    df["Total_Duration"] = (datetime.datetime.now()-time_start).total_seconds()
+    
     if dimensions_mean == True:
         for dim in set(df[dimensions_key_name]):
             df[dim] = df[(df[dimensions_key_name]==dim)]["Answer"].mean()
