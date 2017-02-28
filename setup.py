@@ -21,7 +21,7 @@ install_requires = [
     'Pillow>=3.0.0',
     'neurokit',
     'pyxid',
-    'docx',
+    'python-docx',
 	'cryptography'],
 dependency_links=[],
 long_description = open('README.rst').read(),
