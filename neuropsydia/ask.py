@@ -130,7 +130,12 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
             answer = "_"
         if answer is not "ENTER":
             if answer is "ESCAPE":
-                break
+                if allow_NA is True:
+                    return("NA")
+                else:
+                    user_input = ''
+                    warning_text = text_new+'    incorrect (input required)'
+                    warning = 1
             if answer is pygame.K_BACKSPACE:
                 if user_input != '':
                     user_input = user_input[:len(user_input)-1]
