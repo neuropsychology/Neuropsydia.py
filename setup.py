@@ -22,7 +22,7 @@ install_requires = [
     'neurokit',
     'pyxid',
     'python-docx',
-	'cryptography'],
+    'cryptography'],
 dependency_links=[],
 long_description = open('README.rst').read(),
 keywords = "python neuropsychology neuropsydia experiment creation",
