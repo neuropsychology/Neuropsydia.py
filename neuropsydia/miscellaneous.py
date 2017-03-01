@@ -3,6 +3,7 @@ import pygame
 import webbrowser
 
 from pygame import gfxdraw
+import numpy as np
 
 from .core import *
 from .write import *
@@ -419,3 +420,98 @@ def opendoc():
     - webbrowser
     """
     webbrowser.open("https://github.com/neuropsychology/Neuropsydia.py/")
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def color_luminance(colour, perceived=True):
+    """
+    Compute the luminance based on the rgb colour. Based on http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color.
+
+    Parameters
+    ----------
+    r =  int
+        red
+    g = int
+        green
+    b = int
+        blue
+    perceived = bool, opt
+        Adjusted formula for human eye.
+
+    Returns
+    ----------
+    luminance = float
+        The luminance value.
+
+    Example
+    ----------
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>> n.color_luminance(6, 124, 16)
+
+    Authors
+    ----------
+    Dominique Makowski
+    """
+    colour = n.color(colour)
+    r = colour[0]/255
+    g = colour[1]/255
+    b = colour[2]/255
+
+    if perceived is False:
+        luminance = (0.2126*r + 0.7152*g + 0.0722*b)
+    else:
+        luminance = np.sqrt( 0.299*(r**2) + 0.587*(g**2) + 0.114*(b**2))
+    return(luminance)
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def color_contrast(color1, color2, perceived=True):
+    """
+    Compute the contrast ratio between two colours. Based on https://www.w3.org/TR/WCAG20/#contrast-ratiodef.
+
+    Parameters
+    ----------
+    color1 = str or tuple
+        First colour
+    color2 = str or typle
+        Second colour
+    perceived = bool, opt
+        Should the contrast be based on the human perceived luminance
+
+    Returns
+    ----------
+    contrast = float
+        The contrast ratio value.
+
+    Example
+    ----------
+    >>> import neurokit as nk
+    >>> nk.luminance(6, 124, 16)
+
+    Authors
+    ----------
+    Dominique Makowski
+    """
+    l1 = color_luminance(color1, perceived=perceived)
+    l2 = color_luminance(color2, perceived=perceived)
+    if l1 > l2:
+        contrast = (l1 + 0.05) / (l2 + 0.05)
+    else:
+        contrast = (l2 + 0.05) / (l1 + 0.05)
+
+    return(contrast)
+
+

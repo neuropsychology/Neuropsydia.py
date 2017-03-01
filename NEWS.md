@@ -3,6 +3,7 @@
 ### Breaking changes
 - `image()`: changed the default scaling: `size=1` now means 1 in neuropsydia's coordinates (20 = full screen)
 - removed many functions related to statistics or signal processing to include them in [NeuroTools](https://github.com/neuropsychology/NeuroTools.py)
+- Added `color_luminance()` and `color_contrast()` functions
 
 ### New functions
 - `Coordinates.from_physical()`: convert physical distances in cm  or inches to pixels
