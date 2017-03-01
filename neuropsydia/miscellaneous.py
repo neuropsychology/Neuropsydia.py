@@ -459,7 +459,7 @@ def color_luminance(colour, perceived=True):
     ----------
     Dominique Makowski
     """
-    colour = n.color(colour)
+    colour = color(colour)
     r = colour[0]/255
     g = colour[1]/255
     b = colour[2]/255
