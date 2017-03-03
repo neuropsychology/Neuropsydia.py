@@ -20,10 +20,12 @@
 import os
 import sys
 import mock
+sys.modules['pygame'] = Mock()
+sys.modules['pygame.constants'] = Mock()
 
 sys.path.insert(0, os.path.abspath('../'))
 
-MOCK_MODULES = ['pygame', 'numpy', 'scipy', 'pandas', 'Pillow', 'plotly', 'cryptography', 'python-docx', 'neurokit']
+MOCK_MODULES = ['pygame', 'numpy', 'scipy', 'pandas', 'Pillow', 'plotly', 'cryptography', 'docx', 'python-docx', 'neurokit']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
 
