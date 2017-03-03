@@ -20,11 +20,8 @@
 import os
 import sys
 import mock
-sys.modules['pygame'] = Mock()
-sys.modules['pygame.constants'] = Mock()
-
-sys.modules['pygame'] = Mock()
-sys.modules['pygame.constants'] = Mock()
+sys.modules['pygame'] = mock.Mock()
+sys.modules['pygame.constants'] = mock.Mock()
 
 sys.path.insert(0, os.path.abspath('../'))
 
