@@ -276,11 +276,7 @@ def start_screen(name="test", path="./Logo/", extension=".png", authors="", lang
         write(name, style="bold", y=2, size=5)
 
     # Authors
-<<<<<<< HEAD
     write(authors, style='light', y=-1.7, size=0.6)
-=======
-    write(authors, style='light', y=-1.95, size=0.6)
->>>>>>> origin/master
 
     # End
     if language == "fr" or language == "french":
