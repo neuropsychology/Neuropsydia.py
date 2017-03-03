@@ -1,20 +1,27 @@
-# CURRENT DEV: 1.0.0
+# CURRENT DEV: 1.0.3
 
 ### Breaking changes
 - `image()`: changed the default scaling: `size=1` now means 1 in neuropsydia's coordinates (20 = full screen)
 - removed many functions related to statistics or signal processing to include them in [NeuroTools](https://github.com/neuropsychology/NeuroTools.py)
+- Added `color_luminance()` and `color_contrast()` functions
 
 ### New functions
 - `Coordinates.from_physical()`: convert physical distances in cm  or inches to pixels
 - `Coordinates.to_physical()`: convert neuropsydia's distances to cm  or inches to pixels
 - `Time`: added now() method to Time class
 - `start_screen()` and `end_screen()`: displaying logos and welcome screens
+- `sound()`: plays wav sounds
+- `opendoc()`: opens the neuropsydia github webpage
+- `resting_state_brief_assessment()`: standardized resting state assessment
 
 ### Major changes
 - `image()`: support of size in cm or inches
 - `instructions()`: Added `subtitle`, `top_space` parameter and color control
 
-# CURRENT STABLE: 0.1.3 (2016-11-12)
+### Minor changes
+- Added "teal" color style for scales
+
+# CURRENT STABLE: 1.0.0 (2016-11-12)
 Pushed to pypi!
 ### New functions
 - `remove_following_duplicates()`: Remove the duplicates that are following themselves, returning a list of ordered items.

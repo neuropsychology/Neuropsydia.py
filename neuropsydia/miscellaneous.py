@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+import pygame
+import webbrowser
+
 from pygame import gfxdraw
-import platform
+import numpy as np
 
 from .core import *
 from .write import *
@@ -263,9 +266,6 @@ def start_screen(name="test", path="./Logo/", extension=".png", authors="", lang
     Dependencies
     ----------
     - pygame 1.9.2
-    - pygame.gfxfraw
-    - time
-    - winsound
     """
     newpage("white", auto_refresh=False)
 
@@ -276,7 +276,7 @@ def start_screen(name="test", path="./Logo/", extension=".png", authors="", lang
         write(name, style="bold", y=2, size=5)
 
     # Authors
-    write(authors, style='light', y=-1.75, size=0.6)
+    write(authors, style='light', y=-1.7, size=0.6)
 
     # End
     if language == "fr" or language == "french":
@@ -315,9 +315,6 @@ def end_screen(name="test", success=True, path="./Logo/", extension=".png", auth
     Dependencies
     ----------
     - pygame 1.9.2
-    - pygame.gfxfraw
-    - time
-    - winsound
     """
     newpage("white", auto_refresh=False)
 
@@ -343,4 +340,178 @@ def end_screen(name="test", success=True, path="./Logo/", extension=".png", auth
         else:
             write("Failed Data Collection.", color='red')
         write('Press ENTER to quit.', style='end')
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def sound(filename, path="", extension=".wav", wait=True, rate=48000):
+    """
+    Help incomplete, sorry.
+
+    Parameters
+    ----------
+    NA
+
+    Returns
+    ----------
+    NA
+
+    Example
+    ----------
+    NA
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - pygame 1.9.2
+    """
+    file = path + filename + extension
+    if ".wav" in file:
+        pygame.mixer.quit()
+        pygame.mixer.init(frequency=rate)
+        sound = pygame.mixer.Sound(file)
+        sound.play()
+        if wait is True:
+            while pygame.mixer.get_busy():
+                time.wait(10)
+
+    else:
+        print("NEUROPSYDIA ERROR: sound(): Wrong extension: only '.wav' are currently supported.")
+
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def opendoc():
+    """
+    Help incomplete, sorry.
+
+    Parameters
+    ----------
+    NA
+
+    Returns
+    ----------
+    NA
+
+    Example
+    ----------
+    NA
+
+    Authors
+    ----------
+    Dominique Makowski
+
+    Dependencies
+    ----------
+    - webbrowser
+    """
+    webbrowser.open("https://github.com/neuropsychology/Neuropsydia.py/")
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def color_luminance(colour, perceived=True):
+    """
+    Compute the luminance based on the rgb colour. Based on http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color.
+
+    Parameters
+    ----------
+    r =  int
+        red
+    g = int
+        green
+    b = int
+        blue
+    perceived = bool, opt
+        Adjusted formula for human eye.
+
+    Returns
+    ----------
+    luminance = float
+        The luminance value.
+
+    Example
+    ----------
+    >>> import neuropsydia as n
+    >>> n.start(False)
+    >>> n.color_luminance(6, 124, 16)
+
+    Authors
+    ----------
+    Dominique Makowski
+    """
+    colour = color(colour)
+    r = colour[0]/255
+    g = colour[1]/255
+    b = colour[2]/255
+
+    if perceived is False:
+        luminance = (0.2126*r + 0.7152*g + 0.0722*b)
+    else:
+        luminance = np.sqrt( 0.299*(r**2) + 0.587*(g**2) + 0.114*(b**2))
+    return(luminance)
+
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+def color_contrast(color1, color2, perceived=True):
+    """
+    Compute the contrast ratio between two colours. Based on https://www.w3.org/TR/WCAG20/#contrast-ratiodef.
+
+    Parameters
+    ----------
+    color1 = str or tuple
+        First colour
+    color2 = str or typle
+        Second colour
+    perceived = bool, opt
+        Should the contrast be based on the human perceived luminance
+
+    Returns
+    ----------
+    contrast = float
+        The contrast ratio value.
+
+    Example
+    ----------
+    >>> import neurokit as nk
+    >>> nk.luminance(6, 124, 16)
+
+    Authors
+    ----------
+    Dominique Makowski
+    """
+    l1 = color_luminance(color1, perceived=perceived)
+    l2 = color_luminance(color2, perceived=perceived)
+    if l1 > l2:
+        contrast = (l1 + 0.05) / (l2 + 0.05)
+    else:
+        contrast = (l2 + 0.05) / (l1 + 0.05)
+
+    return(contrast)
+
 

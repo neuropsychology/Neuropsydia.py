@@ -62,6 +62,8 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
         "str", "int" or "float", allow only this specific type
     allow_max = int, optional
         when numeric answer, set a maximum
+    allow_NA = bool, optional
+        allow absence of response?
 
     Returns
     ----------
@@ -128,7 +130,12 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
             answer = "_"
         if answer is not "ENTER":
             if answer is "ESCAPE":
-                break
+                if allow_NA is True:
+                    return("NA")
+                else:
+                    user_input = ''
+                    warning_text = text_new+'    incorrect (input required)'
+                    warning = 1
             if answer is pygame.K_BACKSPACE:
                 if user_input != '':
                     user_input = user_input[:len(user_input)-1]
@@ -145,6 +152,10 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
                 user_input = "NA"
                 if allow_NA is True:
                     return(user_input)
+                else:
+                    user_input = ''
+                    warning_text = text_new+'    incorrect (input required)'
+                    warning = 1
             elif allow is not None or allow_length is not None or allow_type is not None:
                 warning = 0
                 if allow is not None and user_input not in list(allow):
@@ -156,7 +167,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
                 if allow_max is not None and float(user_input) > float(allow_max):
                     warning_text = text_new+'    incorrect (max = ' + str(allow_max) + ')'
                     warning = 1
-                    allow_type = "in"
+                    allow_type = "int"
                 if allow_type is not None:
                     if allow_type is "int":
                         try:

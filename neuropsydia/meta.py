@@ -47,7 +47,7 @@ def instructions(text, background='white', color="black", size=1.0,
     - pygame 1.9.2
     """
     newpage(background, auto_refresh=False)
-    
+
     if title is not None:
         write(title, style="title", color=title_color)
     if subtitle is not None:
@@ -67,7 +67,7 @@ def instructions(text, background='white', color="black", size=1.0,
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_name="questionnaire_results", results_path="", participant_id="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black", instructions_text=None):
+def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_name="questionnaire_results", results_path="", participant_id="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black", instructions_text=None, instructions_top_space=5, show_result_decimals=1, cursor_size=1):
     """
     A wrapper function for easily creating questionnaires. You can go back or foth using the LEFT and RIGHT keyboard arrows.
 
@@ -126,6 +126,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
     - pandas 18.0
     - time
     """
+    time_start = datetime.datetime.now()
     if isinstance(questions_dictionary,dict) == False:
         print("NEUROPSYDIA ERROR: questionnaire(): wrong object given (not a dictionary), check http://www.neuropsydia.com/#!create-questionnaire/ncq23 for help.")
     try:
@@ -145,7 +146,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
 
     if instructions_text != None:
         try:
-            instructions(instructions_text)
+            instructions(instructions_text, top_space=instructions_top_space)
         except:
             print("NEUROPSYDIA ERROR: questionnaire(): problem in 'instructions_text' arg, make sure it's a normal string.")
 
@@ -168,10 +169,10 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
                     reverse_question=reverse
 
             t0 = builtin_time.clock()
-            answer = scale(style=style, anchors = anchors, anchors_space=anchors_space, anchors_size=anchors_size, edges = edges, validation=validation, analog=analog, step=step, labels=labels, labels_size=labels_size, labels_rotation=labels_rotation, labels_space=labels_space,labels_x=labels_x, line_thickness=line_thickness, line_length=line_length, line_color=line_color, background=background, title=title, title_style=title_style, title_size=title_size, title_space=title_space, reverse=reverse_question, point_center=point_center, point_edges=point_edges, force_separation=force_separation, separation_labels=separation_labels, separation_labels_size=separation_labels_size, separation_labels_rotate=separation_labels_rotate, separation_labels_space=separation_labels_space, show_result=show_result, show_result_shape=show_result_shape, show_result_shape_fill_color=show_result_shape_fill_color, show_result_shape_line_color=show_result_shape_line_color, show_result_shape_size=show_result_shape_size, show_result_space=show_result_space, show_result_size=show_result_size, show_result_color=show_result_color)
+            answer = scale(style=style, anchors = anchors, anchors_space=anchors_space, anchors_size=anchors_size, edges = edges, validation=validation, analog=analog, step=step, labels=labels, labels_size=labels_size, labels_rotation=labels_rotation, labels_space=labels_space,labels_x=labels_x, line_thickness=line_thickness, line_length=line_length, line_color=line_color, background=background, title=title, title_style=title_style, title_size=title_size, title_space=title_space, reverse=reverse_question, point_center=point_center, point_edges=point_edges, force_separation=force_separation, separation_labels=separation_labels, separation_labels_size=separation_labels_size, separation_labels_rotate=separation_labels_rotate, separation_labels_space=separation_labels_space, show_result=show_result, show_result_shape=show_result_shape, show_result_shape_fill_color=show_result_shape_fill_color, show_result_shape_line_color=show_result_shape_line_color, show_result_shape_size=show_result_shape_size, show_result_space=show_result_space, show_result_size=show_result_size, show_result_color=show_result_color, show_result_decimals=show_result_decimals, cursor_size=cursor_size)
             RT = (builtin_time.clock()-t0 ) * 1000
             if answer == 'RIGHT':
-                answer = "NA"
+                answer = np.nan
             questions_dictionary["Answer"][order[i]] = answer
             questions_dictionary["RT"][order[i]] = RT
             questions_dictionary["Order"][order[i]] = i+1
@@ -184,14 +185,13 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
            print("NEUROPSYDIA ERROR: questionnaire(): someting went wrong (error number 2)")
 
     df = pd.DataFrame.from_dict(questions_dictionary)
-
+    df["Time_Start"] = time_start
+    df["Time_End"] = datetime.datetime.now()
+    df["Total_Duration"] = (datetime.datetime.now()-time_start).total_seconds()
+    
     if dimensions_mean == True:
-        try:
-            means_dict = dict(df.groupby(dimensions_key_name).mean()['Answer'])
-            for dim in means_dict.keys():
-                df[dim] = means_dict[dim]
-        except:
-            print("NEUROPSYDIA ERROR: questionnaire(): arg dimensions_key_name does not match.")
+        for dim in set(df[dimensions_key_name]):
+            df[dim] = df[(df[dimensions_key_name]==dim)]["Answer"].mean()
 
     if results_save == True:
         nk.save_data(df, filename=results_name, path=results_path, participant_id=participant_id, index=True, index_label="Item_Number")
