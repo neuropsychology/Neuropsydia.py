@@ -24,6 +24,7 @@ sys.modules['pygame'] = mock.Mock()
 sys.modules['pygame.constants'] = mock.Mock()
 
 sys.path.insert(0, os.path.abspath('../'))
+import neuropsydia
 
 MOCK_MODULES = ['pygame', 'numpy', 'pyxid', 'neurokit', 'pandas', 'Pillow', 'python-docx', 'cryptography']
 
