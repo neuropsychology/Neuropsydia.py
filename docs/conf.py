@@ -26,6 +26,8 @@ class Mock(MagicMock):
     @classmethod
     def __or__(self, other):
             return(MagicMock())
+    def get_size(self):
+        return(1, 2)
 
 
 sys.modules['pygame'] = Mock()
