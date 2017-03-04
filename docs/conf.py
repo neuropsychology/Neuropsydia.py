@@ -20,6 +20,14 @@
 import os
 import sys
 import mock
+
+class Mock(MagicMock):
+    @classmethod
+    def __or__(self, other):
+            return()
+
+
+
 sys.modules['pygame'] = mock.Mock()
 sys.modules['pygame.constants'] = mock.Mock()
 
