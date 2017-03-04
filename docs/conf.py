@@ -21,7 +21,7 @@ import os
 import sys
 import mock
 
-class Mock(MagicMock):
+class Mock(mock.Mock):
     @classmethod
     def __or__(self, other):
             return()
