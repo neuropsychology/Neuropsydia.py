@@ -20,12 +20,12 @@
 import os
 import sys
 import mock
+from unittest.mock import MagicMock
 
-class Mock(mock.Mock):
+class Mock(MagicMock):
     @classmethod
     def __or__(self, other):
-            return()
-
+            return(MagicMock())
 
 
 sys.modules['pygame'] = mock.Mock()
