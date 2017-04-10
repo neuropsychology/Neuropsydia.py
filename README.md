@@ -46,7 +46,6 @@ pip uninstall neuropsydia
   Just open an [issue](https://github.com/neuropsychology/Neuropsydia.py/issues) :relaxed:
 - Want to add yourself a feature? Correct a bug? You're more than welcome to contribute!
   Check [this page](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/) to see how to submit your changes on github.
-- If you make changes, do not forget to change the [API documentation](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Documentation/API/) accordingly.
 
 ## Citation
 You can cite Neuropsydia with the following:
