@@ -4,6 +4,7 @@
 ### New functions
 ### Major changes
 ### Minor changes
+- Added an icon and a name for the neuropsydia's window
 
 
 # CURRENT STABLE: 1.0.3 (2017-03-03)

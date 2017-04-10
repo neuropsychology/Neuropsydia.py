@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Module for the ask() function.
+Submodule for the ask() function.
 """
 from .path import *
 from .core import *
@@ -14,10 +14,6 @@ from .core import color as core_color #avoid conflict with arg name
 #==============================================================================
 #==============================================================================
 #==============================================================================
-# # # # --- ask ---
-#version : 1.0
-#display a question and get the subject's answer
-#Authors : Léo Dutriaux, Dominique Makowski
 #==============================================================================
 #======================================================================== ======
 #==============================================================================
@@ -67,7 +63,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
 
     Returns
     ----------
-    str
+    answer = str
         answer
 
     Example

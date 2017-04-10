@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
 name = "neuropsydia",
 description = ("A Python Module for Creating Experiments, Tasks and Questionnaires."),
-version = "1.0.3",
+version = "1.0.4",
 license = "Mozilla Public License Version 2.0",
 author = "Dominique Makowski",
 author_email = "dom.makowski@gmail.com",
@@ -22,7 +22,8 @@ install_requires = [
     'neurokit',
     'pyxid',
     'python-docx',
-    'cryptography'],
+    'cryptography',
+    'statmodels'],
 dependency_links=[],
 long_description = open('README.rst').read(),
 keywords = "python neuropsychology neuropsydia experiment creation",

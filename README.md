@@ -18,12 +18,12 @@ A Python Module for Creating Experiments, Tasks and Questionnaires.
 
 ---
 # Installation
-To get the latest stable version (`1.0.0`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
+To get the latest stable version (`1.0.3`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
 ```python
-pip install neuropsydia
+pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
 
-To get the latest development version (`1.0.3`), run the following:
+To get the latest development version (`1.0.4`), run the following:
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
 ```
@@ -46,7 +46,6 @@ pip uninstall neuropsydia
   Just open an [issue](https://github.com/neuropsychology/Neuropsydia.py/issues) :relaxed:
 - Want to add yourself a feature? Correct a bug? You're more than welcome to contribute!
   Check [this page](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/) to see how to submit your changes on github.
-- If you make changes, do not forget to change the [API documentation](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Documentation/API/) accordingly.
 
 ## Citation
 You can cite Neuropsydia with the following:

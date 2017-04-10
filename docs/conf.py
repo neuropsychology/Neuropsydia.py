@@ -20,26 +20,25 @@
 import os
 import sys
 import mock
-sys.modules['pygame'] = Mock()
-sys.modules['pygame.constants'] = Mock()
+from unittest.mock import MagicMock
+
+class Mock(MagicMock):
+    @classmethod
+    def __or__(self, other):
+            return(MagicMock())
+    def get_size(self):
+        return(1, 2)
+
 
 sys.modules['pygame'] = Mock()
 sys.modules['pygame.constants'] = Mock()
 
 sys.path.insert(0, os.path.abspath('../'))
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-MOCK_MODULES = ['pygame', 'numpy', 'pyxid', 'neurokit', 'pandas', 'Pillow']
-=======
-MOCK_MODULES = ['pygame', 'numpy', 'scipy', 'pandas', 'Pillow', 'plotly', 'cryptography', 'docx', 'python-docx', 'neurokit']
->>>>>>> origin/master
-=======
-MOCK_MODULES = ['pygame', 'numpy', 'pyxid', 'neurokit', 'pandas', 'Pillow', 'python-docx', 'cryptography']
->>>>>>> origin/dev
+MOCK_MODULES = ['numpy', 'pyxid', 'neurokit', 'pandas', 'Pillow', 'python-docx', 'cryptography']
+
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
-
 
 # -- General configuration ------------------------------------------------
 
@@ -83,7 +82,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Neuropsydia.py'
-copyright = '2016, Dominique Makowski'
+copyright = '2017, Dominique Makowski'
 author = 'Dominique Makowski'
 
 # The version info for the project you're documenting, acts as replacement for
