@@ -406,6 +406,7 @@ keys = {
      122: 'w', 57: 'ç', 56: '_', 55: 'è', 54: '-', 53: '(',
      52: "_", 51: '_', 50:'é', 49: '&', 48: 'à', 32: 'SPACE',
      13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP",
+     266: ".",
      pygame.K_KP0: '0', pygame.K_KP1: '1', pygame.K_KP2: '2', pygame.K_KP3: '3',pygame.K_KP4: '4', pygame.K_KP5: '5',pygame.K_KP6: '6',pygame.K_KP7: '7',pygame.K_KP8: '8',pygame.K_KP9: '9'},
 
 "shift":
@@ -418,6 +419,7 @@ keys = {
      122: 'W', 57: '9', 56: '8', 55: '7', 54: '6', 53: '5',
      52: '4', 51: '3', 50: '2', 49: '1', 48: '0', 32: 'SPACE',
      13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP",
+     266: ".",
      pygame.K_KP0: '0',pygame.K_KP1: '1',pygame.K_KP2: '2',pygame.K_KP3:'3',pygame.K_KP4: '4',
      pygame.K_KP5: '5',pygame.K_KP6: '6',pygame.K_KP7: '7',pygame.K_KP8: '8',pygame.K_KP9:'9'},
 
@@ -430,6 +432,7 @@ keys = {
      122: 'w', 57: '^', 56: '_', 55: '`', 54: '|', 53: '[',
      52: '{', 51: '#', 50: '~', 49: '1', 48: '@', 32: 'SPACE',
      13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP",
+     266: ".",
      pygame.K_KP0: '0',pygame.K_KP1: '1',pygame.K_KP2: '2',pygame.K_KP3: '3',pygame.K_KP4: '4',
      pygame.K_KP5: '5',pygame.K_KP6: '6',pygame.K_KP7: '7',pygame.K_KP8: '8',pygame.K_KP9: '9'}
 }

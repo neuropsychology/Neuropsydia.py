@@ -23,7 +23,7 @@ install_requires = [
     'pyxid',
     'python-docx',
     'cryptography',
-    'statmodels'],
+    'statsmodels'],
 dependency_links=[],
 long_description = open('README.rst').read(),
 keywords = "python neuropsychology neuropsydia experiment creation",
