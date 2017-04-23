@@ -30,7 +30,7 @@ sys.path.insert(0, os.path.abspath('../'))
 
 
 MOCK_MODULES = [
-#    'pygame',
+    'pygame',
     'numpy',
     'pandas',
     'Pillow',
