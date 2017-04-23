@@ -18,4 +18,10 @@ if __name__ == "__main__":  # This is to avoid sphinx to run this code, otherwis
     # Get screen dimensions
     screen_width, screen_height = screen.get_size()
 
+    # Initialize monitor diagonal size
     monitor_diagonal = 24  # inch
+
+else:
+    screen = "Placeholder"
+    screen_width, screen_height = 0, 0
+    monitor_diagonal = 24
