@@ -40,7 +40,6 @@ classifiers = [
 	'Operating System :: Microsoft :: Windows',
 	'Operating System :: Unix',
 	'Operating System :: MacOS',
-	'Programming Language :: Python :: 3.4',
 	'Programming Language :: Python :: 3.5',
 	'Programming Language :: Python :: 3.6']
 )
