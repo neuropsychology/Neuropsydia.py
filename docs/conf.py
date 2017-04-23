@@ -20,25 +20,24 @@
 import os
 import sys
 import mock
-from unittest.mock import MagicMock
-
-class Mock(MagicMock):
-    @classmethod
-    def __or__(self, other):
-            return(MagicMock())
-    def get_size(self):
-        return(1, 2)
-
-
-sys.modules['pygame'] = Mock()
-sys.modules['pygame.constants'] = Mock()
 
 sys.path.insert(0, os.path.abspath('../'))
 
-MOCK_MODULES = ['numpy', 'pyxid', 'neurokit', 'pandas', 'Pillow', 'python-docx', 'cryptography']
+
+MOCK_MODULES = [
+    'pygame',
+    'numpy',
+    'pandas',
+    'Pillow',
+    'neurokit',
+    'pyxid',
+    'python-docx',
+    'cryptography',
+    'statsmodels']
 
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
+
 
 # -- General configuration ------------------------------------------------
 
