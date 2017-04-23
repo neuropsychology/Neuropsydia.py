@@ -18,15 +18,11 @@ A Python Module for Creating Experiments, Tasks and Questionnaires.
 
 ---
 # Installation
-To get the latest stable version (`1.0.3`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
+To get the latest stable version (`1.0.4`), run the following in the [command prompt](https://docs.python.org/3/installing/) (might take a few minutes):
 ```python
 pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 ```
 
-To get the latest development version (`1.0.4`), run the following:
-```python
-pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
-```
 
 Not working? Check [this](http://neurokit.readthedocs.io/en/latest/tutorials/Python.html) out!
 
