@@ -38,12 +38,9 @@ class Trigger():
     - ctypes
     - pyxid
     """
-    def __init__(self, TTL=True, photosensor=None, photosensor_position="bottomleft", stimtracker=False, stimtracker_duration=5):
-        self.method = method
+    def __init__(self, TTL=True, photosensor=None, photosensor_position="bottomleft"):
         self.photosensor = photosensor
         self.photosensor_position = photosensor_position
-        self.stimtracker = stimtracker
-        self.stimtracker_duration = stimtracker_duration
         if self.method=="TTL":
             try:
                 from ctypes import windll
@@ -51,12 +48,6 @@ class Trigger():
                 io = windll.dlportio # requires dlportio.dll !
             except:
                 print("NEUROPSYDIA WARNING: Trigger(): The parallel port couldn't be opened")
-        if self.stimtracker == True:
-            import pyxid
-            global device
-            device = pyxid.get_xid_devices()
-            device = device[0]
-            device.set_pulse_duration(self.stimtracker_duration)
 
     def start(self, trigger=1, port=0x378, lines=1):
         """
@@ -102,8 +93,6 @@ class Trigger():
                 io.DlPortWritePortUchar(port, trigger)
             except:
                 print('NEUROPSYDIA WARNING: Trigger.start(): Failed to send trigger!')
-        if self.stimtracker == True:
-            device.activate_line(lines=lines)
 
     def stop(self, trigger=0, port=0x378):
         """

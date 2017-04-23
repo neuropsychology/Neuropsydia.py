@@ -35,7 +35,6 @@ MOCK_MODULES = [
     'pandas',
     'Pillow',
     'neurokit',
-    'pyxid',
     'python-docx',
     'cryptography',
     'statsmodels']
