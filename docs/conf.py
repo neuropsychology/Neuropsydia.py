@@ -20,12 +20,17 @@
 import os
 import sys
 import mock
+import pygame
+from pygame.locals import *
+
+sys.modules['pygame'] = mock.Mock()
+sys.modules['pygame.constants'] = mock.Mock()
 
 sys.path.insert(0, os.path.abspath('../'))
 
 
 MOCK_MODULES = [
-    'pygame',
+#    'pygame',
     'numpy',
     'pandas',
     'Pillow',
