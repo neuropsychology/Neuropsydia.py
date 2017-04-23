@@ -1,1 +1,2 @@
 pygame
+git+git://github.com/neuropsychology/NeuroKit.py@master
