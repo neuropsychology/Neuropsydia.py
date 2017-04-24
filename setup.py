@@ -24,7 +24,8 @@ install_requires = [
     'python-docx',
     'cryptography',
     'statsmodels'],
-dependency_links=[],
+dependency_links=[
+	"https://github.com/neuropsychology/NeuroKit.py/zipball/master"],
 long_description = open('README.rst').read(),
 keywords = "python neuropsychology neuropsydia experiment creation",
 url = "https://github.com/neuropsychology/Neuropsydia.py/",
