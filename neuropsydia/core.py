@@ -360,15 +360,15 @@ def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_typ
 # ==============================================================================
 def refresh():
     """
-    Reresh / flip the screen, actually display things on screen (to use after image(), write() or newpage()).
+    Reresh / flip the screen, actually display things on screen (use it after `image()`, `write()` or `newpage()`).
 
     Parameters
-    ----------
-    None
+    -----------
+        None
 
     Returns
     ----------
-    None
+        None
 
     Example
     ----------
@@ -379,12 +379,14 @@ def refresh():
     >>> n.time.wait(500)
     >>> n.close()
 
-    Authors
+    Notes
     ----------
-    Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+
+    *Dependencies*
+
     - pygame 1.9.2
     """
     pygame.display.flip()

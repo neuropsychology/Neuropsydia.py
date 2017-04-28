@@ -13,7 +13,10 @@ newpage
 
 
 
+refresh
+---------------
 
+.. autofunction:: neuropsydia.refresh
 
 
 
