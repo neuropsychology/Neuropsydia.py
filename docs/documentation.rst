@@ -6,10 +6,10 @@ This part of the documentation details the complete ``neuropsydia`` for python A
 Main
 ======
 
-write
+newpage
 ---------------
 
-.. autofunction:: neuropsydia.write
+.. autofunction:: neuropsydia.newpage
 
 
 

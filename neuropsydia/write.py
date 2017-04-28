@@ -15,119 +15,60 @@ from .core import color as core_color  # avoid conflict with arg name
 # ==============================================================================
 def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=0, color="black", background=None, outline=False, outline_size=0.1, outline_color="black", allow=None, wait=None, long_text=False, fast=False):
     """
-    A convex optimization approach to electrodermal activity processing (CVXEDA).
-
-    This function implements the cvxEDA algorithm described in "cvxEDA: a
-    Convex Optimization Approach to Electrodermal Activity Processing" (Greco et al., 2015).
+    Display some text on screen.
 
     Parameters
     ----------
-       eda : list or array
-           raw EDA signal array.
-       sampling_rate : int
-           Sampling rate (samples/second).
-       normalize : bool
-           Normalize the signal before applying cvx algorithm.
-       tau0 : float
-           Slow time constant of the Bateman function.
-       tau1 : float
-           Fast time constant of the Bateman function.
-       delta_knot : float
-           Time between knots of the tonic spline function.
-       alpha : float
-           Penalization for the sparse SMNA driver.
-       gamma : float
-           Penalization for the tonic spline coefficients.
-       solver : bool
-           Sparse QP solver to be used, see cvxopt.solvers.qp
-       verbose : bool
-           Print progress?
-       options : dict
-           Solver options, see http://cvxopt.org/userguide/coneprog.html#algorithm-parameters
+    text = str, optional
+        The text to display
+    style = str, optional
+        "body", "psychometry", "psychometry_bold", "light", "bold", "title", "subtitle" or "end". Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or a path to a specific font you want to use
+    x = float, optional
+        position on x axis (from -10 (left) to 10 (right))
+    y = float, optional
+        position on y axis (from -10 (down) to 10 (up))
+    size = float, optional
+        text size
+    rotate = int, optional
+        angle (0 to 360) by which rotate the text
+    color = str or tuple, optional
+        color of the text. See color() function.
+    background = str or tuple, optional
+        color of the background. See color() function. Default to None
+    outline = bool, optional [this parameter needs your help]
+        outline the text (not perfect for now, the outline is larger for horizontal than for vertical lines)
+    outline_size = float, optional
+        the size of the outlining
+    outline_color = str or tuple
+        color of  the outlining. See color() function
+    allow = str, optional
+        wait until a specific key is pressed (e.g., "ENTER", or "any" for any). Default to None
+    long_text = bool, optional [this parameter needs your help]
+        set to True if you want to write a longer text on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  "\n" in your text (e.g., "\n\n\n here's my long text\n do you like it?"). Some other parameters are not compatible.
+    fast = some parameters are toggled off, but faster.
 
     Returns
     ----------
-        phasic : numpy.array
-            The phasic component.
+    None
 
-
-    Notes
+    Example
     ----------
-    *Authors*
+    >>> import neuropsydia as n
+    >>> n.start()
+    >>> n.write("here's my  title", style = "title")
+    >>> n.write("here's my  text", font_color = "red")
+    >>> n.write("press ENTER to quit", style = "end")
+    >>> n.close()
 
-    - Luca Citi (https://github.com/lciti)
-    - Alberto Greco
+    Authors
+    ----------
+    Léo Dutriaux, Dominique Makowski
 
-    *Dependencies*
-
-    - cvxopt
-    - numpy
-
-    *See Also*
-
-    - cvxEDA: https://github.com/lciti/cvxEDA
-
-
-    References
-    -----------
-    - Greco, A., Valenza, G., & Scilingo, E. P. (2016). Evaluation of CDA and CvxEDA Models. In Advances in Electrodermal Activity Processing with Applications for Mental Health (pp. 35-43). Springer International Publishing.
-    - Greco, A., Valenza, G., Lanata, A., Scilingo, E. P., & Citi, L. (2016). cvxEDA: A convex optimization approach to electrodermal activity processing. IEEE Transactions on Biomedical Engineering, 63(4), 797-804.
+    Dependencies
+    ----------
+    - pygame 1.9.2
+    - time
     """
-#    """
-#    Display some text on screen.
-#
-#    Parameters
-#    ----------
-#    text = str, optional
-#        The text to display
-#    style = str, optional
-#        "body", "psychometry", "psychometry_bold", "light", "bold", "title", "subtitle" or "end". Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or a path to a specific font you want to use
-#    x = float, optional
-#        position on x axis (from -10 (left) to 10 (right))
-#    y = float, optional
-#        position on y axis (from -10 (down) to 10 (up))
-#    size = float, optional
-#        text size
-#    rotate = int, optional
-#        angle (0 to 360) by which rotate the text
-#    color = str or tuple, optional
-#        color of the text. See color() function.
-#    background = str or tuple, optional
-#        color of the background. See color() function. Default to None
-#    outline = bool, optional [this parameter needs your help]
-#        outline the text (not perfect for now, the outline is larger for horizontal than for vertical lines)
-#    outline_size = float, optional
-#        the size of the outlining
-#    outline_color = str or tuple
-#        color of  the outlining. See color() function
-#    allow = str, optional
-#        wait until a specific key is pressed (e.g., "ENTER", or "any" for any). Default to None
-#    long_text = bool, optional [this parameter needs your help]
-#        set to True if you want to write a longer text on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  "\n" in your text (e.g., "\n\n\n here's my long text\n do you like it?"). Some other parameters are not compatible.
-#    fast = some parameters are toggled off, but faster.
-#
-#    Returns
-#    ----------
-#    None
-#
-#    Example
-#    ----------
-#    >>> import neuropsydia as n
-#    >>> n.start()
-#    >>> n.write("here's my  title", style = "title")
-#    >>> n.write("here's my  text", font_color = "red")
-#    >>> n.write("press ENTER to quit", style = "end")
-#    >>> n.close()
-#
-#    Authors
-#    ----------
-#    Léo Dutriaux, Dominique Makowski
-#
-#    Dependencies
-#    ----------
-#    - pygame 1.9.2
-#    - time
-#    """
     if fast is True:
         size = int(size*screen_width/35.0)
         x, y = Coordinates.to_pygame(x=x, y=y)
