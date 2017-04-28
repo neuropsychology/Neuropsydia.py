@@ -283,21 +283,21 @@ def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_typ
     Fill the background with a color.
 
     Parameters
-    ----------
-    color_name = str, tuple, optional
-        name of the color (see color() function), or an RGB tuple (e.g., (122,84,01))
-    opacity = int, optional
-        opacity of the color (in percents)
-    fade = bool, optional
-        do you want a fade effect?
-    fade_speed = int, optional
-        frequency (speed) of the fading
-    fade_type = str, optional
-        "out" or "in", fade out or fade in
+    ------------
+        color_name : str, tuple, optional
+            name of the color (see color() function), or an RGB tuple (e.g., (122,84,01)).
+        opacity : int, optional
+            opacity of the color (in percents).
+        fade : bool, optional
+            do you want a fade effect?
+        fade_speed : int, optional
+            frequency (speed) of the fading.
+        fade_type : str, optional
+            "out" or "in", fade out or fade in.
 
     Returns
     ----------
-    None
+        None
 
     Example
     ----------
@@ -308,12 +308,14 @@ def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_typ
     >>> n.time.wait(500)
     >>> n.close()
 
-    Authors
+    Notes
     ----------
-    Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+
+    *Dependencies*
+
     - pygame 1.9.2
     - time
     """
