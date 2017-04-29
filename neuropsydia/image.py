@@ -298,15 +298,15 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n",
 
     Example
     ----------
-    import neuropsydia as n
-
-    n.start()
-    for file in ["img1.png", "img2.png"]:
-        n.newpage()
-        n.image(file)
-        n.refresh()
-        n.time.wait(1000)
-    n.close()
+    >>> import neuropsydia as n
+    >>>
+    >>> n.start()
+    >>> for file in ["img1.png", "img2.png"]:
+    >>>    n.newpage()
+    >>>    n.image(file)
+    >>>    n.refresh()
+    >>>    n.time.wait(1000)
+    >>> n.close()
 
     Notes
     ----------
