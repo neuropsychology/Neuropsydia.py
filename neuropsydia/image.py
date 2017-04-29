@@ -246,31 +246,71 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, unit="n", scale_by="height", fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100, monitor_diagonal=monitor_diagonal):
+def image(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n", scale_by="height", fullscreen=False, rotate=0, scramble=False, background=None, compress=False, compression=0, allow=None, wait=None, opacity=100, monitor_diagonal=monitor_diagonal):
     """
-    Help incomplete, sorry.
+    Display an image on screen.
 
     Parameters
     ----------
-    NA
+    file : str
+        Image filename.
+    x : float
+        Horizontal position of image center.
+    y : float
+        Vertical position of image center.
+    cache : dict
+        Cache of preloaded files.
+    path : str
+        File's path.
+    extension : str
+        File's extension.
+    size : float
+        Image size.
+    unit : str
+        Size unit. 'n' for neuropsydia's space, can be 'cm'.
+    scale_by : str
+        'height' or 'width'.
+    fullscreen : bool
+        Fullscreen. Disable the size parameter.
+    rotate : int
+        Rotation angle.
+    scramble : bool
+        Scramble (randomize pixels).
+    background : str
+        Background colour.
+    compress : bool
+        Enable compression.
+    compression : int 
+        Compression rate.
+    allow : list
+        List of keys that will end the image display.
+    wait : int
+        Wait time (in milliseconds).
+    opacity : 100
+        Opacity (in percentage).
+    monitor_diagonal : int
+        Monitor size (in inches).
 
     Returns
     ----------
-    NA
+    cache : dict
+        The updated cache.
 
     Example
     ----------
     NA
 
-    Authors
+    Notes
     ----------
-    Dominique Makowski, Léo Dutriaux
-
-    Dependencies
-    ----------
+   
+    *Authors*
+    
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+    
+    *Dependencies*
+    
     - pygame 1.9.2
     - PIL
-    - time
     """
     if background is not None:
         newpage(background, auto_refresh=False)
@@ -292,12 +332,12 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size = 1.0, unit="n
                 image = cache[path + file + '_' + str(size) + '_' + str(unit) + '_' + str(scale_by) + '_' + str(rotate) + '_' + str(opacity) + '_' + str(monitor_diagonal) + '_' + extension]
 
 
-    x,y = Coordinates.to_pygame(x=x,y=y)
+    x, y = Coordinates.to_pygame(x=x, y=y)
     rectangle = image.get_rect()
-    rectangle.center = (x,y)
-    screen.blit(image,rectangle)
+    rectangle.center = (x, y)
+    screen.blit(image, rectangle)
 
-    #In case or one must wait until something
+    #In case one must wait until something
     if allow is not None or wait is not None:
         refresh()
         if allow is None and wait is not None:
