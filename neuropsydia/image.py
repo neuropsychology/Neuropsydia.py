@@ -251,7 +251,7 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n",
     Display an image on screen.
 
     Parameters
-    ----------
+    -----------
     file : str
         Image filename.
     x : float
@@ -280,7 +280,7 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n",
         Background colour.
     compress : bool
         Enable compression.
-    compression : int 
+    compression : int
         Compression rate.
     allow : list
         List of keys that will end the image display.
@@ -298,17 +298,25 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n",
 
     Example
     ----------
-    NA
+    import neuropsydia as n
+
+    n.start()
+    for file in ["img1.png", "img2.png"]:
+        n.newpage()
+        n.image(file)
+        n.refresh()
+        n.time.wait(1000)
+    n.close()
 
     Notes
     ----------
-   
     *Authors*
-    
+
     - Dominique Makowski (https://github.com/DominiqueMakowski)
-    
+    - Léo Dutriaux (https://github.com/LeoDutriaux)
+
     *Dependencies*
-    
+
     - pygame 1.9.2
     - PIL
     """

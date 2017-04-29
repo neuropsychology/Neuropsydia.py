@@ -3,7 +3,7 @@ Documentation
 This part of the documentation details the complete ``neuropsydia`` for python API.
 
 
-Main
+Core
 ======
 
 newpage
@@ -19,4 +19,21 @@ refresh
 .. autofunction:: neuropsydia.refresh
 
 
+Display
+=========
 
+
+image
+---------------
+
+.. autofunction:: neuropsydia.image
+
+
+
+Input
+==========
+
+
+
+Meta
+=======
