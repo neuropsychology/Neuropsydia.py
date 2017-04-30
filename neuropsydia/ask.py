@@ -23,7 +23,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
     Display a question and get the subject's answer.
 
     Parameters
-    ----------
+    ------------
     text : str
         The question to be displayed.
     style : str

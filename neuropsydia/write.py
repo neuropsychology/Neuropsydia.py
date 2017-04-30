@@ -18,7 +18,7 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
     Display some text on screen.
 
     Parameters
-    ----------
+    -------------
     text : str
         The text to display.
     style : str
