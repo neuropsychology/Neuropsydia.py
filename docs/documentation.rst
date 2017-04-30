@@ -40,6 +40,11 @@ Input
 ==========
 
 
+ask
+---------------
+
+.. autofunction:: neuropsydia.ask
+
 
 Meta
 =======

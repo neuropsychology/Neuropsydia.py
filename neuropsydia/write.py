@@ -24,9 +24,9 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
     style : str
         'body', 'psychometry', 'psychometry_bold', 'light', 'bold', 'title', 'subtitle' or 'end'. Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or the path to a specific font.
     x : float
-        Position on x axis (from -10 (left) to 10 (right)).
+        Horizontal position of the center (from -10 (left) to 10 (right)).
     y : float
-        Position on y axis (from -10 (bottom) to 10 (top)).
+        Vertical position of the center (from -10 (bottom) to 10 (top)).
     size : float
         Text size.
     rotate : int

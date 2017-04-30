@@ -24,62 +24,71 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
 
     Parameters
     ----------
-    text = str, optional
-        the question to be displayed
-    style = str, optional
-        "body", "light" or "bold"
-    order = int, optional
-        for series of questions, sometimes it's easier to just specify the order (1, 2 , 3, ...) and the quetsions will appear one under the other
-    x = float, optional
-        position on x axis (from -10 (left) to 10 (right))
-    y = float, optional
-        position on y axis (from -10 (down) to 10 (up))
-    size = float, optional
-        text size
-    color = str or tuple, optional
-        color of the text. See color() function.
-    background = str or tuple, optional
-        color of the background. See color() function. Default to None
-    hide = bool, optional
-        display "****" (stars) instead of the actual answer
-    detach_question = bool, optional
-        if set to true, then the question can be manipulated separately using the parameters below
-    - question_style = see style arg in write()
-    - question_x = see x arg in write()
-    - question_y = see y arg in write()
-    - question_size = see size arg in write()
-    - question_color = see color arg in write()
-    - question_long_text = see long_text arg in write()
-    allow = list, optional
-        only allow specific answers (e.g., "yes" or "no")
-    allow_length = int, optional
-        allow only a specific answer length
-    allow_type = str, optional
-        "str", "int" or "float", allow only this specific type
-    allow_max = int, optional
-        when numeric answer, set a maximum
-    allow_NA = bool, optional
-        allow absence of response?
+    text : str
+        The question to be displayed.
+    style : str
+        "body", "light" or "bold".
+    order : int
+        For series of questions, it's sometimes easier to just specify the order (1, 2 , 3, ...) and the quetsions will appear one under the other.
+    x : float
+        Horizontal position (from -10 (left) to 10 (right)).
+    y : float
+        Vertical position of the center (from -10 (bottom) to 10 (top)).
+    size : float
+        Text size.
+    color : str or tuple
+        Text color. See `neuroopsydia.color()`.
+    background : str or tuple
+        Background color. See `neuroopsydia.color()`.
+    hide : bool
+        Display "****" (stars) instead of the actual answer.
+    detach_question : bool
+        If set to true, then the question can be manipulated separately using the parameters below.
+    question_style : str
+        'body', 'psychometry', 'psychometry_bold', 'light', 'bold', 'title', 'subtitle' or 'end'. Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or the path to a specific font.
+    question_x : float
+        Horizontal position of the question (from -10 (left) to 10 (right)).
+    question_y : float
+        Vertical position of the question (from -10 (bottom) to 10 (top)).
+    question_size : float
+        Question size.
+    question_color : str
+        Question color. See `neuroopsydia.color()`.
+    question_long_text : bool
+        Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  '\n' in your text (e.g., '\n\n\n here's my long text\n do you like it?'). Some parameters are disabled. Unperfect for now.
+    allow : list
+        Allow only specific answers (e.g., ["yes", "no"]).
+    allow_length : int
+        Allow only a specific answer length.
+    allow_type : str
+        "str", "int" or "float". Allow only a specific type.
+    allow_max : int
+        When allow_type is int or float, set a maximum.
+    allow_NA : bool
+        Allow absence of response.
 
     Returns
     ----------
-    answer = str
-        answer
+    answer : str
+        Input.
 
     Example
     ----------
     >>> import neuropsydia as n
     >>> n.start()
-    >>> response = n.ask("Hey, you're good?")
-    >>> print(response)
+    >>> answer = n.ask("Hey, you're good?")
+    >>> print(answer)
     >>> n.close()
 
-    Authors
+    Notes
     ----------
-    Léo Dutriaux, Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+    - Léo Dutriaux (https://github.com/LeoDutriaux)
+
+    *Dependencies*
+
     - pygame 1.9.2
     """
     if detach_question is not False:
