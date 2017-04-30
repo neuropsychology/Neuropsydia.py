@@ -23,6 +23,12 @@ Display
 =========
 
 
+write
+---------------
+
+.. autofunction:: neuropsydia.write
+
+
 image
 ---------------
 

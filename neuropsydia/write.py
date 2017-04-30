@@ -19,55 +19,55 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
 
     Parameters
     ----------
-    text = str, optional
-        The text to display
-    style = str, optional
-        "body", "psychometry", "psychometry_bold", "light", "bold", "title", "subtitle" or "end". Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or a path to a specific font you want to use
-    x = float, optional
-        position on x axis (from -10 (left) to 10 (right))
-    y = float, optional
-        position on y axis (from -10 (down) to 10 (up))
-    size = float, optional
-        text size
-    rotate = int, optional
-        angle (0 to 360) by which rotate the text
-    color = str or tuple, optional
-        color of the text. See color() function.
-    background = str or tuple, optional
-        color of the background. See color() function. Default to None
-    outline = bool, optional [this parameter needs your help]
-        outline the text (not perfect for now, the outline is larger for horizontal than for vertical lines)
-    outline_size = float, optional
-        the size of the outlining
-    outline_color = str or tuple
-        color of  the outlining. See color() function
-    allow = str, optional
-        wait until a specific key is pressed (e.g., "ENTER", or "any" for any). Default to None
-    long_text = bool, optional [this parameter needs your help]
-        set to True if you want to write a longer text on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  "\n" in your text (e.g., "\n\n\n here's my long text\n do you like it?"). Some other parameters are not compatible.
-    fast = some parameters are toggled off, but faster.
+    text : str
+        The text to display.
+    style : str
+        "body", "psychometry", "psychometry_bold", "light", "bold", "title", "subtitle" or "end". Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or the path to a specific font.
+    x : float
+        Position on x axis (from -10 (left) to 10 (right)).
+    y : float
+        Position on y axis (from -10 (bottom) to 10 (top)).
+    size : float
+        Text size.
+    rotate : int
+        Rotation angle (0 to 360).
+    color : str or tuple
+        Text color. See `neuroopsydia.color()`.
+    background : str
+        Background color. See `neuroopsydia.color()`.
+    outline : bool
+        Text outline (unperfect for now, as the outline is larger for horizontal than for vertical lines).
+    outline_size : float
+        Outline size.
+    outline_color : str or tuple
+        Outline color. See `neuroopsydia.color()`.
+    allow : str or list
+        Wait until a specific key is pressed (e.g., "ENTER", ["LEFT", "RIGHT"] or "any").
+    long_text : bool
+        Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  "\n" in your text (e.g., "\n\n\n here's my long text\n do you like it?"). Some parameters are disabled. Unperfect for now.
+    fast : bool
+        Disables some parameters for improved speed.
 
-    Returns
-    ----------
-    None
 
     Example
     ----------
     >>> import neuropsydia as n
     >>> n.start()
-    >>> n.write("here's my  title", style = "title")
-    >>> n.write("here's my  text", font_color = "red")
+    >>> n.write("here's my title", style = "title")
+    >>> n.write("here's my text", font_color = "red")
     >>> n.write("press ENTER to quit", style = "end")
     >>> n.close()
 
-    Authors
+    Notes
     ----------
-    Léo Dutriaux, Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+    - Léo Dutriaux (https://github.com/LeoDutriaux)
+
+    *Dependencies*
+
     - pygame 1.9.2
-    - time
     """
     if fast is True:
         size = int(size*screen_width/35.0)

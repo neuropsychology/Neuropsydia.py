@@ -255,9 +255,9 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n",
     file : str
         Image filename.
     x : float
-        Horizontal position of image center.
+        Horizontal position of image center (from -10 (left) to 10 (right)).
     y : float
-        Vertical position of image center.
+        Vertical position of image center (from -10 (bottom) to 10 (top)).
     cache : dict
         Cache of preloaded files.
     path : str
@@ -283,7 +283,7 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n",
     compression : int
         Compression rate.
     allow : list
-        List of keys that will end the image display.
+        Wait until a specific key is pressed (e.g., "ENTER", ["LEFT", "RIGHT"] or "any").
     wait : int
         Wait time (in milliseconds).
     opacity : 100
