@@ -22,7 +22,7 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
     text : str
         The text to display.
     style : str
-        "body", "psychometry", "psychometry_bold", "light", "bold", "title", "subtitle" or "end". Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or the path to a specific font.
+        'body', 'psychometry', 'psychometry_bold', 'light', 'bold', 'title', 'subtitle' or 'end'. Can overwrite other parameters such as position, size or allow. You can also insert the name of a system font, or the path to a specific font.
     x : float
         Position on x axis (from -10 (left) to 10 (right)).
     y : float
@@ -42,9 +42,9 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
     outline_color : str or tuple
         Outline color. See `neuroopsydia.color()`.
     allow : str or list
-        Wait until a specific key is pressed (e.g., "ENTER", ["LEFT", "RIGHT"] or "any").
+        Wait until a specific key is pressed (e.g., 'ENTER', ['LEFT', 'RIGHT'] or 'any').
     long_text : bool
-        Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  "\n" in your text (e.g., "\n\n\n here's my long text\n do you like it?"). Some parameters are disabled. Unperfect for now.
+        Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  '\n' in your text (e.g., '\n\n\n here's my long text\n do you like it?'). Some parameters are disabled. Unperfect for now.
     fast : bool
         Disables some parameters for improved speed.
 
@@ -53,9 +53,9 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
     ----------
     >>> import neuropsydia as n
     >>> n.start()
-    >>> n.write("here's my title", style = "title")
-    >>> n.write("here's my text", font_color = "red")
-    >>> n.write("press ENTER to quit", style = "end")
+    >>> n.write('here is my title', style='title')
+    >>> n.write('here is my text', font_color='red')
+    >>> n.write('press ENTER to quit', style='end')
     >>> n.close()
 
     Notes
