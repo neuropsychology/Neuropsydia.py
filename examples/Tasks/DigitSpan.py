@@ -16,17 +16,17 @@ n.instructions("Listen to the experimenter.")  # Display instructions
 number_of_fails = 0  # Initial number of errors
 span = 2  # Initial span
 
-while number_of_fails < 3:
-    sequence = np.random.randint(10, size=span)  # Generate sequence
-    good_answer = ""  # Transform sequence of integers into string
+while number_of_fails < 3:  # Do it while the number of errors is smaller than 3
+    sequence = np.random.randint(10, size=span)  # Generate sequence of size span with ints ranging from 0 to 9
+    good_answer = ""  # Initiate an empty good_answer
 
-    for digit in sequence:  # For every element in the sequence...
-        good_answer = good_answer + str(digit)  # Add the current stimulus to sequence
-        n.newpage("grey")
+    for digit in sequence:  # For every digit in the sequence...
+        good_answer = good_answer + str(digit)  # Add the current stimulus to the good answer
+        n.newpage("grey")  # Load a grey background
         n.time.wait(250)  # Display an empty screen for 250 ms
         n.newpage("grey")  # Load a grey background
         n.write(digit, size=3)  # Load the stimulus
-        n.refresh()  # Render the stimulus on screen
+        n.refresh()  # Display the stimulus on screen
         n.time.wait(1000)  # Wait 1000 ms
 
     # Get answer

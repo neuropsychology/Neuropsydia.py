@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 1
 
    tutorials/1.0.Getting_Started
+   examples/index
    documentation
    
 

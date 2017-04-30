@@ -1,5 +1,0 @@
-Item_Number;Answer;Dimension;Item;Order;RT;Reverse;Time;Neuropsydia;Python
-1;2.0;Neuropsydia;Is Neuropsydia great?;1;1586.1444339466927;False;2016-11-06 16:43:10.609867;1.5;1.0
-2;1.0;Neuropsydia;Is Neuropsydia not great?;4;1159.804918976839;True;2016-11-06 16:43:13.643431;1.5;1.0
-3;1.0;Python;Is Python great?;3;891.993645482728;False;2016-11-06 16:43:12.449757;1.5;1.0
-4;1.0;Python;Is Python not great?;2;867.2513442542886;True;2016-11-06 16:43:11.522793;1.5;1.0
