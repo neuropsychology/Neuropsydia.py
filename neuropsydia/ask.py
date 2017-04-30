@@ -37,9 +37,9 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
     size : float
         Text size.
     color : str or tuple
-        Text color. See `neuroopsydia.color()`.
+        Text color. See `neuropsydia.color()`.
     background : str or tuple
-        Background color. See `neuroopsydia.color()`.
+        Background color. See `neuropsydia.color()`.
     hide : bool
         Display "****" (stars) instead of the actual answer.
     detach_question : bool
@@ -53,7 +53,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
     question_size : float
         Question size.
     question_color : str
-        Question color. See `neuroopsydia.color()`.
+        Question color. See `neuropsydia.color()`.
     question_long_text : bool
         Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  '\n' in your text (e.g., '\n\n\n here's my long text\n do you like it?'). Some parameters are disabled. Unperfect for now.
     allow : list

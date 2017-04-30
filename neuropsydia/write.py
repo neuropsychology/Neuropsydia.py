@@ -32,17 +32,19 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
     rotate : int
         Rotation angle (0 to 360).
     color : str or tuple
-        Text color. See `neuroopsydia.color()`.
+        Text color. See `neuropsydia.color()`.
     background : str
-        Background color. See `neuroopsydia.color()`.
+        Background color. See `neuropsydia.color()`.
     outline : bool
         Text outline (unperfect for now, as the outline is larger for horizontal than for vertical lines).
     outline_size : float
         Outline size.
     outline_color : str or tuple
-        Outline color. See `neuroopsydia.color()`.
+        Outline color. See `neuropsydia.color()`.
     allow : str or list
         Wait until a specific key is pressed (e.g., 'ENTER', ['LEFT', 'RIGHT'] or 'any').
+    wait : float
+        Wait time (in milliseconds).
     long_text : bool
         Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  '\n' in your text (e.g., '\n\n\n here's my long text\n do you like it?'). Some parameters are disabled. Unperfect for now.
     fast : bool

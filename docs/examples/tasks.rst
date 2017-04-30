@@ -51,7 +51,6 @@ Digit Span
     n.close()  # Close neuropsydia
 
 .. hint:: Try to run this task!
-   To go further:
 
    - Can you change the sequence generation so it contains letters rather than digits?
    - Can you change the rules so the sequence length increases every two good answers?
@@ -127,7 +126,6 @@ Go/No Go
     n.close()  # Close neuropsydia
 
 .. hint:: Try to run this task!
-   To go further:
 
    - Can you change the number of trials?
    - Can you change the ratio of no go trials?
@@ -221,7 +219,6 @@ Flanker
     n.close()  # Close neuropsydia
     
 .. hint:: Try to run this task!
-   To go further:
 
    - Can you count the number of errors?
    - Can you ask for the participant name at the beginning, and save data using it?
