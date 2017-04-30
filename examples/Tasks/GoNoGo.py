@@ -7,11 +7,11 @@ Site: https://github.com/neuropsychology/Neuropsydia.py
 """
 import neuropsydia as n  # Load neuropsydia
 import random  # Import the random module
-import pandas as pd  # To manipulate and save the data
+import pandas as pd  # To manipulate and save data
 import numpy as np  # To do some maths
 
 n.start()  # Start neuropsydia
-n.instructions("Goal: Hit SPACE whenever a GREEN circle appears. \nWhen it is RED, don't press anything.")  # Display instructions and break line with \n
+n.instructions("Goal: Hit SPACE whenever a GREEN circle appears. \nIf RED, don't press anything!")  # Display instructions and break line with \n
 n.newpage("grey")  # Fill the screen
 n.countdown()  # Display countdown
 
@@ -22,9 +22,10 @@ data = {"Trial": [],
         "RT":[],
         "Response":[]}
 
-for trial in range(5):  # Iterate over the number of trials
-    stimulus = random.choice(["green", "red"])  # Select a stimulus type
-    ISI = random.randrange(start=500, stop=2000, step=500)  # Select the inter-stimuli interval (ISI)
+n_trials = 10  # Number of trials
+for trial in range(n_trials):  # Iterate over the number of trials
+    stimulus = random.choice(["green", "green", "green", "red"])  # Select a stimulus type
+    ISI = random.randrange(start=250, stop=1250, step=250)  # Select the inter-stimuli interval (ISI)
 
     n.newpage("grey")  # Fill the screen
     n.write("+")  # Fixation cross
@@ -33,7 +34,7 @@ for trial in range(5):  # Iterate over the number of trials
 
     n.circle(size=2, fill_color=stimulus)  # Display the stimulus (filled with the color selected above)
     n.refresh()  # Diplay it on screen
-    response, RT = n.response(time_max=1500)  # Wait until 1.5s and collect the response and its time
+    response, RT = n.response(time_max=1000)  # Wait until 1 s and collect the response and its time
 
     # Categorize the response
     if response == "SPACE" and stimulus == "green":
@@ -57,8 +58,9 @@ df = pd.DataFrame.from_dict(data)  # Transform the data dictionary into a proper
 df.to_csv("data.csv")  # Save it
 
 # Quick analysis
-RTs = df.query('Response=="HIT"')["RT"]  # Select the Hits' RTs
-print(np.mean(RTs), np.std(RTs))  # Print the mean and the standard deviation
-print(len(df.query('Response=="FA"')))  # Print the number of intrusions (false alarms)
+RTs = df[df['Response']=="HIT"]["RT"]  # Select the Hits' RTs
+print("Mean RT: " + str(round(RTs.mean(), 2)))   # Print the mean
+print("SD RT: " + str(round(RTs.std(), 2)))  # Print the standard deviation
+print("Number of False Alarms: " + str(len(df[df['Response']=="FA"])))  # Print the number of intrusions (false alarms)
 
 n.close()  # Close neuropsydia
