@@ -295,9 +295,6 @@ def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_typ
         fade_type : str, optional
             "out" or "in", fade out or fade in.
 
-    Returns
-    ----------
-        None
 
     Example
     ----------
@@ -362,13 +359,6 @@ def refresh():
     """
     Reresh / flip the screen, actually display things on screen (use it after `image()`, `write()` or `newpage()`).
 
-    Parameters
-    -----------
-        None
-
-    Returns
-    ----------
-        None
 
     Example
     ----------
