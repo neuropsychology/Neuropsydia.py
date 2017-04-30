@@ -46,7 +46,7 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
     wait : float
         Wait time (in milliseconds).
     long_text : bool
-        Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using '\\\n' in your text (e.g., '\n\n\n here's my long text\n do you like it?'). Some parameters are disabled. Unperfect for now.
+        Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using 'backslash + n' in your text. Some parameters are disabled. Unperfect for now.
     fast : bool
         Disables some parameters for improved speed.
 

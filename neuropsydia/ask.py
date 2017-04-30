@@ -55,7 +55,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
     question_color : str
         Question color. See `neuropsydia.color()`.
     question_long_text : bool
-        Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using  '\n' in your text (e.g., '\n\n\n here's my long text\n do you like it?'). Some parameters are disabled. Unperfect for now.
+        et to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using 'backslash + n' in your text. Some parameters are disabled. Unperfect for now.
     allow : list
         Allow only specific answers (e.g., ["yes", "no"]).
     allow_length : int
