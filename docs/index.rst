@@ -35,7 +35,7 @@ Questions? Help? Movie Recommendations?
 
 Do it on the dedicated chat!
 
-- General: |Gitter|_
+- |Gitter|_
 
 .. |Gitter| image:: https://badges.gitter.im/Neuropsydia-py/Lobby.svg
 .. _Gitter: https://gitter.im/Neuropsydia-py/Lobby
