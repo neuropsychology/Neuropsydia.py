@@ -1,12 +1,9 @@
-.. neuropsydia documentation master file, created by
-   sphinx-quickstart on Sun Nov 13 12:53:57 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Home
 ====
 
-Contents:
+**Neuropsydia** is a Python module that allows to easily create experiments, tasks or questionnaires.
+
+**Contents:**
 
 .. toctree::
    :maxdepth: 1
@@ -20,12 +17,28 @@ Contents:
 Installation
 ------------
 
-Installation can be easily done with ``pip``:
+Installation can be easily done using ``pip``:
 
-.. code:: bash
+.. code-block:: bash
 
-    $ pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
+   pip install https://github.com/neuropsychology/NeuroKit.py/zipball/master
 
+
+
+
+.. note::
+
+   A fully working python distribution (including Neuropsydia) can be downloaded `here <http://neurokit.readthedocs.io/en/latest/tutorials/Python.html#installation>`_.
+
+Questions? Help? Movie Recommendations?
+------------------------------------------
+
+Do it on the dedicated chat!
+
+- General: |Gitter|_
+
+.. |Gitter| image:: https://badges.gitter.im/Neuropsydia-py/Lobby.svg
+.. _Gitter: https://gitter.im/Neuropsydia-py/Lobby
 
 Index
 ==================
