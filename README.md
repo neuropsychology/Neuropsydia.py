@@ -54,28 +54,19 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 *Note: The authors do not give any warranty. If this software causes your keyboard to blow up, your brain to liquefy, your toilet to clog or a zombie plague to leak, the authors CANNOT IN ANY WAY be held responsible.*
 
 ---
-# Tutorials
+# Tutorials, Examples and Documentation
 
-Tutorials are currently under development. Check out [this page](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/Contributing/Contribute/) to help us improve them.
+- [Tutorials](http://neuropsydia.readthedocs.io/en/master/tutorials/index.html)
+  - [x] Getting Started
+  - [x] Create a Stroop Task
+- [Examples](http://neuropsydia.readthedocs.io/en/master/examples/index.html)
+  - [x] State-Trait Anxiety Inventory (STAI-Y)
+  - [x] Digit Span
+  - [x] Go/No Go
+  - [x] Flanker
+- [API Documentation](http://neuropsydia.readthedocs.io/en/master/documentation.html)
 
-- Novice
-  - [1.0 Getting Started](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-10-getting-started)
-  - [1.1 Computerize a questionnaire](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-11-computerize-a-questionnaire)
-  - [1.2 Complexify this questionnaire](http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-12-complexify-this-questionnaire)
-  - [1.3 Include info about the participant]  (http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Novice/#part-13-include-info-about-the-participant)
-  - 1.4 The novice's trial
-- Apprentice
-  - 2.0 Basics of Python programming
-  - [2.1 Structuring your Code]  (http://ecole-de-neuropsychologie.readthedocs.io/en/latest/CreatingExperiments/Neuropsydia.py/Tutorials/Apprentice/#part-21-structuring-your-code)
-  - 2.1 Create a Stroop task
-  - 2.2 The apprentice's trial
-- Companion
-  - 3.0 Create a more complex experiment
-  - 3.1 The companion's trial
-- Master
-  - 4.0 Improve timing and precision
-  - 4.1 Data manipulation and analysis
-  - 4.2 The master's trial
+
 
 ---
 # Example
