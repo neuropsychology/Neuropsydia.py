@@ -52,6 +52,11 @@ scale
 .. autofunction:: neuropsydia.scale
 
 
+choice
+---------------
+
+.. autofunction:: neuropsydia.choice
+
 
 
 Meta
