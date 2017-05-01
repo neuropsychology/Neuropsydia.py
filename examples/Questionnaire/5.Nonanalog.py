@@ -28,7 +28,6 @@ n.start()
 n.questionnaire(questions_dictionary,  # The questions
                 anchors=["Not at all", "Absolutely"],  # The edges of the scale
                 results_save=True,  # Should it save the data?
-                results_type="csv2",  # Change the separator for ";" instead of "," (for France)
                 dimensions_mean=True,  # Compute the mean by dimension?
                 analog=False,  # Lickert-like
                 edges=[0, 7],  # Values underneath
