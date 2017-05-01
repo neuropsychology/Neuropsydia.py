@@ -155,6 +155,7 @@ n.close()  # Close neuropsydia
 <img src="https://github.com/neuropsychology/Neuropsydia.py/blob/master/examples/Files/demo-writeaskimage.gif" height="500" alt="interactive scale psychology">
 </a>
 </p>
+
 ```python
 import neuropsydia as n
 
