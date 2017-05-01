@@ -26,23 +26,37 @@ def line(left_x=-5, left_y=0, right_x=5, right_y=0, line_color="black", thicknes
 
     Parameters
     ----------
-    NA
+    left_x : float
+        Left end horizontal position.
+    left_y : float
+        Left end vertical position.
+    right_x : float
+        Right end horizontal position.
+    right_y : float
+        Right end vertical position.
+    line_color : str
+        Line color.
+    thickness : float
+        Line thickness.
 
-    Returns
-    ----------
-    NA
 
     Example
     ----------
-    NA
+    >>> import neuropsydia as n
+    >>> n.start()
+    >>> n.line()
+    >>> n.close()
 
-    Authors
-    ----------
-    Dominique Makowski
 
-    Dependencies
+    Notes
     ----------
-    - pygame 1.9.2
+    *Authors*
+
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+
+    *Dependencies*
+
+    - pygame
     - pygame.gfxfraw
     """
     left_x = Coordinates.to_pygame(x = left_x)
@@ -63,29 +77,45 @@ def line(left_x=-5, left_y=0, right_x=5, right_y=0, line_color="black", thicknes
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def rectangle(x=0, y=0, width=10, height=10, line_color="black", thickness=1, fill_color=None, opacity=225):
+def rectangle(x=0, y=0, width=10, height=10, line_color="black", thickness=1, fill_color=None):
     """
-    Help incomplete, sorry.
+    Draw a rectangle.
 
     Parameters
     ----------
-    NA
+    x : float
+        Center's horizontal position.
+    y : float
+        Center's vertical position.
+    width : float
+        Rectangle's width.
+    height : float
+        Rectangle's height.
+    line_color : str
+        Rectangle's edges color.
+    thickness : float
+        Rectangle's edges thickness.
+    fill_color : str
+        Rectangle's fill color.
 
-    Returns
-    ----------
-    NA
 
     Example
     ----------
-    NA
+    >>> import neuropsydia as n
+    >>> n.start()
+    >>> n.rectangle()
+    >>> n.close()
 
-    Authors
-    ----------
-    Dominique Makowski
 
-    Dependencies
+    Notes
     ----------
-    - pygame 1.9.2
+    *Authors*
+
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+
+    *Dependencies*
+
+    - pygame
     - pygame.gfxfraw
     """
     left = Coordinates.to_pygame(x= (x - width / 2))
@@ -107,29 +137,42 @@ def rectangle(x=0, y=0, width=10, height=10, line_color="black", thickness=1, fi
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def circle(x=0, y=0, size=10, line_color="black", thickness=0, fill_color="white", opacity=225):
+def circle(x=0, y=0, size=10, line_color="black", thickness=0, fill_color="white"):
     """
-    Help incomplete, sorry.
+    Draw a circle.
 
     Parameters
     ----------
-    NA
+    x : float
+        Center's horizontal position.
+    y : float
+        Center's vertical position.
+    size : float
+        Diameter.
+    line_color : str
+        Circle's edges color.
+    thickness : float
+        Circle's edges thickness.
+    fill_color : str
+        Circle's fill color.
 
-    Returns
-    ----------
-    NA
 
     Example
     ----------
-    NA
+    >>> import neuropsydia as n
+    >>> n.start()
+    >>> n.circle()
+    >>> n.close()
 
-    Authors
+    Notes
     ----------
-    Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
-    - pygame 1.9.2
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+
+    *Dependencies*
+
+    - pygame
     - pygame.gfxfraw
     """
     x = Coordinates.to_pygame(x=x)
