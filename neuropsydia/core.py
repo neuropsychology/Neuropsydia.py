@@ -357,7 +357,7 @@ def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_typ
 # ==============================================================================
 def refresh():
     """
-    Reresh / flip the screen, actually display things on screen (use it after `image()`, `write()` or `newpage()`).
+    Refresh / flip the screen: actually display things on screen.
 
 
     Example

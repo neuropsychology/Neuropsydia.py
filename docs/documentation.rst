@@ -46,5 +46,22 @@ ask
 .. autofunction:: neuropsydia.ask
 
 
+scale
+---------------
+
+.. autofunction:: neuropsydia.scale
+
+
+
+
 Meta
 =======
+
+
+Miscellaneous
+===============
+
+scale_styles
+---------------
+
+.. autofunction:: scale_styles.ask

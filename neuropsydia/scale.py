@@ -18,13 +18,6 @@ def scale_styles():
     """
     Returns available scale styles.
 
-    Parameters
-    ----------
-    None
-
-    Returns
-    ----------
-    None
 
     Example
     ----------
@@ -33,13 +26,11 @@ def scale_styles():
     >>> print(n.scale_styles())
     >>> n.close()
 
-    Authors
+    Notes
     ----------
-    Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
-    None
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
     """
     styles = os.listdir(Path.binary())
     styles = [x for x in styles if "cursor_" in x ]
@@ -60,50 +51,112 @@ def scale_styles():
 def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0, 100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", background="white", title=None, title_style="body", title_size=1, title_space=1.75, point_center=False, point_edges=True, reverse=False, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="black", show_result_shape_size=0.8, show_result_space=1.25, show_result_size=0.5, show_result_color="black", show_result_decimals=1, cursor_size=1):
     """
     Draw a scale.
-	HELP INCOMPLETE.
 
     Parameters
     ----------
-    style = str, optional
-        style, check scale_styles() function to see what's available
-    x = float, optional
-        position on x axis (from -10 (left) to 10 (right))
-    y = float, optional
-        position on y axis (from -10 (down) to 10 (up))
-    anchors = list of two str, optional
-        a list of two propositions to be displayed on the sides of the scale (e.g., [not at all, very much])
-    anchors_space = float, optional
-        spacing betweeen the edge and the anchors
-    anchors_size = float, optional
-        size of the anchors' font
-    edges = list of two floats
-        the underlying numerical edges of the scale
-    validation = bool, optional
-        confirm the response with a second left click or withdraw with a right click
-    analog = bool, optional
-        continuous (discrete) scale
-    step = int, optional
-        if analog is True, what are the step to go between the edges (determine the number of points on the scale)
-    labels = str or list of str, optional
-        "num", "numeric" or "numbers" or list of actual text labels (e.g., ["not at all", "a bit", "very much"])
+    style : str
+        style, check `neuropsydia.scale_styles()` function to see what's available.
+    x : float
+        Horizontal position of the center (from -10 (left) to 10 (right)).
+    y : float
+        Vertical position of the center (from -10 (bottom) to 10 (top)).
+    anchors : list of two str
+        a list of two propositions to be displayed on the sides of the scale (e.g., [not at all, very much]).
+    anchors_space : float
+        spacing betweeen the edge and the anchors.
+    anchors_size : float
+        size of the anchors' font.
+    edges : list
+        the underlying numerical edges of the scale.
+    validation : bool
+        confirm the response with a second left click or withdraw with a right click.
+    analog : bool
+        continuous (discrete) scale.
+    step : int
+        if analog is True, what are the step to go between the edges (determine the number of points on the scale).
+    labels : str or list
+        "num", "numeric" or "numbers" or list of actual text labels (e.g., ["not at all", "a bit", "very much"]).
+    labels_size : float
+        Size of labels.
+    labels_rotation : float
+        Labels rotation angle.
+    labels_space : float
+        Space between scale and labels.
+    labels_x : float
+        Horizontal dodging position.
+    line_thickness : float
+        Scale line thickness.
+    line_length : float
+        Scale line length.
+    line_color : str
+        Scale line color.
+    background : str
+        Scale background color.
+    title : str
+        Scale title/question to ask.
+    title_style : str
+        'body', 'psychometry', 'psychometry_bold', 'light', 'bold'. You can also insert the name of a system font, or the path to a specific font.
+    title_size : float
+        Title size.
+    title_space : float
+        Space between scale and title.
+    point_center : bool
+        Place a point at the center.
+    point_edges : bool
+        Place points at the edges.
+    reverse : bool
+        The result is scored as inverse.
+    force_separation : int
+        Creates visual separations with points.
+    separation_labels : list
+        Place labels corresponding to the separations.
+    separation_labels_size : float
+        Separation labels size.
+    separation_labels_rotate : float
+        Separation labels rotation angle.
+    separation_labels_space : float
+        Space between scale and separation labels.
+    show_result : bool
+        Add a marker to show the value on scale.
+    show_result_shape : str
+        Shape of this marker. "circle" or "rectangle".
+    show_result_shape_fill_color : str
+        Fill color of the marker.
+    show_result_shape_line_color : str
+        Line color of the marker.
+    show_result_shape_size : float
+        Marker's shape size.
+    show_result_space : float
+        Space between scale and marker.
+    show_result_size : float
+        Results text size.
+    show_result_color : str
+        Results text color.
+    show_result_decimals : int
+        How many decimals to show.
+    cursor_size : float
+        Size of the circle cursor.
 
     Returns
     ----------
-    response
+    response : float
+        Response value.
 
     Example
     ----------
     >>> import neuropsydia as n
     >>> n.start()
-    >>> n.scale()
+    >>> response = n.scale()
     >>> n.close()
 
-    Authors
+    Notes
     ----------
-    Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+
+    *Dependencies*
+
     - pygame 1.9.2
     """
     pygame.mouse.set_visible(True)
@@ -160,11 +213,11 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
 
     def draw_all():
         #Draw the mask
-        rectangle(x=scale_x, y=scale_y,width = line_length + anchors_space + 8,height=2,line_color=background,thickness=0,fill_color=background,opacity=225)
+        rectangle(x=scale_x, y=scale_y, width=line_length + anchors_space + 8, height=2, line_color=background, thickness=0, fill_color=background, opacity=225)
         if analog is False:
-            rectangle(x=scale_x, y=scale_y + labels_space,width = line_length + anchors_space + 1,height=3,line_color=background,thickness=0,fill_color=background,opacity=225)
+            rectangle(x=scale_x, y=scale_y + labels_space, width=line_length + anchors_space + 1,height=3, line_color=background, thickness=0,fill_color=background,opacity=225)
         if title != None:
-            rectangle(x=scale_x, y=scale_y + title_space,width = line_length*2,height=1,line_color=background,thickness=0,fill_color=background,opacity=225)
+            rectangle(x=scale_x, y=scale_y + title_space, width=line_length*2,height=1,line_color=background,thickness=0,fill_color=background,opacity=225)
         if show_result is True:
             rectangle(x=scale_x, y=y-show_result_space,width=line_length + anchors_space + 8,height=show_result_shape_size+0.7, line_color=background, thickness=0, fill_color=background, opacity=225)
 #        Draw the line
