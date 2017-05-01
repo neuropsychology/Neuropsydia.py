@@ -34,10 +34,24 @@ image
 
 .. autofunction:: neuropsydia.image
 
+circle
+---------------
+
+.. autofunction:: neuropsydia.circle
+
+rectangle
+---------------
+
+.. autofunction:: neuropsydia.rectangle
 
 
 Input
 ==========
+
+response
+---------------
+
+.. autofunction:: neuropsydia.response
 
 
 ask

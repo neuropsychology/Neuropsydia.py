@@ -19,36 +19,39 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
 
     Parameters
     ----------
-    choices : ["Yes","No"]
-    write_choices : True
-    overwrite_choices_display : None
-    choices_size : 1.0
-    choices_color : "black"
-    y : 0
-    height : -2
-    boxes_space : 0.5
-    boxes_background : 'white'
-    boxes_edge_color : "black"
-    boxes_edge_size : 3
-    confirm_edge_color : "orange"
-    confirm_edge_size : 3
-    help_list : None
-    help_background : "lightgrey"
-    title : None
-    title_position : "top"
-    title_x : -7.5
-    title_space : 0.75
-    pictures : None
-    pictures_size : 0.5
+    choices : list
+    write_choices : bool
+    overwrite_choices_display : list
+    choices_size : float
+    choices_color : str
+    y : float
+    height : float
+    boxes_space : float
+    boxes_background : str
+    boxes_edge_color : str
+    boxes_edge_size : float
+    confirm_edge_color : str
+    confirm_edge_size : float
+    help_list : list
+    help_background : str
+    title : str
+    title_position : str
+    title_x : float
+    title_space : float
+    pictures : list
+    pictures_size : float
 
     Returns
     ----------
-    response : str
+    response : str or float
         The selected choice.
 
     Example
     ----------
-    NA
+    >>> import neuropsydia as n
+    >>> n.start()
+    >>> answer = n.choice(["No", "Maybe", "Yes"])
+    >>> n.close()
 
     Notes
     ----------
