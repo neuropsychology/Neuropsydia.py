@@ -35,13 +35,13 @@ Import Neuropsydia
 
 Neuropsydia for research is a module which, like any other module, must be loaded in order to be used. In Python, we load modules by running:
 
-...code:: python
+.. code:: python
 
     import themoduleiwanttoload
 
 Then, we can use its functions:
 
-...code:: python
+.. code:: python
 
     themoduleiwanttoload.function1()
     themoduleiwanttoload.function2()
@@ -49,7 +49,7 @@ Then, we can use its functions:
 
 However, as you can see it, it's pretty anoying to write the full name of the module each time we use one of its function. Fortunately for us, Python allows us to load a module under another name (or `alias`), for example the letter "x".
 
-...code:: python
+.. code:: python
 
     import themoduleiwanttoload as x
     x.function1()
@@ -71,7 +71,7 @@ So, when importing `neuropsydia`, what happens is basically that it needs to ini
  
 Let's try it. Write in the editor the following lines of code:
 
-...code:: python
+.. code:: python
 
     import neuropsydia as n
      
@@ -80,8 +80,9 @@ Let's try it. Write in the editor the following lines of code:
 
  
  
-## Execute your code
- 
+Execute your code
+------------------
+
 The rest of your code will go between the `start()` and the `close()` functions. But these 3 lines are a minimal working program, so let's try it.
  
 To execute an entire python program, **always open a new python console** (in spyder, go to console, then click on `open a new python console`, then press F5, - or the green arrow).
