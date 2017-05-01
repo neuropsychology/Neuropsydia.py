@@ -36,7 +36,7 @@ class Preload():
 
     Dependencies
     ----------
-    - pygame 1.9.2
+    - pygame
     - PIL
     """
     def __init__(self, files, x=0, y=0, size=1.0, path='', extension=''):
@@ -139,7 +139,7 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
 
     Dependencies
     ----------
-    - pygame 1.9.2
+    - pygame
     - PIL
     """
     if isinstance(file, list) is False:
@@ -317,7 +317,7 @@ def image(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n",
 
     *Dependencies*
 
-    - pygame 1.9.2
+    - pygame
     - PIL
     """
     if background is not None:

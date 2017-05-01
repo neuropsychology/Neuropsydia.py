@@ -52,7 +52,7 @@ class Time():
 
     Dependencies
     ----------
-    - pygame 1.9.2
+    - pygame
     - time
     """
     def __init__(self):
@@ -86,7 +86,7 @@ class Time():
 
         Dependencies
         ----------
-        - pygame 1.9.2
+        - pygame
         - time
         """
         self.clock = builtin_time.clock()
@@ -120,7 +120,7 @@ class Time():
 
         Dependencies
         ----------
-        - pygame 1.9.2
+        - pygame
         - time
         """
         self.pygame_clock.tick_busy_loop(frequency)
@@ -154,7 +154,7 @@ class Time():
 
         Dependencies
         ----------
-        - pygame 1.9.2
+        - pygame
         - time
         """
         t = (builtin_time.clock()-self.clock)*1000
@@ -210,7 +210,7 @@ class Time():
 
         Dependencies
         ----------
-        - pygame 1.9.2
+        - pygame
         - time
         """
         t0 = builtin_time.clock()
@@ -313,7 +313,7 @@ def newpage(color_name="white", opacity=100, fade=False, fade_speed=60, fade_typ
 
     *Dependencies*
 
-    - pygame 1.9.2
+    - pygame
     - time
     """
     if color_name is not None:
@@ -377,7 +377,7 @@ def refresh():
 
     *Dependencies*
 
-    - pygame 1.9.2
+    - pygame
     """
     pygame.display.flip()
 
@@ -455,7 +455,7 @@ def wait_for_input(time_max=None):
 
     Dependencies
     ----------
-    - pygame 1.9.2
+    - pygame
     - time
     """
     if pygame.event.get_blocked(pygame.KEYDOWN) is True:
@@ -537,7 +537,7 @@ def response(allow=None, enable_escape=True, time_max=None, get_RT=True):
 
     Dependencies
     ----------
-    - pygame 1.9.2
+    - pygame
     - time
     """
     local_time = Time()
@@ -603,7 +603,7 @@ class Coordinates:
 
     Dependencies
     ----------
-    - pygame 1.9.2
+    - pygame
     """
     def to_pygame(x=None, y=None, distance_x=None, distance_y=None):
         """
@@ -633,7 +633,7 @@ class Coordinates:
 
         Dependencies
         ----------
-        - pygame 1.9.2
+        - pygame
         """
         if x != None and y == None:
             x = (x+10.0)/(10.0+10.0)*(screen_width-0.0)+0.0
@@ -679,7 +679,7 @@ class Coordinates:
 
         Dependencies
         ----------
-        - pygame 1.9.2
+        - pygame
         """
         if x != None and y == None:
             x =20*x/screen_width - 10

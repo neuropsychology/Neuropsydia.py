@@ -67,13 +67,13 @@ def instructions(text, background='white', color="black", size=1.0,
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_name="questionnaire_results", results_path="", participant_id="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black", instructions_text=None, instructions_top_space=5, show_result_decimals=1, cursor_size=1):
+def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=True, results_name="questionnaire_results", results_path="", participant_id="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black", instructions_text=None, instructions_top_space=5, show_result_decimals=1, cursor_size=1):
     """
-    A wrapper function for easily creating questionnaires. You can go back or foth using the LEFT and RIGHT keyboard arrows.
+    A wrapper function for easily creating questionnaires. You can go back and forth in the questions using the LEFT and RIGHT keyboard arrows.
 
     Parameters
     ----------
-    questions_dictionary = dict
+    questions_dictionary : dict
         needs an object of the following stucture:
 
         >>> questions_dictionary = {
@@ -87,7 +87,8 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
 
     Returns
     ----------
-    A pandas dataframe containing the data. See http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe for details.
+    df : pandas.DataFrame
+        A pandas' dataframe containing the data.
 
     Example
     ----------
@@ -116,15 +117,16 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
     >>> n.questionnaire(questions_dictionary, anchors=["No", "Yes"], results_save=True, dimensions_mean=True)
     >>> n.close()
 
-    Authors
+    Notes
     ----------
-    Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
-    - pygame 1.9.2
-    - pandas 18.0
-    - time
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+
+    *Dependencies*
+
+    - pygame
+    - pandas
     """
     time_start = datetime.datetime.now()
     if isinstance(questions_dictionary,dict) == False:

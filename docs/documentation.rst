@@ -57,6 +57,12 @@ scale
 Meta
 =======
 
+questionnaire
+---------------
+
+.. autofunction:: neuropsydia.questionnaire
+
+
 
 Miscellaneous
 ===============

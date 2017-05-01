@@ -69,7 +69,7 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
 
     *Dependencies*
 
-    - pygame 1.9.2
+    - pygame
     """
     if fast is True:
         size = int(size*screen_width/35.0)

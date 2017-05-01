@@ -157,7 +157,7 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
 
     *Dependencies*
 
-    - pygame 1.9.2
+    - pygame
     """
     pygame.mouse.set_visible(True)
     # Debugging

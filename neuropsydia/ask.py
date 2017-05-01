@@ -89,7 +89,7 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
 
     *Dependencies*
 
-    - pygame 1.9.2
+    - pygame
     """
     if detach_question is not False:
         write(text, style=question_style, x=question_x, y=question_y, size=question_size, color=question_color, long_text=question_long_text)
