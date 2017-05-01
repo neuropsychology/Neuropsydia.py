@@ -9,10 +9,6 @@ from .write import *
 #==============================================================================
 #==============================================================================
 #==============================================================================
-# # # # --- choice ---
-#version : 1.0
-#to draw selectable choices.
-#Authors : Dominique Makowski
 #==============================================================================
 #==============================================================================
 #==============================================================================
@@ -23,27 +19,27 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
 
     Parameters
     ----------
-    choices=["Yes","No"]
-    write_choices=True
-    overwrite_choices_display=None
-    choices_size=1.0
-    choices_color="black"
-    y=0
-    height=-2
-    boxes_space=0.5
-    boxes_background='white'
-    boxes_edge_color="black"
-    boxes_edge_size=3
-    confirm_edge_color="orange"
-    confirm_edge_size=3
-    help_list=None
-    help_background="lightgrey"
-    title=None
-    title_position="top"
-    title_x=-7.5
-    title_space=0.75
-    pictures=None
-    pictures_size=0.5
+    choices : ["Yes","No"]
+    write_choices : True
+    overwrite_choices_display : None
+    choices_size : 1.0
+    choices_color : "black"
+    y : 0
+    height : -2
+    boxes_space : 0.5
+    boxes_background : 'white'
+    boxes_edge_color : "black"
+    boxes_edge_size : 3
+    confirm_edge_color : "orange"
+    confirm_edge_size : 3
+    help_list : None
+    help_background : "lightgrey"
+    title : None
+    title_position : "top"
+    title_x : -7.5
+    title_space : 0.75
+    pictures : None
+    pictures_size : 0.5
 
     Returns
     ----------
