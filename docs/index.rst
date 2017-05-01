@@ -8,7 +8,7 @@ Home
 .. toctree::
    :maxdepth: 1
 
-   tutorials/1.0.Getting_Started
+   tutorials/index
    examples/index
    documentation
    
