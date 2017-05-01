@@ -70,4 +70,4 @@ Miscellaneous
 scale_styles
 ---------------
 
-.. autofunction:: scale_styles.ask
+.. autofunction:: neuropsydia.scale_styles

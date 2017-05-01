@@ -74,7 +74,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
     Parameters
     ----------
     questions_dictionary : dict
-        needs an object of the following stucture:
+        A dict of the following stucture:
 
         >>> questions_dictionary = {
         >>>     "Item": {
@@ -84,6 +84,9 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
         >>>         4: "Is Python not great?"
         >>>         }
         >>> }
+
+    questions_list_key_name : str
+        Key name of the sub-dict containing the items.
 
     Returns
     ----------
