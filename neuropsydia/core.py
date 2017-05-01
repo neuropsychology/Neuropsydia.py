@@ -514,31 +514,29 @@ def response(allow=None, enable_escape=True, time_max=None, get_RT=True):
 
     Parameters
     ----------
-    allow = str or list
-        keys to allow
-    enable_escape = bool
-        enable escape to exit
-    time_max = int
-        maximum time to wait for a response (ms)
-    get_RT = bool
-        return response time
+    allow : str or list
+        Keys to allow.
+    enable_escape : bool
+        Enable escape key to exit.
+    time_max : int
+        Maximum time to wait for a response (ms).
+    get_RT : bool
+        Return response time.
 
     Returns
     ----------
-    str or (str, int)
+    str or tuple
         returns a tuple when get_RT is set to True
-    Example
-    ----------
-    NA
 
-    Authors
+    Notes
     ----------
-    Dominique Makowski
+    *Authors*
 
-    Dependencies
-    ----------
+    - Dominique Makowski (https://github.com/DominiqueMakowski)
+
+    *Dependencies*
+
     - pygame
-    - time
     """
     local_time = Time()
     if allow is not None:
