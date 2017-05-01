@@ -47,7 +47,7 @@ Then, we can use its functions:
     themoduleiwanttoload.function2()
 
 
-However, as you can see it, it's pretty anoying to write the full name of the module each time we use one of its function. Fortunately for us, Python allows us to load a module under another name (or `alias`), for example the letter "x".
+However, as you can see it, it's pretty anoying to write the full name of the module each time we use one of its function. Fortunately for us, Python allows us to load a module under another name (or :code:`alias`), for example the letter "x".
 
 .. code:: python
 
@@ -58,16 +58,16 @@ However, as you can see it, it's pretty anoying to write the full name of the mo
     
 *Better*. That's what we are going to do with neuropsydia, loading it under the name "n".
  
-**However, unlike many other packages, Neuropsydia CANNOT be loaded without two of its function, start() and close().**
+**However, unlike many other packages, Neuropsydia CANNOT be loaded without two of its function, :code:`start()` and :code:`close()`.**
  
  
  
 Start and Close
 ---------------------
 
-So, when importing `neuropsydia`, what happens is basically that it needs to initialize several things before being ready to use. And those things are initialized with the `start()` function. Moreover, adding the `close()` function at the end will ensure a clean ending.
+So, when importing :code:`neuropsydia`, what happens is basically that it needs to initialize several things before being ready to use. And those things are initialized with the :code:`start()` function. Moreover, adding the :code:`close()` function at the end will ensure a clean ending.
  
-**Therefore, every experiments, after loading the neuropsydia module, will begin by the `start()` function and end with the `close()` function.**
+**Therefore, every experiments, after loading the neuropsydia module, will begin by the :code:`start()` function and end with the :code:`close()` function.**
  
 Let's try it. Write in the editor the following lines of code:
 
@@ -83,14 +83,14 @@ Let's try it. Write in the editor the following lines of code:
 Execute your code
 ------------------
 
-The rest of your code will go between the `start()` and the `close()` functions. But these 3 lines are a minimal working program, so let's try it.
+The rest of your code will go between the :code:`start()` and the :code:`close()` functions. But these 3 lines are a minimal working program, so let's try it.
  
-To execute an entire python program, **always open a new python console** (in spyder, go to console, then click on `open a new python console`, then press F5, - or the green arrow).
+To execute an entire python program, **always open a new python console** (in spyder, go to console, then click on :code:`open a new python console`, then press F5, - or the green arrow).
  
 **Do it.**
  
 ...
  
-Tadaaaa, *voilà*, you've created your first neuropsydia-based program :wink:
+Tadaaaa, *voilà*, you've created your first neuropsydia-based program :)
 
 
