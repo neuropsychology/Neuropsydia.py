@@ -34,6 +34,13 @@ image
 
 .. autofunction:: neuropsydia.image
 
+
+line
+---------------
+
+.. autofunction:: neuropsydia.line
+
+
 circle
 ---------------
 

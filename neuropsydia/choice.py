@@ -20,26 +20,47 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
     Parameters
     ----------
     choices : list
+        List of choices.
     write_choices : bool
+        Write choices inside the boxes.
     overwrite_choices_display : list
+        Display different choices (but does not affect what is returned).
     choices_size : float
+        Choices text size.
     choices_color : str
+        Choices text color.
     y : float
+        Vertical position.
     height : float
+        Boxes height (Should be negative).
     boxes_space : float
+        Spaces between boxes.
     boxes_background : str
+        Boxes background color.
     boxes_edge_color : str
+        Boxes edges color.
     boxes_edge_size : float
+        Boxes edges width.
     confirm_edge_color : str
+        When clicked once, to what color should the edges change?
     confirm_edge_size : float
+        When clicked once, to what width should the edges change?
     help_list : list
+        Display some additional text for each choice.
     help_background : str
+        Background color of the help band.
     title : str
+        Title text.
     title_position : str
+        Title position. "top" or "left".
     title_x : float
+        Title horizontal position.
     title_space : float
+        Space between choices and title.
     pictures : list
+        Picture filenames (and path) to put within each box.
     pictures_size : float
+        Size of those pictures.
 
     Returns
     ----------

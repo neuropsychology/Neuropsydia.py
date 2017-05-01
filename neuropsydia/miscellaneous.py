@@ -22,7 +22,7 @@ from .image import *
 # ==============================================================================
 def line(left_x=-5, left_y=0, right_x=5, right_y=0, line_color="black", thickness=1):
     """
-    Help incomplete, sorry.
+    Draw a line.
 
     Parameters
     ----------
