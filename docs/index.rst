@@ -21,7 +21,7 @@ Installation can be easily done using ``pip``:
 
 .. code-block:: bash
 
-   pip install https://github.com/neuropsychology/NeuroKit.py/zipball/master
+   pip install https://github.com/neuropsychology/Neuropsydia.py/zipball/master
 
 
 
