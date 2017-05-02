@@ -5,7 +5,7 @@ Module initializing screen object and screen values.
 import pygame
 from .path import *
 
-if __name__ == "__main__":  # This is to avoid sphinx to run this code, otherwise the documentations fails to be built
+if __name__ == "neuropsydia.screen":  # This is to avoid sphinx to run this code, otherwise the documentations fails to be built
     # Add icon to the window
     pygame.display.set_icon(pygame.image.load(Path.logo() + 'icon.png'))
 
