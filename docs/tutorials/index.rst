@@ -6,7 +6,7 @@ As such, it is a straightforward introduction to Neuropsydia for Python with a s
 It is not a programming course on Python, nor a course on programming *per se*.
 
 
-Contents:
+**Contents:**
 
 .. toctree::
    :maxdepth: 1

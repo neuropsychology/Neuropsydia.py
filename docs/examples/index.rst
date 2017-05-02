@@ -1,7 +1,7 @@
 Examples
 #########
 
-Contents:
+**Contents:**
 
 .. toctree::
    :maxdepth: 1
