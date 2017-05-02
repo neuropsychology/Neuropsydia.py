@@ -13,3 +13,4 @@ Contents:
    
    getting_started
    stroop
+   BDI
