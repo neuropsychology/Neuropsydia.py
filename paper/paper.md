@@ -33,7 +33,7 @@ Neuropsydia.py is based on Pygame and the SDL library, allowing for maximum flex
 Neuropsydia.py can be installed using pip from the Python Package Index [1](https://pypi.python.org/pypi/neuropsydia). Source code and issue tracker are available in Neuropsydia.py's GitHub repository [2](https://github.com/neuropsychology/Neuropsydia.py), as well as usage examples [3](https://github.com/neuropsychology/Neuropsydia.py/tree/master/examples) and a test script [4](https://github.com/neuropsychology/Neuropsydia.py/tree/master/tests). Documentation, tutorials and examples are provided through Readthedocs [5](http://neuropsydia.readthedocs.io/en/latest/).
 
 
-![](wordcloud.png)
+![Logo](figure1.png)
 
 
 # References
