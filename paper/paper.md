@@ -24,9 +24,11 @@ date: 03 April 2017
 bibliography: paper.bib
 ---
 
-# Summary
-
 ![Logo](figure1.png)
+
+
+
+# Summary
 
 Neuropsychology encompasses two intimately related aspects: experimental research and clinical activity. Yet, the gap between these two facets has been severely increasing over the last decades due to the developpement of new technological facilities employed in research paradigms, often lacking portability to clinical practice. This gap, is restraining direct application and generalization of results from research to clinical practice, and *vice versa*. **Neuropsydia.py** is a Python module that provides a high-level set of tools to quickly and easily create computerized experiments, cognitive tests or questionnaires. This free, open-source solution allows neuropsychologists, psychologists and neuroscientists to build sophisticated tasks and focus on what is important: the results and their interpretation.
 
