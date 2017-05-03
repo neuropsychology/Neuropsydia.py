@@ -13,11 +13,13 @@ authors:
    orcid: 0000-0001-5375-9967
    affiliation: 1, 2
  - name: Léo Dutriaux
+   orcid: 0000-0001-6304-8691
    affiliation: 1, 2
 affiliations:
  - name: Memory and Cognition Lab', Institute of Psychology, University of Sorbonne Paris Cité, France
    index: 1
  - name: INSERM U894, Center for Psychiatry and Neuroscience, Paris, France
+   index: 2
 date: 03 April 2017
 bibliography: paper.bib
 ---
