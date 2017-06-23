@@ -56,15 +56,15 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 ---
 # Tutorials, Examples and Documentation
 
-- [Tutorials](http://neuropsydia.readthedocs.io/en/master/tutorials/index.html)
+- [Tutorials]( http://neuropsydia.readthedocs.io/en/latest/tutorials/index.html)
   - [x] Getting Started
   - [x] Create a Stroop Task
-- [Examples](http://neuropsydia.readthedocs.io/en/master/examples/index.html)
+- [Examples]( http://neuropsydia.readthedocs.io/en/latest/examples/index.html)
   - [x] State-Trait Anxiety Inventory (STAI-Y)
   - [x] Digit Span
   - [x] Go/No Go
   - [x] Flanker
-- [API Documentation](http://neuropsydia.readthedocs.io/en/master/documentation.html)
+- [API Documentation]( http://neuropsydia.readthedocs.io/en/latest/documentation.html)
 
 
 
