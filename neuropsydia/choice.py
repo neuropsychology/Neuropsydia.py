@@ -13,7 +13,7 @@ from .write import *
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color="black", y=0, height=-2, boxes_space=0.5, boxes_background='white', boxes_edge_color="black", boxes_edge_size=3, confirm_edge_color="orange", confirm_edge_size=3, help_list=None, help_background="lightgrey", title=None, title_position="top", title_x=-7.5, title_space=0.75, pictures=None, pictures_size=0.5):
+def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color="black", choices_style="body", y=0, height=-2, boxes_space=0.5, boxes_background='white', boxes_edge_color="black", boxes_edge_size=3, confirm_edge_color="orange", confirm_edge_size=3, help_list=None, help_background="lightgrey", title=None, title_position="top", title_x=-7.5, title_space=0.75, title_style="body", pictures=None, pictures_size=0.5):
     """
     Create clickable choice boxes.
 
@@ -29,6 +29,8 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
         Choices text size.
     choices_color : str
         Choices text color.
+    choices_style : str
+        Choices text style.
     y : float
         Vertical position.
     height : float
@@ -57,6 +59,8 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
         Title horizontal position.
     title_space : float
         Space between choices and title.
+    title_style : str
+        Title style.
     pictures : list
         Picture filenames (and path) to put within each box.
     pictures_size : float
@@ -138,16 +142,16 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
                 pygame.draw.rect(screen, color(boxes_edge_color), (coordinates['x'][i],coordinates['y'][i],coordinates['width'],coordinates['height']), boxes_edge_size)
             if write_choices is True:
                 if overwrite_choices_display is None:
-                    write(choices[i],x=Coordinates.from_pygame(coordinates['x'][i])+ coordinates['width_raw']/2,y=Coordinates.from_pygame(y=coordinates['y'][i])+coordinates['height_raw']/2,color=choices_color,size=choices_size)
+                    write(choices[i],x=Coordinates.from_pygame(coordinates['x'][i])+ coordinates['width_raw']/2,y=Coordinates.from_pygame(y=coordinates['y'][i])+coordinates['height_raw']/2, style=choices_style, color=choices_color, size=choices_size)
                 if isinstance(overwrite_choices_display, list):
-                    write(overwrite_choices_display[i],x=Coordinates.from_pygame(coordinates['x'][i])+ coordinates['width_raw']/2,y=Coordinates.from_pygame(y=coordinates['y'][i])+coordinates['height_raw']/2,color=choices_color,size=choices_size)
+                    write(overwrite_choices_display[i],x=Coordinates.from_pygame(coordinates['x'][i])+ coordinates['width_raw']/2,y=Coordinates.from_pygame(y=coordinates['y'][i])+coordinates['height_raw']/2, style=choices_style, color=choices_color, size=choices_size)
             if isinstance(pictures,list):
                 image(pictures[i],x=Coordinates.from_pygame(coordinates['x'][i])+ coordinates['width_raw']/2,y=Coordinates.from_pygame(y=coordinates['y'][i])+coordinates['height_raw']/2,size=pictures_size)
         if title != None:
             if title_position == 'left':
-                write(title,x=title_x,y=Coordinates.from_pygame(y=coordinates['y'][0])+coordinates['height_raw']/2)
+                write(title,x=title_x, y=Coordinates.from_pygame(y=coordinates['y'][0])+coordinates['height_raw']/2, style=title_style)
             if title_position == 'top':
-                write(title,y=Coordinates.from_pygame(y=coordinates['y'][0])+title_space)
+                write(title, y=Coordinates.from_pygame(y=coordinates['y'][0])+title_space, style=title_style)
         pygame.display.flip()
 
 
