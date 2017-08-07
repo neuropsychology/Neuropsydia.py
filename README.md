@@ -134,8 +134,9 @@ df.to_csv("data.csv")  # Save it
 
 # Quick analysis
 RTs = df.query('Response=="HIT"')["RT"]  # Select the Hits' RTs
-print(np.mean(RTs), np.std(RTs))  # Print the mean and the standard deviation
-print(len(df.query('Response=="FA"')))  # Print the number of intrusions (false alarms)
+print("Mean RT: " + str(round(RTs.mean(), 2)))   # Print the mean
+print("SD RT: " + str(round(RTs.std(), 2)))  # Print the standard deviation
+print("Number of False Alarms: " + str(len(df[df['Response']=="FA"])))  # Print the number of intrusions (false alarms)
 
 n.close()  # Close neuropsydia
 ```
