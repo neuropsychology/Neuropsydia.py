@@ -72,6 +72,8 @@ Run the program (F5). As you can see, it works, but it's far from being usable. 
         n.write("XXXX", style="bold", color=stim_color, size=3)  # Load the stimulus
         n.refresh()  # Display it
         answer, RT = n.response()  # Record response and response time
+        if answer == "ESCAPE":  # Enable experiment quit by pressing escape
+            quit()
 
     n.close()  # Close neuropsydia
 
@@ -112,6 +114,8 @@ Much better. Now, we're gonna analyze the response (if correct or not) and store
         n.write(stim, style="bold", color=stim_color, size=3)  # Load the stimulus
         n.refresh()  # Display it
         answer, RT = n.response()  # Record response and response time
+        if answer == "ESCAPE":  # Enable experiment quit by pressing escape
+            quit()
 
         # Append trial info to
         data["Stimulus"].append(stim)
@@ -174,6 +178,8 @@ The only thing that will change in the second part is that the stimulus will not
         n.write(stim, style="bold", color=stim_color, size=3)  # Load the stimulus
         n.refresh()  # Display it
         answer, RT = n.response()  # Record response and response time
+        if answer == "ESCAPE":  # Enable experiment quit by pressing escape
+            quit()
 
         # Append trial info to
         data["Stimulus"].append(stim)
@@ -211,6 +217,8 @@ The only thing that will change in the second part is that the stimulus will not
         n.write(stim, style="bold", color=stim_color, size=3)  # Load the stimulus
         n.refresh()  # Display it
         answer, RT = n.response()  # Record response and response time
+        if answer == "ESCAPE":  # Enable experiment quit by pressing escape
+            quit()
 
         # Append trial info to
         data["Stimulus"].append(stim)
@@ -280,6 +288,8 @@ Finally, just before the end (before the close), we can transform the data dict 
         n.write(stim, style="bold", color=stim_color, size=3)  # Load the stimulus
         n.refresh()  # Display it
         answer, RT = n.response()  # Record response and response time
+        if answer == "ESCAPE":  # Enable experiment quit by pressing escape
+            quit()
 
         # Append trial info to
         data["Stimulus"].append(stim)
@@ -317,6 +327,8 @@ Finally, just before the end (before the close), we can transform the data dict 
         n.write(stim, style="bold", color=stim_color, size=3)  # Load the stimulus
         n.refresh()  # Display it
         answer, RT = n.response()  # Record response and response time
+        if answer == "ESCAPE":  # Enable experiment quit by pressing escape
+            quit()
 
         # Append trial info to
         data["Stimulus"].append(stim)

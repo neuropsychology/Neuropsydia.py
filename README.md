@@ -12,8 +12,8 @@ A Python Module for Creating Experiments, Tasks and Questionnaires.
 |Documentation|[![Documentation Status](http://readthedocs.org/projects/neuropsydia/badge/?version=latest)](http://neuropsydia.readthedocs.io/en/latest/?badge=latest)|
 |Discussion|[![Join the chat at https://gitter.im/Neuropsydia-py/Lobby](https://badges.gitter.im/Neuropsydia-py/Lobby.svg)](https://gitter.im/Neuropsydia-py/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)|
 |Questions|[![](https://img.shields.io/badge/issue-create-purple.svg?colorB=FF9800)](https://github.com/neuropsychology/Neuropsydia.py/issues)|
-|Authors|[![](https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0)](https://cdn.rawgit.com/neuropsychology/Organization/master/CVs/DominiqueMakowski.pdf) [![](https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
-|Support|Windows 7, 8, 10, MacOS|
+|Authors|[![](https://img.shields.io/badge/CV-D._Makowski-purple.svg?colorB=9C27B0)](https://dominiquemakowski.github.io/) [![](https://img.shields.io/badge/CV-L._Dutriaux-purple.svg?colorB=9C27B0)](http://recherche.parisdescartes.fr/LaboratoireMemoireCognition_esl/Membres/Doctorants-Allocataires/Leo-Dutriaux)|
+|Support|Windows 7, 8, 10|
 
 
 ---
@@ -56,15 +56,15 @@ Memory and Cognition Lab' Day, 01 November, Paris, France
 ---
 # Tutorials, Examples and Documentation
 
-- [Tutorials](http://neuropsydia.readthedocs.io/en/master/tutorials/index.html)
+- [Tutorials]( http://neuropsydia.readthedocs.io/en/latest/tutorials/index.html)
   - [x] Getting Started
   - [x] Create a Stroop Task
-- [Examples](http://neuropsydia.readthedocs.io/en/master/examples/index.html)
+- [Examples]( http://neuropsydia.readthedocs.io/en/latest/examples/index.html)
   - [x] State-Trait Anxiety Inventory (STAI-Y)
   - [x] Digit Span
   - [x] Go/No Go
   - [x] Flanker
-- [API Documentation](http://neuropsydia.readthedocs.io/en/master/documentation.html)
+- [API Documentation]( http://neuropsydia.readthedocs.io/en/latest/documentation.html)
 
 
 
@@ -134,8 +134,9 @@ df.to_csv("data.csv")  # Save it
 
 # Quick analysis
 RTs = df.query('Response=="HIT"')["RT"]  # Select the Hits' RTs
-print(np.mean(RTs), np.std(RTs))  # Print the mean and the standard deviation
-print(len(df.query('Response=="FA"')))  # Print the number of intrusions (false alarms)
+print("Mean RT: " + str(round(RTs.mean(), 2)))   # Print the mean
+print("SD RT: " + str(round(RTs.std(), 2)))  # Print the standard deviation
+print("Number of False Alarms: " + str(len(df[df['Response']=="FA"])))  # Print the number of intrusions (false alarms)
 
 n.close()  # Close neuropsydia
 ```

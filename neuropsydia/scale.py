@@ -213,13 +213,13 @@ def scale(style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=
 
     def draw_all():
         #Draw the mask
-        rectangle(x=scale_x, y=scale_y, width=line_length + anchors_space + 8, height=2, line_color=background, thickness=0, fill_color=background, opacity=225)
+        rectangle(x=scale_x, y=scale_y, width=line_length + anchors_space + 8, height=2, line_color=background, thickness=0, fill_color=background)
         if analog is False:
-            rectangle(x=scale_x, y=scale_y + labels_space, width=line_length + anchors_space + 1,height=3, line_color=background, thickness=0,fill_color=background,opacity=225)
+            rectangle(x=scale_x, y=scale_y + labels_space, width=line_length + anchors_space + 1,height=3, line_color=background, thickness=0,fill_color=background)
         if title != None:
-            rectangle(x=scale_x, y=scale_y + title_space, width=line_length*2,height=1,line_color=background,thickness=0,fill_color=background,opacity=225)
+            rectangle(x=scale_x, y=scale_y + title_space, width=line_length*2,height=1,line_color=background,thickness=0,fill_color=background)
         if show_result is True:
-            rectangle(x=scale_x, y=y-show_result_space,width=line_length + anchors_space + 8,height=show_result_shape_size+0.7, line_color=background, thickness=0, fill_color=background, opacity=225)
+            rectangle(x=scale_x, y=y-show_result_space,width=line_length + anchors_space + 8,height=show_result_shape_size+0.7, line_color=background, thickness=0, fill_color=background)
 #        Draw the line
         pygame.draw.line(screen, color(line_color), [edge_left_raw,scale_y_raw], [edge_right_raw,scale_y_raw], line_thickness)
         if style == "absorption":

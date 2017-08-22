@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: neuropsydia
+Version: 1.0.4
+Summary: A Python Module for Creating Experiments, Tasks and Questionnaires.
+Home-page: https://github.com/neuropsychology/Neuropsydia.py/
+Author: Dominique Makowski
+Author-email: dom.makowski@gmail.com
+License: Mozilla Public License Version 2.0
+Download-URL: https://github.com/neuropsychology/Neuropsydia.py/zipball/dev
+Description: Neuropsydia
+        ===========
+        	
+        A Python Module for Creating Experiments, Tasks and Questionnaires.
+        
+        --------------
+        
+        See https://github.com/neuropsychology/Neuropsydia.py
+        
+Keywords: python neuropsychology neuropsydia experiment creation
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
