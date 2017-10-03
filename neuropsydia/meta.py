@@ -11,6 +11,7 @@ from .image import *
 from .start import *
 from .scale import *
 from .ask import *
+from .data import *
 
 
 # ==============================================================================
@@ -310,6 +311,6 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
             df[dim] = df[(df[dimensions_key_name]==dim)]["Answer"].mean()
 
     if results_save == True:
-        n.save_data(df, filename=results_name, path=results_path, participant_id=participant_id, index=True, index_label="Item_Number")
+        save_data(df, filename=results_name, path=results_path, participant_id=participant_id, index=True, index_label="Item_Number")
 
     return(df)
