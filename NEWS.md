@@ -1,7 +1,8 @@
-# CURRENT DEV: 1.0.4
+# CURRENT DEV: 1.0.5
 
 ### Breaking changes
 ### New functions
+- Added `save_data` and `save_data` for use in association with neuropsydia.ass
 ### Major changes
 ### Minor changes
 - Added an icon and a name for the neuropsydia's window
