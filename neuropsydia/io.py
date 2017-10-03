@@ -1,4 +1,4 @@
-from .miscellaenous import *
+from .miscellaneous import *
 
 # -*- coding: utf-8 -*-
 class Trigger():
