@@ -1,7 +1,8 @@
-__version__ = "1.0.3"
+__version__ = "1.0.5"
 
 from .path import *
 from .core import *
+from .data import *
 from .miscellaneous import *
 from .write import *
 from .image import *

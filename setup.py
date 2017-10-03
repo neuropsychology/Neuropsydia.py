@@ -1,9 +1,16 @@
 from setuptools import setup, find_packages
+import re
+
+# ------------------
+def find_version():
+    result = re.search(r'{}\s*=\s*[\'"]([^\'"]*)[\'"]'.format("__version__"), open('neurokit/__init__.py').read())
+    return result.group(1)
+# ------------------
 
 setup(
 name = "neuropsydia",
 description = ("A Python Module for Creating Experiments, Tasks and Questionnaires."),
-version = "1.0.4",
+version = find_version(),
 license = "Mozilla Public License Version 2.0",
 author = "Dominique Makowski",
 author_email = "dom.makowski@gmail.com",
