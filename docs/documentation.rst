@@ -88,6 +88,10 @@ questionnaire
 
 .. autofunction:: neuropsydia.questionnaire
 
+instructions
+---------------
+
+.. autofunction:: neuropsydia.instructions
 
 
 Miscellaneous
