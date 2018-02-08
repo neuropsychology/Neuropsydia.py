@@ -59,15 +59,41 @@ def line(left_x=-5, left_y=0, right_x=5, right_y=0, line_color="black", thicknes
     - pygame
     - pygame.gfxfraw
     """
-    left_x = Coordinates.to_pygame(x = left_x)
-    left_y = Coordinates.to_pygame(y = left_y)
-    right_x = Coordinates.to_pygame(x = right_x)
-    right_y = Coordinates.to_pygame(y = right_y)
+    left_x_pygame = Coordinates.to_pygame(x = left_x)
+    left_y_pygame = Coordinates.to_pygame(y = left_y)
+    right_x_pygame = Coordinates.to_pygame(x = right_x)
+    right_y_pygame = Coordinates.to_pygame(y = right_y)
 
     if left_x == right_x or left_y == right_y:
-        pygame.draw.line(screen, color(line_color), (left_x, left_y), (right_x, right_y), thickness)
+        pygame.draw.line(screen, color(line_color), (left_x_pygame, left_y_pygame), (right_x_pygame, right_y_pygame), thickness)
     else:
-        pygame.draw.aaline(screen, color(line_color), (left_x, left_y), (right_x,right_y), thickness)
+        if thickness == 1:
+            pygame.draw.aaline(screen, color(line_color), (left_x_pygame, left_y_pygame), (right_x_pygame,right_y_pygame), thickness)
+        else:
+            pygame.draw.line(screen, color(line_color), (left_x_pygame, left_y_pygame), (right_x_pygame, right_y_pygame), thickness)
+
+            # Failed Attempt to have a antialiased line
+#            X0 = np.array([left_x, left_y])
+#            X1 =  np.array([right_x, right_y])
+#
+#            center_L1 = (X0 + X1) / 2
+#
+#            length = 10 # Line size
+#            thickness = 2
+#            angle = math.atan2(X0[1] - X1[1], X0[0] - X1[0])
+#
+#            UL = (center_L1[0] + (length / 2.) * np.cos(angle) - (thickness / 2.) * np.sin(angle), center_L1[1] + (thickness / 2.) * np.cos(angle) + (length / 2.) * np.sin(angle))
+#            UR = (center_L1[0] - (length / 2.) * np.cos(angle) - (thickness / 2.) * np.sin(angle), center_L1[1] + (thickness / 2.) * np.cos(angle) - (length / 2.) * np.sin(angle))
+#            BL = (center_L1[0] + (length / 2.) * np.cos(angle) + (thickness / 2.) * np.sin(angle), center_L1[1] - (thickness / 2.) * np.cos(angle) + (length / 2.) * np.sin(angle))
+#            BR = (center_L1[0] - (length / 2.) * np.cos(angle) + (thickness / 2.) * np.sin(angle), center_L1[1] - (thickness / 2.) * np.cos(angle) - (length / 2.) * np.sin(angle))
+#
+#            UL = Coordinates.to_pygame(x = UL[0], y=UL[1])
+#            UR = Coordinates.to_pygame(x = UR[0], y=UR[1])
+#            BL = Coordinates.to_pygame(x = BL[0], y=BL[1])
+#            BR = Coordinates.to_pygame(x = BR[0], y=BR[1])
+#
+#            pygame.gfxdraw.aapolygon(screen, (UL, UR, BR, BL), color(line_color))
+#            pygame.gfxdraw.filled_polygon(screen, (UL, UR, BR, BL), color(line_color))
 
 # ==============================================================================
 # ==============================================================================
@@ -77,7 +103,7 @@ def line(left_x=-5, left_y=0, right_x=5, right_y=0, line_color="black", thicknes
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def rectangle(x=0, y=0, width=10, height=10, line_color="black", thickness=1, fill_color=None):
+def rectangle(x=0, y=0, width=10, height=10, line_color="black", thickness=1, fill_color=None, rotate=0):
     """
     Draw a rectangle.
 
@@ -118,11 +144,44 @@ def rectangle(x=0, y=0, width=10, height=10, line_color="black", thickness=1, fi
     - pygame
     - pygame.gfxfraw
     """
+
+
+
     left = Coordinates.to_pygame(x= (x - width / 2))
     top = Coordinates.to_pygame(y= (y + height /2))
     width = Coordinates.to_pygame(distance_x = width)
     height = Coordinates.to_pygame(distance_y = -height)
 
+    if rotate != 0:
+        print("Rotation not working... sorry")
+#        def points_to_angle(x, y):
+#            x = (x[0]-screen_width/2, -1*(x[1]-screen_height/2))
+#            y = (y[0]-screen_width/2, -1*(y[1]-screen_height/2))
+#
+#            dx = x[1] - x[0]
+#            dy = y[1] - y[0]
+#            rads = np.arctan2(-dy,dx)
+#            rads = 2*np.pi % rads
+#            degs = np.degrees(rads)
+#            return(degs)
+#
+#
+##    def angle_to_points(degs):
+##        rads = np.radians(degs)
+##        return(x, y)
+#
+##        Works only for squares
+#        rotate = (rotate/100)*width
+#        topleft_point = (left+rotate, top)
+#        topright_point = (left+width, top+rotate)
+#        bottomleft_point = (left, top+height-rotate)
+#        bottomright_point = (left+width-rotate, top+height)
+#
+#        print(points_to_angle(topleft_point, topright_point))
+#
+#        pygame.draw.polygon(screen, color(line_color), [topleft_point, bottomleft_point, bottomright_point, topright_point], thickness)
+
+#    else:
     if fill_color != None:
         pygame.draw.rect(screen, color(fill_color),(left,top,width,height),0)
     if thickness != 0:
