@@ -200,8 +200,12 @@ def preload(file, x=0, y=0, cache=None, path='', extension='', size=1.0, unit="n
             else:
                 new_w = int(w/h*screen_height)
                 new_h = int(h/h*screen_height)
-        image = image.resize((new_w, new_h),PIL.Image.ANTIALIAS)
-        image = image.rotate(rotate)
+        image = image.resize((new_w, new_h), PIL.Image.ANTIALIAS)
+
+        if rotate != 0:
+            image = image.convert('RGBA')
+            image = image.rotate(rotate, resample=PIL.Image.BICUBIC, expand=True)
+
 
         if scramble == True:
             array = np.array(image)
