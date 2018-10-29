@@ -2,9 +2,9 @@
 from .path import *
 from .core import *
 from .write import *
+from .miscellaneous import *
 
 
-
 #==============================================================================
 #==============================================================================
 #==============================================================================
@@ -13,7 +13,7 @@ from .write import *
 #==============================================================================
 #==============================================================================
 #==============================================================================
-def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color="black", choices_style="body", y=0, height=-2, boxes_space=0.5, boxes_background='white', boxes_edge_color="black", boxes_edge_size=3, confirm_edge_color="orange", confirm_edge_size=3, help_list=None, help_background="lightgrey", title=None, title_position="top", title_x=-7.5, title_space=0.75, title_style="body", pictures=None, pictures_size=0.5):
+def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=None, choices_size=1.0, choices_color="black", choices_style="body", y=0, height=-2, boxes_space=0.5, boxes_background='white', boxes_edge_color="black", boxes_edge_size=3, confirm_edge_color="orange", confirm_edge_size=3, help_list=None, help_background="lightgrey", title=None, title_position="top", title_x=-7.5, title_space=0.75, title_style="body", title_size=1, pictures=None, pictures_size=0.5):
     """
     Create clickable choice boxes.
 
@@ -61,6 +61,8 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
         Space between choices and title.
     title_style : str
         Title style.
+    title_size : float
+        Title size.
     pictures : list
         Picture filenames (and path) to put within each box.
     pictures_size : float
@@ -149,9 +151,9 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
                 image(pictures[i],x=Coordinates.from_pygame(coordinates['x'][i])+ coordinates['width_raw']/2,y=Coordinates.from_pygame(y=coordinates['y'][i])+coordinates['height_raw']/2,size=pictures_size)
         if title != None:
             if title_position == 'left':
-                write(title,x=title_x, y=Coordinates.from_pygame(y=coordinates['y'][0])+coordinates['height_raw']/2, style=title_style)
+                write(title,x=title_x, y=Coordinates.from_pygame(y=coordinates['y'][0])+coordinates['height_raw']/2, style=title_style, size=title_size)
             if title_position == 'top':
-                write(title, y=Coordinates.from_pygame(y=coordinates['y'][0])+title_space, style=title_style)
+                write(title, y=Coordinates.from_pygame(y=coordinates['y'][0]+coordinates['height'])+title_space, style=title_style, size=title_size)
         pygame.display.flip()
 
 
@@ -164,18 +166,18 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 quit()
             x, y = pygame.mouse.get_pos()
-            if help_list != None:
-                if y > coordinates['y'][0] and y < (coordinates['y'][0]+coordinates['height']):
-                        for i in range(number):
-                            if x < (coordinates['x'][i]+coordinates['width']) and x > coordinates['x'][i]:
-                                pygame.draw.rect(screen, color(help_background), (Coordinates.to_pygame(x=-10),coordinates['y'][i]+coordinates['height']+Coordinates.to_pygame(distance_y=-0.25),screen_width,Coordinates.to_pygame(distance_y=-1.50)),0)
-                                write(help_list[i],y=raw_y+coordinates['height_raw']-1)
-                                pygame.display.flip()
 
+            if help_list != None:
+                if y > (coordinates['y'][0]+coordinates['height']) and y < coordinates['y'][0]:
+                    for i in range(number):
+                        if x < (coordinates['x'][i]+coordinates['width']) and x > coordinates['x'][i]:
+                            pygame.draw.rect(screen, color(help_background), (Coordinates.to_pygame(x=-10),coordinates['y'][i]+Coordinates.to_pygame(distance_y=-0.25), screen_width, Coordinates.to_pygame(distance_y=-1.50)),0)
+                            write(help_list[i],y=raw_y-1)
+                            pygame.display.flip()
 
 
             if pygame.mouse.get_pressed()==(1,0,0):
-                if y > coordinates['y'][0] and y < (coordinates['y'][0]+coordinates['height']):
+                if y > (coordinates['y'][0]+coordinates['height']) and y < coordinates['y'][0]:
                     for i in range(number):
                         if x < (coordinates['x'][i]+coordinates['width']) and x > coordinates['x'][i]:
                             response = i
@@ -191,7 +193,6 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
                                     if pygame.mouse.get_pressed()==(0,0,1):
                                         loop2=False
                                         Display()
-#                                        pygame.draw.rect(screen, color('b'), (coordinates['x'][response],coordinates['y'][response],coordinates['width'],coordinates['height']), boxes_edge_size)
                                         pygame.display.flip()
 
     pygame.draw.rect(screen, color('green'), (coordinates['x'][response],coordinates['y'][response],coordinates['width'],coordinates['height']), confirm_edge_size)
