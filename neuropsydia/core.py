@@ -546,7 +546,10 @@ def response(allow=None, enable_escape=True, time_max=None, get_RT=True):
     while True:
         pressed_key = wait_for_input(time_max=time_max)
         if pressed_key == "Time_Max_Exceeded":
-            return("Time_Max_Exceeded", local_time.get())
+            if get_RT is True:
+                return("Time_Max_Exceeded", local_time.get())
+            else:
+                return("Time_Max_Exceeded")
         if pressed_key == pygame.K_ESCAPE:
             if enable_escape is True:
                 if get_RT is True:

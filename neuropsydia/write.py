@@ -153,13 +153,13 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
             for i in range(len(text)):
                 if i == (len(text) - 1):
                     paragraph = paragraph + text[i]
-                    surface = font.render(paragraph, 1, (0, 0, 0))
+                    surface = font.render(paragraph, 1, core_color(color))
                     rectangle = surface.get_rect()
                     rectangle.center = (screen_width/2, (surface.get_height()/2)+(line*surface.get_height()))
                     screen.blit(surface, rectangle)
 
                 elif text[i] == '\n':
-                    surface = font.render(paragraph, 1, (0, 0, 0))
+                    surface = font.render(paragraph, 1, core_color(color))
                     rectangle = surface.get_rect()
                     rectangle.center = (screen_width/2, (surface.get_height()/2)+(line*surface.get_height()))
                     screen.blit(surface, rectangle)
@@ -175,10 +175,10 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
                                 break
                             else:
                                 buffer = buffer+text[i+x+1]
-                        surface_buffer = font.render(buffer, 1, (0, 0, 0))
+                        surface_buffer = font.render(buffer, 1, core_color(color))
                         rectangle = surface_buffer.get_rect()
                         if surface_buffer.get_width()+screen_width/4>screen_width:
-                            surface = font.render(paragraph, 1, (0, 0, 0))
+                            surface = font.render(paragraph, 1, core_color(color))
                             rectangle = surface.get_rect()
                             rectangle.center = (screen_width/2, (surface.get_height()/2)+(line*surface.get_height()))
                             screen.blit(surface, rectangle)

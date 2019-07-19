@@ -59,4 +59,15 @@ def resting_state_brief_assessment(data=None, language="fr", test=""):
         data[test + "Mind_Wandering"] = fancy_scale(style="orange", y=-5, title="Mes pensées s'enchainaient librement, sans contrôle.")
         data[test + "Mind_Focus"] = fancy_scale(style="red", y=-8, title="J'étais concentré sur une idée, une sensation ou une perception en particulier.")
 
+    else:
+        newpage()
+        write("Estimate the percentage of time that you spent in the following 6 states:", y=9.2, size=0.75)
+
+        data[test + "Drowsiness"] = fancy_scale(style="purple", y=7, title="I felt drowsy.")
+        data[test + "Absorption_External"] = fancy_scale(style="blue", y=4, title="My thoughts were directed towards what was happening around me (sounds, voices...).")
+        data[test + "Absorption_Internal"] = fancy_scale(style="green", y=1, title="My thoughts were directed towards imagination or recalling of past events.")
+        data[test + "Absorption_Body"] = fancy_scale(style="yellow", y=-2, title="My thoughts were directed towards what was happening in my body (bodily sensations, respiration, heart beats...).")
+        data[test + "Mind_Wandering"] = fancy_scale(style="orange", y=-5, title="My thoughts were flowing freely, without control.")
+        data[test + "Mind_Focus"] = fancy_scale(style="red", y=-8, title="I was focused on a particular thought or a particular sensation.")
+
     return(data)
