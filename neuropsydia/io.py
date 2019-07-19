@@ -43,7 +43,8 @@ class Trigger():
     def __init__(self, TTL=True, photosensor=None, photosensor_position="bottomleft"):
         self.photosensor = photosensor
         self.photosensor_position = photosensor_position
-        if self.method=="TTL":
+        self.TTL = TTL
+        if self.TTL is True:
             try:
                 from ctypes import windll
                 global io
@@ -90,7 +91,7 @@ class Trigger():
             if self.photosensor_position == "bottomleft":
                 rectangle(x=-10, y=-10, width=screen_width/screen_width, height=screen_width/screen_height, thickness=0, fill_color=self.photosensor)
             refresh()
-        if self.method == "TTL":
+        if self.TTL is True:
             try:
                 io.DlPortWritePortUchar(port, trigger)
             except:
@@ -129,7 +130,7 @@ class Trigger():
         - ctypes
         - pyxid
         """
-        if self.method == "TTL":
+        if self.TTL is True:
             try:
                 io.DlPortWritePortUchar(port, trigger)
             except:
