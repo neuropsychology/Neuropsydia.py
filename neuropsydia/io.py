@@ -97,7 +97,7 @@ class Trigger():
             except:
                 print('NEUROPSYDIA WARNING: Trigger.start(): Failed to send trigger!')
 
-    def stop(self, trigger=0, port=0x378):
+    def stop(self, trigger=0, port=0x378, background="white"):
         """
         Return to baseline (for TTL only).
 
@@ -130,6 +130,10 @@ class Trigger():
         - ctypes
         - pyxid
         """
+        if self.photosensor != None:
+            if self.photosensor_position == "bottomleft":
+                rectangle(x=-10, y=-10, width=(screen_width/screen_width)*1.1, height=(screen_width/screen_height)*1.1, thickness=0, fill_color=background)
+            refresh()
         if self.TTL is True:
             try:
                 io.DlPortWritePortUchar(port, trigger)
