@@ -90,7 +90,7 @@ class Trigger():
         """
         if self.photosensor != None:
             if self.photosensor_position == "bottomleft":
-                rectangle(x=-10, y=-10, width=(screen_width/screen_width)*photosensor_size, height=(screen_width/screen_height)*photosensor_size, thickness=0, fill_color=self.photosensor)
+                rectangle(x=-10, y=-10, width=(screen_width/screen_width)*self.photosensor_size, height=(screen_width/screen_height)*self.photosensor_size, thickness=0, fill_color=self.photosensor)
             refresh()
         if self.TTL is True:
             try:
