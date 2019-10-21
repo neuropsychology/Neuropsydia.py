@@ -63,7 +63,7 @@ def start(open_window=True):
         newpage("black", auto_refresh=False)
         image("Neuropsydia_TEXT_white", extension = ".png", y= 7, size=5, cache = preloaded, path = Path.logo())
         image("Neuropsydia_PSY_blue", extension = ".png", y= -2.5, size=14, cache = preloaded, path = Path.logo())
-        write('Press ENTRER to continue.', size=0.8, y=-9, color="white", allow="ENTER")
+        write('Press ENTER to continue.', size=0.8, y=-9, color="white", allow="ENTER")
 
         # Fade
         for i in range(0,100,2):
