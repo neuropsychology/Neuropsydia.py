@@ -384,8 +384,7 @@ def refresh():
 
 keys = {"normal" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE},
         "shift" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE},
-        "altgr" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE},
-        "altgrshift" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE}}
+        "altgr" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE}}
 
 
 
@@ -429,24 +428,18 @@ def wait_for_input(time_max=None):
         while loop:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
-                    if pygame.key.get_mods() and pygame.key.get_mods() == 577:
-                        modifier = "altgrshift"
-                        if event.unicode != "" and event.key not in keys["altgrshift"].keys():
-                            keys[modifier][event.key] = event.unicode
-                    if pygame.key.get_mods() & pygame.key.get_mods() == 1:
+                    if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                         modifier = "shift"
                         if event.unicode != "" and event.key not in keys["shift"].keys():
                             keys[modifier][event.key] = event.unicode
-                    elif pygame.key.get_mods() & pygame.key.get_mods() == 576:
+                    elif pygame.key.get_mods() & pygame.KMOD_RALT:
                         modifier = "altgr"
                         if event.unicode != "" and event.key not in keys["altgr"].keys():
                             keys[modifier][event.key] = event.unicode
-                    elif pygame.key.get_mods() & pygame.key.get_mods() == 0:
+                    else:
                         modifier = "normal"
                         if event.unicode != "" and event.key not in keys["normal"].keys():
                             keys[modifier][event.key] = event.unicode      
-                    else:
-                        pass
                     if event.key != pygame.K_RSHIFT and event.key != pygame.K_LSHIFT and event.key != pygame.K_RALT:
                         loop = False
     else:
@@ -454,24 +447,18 @@ def wait_for_input(time_max=None):
         while loop and local_time.get(reset=False) < time_max:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
-                    if pygame.key.get_mods() and pygame.key.get_mods() == 577:
-                        modifier = "altgrshift"
-                        if event.unicode != "" and event.key not in keys["altgrshift"].keys():
-                            keys[modifier][event.key] = event.unicode
-                    if pygame.key.get_mods() & pygame.key.get_mods() == 1:
+                    if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                         modifier = "shift"
                         if event.unicode != "" and event.key not in keys["shift"].keys():
                             keys[modifier][event.key] = event.unicode
-                    elif pygame.key.get_mods() & pygame.key.get_mods() == 576:
+                    elif pygame.key.get_mods() & pygame.KMOD_RALT:
                         modifier = "altgr"
                         if event.unicode != "" and event.key not in keys["altgr"].keys():
                             keys[modifier][event.key] = event.unicode
-                    elif pygame.key.get_mods() & pygame.key.get_mods() == 0:
+                    else:
                         modifier = "normal"
                         if event.unicode != "" and event.key not in keys["normal"].keys():
                             keys[modifier][event.key] = event.unicode      
-                    else:
-                        pass    
                     if event.key != pygame.K_RSHIFT and event.key != pygame.K_LSHIFT and event.key != pygame.K_RALT:
                         loop = False
         if local_time.get(reset=False) > time_max:
