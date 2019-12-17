@@ -446,7 +446,7 @@ def wait_for_input(time_max=None):
                         if event.unicode != "" and event.key not in keys["normal"].keys():
                             keys[modifier][event.key] = event.unicode      
                     else:
-                        modifier = ""
+                        pass
                     if event.key != pygame.K_RSHIFT and event.key != pygame.K_LSHIFT and event.key != pygame.K_RALT:
                         loop = False
     else:
@@ -471,7 +471,7 @@ def wait_for_input(time_max=None):
                         if event.unicode != "" and event.key not in keys["normal"].keys():
                             keys[modifier][event.key] = event.unicode      
                     else:
-                        modifier = ""  
+                        pass    
                     if event.key != pygame.K_RSHIFT and event.key != pygame.K_LSHIFT and event.key != pygame.K_RALT:
                         loop = False
         if local_time.get(reset=False) > time_max:
