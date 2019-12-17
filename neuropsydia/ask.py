@@ -18,7 +18,7 @@ from .core import color as core_color #avoid conflict with arg name
 #======================================================================== ======
 #==============================================================================
 #==============================================================================
-def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size=1.0, color="black", non_latin=True, background="white", hide=False, detach_question=False, question_style="light", question_x=0, question_y=0, question_size=1, question_color="black", question_long_text=False, allow=None, allow_length=None, allow_type=None, allow_max=None, allow_NA=True):
+def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size=1.0, color="black", background="white", hide=False, detach_question=False, question_style="light", question_x=0, question_y=0, question_size=1, question_color="black", question_long_text=False, allow=None, allow_length=None, allow_type=None, allow_max=None, allow_NA=True):
     """
     Display a question and get the subject's answer.
 
@@ -38,8 +38,6 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
         Text size.
     color : str or tuple
         Text color. See `neuropsydia.color()`.
-    non_latin : bool
-        Set to True in case of some non latin characters need to be displayed
     background : str or tuple
         Background color. See `neuropsydia.color()`.
     hide : bool
@@ -103,24 +101,14 @@ def ask(text="Write something here:", style='light', x=-8, y=0, order=None, size
     size = int(size*screen_width/35.0)
 
     # Get fonts
-    if non_latin is False:
-        if style is 'body':
-            font = Font.get(Path.font() + 'RobotoRegular.ttf', size)
-        elif style is 'light':
-            font = Font.get(Path.font() + 'RobotoLight.ttf', size)
-        elif style is 'bold':
-            font = Font.get(Path.font() + 'RobotoBold.ttf', size)
-        else:
-            font = Font.get(style, size)
+    if style is 'body':
+        font = Font.get(Path.font() + 'RobotoRegular.ttf', size)
+    elif style is 'light':
+        font = Font.get(Path.font() + 'RobotoLight.ttf', size)
+    elif style is 'bold':
+        font = Font.get(Path.font() + 'RobotoBold.ttf', size)
     else:
-        if style is 'body':
-            font = Font.get(Path.font() + 'NotoSansCJKtc-Regular.otf', size)
-        elif style is 'light':
-            font = Font.get(Path.font() + 'NotoSansCJKtc-Light.otf', size)
-        elif style is 'bold':
-            font = Font.get(Path.font() + 'NotoSansCJKtc-Bold.otf', size)
-        else:
-            font = Font.get(style, size)
+        font = Font.get(style, size)
 
     # Adjust y position depending on order
     if order is not None:
