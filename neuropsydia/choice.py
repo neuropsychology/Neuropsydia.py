@@ -87,7 +87,8 @@ def choice(choices=["Yes","No"], write_choices=True, overwrite_choices_display=N
     *Authors*
 
     - Dominique Makowski (https://github.com/DominiqueMakowski)
-
+    - Léo Dutriaux (https://github.com/LeoDutriaux)
+    
     *Dependencies*
 
     - pygame
