@@ -381,11 +381,55 @@ def refresh():
     """
     pygame.display.flip()
 
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+# ==============================================================================
+keys = {
+"normal":
+    {109: ',', 44: ';', 46: ':',47: '!', 97: 'q',
+     98: 'b', 99: 'c', 100: 'd', 101: 'e',
+     102: 'f', 103: 'g', 104: 'h', 105: 'i', 106: 'j',
+     107: 'k', 108: 'l', 59: 'm', 110: 'n', 111: 'o',
+     112: 'p', 113: 'a', 114: 'r', 115: 's', 116: 't',
+     117: 'u', 118: 'v', 119: 'z', 120: 'x', 121: 'y',
+     122: 'w', 57: 'ç', 56: '_', 55: 'è', 54: '-', 53: '(',
+     52: "_", 51: '_', 50:'é', 49: '&', 48: 'à', 32: 'SPACE',
+     13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP",
+     266: ".",
+     pygame.K_KP0: '0', pygame.K_KP1: '1', pygame.K_KP2: '2', pygame.K_KP3: '3',pygame.K_KP4: '4', pygame.K_KP5: '5',pygame.K_KP6: '6',pygame.K_KP7: '7',pygame.K_KP8: '8',pygame.K_KP9: '9'},
 
-keys = {"normal" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE},
-        "shift" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE},
-        "altgr" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE}}
+"shift":
+    {109:'?', 44: '.', 46: '/',47: '§', 97: 'Q',
+     98: 'B', 99: 'C', 100: 'D', 101 : 'E',
+     102: 'F', 103: 'G', 104: 'H', 105: 'I', 106: 'J',
+     107: 'K', 108: 'L', 59: 'M', 110: 'N', 111: 'O',
+     112: 'P', 113: 'A', 114: 'R', 115: 'S', 116: 'T',
+     117: 'U', 118: 'V', 119: 'Z', 120: 'X', 121: 'Y',
+     122: 'W', 57: '9', 56: '8', 55: '7', 54: '6', 53: '5',
+     52: '4', 51: '3', 50: '2', 49: '1', 48: '0', 32: 'SPACE',
+     13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP",
+     266: ".",
+     pygame.K_KP0: '0',pygame.K_KP1: '1',pygame.K_KP2: '2',pygame.K_KP3:'3',pygame.K_KP4: '4',
+     pygame.K_KP5: '5',pygame.K_KP6: '6',pygame.K_KP7: '7',pygame.K_KP8: '8',pygame.K_KP9:'9'},
 
+"altgr":
+    {97: 'q', 98: 'b', 99: 'c', 100: 'd', 101 : '€',
+     102: 'f', 103: 'g', 104: 'h', 105: 'i', 106: 'j',
+     107: 'k', 108: 'l', 59: 'm', 110: 'n', 111: 'o',
+     112: 'p', 113: 'a', 114: 'r', 115: 's', 116: 't',
+     117: 'u', 118: 'v', 119: 'z', 120: 'x', 121: 'y',
+     122: 'w', 57: '^', 56: '_', 55: '`', 54: '|', 53: '[',
+     52: '{', 51: '#', 50: '~', 49: '1', 48: '@', 32: 'SPACE',
+     13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP",
+     266: ".",
+     pygame.K_KP0: '0',pygame.K_KP1: '1',pygame.K_KP2: '2',pygame.K_KP3: '3',pygame.K_KP4: '4',
+     pygame.K_KP5: '5',pygame.K_KP6: '6',pygame.K_KP7: '7',pygame.K_KP8: '8',pygame.K_KP9: '9'}
+}
 
 
 def wait_for_input(time_max=None):
@@ -408,7 +452,6 @@ def wait_for_input(time_max=None):
     Authors
     ----------
     Dominique Makowski
-    Léo Dutriaux
 
     Dependencies
     ----------
@@ -421,7 +464,7 @@ def wait_for_input(time_max=None):
     else:
         blocked = False
         pygame.event.set_allowed(pygame.KEYDOWN)
-    
+
     time_out = False
     loop = True
     if time_max is None:
@@ -430,16 +473,10 @@ def wait_for_input(time_max=None):
                 if event.type == pygame.KEYDOWN:
                     if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                         modifier = "shift"
-                        if event.unicode != "" and event.key not in keys["shift"].keys():
-                            keys[modifier][event.key] = event.unicode
                     elif pygame.key.get_mods() & pygame.KMOD_RALT:
                         modifier = "altgr"
-                        if event.unicode != "" and event.key not in keys["altgr"].keys():
-                            keys[modifier][event.key] = event.unicode
                     else:
                         modifier = "normal"
-                        if event.unicode != "" and event.key not in keys["normal"].keys():
-                            keys[modifier][event.key] = event.unicode      
                     if event.key != pygame.K_RSHIFT and event.key != pygame.K_LSHIFT and event.key != pygame.K_RALT:
                         loop = False
     else:
@@ -449,20 +486,14 @@ def wait_for_input(time_max=None):
                 if event.type == pygame.KEYDOWN:
                     if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                         modifier = "shift"
-                        if event.unicode != "" and event.key not in keys["shift"].keys():
-                            keys[modifier][event.key] = event.unicode
                     elif pygame.key.get_mods() & pygame.KMOD_RALT:
                         modifier = "altgr"
-                        if event.unicode != "" and event.key not in keys["altgr"].keys():
-                            keys[modifier][event.key] = event.unicode
                     else:
                         modifier = "normal"
-                        if event.unicode != "" and event.key not in keys["normal"].keys():
-                            keys[modifier][event.key] = event.unicode      
                     if event.key != pygame.K_RSHIFT and event.key != pygame.K_LSHIFT and event.key != pygame.K_RALT:
                         loop = False
         if local_time.get(reset=False) > time_max:
-            time_out = True            
+            time_out = True
 
 
     if blocked is True:
@@ -474,7 +505,8 @@ def wait_for_input(time_max=None):
         try:
             return(keys[modifier][event.key])
         except KeyError:
-            return("")
+            return(event.key)
+
 
 def response(allow=None, enable_escape=True, time_max=None, get_RT=True):
     """
