@@ -13,7 +13,7 @@ from .core import color as core_color  # avoid conflict with arg name
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=0, color="black", background=None, outline=False, outline_size=0.1, outline_color="black", allow=None, wait=None, long_text=False, fast=False):
+def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=0, color="black", background=None, outline=False, outline_size=0.1, outline_color="black", allow=None, wait=None, long_text=False, non_latin=False, fast=False):
     """
     Display some text on screen.
 
@@ -47,6 +47,8 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
         Wait time (in milliseconds).
     long_text : bool
         Set to True for longer texts on multiple lines. Then, the x and y parameters are not working, but you can jump lines using 'backslash + n' in your text. Some parameters are disabled. Unperfect for now.
+    non_latin : bool
+        Set to True in case of some non latin characters need to be displayed
     fast : bool
         Disables some parameters for improved speed.
 
@@ -76,8 +78,10 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
         x, y = Coordinates.to_pygame(x=x, y=y)
         if style != 'body':
             font = Font.get(style, size)
-        else:
+        elif non_latin is False:
             font = Font.get('RobotoRegular.ttf', size)
+        else:
+            font = Font.get('NotoSansCJKtc-Regular.otf', size)
         surface = font.render(text, True, core_color(color))
         rectangle = surface.get_rect()
         rectangle.center = (x, y)
@@ -87,40 +91,73 @@ def write(text="Write something here", style="body", x=0, y=0, size=1.0, rotate=
         size = int(size*screen_width/35.0)
         outline_size = int(outline_size*screen_width/35.0)
         text = str(text)
-
-        if style == 'body':
-            font_name = Path.font() + 'RobotoRegular.ttf'
-        elif style == 'psychometry':
-            font_name = Path.font() + 'LiberationMono-Regular.ttf'
-        elif style == 'psychometry_bold':
-            font_name = Path.font() + 'LiberationMono-Bold.ttf'
-        elif style == 'light':
-            font_name = Path.font() + 'RobotoLight.ttf'
-        elif style == 'bold':
-            font_name = Path.font() + 'RobotoBold.ttf'
-        elif style == 'title':
-            if size == int(1.0*screen_width/35.0):
-                size = int(2.0*screen_width/35.0)
-            font_name = Path.font() + 'RobotoBlack.ttf'
-            if y == 0:
-                y = 8.5
-            if background==None:
-                background="white"
-        elif style == 'subtitle':
-            if size == int(1.0*screen_width/35.0):
-                size = int(1.5*screen_width/35.0)
-            font_name = Path.font() + 'RobotoBold.ttf'
-            if y == 0:
-                y=7
-        elif style == 'end':
-            font_name = Path.font() + 'RobotoBold.ttf'
-            if y == 0:
-                y = -9
-            if allow==None:
-                allow="ENTER"
+        if non_latin is False:
+            if style == 'body':
+                font_name = Path.font() + 'RobotoRegular.ttf'
+            elif style == 'psychometry':
+                font_name = Path.font() + 'LiberationMono-Regular.ttf'
+            elif style == 'psychometry_bold':
+                font_name = Path.font() + 'LiberationMono-Bold.ttf'
+            elif style == 'light':
+                font_name = Path.font() + 'RobotoLight.ttf'
+            elif style == 'bold':
+                font_name = Path.font() + 'RobotoBold.ttf'
+            elif style == 'title':
+                if size == int(1.0*screen_width/35.0):
+                    size = int(2.0*screen_width/35.0)
+                font_name = Path.font() + 'RobotoBlack.ttf'
+                if y == 0:
+                    y = 8.5
+                if background==None:
+                    background="white"
+            elif style == 'subtitle':
+                if size == int(1.0*screen_width/35.0):
+                    size = int(1.5*screen_width/35.0)
+                font_name = Path.font() + 'RobotoBold.ttf'
+                if y == 0:
+                    y=7
+            elif style == 'end':
+                font_name = Path.font() + 'RobotoBold.ttf'
+                if y == 0:
+                    y = -9
+                if allow==None:
+                    allow="ENTER"
+            else:
+                font_name = style
         else:
-            font_name = style
-
+            if style == 'body':
+                font_name = Path.font() + 'NotoSansCJKtc-Regular.otf'
+            elif style == 'psychometry':
+                font_name = Path.font() + 'LiberationMono-Regular.otf'
+            elif style == 'psychometry_bold':
+                font_name = Path.font() + 'LiberationMono-Bold.otf'
+            elif style == 'light':
+                font_name = Path.font() + 'NotoSansCJKtc-Light.otf'
+            elif style == 'bold':
+                font_name = Path.font() + 'NotoSansCJKtc-Bold.otf'
+            elif style == 'title':
+                if size == int(1.0*screen_width/35.0):
+                    size = int(2.0*screen_width/35.0)
+                font_name = Path.font() + 'NotoSansCJKtc-Black.otf'
+                if y == 0:
+                    y = 8.5
+                if background==None:
+                    background="white"
+            elif style == 'subtitle':
+                if size == int(1.0*screen_width/35.0):
+                    size = int(1.5*screen_width/35.0)
+                font_name = Path.font() + 'NotoSansCJKtc-Bold.otf'
+                if y == 0:
+                    y=7
+            elif style == 'end':
+                font_name = Path.font() + 'NotoSansCJKtc-Bold.otf'
+                if y == 0:
+                    y = -9
+                if allow==None:
+                    allow="ENTER"
+            else:
+                font_name = style                
+                
         font = Font.get(font_name,size)
         if outline==True:
             font_outline = Font.get(font_name, size+outline_size)
