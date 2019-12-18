@@ -18,7 +18,7 @@ maintainer = "Dominique Makowski",
 maintainer_email = "dom.makowski@gmail.com",
 packages = find_packages(),
 package_data = {
-	"neuropsydia.files.font":["*.otf"],
+	"neuropsydia.files.font":["*.ttf", "*.otf"],
 	"neuropsydia.files.binary":["*.png"],
 	"neuropsydia.files.logo":["*.png"]},
 install_requires = [
