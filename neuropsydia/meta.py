@@ -258,7 +258,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
 
     if instructions_text != None:
         try:
-            instructions(instructions_text, top_space=instructions_top_space)
+            instructions(instructions_text, top_space=instructions_top_space, non_latin=non_latin)
         except:
             print("NEUROPSYDIA ERROR: questionnaire(): problem in 'instructions_text' arg, make sure it's a normal string.")
 
