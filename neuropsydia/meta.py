@@ -23,7 +23,7 @@ from .data import *
 # ==============================================================================
 # ==============================================================================
 def instructions(text, background='white', color="black", size=1.0,
-                 title="INSTRUCTIONS", title_color="black", subtitle=None, subtitle_color="black", end_text="Appuyez sur ENTRER pour commencer.", top_space=5, non_latin=False):
+                 title="INSTRUCTIONS", title_color="black", subtitle=None, subtitle_color="black", end_text="Appuyez sur ENTRER pour commencer.", top_space=5, characters='latin'):
     """
     Help incomplete, sorry.
 
@@ -51,14 +51,14 @@ def instructions(text, background='white', color="black", size=1.0,
     newpage(background, auto_refresh=False)
 
     if title is not None:
-        write(title, style="title", color=title_color, non_latin=non_latin)
+        write(title, style="title", color=title_color, characters=characters)
     if subtitle is not None:
-        write(subtitle, style="subtitle", color=subtitle_color, non_latin=non_latin)
+        write(subtitle, style="subtitle", color=subtitle_color, characters=characters)
 
     top_space = ["\n"]*top_space
     top_space = "".join(str(elem) for elem in top_space)
-    write(top_space + text, size=size, color=color, long_text=True, non_latin=non_latin)
-    write(end_text, style='end', color=color, non_latin=non_latin)
+    write(top_space + text, size=size, color=color, long_text=True, characters=characters)
+    write(end_text, style='end', color=color, characters=characters)
 
 
 # ==============================================================================
@@ -69,7 +69,7 @@ def instructions(text, background='white', color="black", size=1.0,
 # ==============================================================================
 # ==============================================================================
 # ==============================================================================
-def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_name="questionnaire_results", results_path="", participant_id="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", non_latin=False, title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black", instructions_text=None, instructions_top_space=5, show_result_decimals=1, cursor_size=1):
+def questionnaire(questions_dictionary, questions_list_key_name='Item', background='white', size=1, show_page_number=True,  randomize=False, reverse=False, results_save=False, results_name="questionnaire_results", results_path="", participant_id="", dimensions_mean=False, dimensions_key_name='Dimension', style='red', x=0, y=-3.3, anchors=None, anchors_space=2, anchors_size=0.7, edges=[0,100], validation=True, analog=True, step=1, labels="numeric", labels_size=0.8, labels_rotation=0, labels_space=-1, labels_x=0, line_thickness=4, line_length=8, line_color="black", characters='latin', title=None, title_style="body", title_size=1, title_space=2, point_center=False, point_edges=True, force_separation=False, separation_labels=None, separation_labels_size=1, separation_labels_rotate=0, separation_labels_space=-1, show_result=False, show_result_shape="circle", show_result_shape_fill_color="white", show_result_shape_line_color="red", show_result_shape_size=0.8, show_result_space=1.2, show_result_size=0.5, show_result_color="black", instructions_text=None, instructions_top_space=5, show_result_decimals=1, cursor_size=1):
     """
     A wrapper function for easily creating questionnaires. You can go back and forth in the questions using the LEFT and RIGHT keyboard arrows.
 
@@ -147,8 +147,8 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
         Scale line length.
     line_color : str
         Scale line color.
-    non_latin: bool
-        Set to True in case of some non latin characters need to be displayed
+    characters : str
+        'latin' or 'cjk'. To change if you need to  cover Simplified Chinese, Traditional Chinese, Japanese, and Korean.
     title : str
         Scale title/question to ask.
     title_style : str
@@ -258,7 +258,7 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
 
     if instructions_text != None:
         try:
-            instructions(instructions_text, top_space=instructions_top_space, non_latin=non_latin)
+            instructions(instructions_text, top_space=instructions_top_space, characters=characters)
         except:
             print("NEUROPSYDIA ERROR: questionnaire(): problem in 'instructions_text' arg, make sure it's a normal string.")
 
@@ -270,9 +270,9 @@ def questionnaire(questions_dictionary, questions_list_key_name='Item', backgrou
             newpage(background, auto_refresh=False)
             time.wait(30)
             if show_page_number is True:
-                write('Question n°' + str(i+1) + '/' + str(n_questions), style="light", y=9, non_latin=non_latin)
+                write('Question n°' + str(i+1) + '/' + str(n_questions), style="light", y=9, characters=characters)
             text = questions_dictionary[questions_list_key_name][order[i]]
-            write('\n\n\n\n\n\n'+text, long_text=True, size=size, non_latin=non_latin)
+            write('\n\n\n\n\n\n'+text, long_text=True, size=size, characters=characters)
             try:
                 reverse_question = questions_dictionary['Reverse'][order[i]]
             except:
