@@ -427,6 +427,7 @@ def wait_for_input(time_max=None):
         blocked = False
         pygame.event.set_allowed(pygame.KEYDOWN)
 
+    modifier = ""
     time_out = False
     loop = True
     if time_max is None:
