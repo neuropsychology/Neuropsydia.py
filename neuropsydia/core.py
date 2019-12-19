@@ -438,7 +438,7 @@ def wait_for_input(time_max=None):
                         modifier = "altgrshift"
                         if event.unicode != "" and event.key not in keys["altgrshift"].keys():
                             keys[modifier][event.key] = event.unicode
-                    if pygame.key.get_mods() == 1:
+                    elif pygame.key.get_mods() == 1:
                         modifier = "shift"
                         if event.unicode != "" and event.key not in keys["shift"].keys():
                             keys[modifier][event.key] = event.unicode
@@ -463,7 +463,7 @@ def wait_for_input(time_max=None):
                         modifier = "altgrshift"
                         if event.unicode != "" and event.key not in keys["altgrshift"].keys():
                             keys[modifier][event.key] = event.unicode
-                    if pygame.key.get_mods() == 1:
+                    elif pygame.key.get_mods() == 1:
                         modifier = "shift"
                         if event.unicode != "" and event.key not in keys["shift"].keys():
                             keys[modifier][event.key] = event.unicode
