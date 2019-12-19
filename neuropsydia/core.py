@@ -382,10 +382,14 @@ def refresh():
     pygame.display.flip()
 
 
-keys = {"normal" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE},
-        "shift" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE},
-        "altgr" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE},
-        "altgrshift" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",273: "UP", 8: pygame.K_BACKSPACE}}
+keys = {"normal" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",
+                   273: "UP", 8: pygame.K_BACKSPACE, 32: "SPACE"},
+        "shift" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",
+                  273: "UP", 8: pygame.K_BACKSPACE, 32: "SPACE"},
+        "altgr" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",
+                  273: "UP", 8: pygame.K_BACKSPACE, 32: "SPACE"},
+        "altgrshift" :{13: "ENTER",276: "LEFT",274: "DOWN",275: "RIGHT",
+                       273: "UP", 8: pygame.K_BACKSPACE, 32: "SPACE"}}
 
 
 
@@ -422,7 +426,7 @@ def wait_for_input(time_max=None):
     else:
         blocked = False
         pygame.event.set_allowed(pygame.KEYDOWN)
-    
+
     time_out = False
     loop = True
     if time_max is None:
@@ -444,7 +448,7 @@ def wait_for_input(time_max=None):
                     elif pygame.key.get_mods() == 0:
                         modifier = "normal"
                         if event.unicode != "" and event.key not in keys["normal"].keys():
-                            keys[modifier][event.key] = event.unicode      
+                            keys[modifier][event.key] = event.unicode
                     else:
                         pass
                     if event.key != pygame.K_RSHIFT and event.key != pygame.K_LSHIFT and event.key != pygame.K_RALT:
@@ -469,13 +473,13 @@ def wait_for_input(time_max=None):
                     elif pygame.key.get_mods() == 0:
                         modifier = "normal"
                         if event.unicode != "" and event.key not in keys["normal"].keys():
-                            keys[modifier][event.key] = event.unicode      
+                            keys[modifier][event.key] = event.unicode
                     else:
-                        pass    
+                        pass
                     if event.key != pygame.K_RSHIFT and event.key != pygame.K_LSHIFT and event.key != pygame.K_RALT:
                         loop = False
         if local_time.get(reset=False) > time_max:
-            time_out = True            
+            time_out = True
 
 
     if blocked is True:
